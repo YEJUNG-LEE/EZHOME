@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>매물 지도</title>
     <style>
-        @import url(reset.css);
-        @import url(realEstate01.css);
+        @import url(../css/realEstate01.css);
+        @import url(../css/reset.css);
     </style>
+    <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="ReEs-body">
@@ -41,7 +42,7 @@
          <div class="ReEs-navi-normal-floor-select">
             <div class="ReEs-navi-normal-floor-select-div1">
                 <div class="ReEs-navi-normal-floor-select-namediv">층수</div>
-                <div class="ReEs-navi-normal-floor-select-img"></div>
+                <div class="ReEs-navi-normal-floor-select-img"><i class="fa-solid fa-building"></i></div>
                 <div class="ReEs-navi-normal-floor-select-slider">
                     <input type="range" id="floor-input-left" min="1" max="10" value="4" />
                     <input type="range" id="floor-input-right" min="1" max="10" value="8" />
@@ -54,7 +55,7 @@
                     </div>
                 </div>
                 <div class="ReEs-navi-normal-floor-select-slider-txt"></div>
-                <script src="floorSlider.js"></script>
+                <script src="../js/floorSlider.js"></script>
             </div>
             <div class="ReEs-navi-normal-floor-select-div2">
                 <div class="ReEs-navi-floor-halfButton floor-exButton">반지하</div>
@@ -66,7 +67,7 @@
             <div class="ReEs-navi-normal-extent-select-namediv">
                 평수
             </div>
-            <div class="ReEs-navi-normal-extent-Month-slider">
+            <div class="ReEs-navi-normal-extent-select-slider">
                 <input type="range" id="extent-input-left" min="1" max="40" value="10" />
                 <input type="range" id="extent-input-right" min="1" max="40" value="32" />
 
@@ -78,7 +79,7 @@
                 </div>
             </div>
             <div class="ReEs-navi-normal-extent-select-slider-txt"></div>
-            <script src="extentSlider.js"></script>
+            <script src="../js/extentSlider.js"></script>
         </div>
 
         <!-- 월세/관리비/보증금 click시 -->
@@ -125,9 +126,9 @@
             </div>
             <div class="ReEs-navi-normal-cost-select-slider-txt"></div>
             
-            <script src="monthSlider.js"></script>
+            <!-- <script src="monthSlider.js"></script>
             <script src="manageSlider.js"></script>
-            <script src="depositSlider.js"></script>
+            <script src="depositSlider.js"></script> -->
 
         </div>
 
@@ -173,8 +174,12 @@
         <div class="ReEs-map">
 
         </div>
-        <div class="ReEs-leftButton"></div>
-        <div class="ReEs-rightButton"></div>
+        <div class="ReEs-leftButton">
+            <i class="fa-solid fa-caret-left"></i>
+        </div>
+        <div class="ReEs-rightButton">
+            <i class="fa-solid fa-caret-right"></i>
+        </div>
     </div>
 </body>
 

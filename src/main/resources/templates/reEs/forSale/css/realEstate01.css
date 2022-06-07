@@ -131,8 +131,11 @@
     margin:0 auto;
     width:100px;
     height:100px;
-    background:url("apartment.png") no-repeat;
-    background-size:contain;
+    text-align:center;
+}
+.ReEs-navi-normal-floor-select-img>i{
+    font-size:100px;
+    color:#3A6BA5;
 }
 
 .ReEs-navi-normal-floor-select-div2{
@@ -321,6 +324,7 @@
     background-color:gray;
 }
 .ReEs-leftButton{
+    box-sizing: border-box;
     position:absolute;
     top:500px;
     left:0px;
@@ -329,10 +333,14 @@
     height:50px;
     border-radius:1px;
     border: 1px solid black;
-    background:url("rightbutton.png");
-    background-size:cover;
+    background-color:white;
+    padding-top:6px;
+    font-size:25px;
+    text-align:center;
+    color:#4876EF
 }
 .ReEs-rightButton{
+    box-sizing: border-box;
     position:absolute;
     top:500px;
     left:1898px;
@@ -341,9 +349,9 @@
     height:50px;
     border-radius:1px;
     border: 1px solid black;
-    background:url("leftbutton.png");
-    background-size:cover;
-}
-.ReEs-imsi{
-
+    background-color:white;
+    padding-top:6px;
+    font-size:25px;
+    text-align:center;
+    color:#4876EF
 }
