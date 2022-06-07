@@ -5,7 +5,11 @@ var thumbLeft = document.querySelector(".extentSlider > .thumb.left");
 var thumbRight = document.querySelector(".extentSlider > .thumb.right");
 var range = document.querySelector(".extentSlider > .range");
 var text_div = document.querySelector(".ReEs-navi-normal-extent-select-slider-txt");
-text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "평";
+if(inputRight.value == inputMax){
+  text_div.innerHTML = inputLeft.value + " - 최대";
+}else{
+  text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "층";
+}
 
 var setLeftValue = () => {
   var _this = inputLeft;
@@ -18,7 +22,11 @@ var setLeftValue = () => {
   var percent = ((_this.value - min) / (max - min)) * 100;
   thumbLeft.style.left = percent + "%";
   range.style.left = percent + "%";
-  text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "평";
+  if(inputRight.value == inputMax){
+    text_div.innerHTML = inputLeft.value + " - 최대";
+  }else{
+    text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "층";
+  }
 };
 
 var setRightValue = () => {
@@ -32,8 +40,11 @@ var setRightValue = () => {
   var percent = ((_this.value - min) / (max - min)) * 100;
   thumbRight.style.right = 100 - percent + "%";
   range.style.right = 100 - percent + "%";
-  text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "평";
-
+  if(inputRight.value == inputMax){
+    text_div.innerHTML = inputLeft.value + " - 최대";
+  }else{
+    text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "층";
+  }
 };
 
 inputLeft.addEventListener("input", setLeftValue);

@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="ReEs-navi-normal-floor-select-slider-txt"></div>
-                <script src="realEstate01.js"></script>
+                <script src="floorSlider.js"></script>
             </div>
             <div class="ReEs-navi-normal-floor-select-div2">
                 <div class="ReEs-navi-floor-halfButton floor-exButton">반지하</div>
@@ -62,17 +62,14 @@
             </div>
         </div>
         <!-- 평수 click시-->
-        <!-- 평수 자바스크립트 오류 (const) 발생, 선생님께 물어보자 -->
         <div class="ReEs-navi-normal-extent-select">
             <div class="ReEs-navi-normal-extent-select-namediv">
                 평수
             </div>
-            <div class="ReEs-navi-normal-extent-select-slider">
-                <!-- 진짜 슬라이더 -->
+            <div class="ReEs-navi-normal-extent-Month-slider">
                 <input type="range" id="extent-input-left" min="1" max="40" value="10" />
                 <input type="range" id="extent-input-right" min="1" max="40" value="32" />
 
-                <!-- 커스텀 슬라이더 -->
                 <div class="extentSlider">
                     <div class="track"></div>
                     <div class="range"></div>
@@ -81,11 +78,58 @@
                 </div>
             </div>
             <div class="ReEs-navi-normal-extent-select-slider-txt"></div>
-            <script src="realEstate02.js"></script>
+            <script src="extentSlider.js"></script>
         </div>
 
         <!-- 월세/관리비/보증금 click시 -->
-        <!-- <div class="ReEs-navi-normal-cost-select">월세/관리비/보증금</div> -->
+        <div class="ReEs-navi-normal-cost-select">
+            <div class="ReEs-navi-normal-cost-select-namediv">
+            월세/관리비/보증금
+            </div>
+            <div class="ReEs-navi-normal-month-select-slider">
+                <input type="range" id="month-input-left" min="1" max="40" value="10" />
+                <input type="range" id="month-input-right" min="1" max="40" value="32" />
+
+                <div class="monthSlider">
+                    <div class="track"></div>
+                    <div class="range"></div>
+                    <div class="thumb left"></div>
+                    <div class="thumb right"></div>
+                </div>
+            </div>
+            <div class="ReEs-navi-normal-cost-select-slider-txt"></div>
+            
+            <div class="ReEs-navi-normal-manage-select-slider">
+                <input type="range" id="manage-input-left" min="1" max="40" value="10" />
+                <input type="range" id="manage-input-right" min="1" max="40" value="32" />
+
+                <div class="manageSlider">
+                    <div class="track"></div>
+                    <div class="range"></div>
+                    <div class="thumb left"></div>
+                    <div class="thumb right"></div>
+                </div>
+            </div>
+            <div class="ReEs-navi-normal-cost-select-slider-txt"></div>
+
+            <div class="ReEs-navi-normal-deposit-select-slider">
+                <input type="range" id="deposit-input-left" min="1" max="40" value="10" />
+                <input type="range" id="deposit-input-right" min="1" max="40" value="32" />
+
+                <div class="depositSlider">
+                    <div class="track"></div>
+                    <div class="range"></div>
+                    <div class="thumb left"></div>
+                    <div class="thumb right"></div>
+                </div>
+            </div>
+            <div class="ReEs-navi-normal-cost-select-slider-txt"></div>
+            
+            <script src="monthSlider.js"></script>
+            <script src="manageSlider.js"></script>
+            <script src="depositSlider.js"></script>
+
+        </div>
 
         <!-- 맞춤 영역 -->
         <div class="ReEs-navi-custom">
