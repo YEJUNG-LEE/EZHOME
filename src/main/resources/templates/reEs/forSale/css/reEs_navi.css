@@ -1,0 +1,331 @@
+/* ************************** */
+/* ↓ 지도네비게이션 ↓ */
+.ReEs-navi{
+    width:1920px;
+    height:66px;
+    background-color:#4876EF;
+}
+.ReEs-navi>div{
+    box-sizing:border-box;
+}
+.ReEs-navi-normal{
+    height:66px;
+    width:1250px;
+    float:left;
+    padding:12px 0;
+}
+.ReEs-navi-font{
+    box-sizing:border-box;
+    text-align:center;
+    font-size:17px;
+    padding-top:7px;
+}
+
+/* 지도 네비게이션 기본 영역*/
+.ReEs-navi-normal>div{
+    display:inline-block;
+    height:42px;
+    margin-left:30px;
+    background-color:white;
+    border:1px solid black;
+}
+
+.ReEs-navi-normal-search{
+    width:250px;
+}
+.ReEs-navi-normal-TrType{
+    width:125px;
+}
+.ReEs-navi-normal-houseType{
+    width:125px;
+}
+.ReEs-navi-normal-floor{
+    width:125px;
+}
+.ReEs-navi-normal-extent{
+    width:125px;
+}
+.ReEs-navi-normal-cost{
+    width:225px;
+}
+
+
+.ReEs-navi-normal-TrType-select{
+    position:absolute;
+    top:155px;
+    left:315px;
+    width:125px;
+    height:126px;
+    border: 1px solid black;
+    background:white;
+}
+.ReEs-navi-normal-TrType-select>div{
+    width:125px;
+    height:42px;
+    border:1px solid black;
+    text-align:center;
+    padding-top:7px;
+}
+
+.ReEs-navi-normal-houseType-select{
+    position:absolute;
+    top:155px;
+    left:475px;
+    width:125px;
+    height:168px;
+    border: 1px solid black;
+    background:white;
+}
+.ReEs-navi-normal-houseType-select>div{
+    width:125px;
+    height:42px;
+    border:1px solid black;
+    text-align:center;
+    padding-top:15px;
+}
+.ReEs-navi-normal-floor-select{
+    position:absolute;
+    top:155px;
+    left:462px;
+    width:300px;
+    height:210px;
+    border:1px solid black;
+    background-color:white;
+    padding:0;
+}
+.ReEs-navi-normal-floor-select-div1{
+    box-sizing: border-box;
+    margin:0;
+    width:199px;
+    height:208px;
+    float:left;
+}
+.ReEs-navi-normal-floor-select-namediv{
+    width:197px;
+    height:38px;
+    padding-left:20px;
+    padding-top:9px;
+    box-sizing: border-box;
+    font-size:20px;
+    color:#3B3C48;
+    font-weight:800;
+}
+.ReEs-navi-normal-floor-select-img{
+    margin:0 auto;
+    width:100px;
+    height:100px;
+    text-align:center;
+}
+.ReEs-navi-normal-floor-select-img>i{
+    font-size:100px;
+    color:#3A6BA5;
+}
+
+.ReEs-navi-normal-floor-select-div2{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    width:99px;
+    height:208px;
+    float:left;
+}
+.floor-exButton{
+    box-sizing:border-box;
+    text-align:center;
+    margin-top:20px;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    color:#3A6BA5;
+    font-weight:800;
+}
+
+/* 평수 셀렉트 시작 */
+.ReEs-navi-normal-extent-select{
+    position:absolute;
+    top:155px;
+    left:625px;
+    width:300px;
+    height:150px;
+    border:1px solid black;
+    background-color:white;
+    padding:0;
+}
+.ReEs-navi-normal-extent-select-namediv{
+    height:40px;
+    padding-top:9px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size:20px;
+    color:#3B3C48;
+    font-weight:800;
+}
+
+
+/* 월세/관리비/보증금 셀렉트 */
+.ReEs-navi-normal-cost-select{
+    position:absolute;
+    top:155px;
+    left:858px;
+    width:325px;
+    height:420px;
+    border:1px solid black;
+    background-color:white;
+}
+
+
+
+
+/* 지도네비게이션 맞춤 영역 */
+.ReEs-navi-custom{
+    height:66px;
+    width:310px;
+    float:left;
+}
+.ReEs-navi-custom-button{
+    height:42px;
+    width:200px;
+    margin:12px auto;
+    border:1px solid black;
+    background-color:white;
+}
+.ReEs-navi-custom-select-div{
+    position:absolute;
+    top:155px;
+    left:1250px;
+    width:310px;
+    border:1px solid black;
+    background-color:white;
+}
+.ReEs-custom-select-button-div{
+    width:280px;
+    margin:0 auto;
+}
+.ReEs-custom-select-button{
+    box-sizing:border-box;
+    display:inline-block;
+    text-align:center;
+    margin-left:7px;
+    margin-top:20px;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    color:#3A6BA5;
+    font-weight:800;
+    font-size:14px;
+}
+.ReEs-custom-select-Allbutton-div{
+    width:280px;
+    height:40px;
+    margin:15px auto;
+}
+.ReEs-custom-select-AllOn{
+    box-sizing:border-box;
+    display:inline-block;
+    margin-left:100px;
+    text-align:center;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    background-color:#6c93f7;
+    color:#FFFFFF;
+    font-weight:500;
+    font-size:14px;
+}
+.ReEs-custom-select-AllOff{
+    box-sizing:border-box;
+    display:inline-block;
+    text-align:center;
+    margin-left:10px;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    background-color: #b8b7bb;
+    color:#000;
+    font-weight:500;
+    font-size:14px;
+}
+/* 지도네비게이션 카테고리 영역 */
+.ReEs-navi-category{
+    height:66px;
+    width:310px;
+    float:left;
+}
+.ReEs-navi-category-button{
+    height:42px;
+    width:200px;
+    margin:12px auto;
+    border:1px solid black;
+    background-color:white;
+}
+.ReEs-navi-category-select-div{
+    position:absolute;
+    top:155px;
+    left:1560px;
+    width:310px;
+    border:1px solid black;
+    background-color:white;
+}
+.ReEs-category-select-button-div{
+    width:280px;
+    margin:0 auto;
+}
+.ReEs-category-select-button{
+    box-sizing:border-box;
+    display:inline-block;
+    text-align:center;
+    margin-left:7px;
+    margin-top:20px;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    color:#3A6BA5;
+    font-weight:800;
+    font-size:14px;
+}
+.ReEs-category-select-Allbutton-div{
+    width:280px;
+    height:40px;
+    margin:15px auto;
+}
+.ReEs-category-select-AllOn{
+    box-sizing:border-box;
+    display:inline-block;
+    margin-left:100px;
+    text-align:center;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    background-color:#6c93f7;
+    color:#FFFFFF;
+    font-weight:500;
+    font-size:14px;
+}
+.ReEs-category-select-AllOff{
+    box-sizing:border-box;
+    display:inline-block;
+    text-align:center;
+    margin-left:10px;
+    padding-top:8px;
+    width:80px; 
+    height:40px;
+    border-radius:6px;
+    border:1px solid #94BBCC;
+    background-color: #b8b7bb;
+    color:#000;
+    font-weight:500;
+    font-size:14px;
+}
+/* ************************** */

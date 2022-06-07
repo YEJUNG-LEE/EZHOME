@@ -1,55 +1,55 @@
-var inputLeft = document.getElementById("floor-input-left");
-var inputRight = document.getElementById("floor-input-right");
-var inputMax = inputRight.getAttribute('max');
+var month_inputLeft = document.getElementById("month-input-left");
+var month_inputRight = document.getElementById("month-input-right");
+var month_inputMax = month_inputRight.getAttribute('max');
 
 
-var thumbLeft = document.querySelector(".floorSlider > .thumb.left");
-var thumbRight = document.querySelector(".floorSlider > .thumb.right");
-var range = document.querySelector(".floorSlider > .range");
-var text_div = document.querySelector(".ReEs-navi-normal-floor-select-slider-txt");
+var month_thumbLeft = document.querySelector(".monthSlider > .thumb.left");
+var month_thumbRight = document.querySelector(".monthSlider > .thumb.right");
+var month_range = document.querySelector(".monthSlider > .range");
+var month_text_div = document.querySelector(".ReEs-navi-normal-month-select-slider-txt");
 
-if(inputRight.value == inputMax){
-  text_div.innerHTML = inputLeft.value + " - 최대";
+if(month_inputRight.value == month_inputMax){
+  month_text_div.innerHTML = month_inputLeft.value + " - 최대";
 }else{
-  text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "층";
+  month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "만원";
 }
 
-var setLeftValue = () => {
-  var _this = inputLeft;
+var month_setLeftValue = () => {
+  var _this = month_inputLeft;
   var [min, max] = [parseInt(_this.min), parseInt(_this.max)];
   
   // 교차되지 않게, 1을 빼준 건 완전히 겹치기보다는 어느 정도 간격을 남겨두기 위해.
-  _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+  _this.value = Math.min(parseInt(_this.value), parseInt(month_inputRight.value) - 1);
   
   // input, thumb 같이 움직이도록
   var percent = ((_this.value - min) / (max - min)) * 100;
-  thumbLeft.style.left = percent + "%";
-  range.style.left = percent + "%";
-  if(inputRight.value == inputMax){
-    text_div.innerHTML = inputLeft.value + " - 최대";
+  month_thumbLeft.style.left = percent + "%";
+  month_range.style.left = percent + "%";
+  if(month_inputRight.value == month_inputMax){
+    month_text_div.innerHTML = month_inputLeft.value + " - 최대";
   }else{
-    text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "층";
+    month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "만원";
   }
 };
 
-var setRightValue = () => {
-  var _this = inputRight;
+var month_setRightValue = () => {
+  var _this = month_inputRight;
   var [min, max] = [parseInt(_this.min), parseInt(_this.max)];
   
   // 교차되지 않게, 1을 더해준 건 완전히 겹치기보다는 어느 정도 간격을 남겨두기 위해.
-  _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+  _this.value = Math.max(parseInt(_this.value), parseInt(month_inputLeft.value) + 1);
   
   // input, thumb 같이 움직이도록
   var percent = ((_this.value - min) / (max - min)) * 100;
-  thumbRight.style.right = 100 - percent + "%";
-  range.style.right = 100 - percent + "%";
-  if(inputRight.value == inputMax){
-    text_div.innerHTML = inputLeft.value + " - 최대";
+  month_thumbRight.style.right = 100 - percent + "%";
+  month_range.style.right = 100 - percent + "%";
+  if(month_inputRight.value == month_inputMax){
+    month_text_div.innerHTML = month_inputLeft.value + " - 최대";
   }else{
-    text_div.innerHTML = inputLeft.value + " - " + inputRight.value + "층";
+    month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "만원";
   }
 };
 
-inputLeft.addEventListener("input", setLeftValue);
-inputRight.addEventListener("input", setRightValue);
+month_inputLeft.addEventListener("input", month_setLeftValue);
+month_inputRight.addEventListener("input", month_setRightValue);
 

@@ -1,18 +1,32 @@
 /* monthSlider관련 css */
-
-.ReEs-navi-normal-extent-select-slider{
+.ReEs-slider-deposit{
+    width:325px;
+    height:140px;
+    box-sizing: border-box;
+    padding-left:10px;
+    padding-right:20px;
+}
+.ReEs-navi-normal-deposit-select-slider{
     width:300px;
     height:30px;
 }
-
-.ReEs-navi-normal-extent-select-slider > .extentSlider {
+.ReEs-navi-normal-deposit-select-namediv{
+    height:40px;
+    padding-top:9px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size:20px;
+    color:#3B3C48;
+    font-weight:800;
+}
+.ReEs-navi-normal-deposit-select-slider > .depositSlider {
     position: relative;
     z-index: 1;
     height: 10px;
     margin: 15px 15px;
 }
 
-.ReEs-navi-normal-extent-select-slider > .extentSlider > .track {
+.ReEs-navi-normal-deposit-select-slider > .depositSlider > .track {
     position: absolute;
     z-index: 1;
     left: 0;
@@ -23,7 +37,7 @@
     background-color: #b8dbeb;
 }
   
-.ReEs-navi-normal-extent-select-slider > .extentSlider > .range {
+.ReEs-navi-normal-deposit-select-slider > .depositSlider > .range {
     position: absolute;
     z-index: 2;
     left: 25%;
@@ -33,7 +47,7 @@
     border-radius: 5px;
     background-color: #387ccf;
 }
-.ReEs-navi-normal-extent-select-slider> .extentSlider > .thumb {
+.ReEs-navi-normal-deposit-select-slider> .depositSlider > .thumb {
     position: absolute;
     top:5px;
     z-index: 3;
@@ -42,16 +56,16 @@
     background-color: #387ccf;
     border-radius: 50%;
 }
-.ReEs-navi-normal-extent-select-slider>.extentSlider >.thumb.left {
+.ReEs-navi-normal-deposit-select-slider>.depositSlider >.thumb.left {
     left: 25%;
     transform: translate(-15px, -10px);
 }
-.ReEs-navi-normal-extent-select-slider>.extentSlider > .thumb.right {
+.ReEs-navi-normal-deposit-select-slider>.depositSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
 }
   
-.ReEs-navi-normal-extent-select-slider>input[type="range"] {
+.ReEs-navi-normal-deposit-select-slider>input[type="range"] {
     position: absolute;
     pointer-events: none;
     -webkit-appearance: none;
@@ -61,7 +75,7 @@
     opacity: 0;
 }
   
-.ReEs-navi-normal-extent-select-slider>input[type="range"]::-webkit-slider-thumb {
+.ReEs-navi-normal-deposit-select-slider>input[type="range"]::-webkit-slider-thumb {
     pointer-events: all;
     width: 20px;
     height: 20px;
@@ -72,12 +86,12 @@
     -webkit-appearance: none;
 }
 
-.ReEs-navi-normal-extent-select-slider-txt{
+.ReEs-navi-normal-deposit-select-slider-txt{
     box-sizing:border-box;
     text-align:center;
     margin: 0 auto;
     padding-top:7px;
-    width:100px; 
+    width:300px; 
     height:40px;
     border-radius:6px;
     border:1px solid #94BBCC;
