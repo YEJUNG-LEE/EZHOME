@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="https://kit.fontawesome.com/d4acf2373f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="main">
+        <!-- 헤더 -->
+        <header>
+            <!-- nav -->
+            <nav>
+                <!-- 로고 -->
+                <h1 class="logo"><a href="#"><img src="./img/logo01.png" alt="logo"></a></h1>
+                <ul class="EzHome-ul-left">
+                    <li><a href="#">부동산</a></li>
+                    <li><a href="#">커뮤니티</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+                <ul class="EzHome-ul-right">
+                    <li><a href="#">광고등록</a></li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+            </nav>
+            <!--// nav -->
+        </header>
+        <!--// 헤더 -->
+            <!-- main -->
+            <main>
+                <!-- main-section01 배경 -->
+                <section class="main-section01">
+                    <!-- 배경효과 -->
+                    <div class="container-div">
+                        <div class="container-div2">
+                            <div class="container-title">
+                                <h2>쉽고 간편하게</h2>
+                                <p><span>맞춤</span> 조건 검색하기</p>
+                            </div>
+                            <div class="container-search">
+                                <div class="containe-search2">
+                                    <form action="">
+                                        <!-- 돋보기icon -->
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <!-- 입력창 -->
+                                        <input class="search" type="text" placeholder=" 지역, 지하철역, 대학 주변검색" >
+                                        <!-- 조건01 & 거래유형 -->
+                                        <div class="condition01">
+                                            <a href="#">
+                                                <span>거래 유형
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </span>
+                                            </a>
+                                            <!-- 임시 드롭다운 -->
+                                            <div id="condition01-select">
+                                                <a href="#">월세</a>
+                                                <a href="#">전세</a>
+                                                <a href="#">매매</a>
+                                            </div>
+                                            <!--// 임시 드롭다운 -->
+                                        </div>
+                                        <!-- 조건02 & 건물유형 -->
+                                        <div class="condition02">
+                                            <a href="#">
+                                                <span>건물 유형
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <!-- 검색 -->
+                                        <input class="search-btn" type="submit" value="검색">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </section>
+                <!--// main-section -->
+
+                <!-- main-section02 -->
+                <section class="main-section02">
+                    <div class="section02-title">
+                        <h3><a href="#">서초동 <span>추천매물</span></a></h3>
+                    </div>
+                    <!-- section02-info -->
+                    <div class="section02-info">
+                        <div class="section02-info-box"><a href="#">서초동</a></div>
+                        <div class="section02-info-box"><a href="#">원룸, 투&#183;쓰리룸, 오피스텔</a></div>
+                        <div class="section02-info-box"><a href="#">월세, 전세</a></div>
+                        <div class="section02-info-more"><a href="#">더 많은 방보기 <i class="fa-solid fa-angle-right"></i></a></div>
+                    </div>
+                    <!--// section02-info -->
+                        <!-- 광고 배너 영역 -->
+                        <ul class="section02-banner-ul">
+                            <!-- 배너 01 -->
+                            <li>
+                                <a href="#" class="banner-hover">
+                                    <div class="section02-banner-hiden">
+                                        <div class="section02-banner-div">
+                                            <img src="./img/room_img02.jpg" alt="매물사진1">
+                                            <div class="banner-hover-bg cover"></div>
+                                        </div>
+                                    </div>
+                                    <div class="banner-text">
+                                        <p class="banner-text-p">투룸</p>
+                                        <h1>전세 3억6000</h1>
+                                        <p class="banner-text-p2">4층, 40.15m², 관리비 8만</p>
+                                        <p class="banner-text-p2">서초동 가성비 좋은 귀한 전세매물 신축빌라입니다 방3,화2</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- 배너 02 -->
+                            <li>
+                                <a href="#" class="banner-hover">
+                                    <div class="section02-banner-hiden">
+                                        <div class="section02-banner-div">
+                                            <img src="./img/room_img03.jpg" alt="매물사진2">
+                                            <div class="banner-hover-bg cover"></div>
+                                        </div>
+                                    </div>
+                                    <div class="banner-text">
+                                        <p class="banner-text-p">오피스텔&#183;서초코업레지던스</p>
+                                        <h1>월세 95/95</h1>
+                                        <p class="banner-text-p2">중층, 24.16m², 관리비 10만</p>
+                                        <p class="banner-text-p2">교대역 ,강남역 가성비 좋은 복층 풀옵션</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- 배너 03 -->
+                            <li>
+                                <a href="#" class="banner-hover">
+                                    <div class="section02-banner-hiden">
+                                        <div class="section02-banner-div">
+                                            <img src="./img/room_img04.jpg" alt="매물사진3">
+                                            <div class="banner-hover-bg cover"></div>
+                                        </div>
+                                    </div>
+                                    <div class="banner-text">
+                                        <p class="banner-text-p">원룸</p>
+                                        <h1>전세 1억</h1>
+                                        <p class="banner-text-p2">고층, 35.1m², 관리비 10만</p>
+                                        <p class="banner-text-p2">뱅뱅사거리 근처 주차되는 원룸 전세</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- 배너 04 -->
+                            <li>
+                                <a href="#" class="banner-hover">
+                                    <div class="section02-banner-hiden">
+                                        <div class="section02-banner-div">
+                                            <img src="./img/room_img05.jpg" alt="매물사진4">
+                                            <div class="banner-hover-bg cover"></div>
+                                        </div>
+                                    </div>
+                                    <div class="banner-text">
+                                        <p class="banner-text-p">오피스텔</p>
+                                        <h1>월세 1000/75</h1>
+                                        <p class="banner-text-p2">4층, 17.67m², 관리비 0.6만</p>
+                                        <p class="banner-text-p2">최저가월세 전입신고가능 신논현역2분 신축급깨끗</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- 광고 배너 영역 -->
+                </section>
+                <!--// main-section02 -->
+
+                <!-- main-section03 -->
+                <!-- 지역 매물 info -->
+                <section class="main-section03">
+                    <!-- section03-contents 전체영역 -->
+                    <div class="section03-contents">
+                        <div class="section03-title">
+                            <p class="section03-title-p"><a href="#"><span>서초동</span> 은 어떤 동네일까요?</a></p>
+                        </div>
+                        <div class="section03-hidden">
+                            <div class="section03-info">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// section03-contents 전체영역 -->
+                </section>
+                <!--// main-section03 -->
+                <section class="main-section04">
+                    
+                </section>
+            </main>
+            <!--// main -->
+
+            <!-- footer -->
+            <footer>
+                <!-- footer-contents -->
+                <div class="footer-contents">
+                    <div class="footer-top">
+                        <nav class="footer-nav">
+                            <ul class="footer-top-ul">
+                                <li><a href="#" class="footer-ul-a">회사소개</a></li>
+                                <li><a href="#" class="footer-ul-a">이용약관</a></li>
+                                <li><a href="#" class="footer-ul-we">개인정보방침</a></li>
+                                <li><a href="#" class="footer-ul-a">매물관리규정</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- footer-bot -->
+                    <div class="footer-bot">
+                        <div>
+                            <ul class="footer-bot-ul">
+                                <li>(주)EZHome</li>
+                                <li>대표 : 이예중</li>
+                                <li>팀원 : 최유진, 고종욱, 박소현, 김수환, 이다한</li>
+                                <li>사업자 번호: 220-88-59156     통신판매업신고번호 : 제2013-서울 금천구-02884호</li>
+                                <li>주소 : 서울시 금천구 가산동 426-5 월드메르디앙 2차 413호</li>
+                                <li></li>
+                                <li>고객센터 : 02-1234-5678 | 평일 9:30 ~ 18:30, 점심시간 : 13:30 ~ 14:30 (토·일요일, 공휴일 휴무)</li>
+                                <li>팩스 : 02-1234-5678     프로모션/사업 제휴문의 : EZHome@EZHome.co.kr</li>
+                            </ul>
+                            <div class="footer-bot-div">
+                                <a href="#">자주묻는 질문</a>
+                                <a href="#">1:1문의</a>
+                            </div>
+                            <p class="footer-bot-inc">EZHome , Inc. All rights reserved.</p>
+                        </div>
+                        <div class="footer-bot-left">
+                            <div class="footer-bot-sns">
+                                <a href="https://www.instagram.com/" class="instagram"></a>
+                                <a href="https://www.facebook.com/" class="facebook"></a>
+                                <a href="#" class="blog"></a>
+                                <a href="#" class="naverpost"></a>
+                                <a href="#" class="yotube"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// footer-bot -->
+                </div>
+                <!--// footer-contents -->
+            </footer>
+            <!--// footer -->
+    </div>
+</body>
+</html>
