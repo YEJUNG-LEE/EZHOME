@@ -564,7 +564,7 @@ main {
 .section03-contents{
     padding: 30px 0px 40px 30px;
     border-radius: 2px;
-    background-color: rgb(250, 250, 250);
+    background-color: #fafafa;
 }
 
 .section03-title{
@@ -583,7 +583,7 @@ main {
 }
 .section03-title-p > a > span {
     font-weight: 600;
-    color: #fec72f;
+    color: #4876ef;
 }
 
 /* 오버플로우 히든 , 보여지는 영역 */
@@ -595,7 +595,7 @@ main {
     overflow: hidden;
 }
 
-/* info 안에 영역 */
+/* info 컨텐츠영역 */
 .section03-info{
     display: flex;
     position: relative;
@@ -604,14 +604,120 @@ main {
     transition: right 0.5s ease-out 0s;
 }
 
+/* info 종류 원룸   */
+.section03-info-oen{
+    display: flex;
+    flex-direction: column;
+    width: 218px;
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
 
+/* info-title 제목 글 */
+.info-title{
+    font-size: 15px;
+    color: rgb(34, 34, 34);
+    line-height: 22px;
+    text-align: left;
+}
+
+/* info-inner 안에 내용 영역 */
+.info-inner{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    height: 100%;
+    margin-top: 16px;
+    border-top: 1px solid #e7e7e7;
+}
+
+/* info-coulumn 열(세로 정렬) */
+.info-coulumn{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 20px;
+}
+
+/* info-monthly 월세 div */
+.info-monthly{
+    display: flex;
+}
+
+/* monthly-name 월세 이름  */
+.monthly-name{
+    font-size: 14px;
+    line-height: 28px;
+    color: #656565;
+}
+
+/* monthly-number 월세 가격(숫자) */
+.monthly-number{
+    font-size: 18px;
+    line-height: 28px;
+    color: #222222;
+    margin-left: 16px;
+}
+
+.info-year{
+    display: flex;
+}
+
+.year-name{
+    font-size: 14px;
+    line-height: 28px;
+    color: #656565;
+}
+
+.year-number{
+    font-size: 18px;
+    line-height: 28px;
+    color: #222222;
+    margin-left: 16px;
+}
+
+/* 투 쓰리룸 영역 */
+.section03-info-twothree{
+    display: flex;
+    flex-direction: column;
+    width: 218px;
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* section03-info-twothree margin-left: 16px; */
+.section03-info-oen + div {
+    margin-left: 16px;
+}
+
+/* section03-info 공통 설명(전용면적) */
+.description{
+    margin-top: auto;
+    font-size: 12px;
+    color: #868686;
+    text-align: left;
+}
+
+
+/* -------------------------------- */
 
 .main-section04{
     width: 100%;
     height: 800px;
 }
 
-/* 푸터 */
+/* ----------------푸터----------------*/
 /* footer w = 100% , h = 100% */
 footer{
     width: 100%;
