@@ -10,8 +10,41 @@
     height:66px;
     background-color:#4876EF;
 }
-.ReCS{
-    width:1180px;
+.imsi-map{
+    width:1920px;
     height:813px;
-    background-color:gray;
+    box-sizing:border-box;
+    background-color:antiquewhite
+}
+.ReCS{
+    position:fixed;
+    top:156px;
+    width:1182px;
+    height:813px;
+    background-color:yellow;
+    z-index:90;
+}
+.ReCs-div{
+    box-sizing:border-box;
+    width:1182px;
+    height:100px;
+    border:1px solid black;
+}
+.ReCs-select{
+    box-sizing: border-box;
+    width:512px;
+    height:70px;
+    border:1px solid black;
+    margin: 15px auto;
+    font-size:0;
+}
+.ReCs-sl-div{
+    box-sizing: border-box;
+    width:170px;
+    height:70px;
+    display:inline-block;
+}
+.ReCs-custom{
+    border-left:1px solid black;
+    border-right:1px solid black;
 }
