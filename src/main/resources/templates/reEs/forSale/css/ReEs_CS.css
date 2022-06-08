@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+}
+.imsi-head{
+    height:90px;
+}
+.imsi-navi{
+    width:1920px;
+    height:66px;
+    background-color:#4876EF;
+}
+.ReCS{
+    width:1180px;
+    height:813px;
+    background-color:gray;
+}

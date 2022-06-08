@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>매물 지도</title>
     <style>
-        @import url(../css/realEstate01.css);
+        @import url(../css/ReEs.css);
         @import url(../css/reset.css);
     </style>
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
@@ -18,13 +18,14 @@
     <div class="ReEs-imsiHeader">헤더 영역</div>
     <div class="ReEs-navi">
         <div class="ReEs-navi-normal">
-            <div class="ReEs-navi-normal-search ReEs-navi-font">지역을 입력하세요</div>
+            <div class="ReEs-navi-normal-search ReEs-navi-font" contenteditable="true" placeholder="지역을 입력하세요"></div>
             <div class="ReEs-navi-normal-TrType ReEs-navi-font">거래유형</div>
             <div class="ReEs-navi-normal-houseType ReEs-navi-font">방유형</div>
             <div class="ReEs-navi-normal-floor ReEs-navi-font">층수</div>
             <div class="ReEs-navi-normal-extent ReEs-navi-font">평수</div>
             <div class="ReEs-navi-normal-cost ReEs-navi-font">월세/관리비/보증금</div>
         </div>
+        <!-- 여기부터는 선택시 나오는 div들 -->
         <!-- 거래유형 click시 -->
         <div class="ReEs-navi-normal-TrType-select">
             <div class="ReEs-navi-normal-TrType-select-Month ReEs-navi-font">월세</div>
@@ -175,13 +176,16 @@
     </div>
     <div class="ReEs-parent">
         <div class="ReEs-map">
-
         </div>
         <div class="ReEs-leftButton">
             <i class="fa-solid fa-caret-left"></i>
         </div>
         <div class="ReEs-rightButton">
             <i class="fa-solid fa-caret-right"></i>
+        </div>
+        <div class="ReEs-info">
+            <div></div>
+            <div></div>
         </div>
     </div>
 </body>
