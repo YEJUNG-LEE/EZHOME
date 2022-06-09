@@ -11,10 +11,11 @@
         @import url(../css/reset.css);
     </style>
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/OnOff.js"></script>
+    <script type="text/javascript" src="../js/naviSlider.js"></script>
 </head>
-
 <body class="ReEs-body">
-
     <div class="ReEs-imsiHeader">헤더 영역</div>
     <div class="ReEs-navi">
         <div class="ReEs-navi-normal">
@@ -23,21 +24,21 @@
             <div class="ReEs-navi-normal-houseType ReEs-navi-font">방유형</div>
             <div class="ReEs-navi-normal-floor ReEs-navi-font">층수</div>
             <div class="ReEs-navi-normal-extent ReEs-navi-font">평수</div>
-            <div class="ReEs-navi-normal-cost ReEs-navi-font">월세/관리비/보증금</div>
+            <div class="ReEs-navi-normal-cost ReEs-navi-font">월세 / 관리비 / 보증금</div>
         </div>
         <!-- 여기부터는 선택시 나오는 div들 -->
         <!-- 거래유형 click시 -->
         <div class="ReEs-navi-normal-TrType-select">
-            <div class="ReEs-navi-normal-TrType-select-Month ReEs-navi-font">월세</div>
-            <div class="ReEs-navi-normal-TrType-select-Lease ReEs-navi-font">전세</div>
-            <div class="ReEs-navi-normal-TrType-select-Buy ReEs-navi-font">매매</div>
+            <div class="ReEs-navi-normal-TrType-select-Month ReEs-navi-sl-font">월세</div>
+            <div class="ReEs-navi-normal-TrType-select-Lease ReEs-navi-sl-font">전세</div>
+            <div class="ReEs-navi-normal-TrType-select-Buy ReEs-navi-sl-font">매매</div>
         </div>
         <!-- 방유형 click시-->
         <div class="ReEs-navi-normal-houseType-select">
-            <div class="ReEs-navi-normal-houseType-select-One ReEs-navi-font">원룸</div>
-            <div class="ReEs-navi-normal-houseType-select-TwoOrThree ReEs-navi-font">투·쓰리룸</div>
-            <div class="ReEs-navi-normal-houseType-select-Office ReEs-navi-font">오피스텔</div>
-            <div class="ReEs-navi-normal-houseType-select-apart ReEs-navi-font">아파트</div>
+            <div class="ReEs-navi-normal-houseType-select-One ReEs-navi-sl-font">원룸</div>
+            <div class="ReEs-navi-normal-houseType-select-TwoOrThree ReEs-navi-sl-font">투·쓰리룸</div>
+            <div class="ReEs-navi-normal-houseType-select-Office ReEs-navi-sl-font">오피스텔</div>
+            <div class="ReEs-navi-normal-houseType-select-apart ReEs-navi-sl-font">아파트</div>
         </div>
         <!-- 층수 click시-->
         <div class="ReEs-navi-normal-floor-select">
@@ -141,8 +142,9 @@
             <div class="ReEs-navi-custom-button ReEs-navi-font">맞춤</div>
         </div>
         <!-- 맞춤 선택 영역 -->
-        <div class="ReEs-navi-custom-select-div">
+        <div class="ReEs-navi-custom-button-select">
             <div class="ReEs-custom-select-button-div">
+                <div class="ReEs-custom-select-button ReEs-on">가나다</div>
                 <div class="ReEs-custom-select-button">가나다</div>
                 <div class="ReEs-custom-select-button">가나다</div>
                 <div class="ReEs-custom-select-button">가나다</div>
@@ -159,7 +161,7 @@
         <div class="ReEs-navi-category">
             <div class="ReEs-navi-category-button ReEs-navi-font">카테고리</div>
         </div>
-        <div class="ReEs-navi-category-select-div">
+        <div class="ReEs-navi-category-button-select">
             <div class="ReEs-category-select-button-div">
                 <div class="ReEs-category-select-button">가나다</div>
                 <div class="ReEs-category-select-button">가나다</div>

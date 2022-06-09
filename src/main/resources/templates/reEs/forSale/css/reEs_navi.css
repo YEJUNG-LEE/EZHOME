@@ -17,7 +17,7 @@
 .ReEs-navi-font{
     box-sizing:border-box;
     text-align:center;
-    font-size:17px;
+    font-size:16px;
     padding-top:7px;
 }
 
@@ -52,8 +52,20 @@
 .ReEs-navi-normal-cost{
     width:225px;
 }
-
-
+.ReEs-navi-sl-font{
+    box-sizing:border-box;
+    font-size:16px;
+    text-align:center;
+    background-color:#f8f8f8;
+}
+.ReEs-navi-sl-font:hover{
+    box-sizing:border-box;
+    background-color:#4876ef;
+    color:#f7f7f7;
+    font-family:800;
+    font-size:16px;
+    text-align:center;
+}
 .ReEs-navi-normal-TrType-select{
     position:absolute;
     top:155px;
@@ -61,6 +73,7 @@
     width:125px;
     height:126px;
     background:white;
+    display:none;
 }
 .ReEs-navi-normal-TrType-select>div{
     width:125px;
@@ -79,13 +92,14 @@
     width:125px;
     height:168px;
     background:white;
+    display:none;
 }
 .ReEs-navi-normal-houseType-select>div{
     width:125px;
     height:42px;
     border:1px solid black;
     text-align:center;
-    padding-top:15px;
+    padding-top:7px;
 }
 .ReEs-navi-normal-floor-select{
     position:absolute;
@@ -96,6 +110,7 @@
     border:1px solid black;
     background-color:white;
     padding:0;
+    display:none;
 }
 
 .ReEs-navi-normal-floor-select-div1{
@@ -114,6 +129,7 @@
     font-size:20px;
     color:#3B3C48;
     font-weight:800;
+    
 }
 .ReEs-navi-normal-floor-select-img{
     margin:0 auto;
@@ -157,6 +173,7 @@
     border:1px solid black;
     background-color:white;
     padding:0;
+    display:none;
 }
 .ReEs-navi-normal-extent-select-namediv{
     height:40px;
@@ -178,10 +195,8 @@
     height:420px;
     border:1px solid black;
     background-color:white;
+    display:none;
 }
-
-
-
 
 /* 지도네비게이션 맞춤 영역 */
 .ReEs-navi-custom{
@@ -196,18 +211,30 @@
     border:1px solid black;
     background-color:white;
 }
-.ReEs-navi-custom-select-div{
+.ReEs-navi-custom-button-select{
     position:absolute;
     top:155px;
     left:1250px;
     width:310px;
     border:1px solid black;
     background-color:white;
+    display:none;
 }
 .ReEs-custom-select-button-div{
     width:280px;
     margin:0 auto;
 }
+
+.ReEs-on{
+    background-color:#FEC72F;
+    color:#FFFFFF;
+}
+
+/* .ReEs-off{
+    display: none;
+    background-color:#FFFFFF;
+    color:#FEC72F;
+} */
 .ReEs-custom-select-button{
     box-sizing:border-box;
     display:inline-block;
@@ -223,6 +250,7 @@
     font-weight:800;
     font-size:14px;
 }
+
 .ReEs-custom-select-Allbutton-div{
     width:280px;
     height:40px;
@@ -271,13 +299,14 @@
     border:1px solid black;
     background-color:white;
 }
-.ReEs-navi-category-select-div{
+.ReEs-navi-category-button-select{
     position:absolute;
     top:155px;
     left:1560px;
     width:310px;
     border:1px solid black;
     background-color:white;
+    display:none;
 }
 .ReEs-category-select-button-div{
     width:280px;
@@ -334,3 +363,6 @@
     font-size:14px;
 }
 /* ************************** */
+.ReEs-NaviOn{
+    background-color:#6c93f7;
+}

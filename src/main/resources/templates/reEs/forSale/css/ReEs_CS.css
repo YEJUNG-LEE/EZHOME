@@ -11,40 +11,63 @@
     background-color:#4876EF;
 }
 .imsi-map{
+    position:relative;
+    z-index:1;
     width:1920px;
     height:813px;
     box-sizing:border-box;
     background-color:antiquewhite
 }
 .ReCS{
-    position:fixed;
+    position:absolute;
     top:156px;
     width:1182px;
     height:813px;
-    background-color:yellow;
+    background-color:#fff;
     z-index:90;
 }
 .ReCs-div{
     box-sizing:border-box;
     width:1182px;
-    height:100px;
-    border:1px solid black;
+    height:95px;
+    /* border:1px solid black; */
 }
 .ReCs-select{
     box-sizing: border-box;
-    width:512px;
-    height:70px;
+    width:450px;
+    height:60px;
     border:1px solid black;
-    margin: 15px auto;
+    margin: 30px auto;
     font-size:0;
+    text-align:center;
 }
 .ReCs-sl-div{
     box-sizing: border-box;
-    width:170px;
-    height:70px;
+    width:149px;
+    height:60px;
     display:inline-block;
+    padding-top:14px;
+}
+.ReCs-sl-div i{
+    opacity:0.6;
+    font-size:26px;
+}
+.ReCs-sl-div span{
+    font-size:20px;
+}
+.ReCs-sl-div>i{
+    height:30px;
+    width:30px;
 }
 .ReCs-custom{
     border-left:1px solid black;
     border-right:1px solid black;
+}
+.ReCs-title{
+    height:30px;
+    border-bottom:3px solid #b8b7bb;
+    padding-left:20px;
+    color:#858484;
+    font-size:18px;
+    font-weight:600;
 }
