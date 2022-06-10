@@ -202,8 +202,155 @@ nav > ul {
     color: #4876ef;
 }
 
+/* 챗봇 */
+/* 사이드 fixed */
+/* 챗봇 전체영역 */
+.quick_menu{
+    z-index: 9999;
+    position: fixed;
+    right: 200px;
+    top: 200px;
+    width: 76px;
+    height: 76px;
+    /* border: 1px solid black; */
+    
+}
+/* 이미지 */
+.cb-click-img{
+    cursor: pointer;
+    right:0;
+    bottom:0;
+    position: absolute;
+    inset: 0px;
+    margin: auto;
+    width: 76px;
+    height: 76px;
+}
+.cRwgrT {
+    position: absolute;
+    inset: 0px;
+    margin: auto;
+}
+.jOuhMW {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    margin: 0px;
+    color: rgb(94, 86, 240);
+    cursor: pointer;
+    opacity: 1;
+}
+.cb-div-wrap.on{
+    display: block;
+    z-index: 9999;
+}
+#cb-btn-can {
+    width: 50px;
+    height: 30px;
+    float: right;
+    margin-top: 14px;
+    margin-right: 15px;
+    background-color: #4876EF;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+}
+/* 채팅창 박스 영역 */
+.cb-div-wrap {
+    position: absolute;
+    width: 410px;
+    border: 1px solid #ddd;
+    height: 525px;
+    background: #f8f8f8;
+    display:none;
+    right: 0;
+    top: 80px;
+    float: right;
+    box-sizing: border-box;
+}
+#cb-div-head{
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+    font-weight: 900;
+    border-bottom: 1px solid #ddd;
+}
+.cb-div-cl{
+    height: 350px;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: left;
+}
+.cb-mm{
+    text-align: right;
+}
+.cb-am{
+    text-align: left;
+    margin-bottom: 5px;
+}
+.cb-msg{
+    display: inline-block;
+    border-radius: 15px;
+    padding: 7px 15px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.cb-div-amsh{
+    position: relative;
+}
+
+.cb-div-amsh > .cb-msg {
+    background-color: #f1f0f0;
+    
+
+}
+.cb-mm > .cb-msg {
+    background-color: #4876EF;
+    color: #fff;
+}
+
+.cb-am {
+    height: 30px;
+    font-size: 12px;
+    display: block;
+}
+
+#cb-cf {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-top: 2px solid #f0f0f0;
+}
+
+#message {
+    width: 78%;
+    height: calc(100% - 1px);
+    border: none;
+    padding-bottom: 0;
+}
+
+#message:focus {
+    outline: none;
+}
+
+#cb-cf > input[type=submit] {
+    outline: none;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 17px;
+    width: 70px;
+    height: 50px;
+    border-radius: 4px;
+    background: #4876EF;
+}
+
+
 /* 메인 컨테이너 */
 main {
+    z-index: 1;
     margin: 0;
     width: 100%;
     text-align: center;
@@ -564,7 +711,7 @@ main {
 /* 지역매물 info */
 .main-section03{
     width: 1280px;
-    margin: 30px auto 0;
+    margin: 30px auto 300px;
 }
 
 .section03-contents{
@@ -826,10 +973,7 @@ main {
 
 /* -------------------------------- */
 
-.main-section04{
-    width: 100%;
-    height: 800px;
-}
+
 
 /* ----------------푸터----------------*/
 /* footer w = 100% , h = 100% */
