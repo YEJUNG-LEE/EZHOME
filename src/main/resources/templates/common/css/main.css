@@ -191,8 +191,14 @@ nav > ul {
 }
 
 /* EzHome-ul-left > a:hover */
+/* 부동산, 커뮤니티, 고객센터 hover */
 .EzHome-ul-left > li > a:hover{
     text-decoration: none;
+    color: #4876ef;
+}
+
+/* header-signup 회원가입 */
+.header-signup:hover{
     color: #4876ef;
 }
 
@@ -593,6 +599,7 @@ main {
     margin: 30px 0px 50px;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* info 컨텐츠영역 */
@@ -601,10 +608,12 @@ main {
     position: relative;
     width: 1502px;
     height: 220px;
+    box-sizing: border-box;
     transition: right 0.5s ease-out 0s;
 }
 
-/* info 종류 원룸   */
+/* info 종류   */
+/* 원룸 div영역 */
 .section03-info-oen{
     display: flex;
     flex-direction: column;
@@ -617,12 +626,129 @@ main {
     box-sizing: border-box;
 }
 
+/* 투 쓰리룸 div영역 */
+.section03-info-twothree{
+    display: flex;
+    flex-direction: column;
+    width: 218px;
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin-left: 16px;
+}
+
+/* 오피스텔 div영역 */
+.section03-info-officetel{
+    display: flex;
+    flex-direction: column;
+    width: 218px;
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin-left: 16px;
+}
+
+/* 편의시설 div영역 */
+.section03-info-facility{
+    display: flex;
+    flex-direction: column;
+    width: 496px;
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin-left: 16px;
+}
+
+/* 편의시설 모양 가로 정렬잡아주는 역활 */
+/* justify-content: space-between; */
+.info-coulumn-jcsb{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 30px;
+}
+
+/* info-coulumn-type 편의시설 종류 구분 div */
+.info-coulumn-type{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+/* 편의시설 공통 */
+/* coulumn-type-icon 공통 아이콘 div */
+.coulumn-type-icon{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 8px;
+    box-sizing: border-box;
+}
+
+/* 편의시설 아이콘 svg */
+/* 카페icon svg */
+.type-icon-cafe{
+    width: 36px;
+    height: 36px;
+    background: url(../img/icon-cafe.svg) center center no-repeat #ffffff;
+    box-sizing: border-box;
+}
+.type-icon-cvs{
+    width: 36px;
+    height: 36px;
+    background: url(../img/icon-cvs.svg) center center no-repeat #ffffff;
+    box-sizing: border-box;
+}
+/* 수퍼마켓 */
+.type-icon-supermarket{
+    width: 36px;
+    height: 36px;
+    background: url(../img/icon-supermarket.svg) center center no-repeat #ffffff;
+    box-sizing: border-box;
+}
+/* 미용실 */
+.type-icon-beautyslaon{
+    width: 36px;
+    height: 36px;
+    background: url(../img/icon-beautyslaon.svg) center center no-repeat #ffffff;
+    box-sizing: border-box;
+}
+/* 세탁빨래방 */
+.type-icon-laundry{
+    width: 36px;
+    height: 36px;
+    background: url(../img/icon-laundry.svg) center center no-repeat #ffffff;
+    box-sizing: border-box;
+}
+.type-icon-exercise{
+    width: 36px;
+    height: 36px;
+    background: url(../img/icon-exercise.svg) center center no-repeat #ffffff;
+    box-sizing: border-box;
+}
+
+/* ---------info 공통 클래스---------- */
 /* info-title 제목 글 */
 .info-title{
     font-size: 15px;
     color: rgb(34, 34, 34);
     line-height: 22px;
     text-align: left;
+    box-sizing: border-box;
 }
 
 /* info-inner 안에 내용 영역 */
@@ -636,6 +762,7 @@ main {
     height: 100%;
     margin-top: 16px;
     border-top: 1px solid #e7e7e7;
+    box-sizing: border-box;
 }
 
 /* info-coulumn 열(세로 정렬) */
@@ -644,61 +771,40 @@ main {
     flex-direction: column;
     height: 100%;
     padding-top: 20px;
-}
-
-/* info-monthly 월세 div */
-.info-monthly{
-    display: flex;
-}
-
-/* monthly-name 월세 이름  */
-.monthly-name{
-    font-size: 14px;
-    line-height: 28px;
-    color: #656565;
-}
-
-/* monthly-number 월세 가격(숫자) */
-.monthly-number{
-    font-size: 18px;
-    line-height: 28px;
-    color: #222222;
-    margin-left: 16px;
-}
-
-.info-year{
-    display: flex;
-}
-
-.year-name{
-    font-size: 14px;
-    line-height: 28px;
-    color: #656565;
-}
-
-.year-number{
-    font-size: 18px;
-    line-height: 28px;
-    color: #222222;
-    margin-left: 16px;
-}
-
-/* 투 쓰리룸 영역 */
-.section03-info-twothree{
-    display: flex;
-    flex-direction: column;
-    width: 218px;
-    height: 100%;
-    padding: 30px 20px;
-    border-radius: 2px;
-    border: 1px solid #e7e7e7;
-    background-color: #ffffff;
     box-sizing: border-box;
 }
 
-/* section03-info-twothree margin-left: 16px; */
-.section03-info-oen + div {
+/* info-monthly 월세 div */
+.info-coulumn-inner{
+    display: flex;
+    box-sizing: border-box;
+}
+
+/* inner-name P태그 월세 이름  */
+.inner-name{
+    font-size: 14px;
+    line-height: 28px;
+    color: #656565;
+    box-sizing: border-box;
+}
+
+/* 숫자 왼쪽만 여백 margin-left: 16px; */
+.info-coulumn-inner > p + p{
     margin-left: 16px;
+}
+
+/* inner-name-numberr P태그 월세 가격(숫자) */
+.inner-name-number{
+    font-size: 18px;
+    line-height: 28px;
+    color: #222222;
+    box-sizing: border-box;
+}
+
+/* 전세 div  */
+.info-coulumn-inne{
+    display: flex;
+    box-sizing: border-box;
 }
 
 /* section03-info 공통 설명(전용면적) */
@@ -707,7 +813,15 @@ main {
     font-size: 12px;
     color: #868686;
     text-align: left;
+    box-sizing: border-box;
 }
+/* //---------공통 info---------- */
+
+
+
+
+
+
 
 
 /* -------------------------------- */
