@@ -6,6 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), 
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), 
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+
+    @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), 
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), 
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+    @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), 
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), 
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
          *{
             margin: 0;
             padding: 0;
@@ -86,6 +116,13 @@
             outline: none;
             text-decoration: none;
             cursor: pointer;
+        }
+        .SeCe-mail-tit{
+            color: rgb(34, 34, 34);
+            font-size: 15px;
+            font-weight: 400;
+            width: 130px;
+            text-align: center;
         }
         .SeCe-oto-ul{
             border-bottom: 1px solid rgb(231, 231, 231);
@@ -187,6 +224,20 @@
             border-radius: 2px;
             background-color: #4876EF;
         }
+        .SeCe-mail-id{
+            padding: 0px 16px;
+            color: rgb(76, 76, 76);
+            font-size: 14px;
+            border: 1px solid rgb(223, 223, 223);
+            border-radius: 2px;
+            background-color: #d3d3d3;
+            height: 44px;
+            width: 80%;
+        }
+        #SeCe-oto-span{
+            color: #4876EF;
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -216,11 +267,15 @@
                     <p>EZHome에 궁금하신 점을 문의해주세요.</p>
                     <p>문의 내용과 답변은</p>
                     <p>
-                        <a href = "#">1:1 문의 내역</a>에서 확인할 수 있습니다.
+                        <span id="SeCe-oto-span">회원님의 이메일</span>에서 확인할 수 있습니다.
                     </p>
                 </div>
-
+                
                 <ul class = "SeCe-oto-ul">
+                    <li class = "SeCe-oto-1">
+                        <div class = "SeCe-mail-tit">관리자ID</div>
+                        <input type = "text" value = "EZHOME@EZHOME.com" readonly class = "SeCe-mail-id">
+                    </li>
                     <li class = "SeCe-oto-1">
                         <div class = "SeCe-oto-tit1">문의 유형</div>
                         <select name = "type" class = "SeCe-oto-slt">
