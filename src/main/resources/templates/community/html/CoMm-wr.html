@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/CoMm-wr.css" type = "text/css">
+</head>
+<body>
+    <div class = "head"></div>
+    <div class = "CoMm-wr-wrap">
+        <div class = "CoMm-wr-head">
+            <span class = "CoMm-wr-span">카테고리</span>
+            <div class = "CoMm-cg-wrap">
+                <select>
+                    <option value = "-">-- 카테고리를 선택하세요. --</option>
+                    <option value = "info">정보공유</option>
+                    <option value = "with">함께해요</option>
+                    <option value = "share">나눠요</option>
+                    <option value = "boast">자랑</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!--글쓰기 작성 폼-->
+        <div class = "CoMm-wr-con">
+            <input class = "CoMm-wr-inp" type = "text" placeholder="제목을 입력해주세요.">
+            <div class = "CoMm-wr-pos">
+                <div class = "CoMm-wr-sec" contenteditable="true" 
+                style="overflow: auto;" placeholder="내용을 입력해주세요.&#10;&#10;*등록한 글은 커뮤니티에서 사용중인 닉네임으로 등록됩니다.&#10;*저작권 침해, 음란, 유해물, 기타 위법 자료 등을 게시할 경우 게시물은 경고없이 삭제 됩니다." ></div>
+                <div class = "CoMm-wr-bot">
+                    <input type = "file" accept="image/*" >
+                    <span class = "CoMm-wr-cnt">
+                        <em>0</em>/5000자
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!--해시태그-->
+        <div class = "CoMm-tag-wrap">
+            <div class = "CoMm-tag-top">
+                <strong class = "CoMm-tag-str">#해시태그 입력</strong>
+            </div>
+
+            <div class = "CoMm-tag-inp">
+                <div class = "CoMm-tag-in">
+                    <ul class = "CoMm-tag-list">
+                        <li class = "CoMm-tag-itm">
+                            <div class = "CoMm-tag">소통</div>
+                        </li>
+                    </ul>
+                    <div class= "CoMm-inp-tag">
+                        <input type = "text" placeholder="입력(최대 5개)" style="width: 95px;" maxlength="30">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "CoMm-wr-smt">
+            <button class = "CoMm-wr-btn">게시글 등록</button>
+        </div>
+    </div>
+</body>
+</html>
