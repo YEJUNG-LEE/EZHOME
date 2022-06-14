@@ -12,7 +12,7 @@
             $(".CoMm-con-btn").click(function(){
                 $(".sg-wd-wrap").attr("style", "display:block");
             });
-            $(".btn-rp-bli").click(function(){
+            $(".sg-wd-cl").click(function(){
                 $(".sg-wd-wrap").attr("style", "display:none");
             });
         });
@@ -41,6 +41,7 @@
                         <input type = "hidden" name = "report_type" id = "report_type">
                         <div class = "sg-head">
                             <strong>신고하기</strong>
+                            <input type = "reset" value = "닫기" class = "sg-wd-cl">
                         </div>
                         <div class = "sg-cont">
                             <ul class = "sg-rp-list">
@@ -97,11 +98,11 @@
                             <button type = "button" class = "sg-sm-btn">신고접수</button>
                             
                         </div>
-                        <div class = "sg-rp-foot">
+                        <!-- <div class = "sg-rp-foot">
                             <button type = "button" class = "btn-rep-sm">
                                 <span class = "btn-rp-bli">닫기</span>
                             </button>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>
@@ -146,6 +147,20 @@
         <!-- 댓글 목록 -->
         <div class = "CoMm-rep-wrap">
             <ol class = "CoMm-rep-ob">
+                <li class = "CoMm-rep-list">
+                    <p id = "CoMm-rep-p1">
+                        댓글입니다.
+                    </p>
+                    <input type = "button" class = "CoMm-rep-edt" value = "수정">
+                    <input type = "button" class = "CoMm-rep-del" value = "삭제">
+                    <p id = "CoMm-rep-p2">
+                        댓글 작성자ID
+                    </p>
+                    <p id = "CoMm-rep-p3">
+                        댓글 작성 날짜
+                    </p>
+                </li>
+
                 <li class = "CoMm-rep-list">
                     <p id = "CoMm-rep-p1">
                         댓글입니다.

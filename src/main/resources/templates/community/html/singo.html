@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/singo.css" type = "text/css">
+</head>
+<body>
+    <div class = "sg-wd-wrap">
+        <form name = "report-form">
+            <input type = "hidden" name = "report_id" id = "report_id">
+            <input type = "hidden" name = "report_type" id = "report_type">
+            <div class = "sg-head">
+                <strong>신고하기</strong>
+            </div>
+            <div class = "sg-cont">
+                <ul class = "sg-rp-list">
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">비방/욕설</label>
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">허위사실</label>
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">개인정보노출</label>
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">음란성</label>
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">게시글 도배</label>
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">부적절한 홍보</label>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span class = "sg-ip-rd">
+                            <input type = "radio" name = "report" id = "report1" value = "slendar">
+                            <label class = "sg-lb" for = "report1">기타</label>
+                        </span>
+                    </li>
+                </ul>
+                <textarea name = "report_contents" id = "report_contents" class = "sg-inp-ta" title = "신고내용 입력" placeholder="내용을 입력해주세요." rows = "24" cols = "80"></textarea>
+                <button type = "button" class = "sg-sm-btn">신고접수</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/SeCe-oto.css" type = "text/css">
+    
+</head>
+<body>
+    <form>
+        <div class = "SeCe-main-wrap">
+            <header class = "SeCe-main-top">
+                <div class = "SeCe-top-wrap">
+                <h1 class = "SeCe-main-h1">
+                    문의하기
+                </h1>
+                    <ul class = "SeCe-main-ban">
+                        <li>
+                            <a href = "SeCe-freq.html">자주묻는 질문</a>
+                        </li>
+                        <li>
+                            <a href = "SeCe-oto.html">1:1 문의</a>
+                        </li>
+                        <li>
+                            <a href = "SeCe-not.html">공지사항</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <div class = "SeCe-oto-wrap">
+                <div class = "SeCe-oto-head">
+                    <p>EZHome에 궁금하신 점을 문의해주세요.</p>
+                    <p>문의 내용과 답변은</p>
+                    <p>
+                        <a href = "#">1:1 문의 내역</a>에서 확인할 수 있습니다.
+                    </p>
+                </div>
+
+                <ul class = "SeCe-oto-ul">
+                    <li class = "SeCe-oto-1">
+                        <div class = "SeCe-oto-tit1">문의 유형</div>
+                        <select name = "type" class = "SeCe-oto-slt">
+                            <option value = "-">-- 문의 유형을 선택해주세요.--</option>
+                            <option value = "매물관련">매물관련</option>
+                            <option value = "HP오류">HP오류</option>  <!--홈페이지 오류에 대한 문의-->
+                            <option value = "광고 문의">광고 문의</option>
+                            <option value = "결제 문의">결제 문의</option>
+                            <option value = "커뮤니티 문의">커뮤니티 문의</option>
+                        </select>
+                    </li>
+
+                    <li class = "SeCe-oto-1">
+                        <div class = "SeCe-oto-tit1">제목</div>
+                        <input type = "text" name = "title" class = "SeCe-oto-inp">
+                    </li>
+
+                    <li class = "SeCe-oto-1">
+                        <div class = "SeCe-oto-tit1">문의 내용</div>
+                        <textarea class = "SeCe-oto-ta" name = "content" placeholder="문의 내용을 입력하세요."></textarea>
+                    </li>
+
+                    <li class = "SeCe-oto-1">
+                        <div class = "SeCe-oto-tit1">사진</div>
+                        <div class = "SeCe-oto-pica">
+                            <div class ="SeCe-oto-pwrap">
+                                <div class = "SeCe-oto-upl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g fill="none" fill-rule="evenodd"><g><g><g><path d="M0 0H24V24H0z" transform="translate(-586 -962) translate(545 932) translate(41 30)">
+                                        </path><path stroke="#222" d="M14.691 4.5l1 2H20.5v13h-17v-13h4.809l1-2h5.382z" transform="translate(-586 -962) translate(545 932) translate(41 30)"></path>
+                                        <path fill="#222" d="M12 9c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 1c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" transform="translate(-586 -962) translate(545 932) translate(41 30)">
+                                        </path></g></g></g></g>
+                                    </svg>
+                                    <button style = "display: flex;">사진 첨부</button>
+                                    <button style = "display: none;">사진 첨부</button>
+                                </div>
+                            </div>
+
+                            <div class = "SeCe-oto-p">
+                                <p>사진 용량은 사진 한 장당 10MB까지 등록이 가능합니다.</p>
+                                <P>사진은 최대 3장까지 등록이 가능합니다.</P>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class = "SeCe-oto-foot">
+                    <button class = SeCe-oto-btn>문의하기</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
