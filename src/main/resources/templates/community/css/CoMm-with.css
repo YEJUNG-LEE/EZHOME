@@ -99,7 +99,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     vertical-align: top;
-    width: 240px;
+    width: 279px;
     margin: auto;
     display: inline-block;
 }
@@ -188,4 +188,7 @@
     display: block;
     margin-top: 30px;
     float: right;
+}
+.CoMm-lbl{
+    cursor: pointer;
 }

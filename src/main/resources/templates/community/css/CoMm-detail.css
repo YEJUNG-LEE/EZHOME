@@ -32,7 +32,7 @@
     padding: 32px;
     border: 1px solid #edeef0;
     border-radius: 8px;
-    height: 600px;
+    height: 100%;
 }
 .CoMm-bd1-top{
     border: 0;
@@ -53,7 +53,6 @@
 }
 .CoMm-con-btn{
     /* display: inline-block; */
-    display: block;
     margin-left: 6px;
     padding: 0 11px;
     box-sizing: border-box;
@@ -64,7 +63,6 @@
     letter-spacing: -1px;
     line-height: 20px;
     cursor: pointer;
-    box-sizing: border-box;
 }
 .CoMm-btn-div{
     /* display: inline-block; */
@@ -230,7 +228,7 @@
     width: 138px;
     display: flex;
 }
-.SeCe-rep-wrap{
+/* .SeCe-rep-wrap{
     border: 1px solid black;
     height: 500px;
     box-sizing: border-box;
@@ -240,7 +238,7 @@
     height: 320px;
     box-sizing: border-box;
     border-bottom: 1px solid #373f57;
-}
+} */
 .CoMm-rep-con{
     font-size: 18px;
 }
@@ -291,6 +289,7 @@
     width: 64px;
     height: 30px;
     border-radius: 5px;
+    color: #fff;
 }
 .CoMm-rep-del{
     border: 1px solid #4876ef;
@@ -299,6 +298,7 @@
     width: 64px;
     height: 30px;
     border-radius: 5px;
+    color: #fff;
 }
 .sg-wd-wrap{
     display: none;
@@ -318,15 +318,22 @@
     background-color: #fff;
     box-shadow: 0 0 4px 2px rgb(0 0 0 / 10%);
 }
+.sg-head{
+    border-bottom: 1px solid #444;
+}
 .sg-head strong{
     display: block;
     padding-bottom: 15px;
-    border-bottom: 1px solid #444;
     color: #000;
     font-size: 28px;
     font-weight: normal;
     letter-spacing: -3px;
     line-height: 32px;
+    width: 200px;
+}
+.sg-wd-cl{
+    display: block;
+    float: right;
 }
 .sg-rp-list{
     padding-top: 6px;
