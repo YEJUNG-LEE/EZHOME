@@ -76,19 +76,21 @@
     /* appearance를 해야 위의 스타일들을 볼 수 있음 */
     -webkit-appearance: none;
 }
-.ReCs-floorSlider-txt{
+
+.ReCs-txt{
     box-sizing:border-box;
     margin-top:13px;
     margin-right:15px;
-    width:150px;
-    height:45px;
-    border-radius:45px;
+    width:140px;
+    height:35px;
+    border-radius:15px;
     border:1px solid #b7b8bb;
     background-color:#88a7f7;
     display:inline-block;
+    font-size:12px;
     font-weight:600;
-    padding-top:10px;
-    letter-spacing:2px;
+    padding-top:7px;
+    letter-spacing:0.5px;
     text-align:center;
 }
 
@@ -141,21 +143,6 @@
     transform: translate(15px, -10px);
 }
 
-.ReCs-extentSlider-txt{
-    box-sizing:border-box;
-    margin-top:13px;
-    margin-right:15px;
-    width:150px;
-    height:45px;
-    border-radius:45px;
-    border:1px solid #b7b8bb;
-    background-color:#88a7f7;
-    display:inline-block;
-    font-weight:600;
-    padding-top:10px;
-    letter-spacing:2px;
-    text-align:center;
-}
 
 /* ============================================================= */
 /* ===================== 여기부터는 월세 ======================== */
@@ -206,21 +193,7 @@
     transform: translate(15px, -10px);
 }
 
-.ReCs-monthSlider-txt{
-    box-sizing:border-box;
-    margin-top:13px;
-    margin-right:15px;
-    width:150px;
-    height:45px;
-    border-radius:45px;
-    border:1px solid #b7b8bb;
-    background-color:#88a7f7;
-    display:inline-block;
-    font-weight:600;
-    padding-top:10px;
-    letter-spacing:2px;
-    text-align:center;
-}
+
 
 /* ============================================================= */
 /* ===================== 여기부터는 관리비 ======================== */
@@ -271,21 +244,6 @@
     transform: translate(15px, -10px);
 }
 
-.ReCs-manageSlider-txt{
-    box-sizing:border-box;
-    margin-top:13px;
-    margin-right:15px;
-    width:150px;
-    height:45px;
-    border-radius:45px;
-    border:1px solid #b7b8bb;
-    background-color:#88a7f7;
-    display:inline-block;
-    font-weight:600;
-    padding-top:10px;
-    letter-spacing:2px;
-    text-align:center;
-}
 
 /* ============================================================= */
 /* ===================== 여기부터는 보증금 ======================== */
@@ -333,22 +291,6 @@
 .ReCs-Slider>.depositSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
-}
-
-.ReCs-depositSlider-txt{
-    box-sizing:border-box;
-    margin-top:13px;
-    margin-right:15px;
-    width:150px;
-    height:45px;
-    border-radius:45px;
-    border:1px solid #b7b8bb;
-    background-color:#88a7f7;
-    display:inline-block;
-    font-weight:600;
-    padding-top:10px;
-    letter-spacing:2px;
-    text-align:center;
 }
 
 

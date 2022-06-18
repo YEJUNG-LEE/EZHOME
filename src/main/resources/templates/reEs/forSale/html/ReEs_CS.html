@@ -8,10 +8,8 @@
     <title>Document</title>
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <style>
-        @import url(../css/reset.css);
-        @import url(../css/ReEs_CS.css);
-    </style>
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/ReEs_CS.css" rel="stylesheet">
 </head>
 
 <body>
@@ -69,7 +67,7 @@
                         <div class="thumb right"></div>
                     </div>
                 </div>
-                <div class="ReCs-on ReCs-floorSlider-txt"></div>
+                <div class="ReCs-txt ReCs-floorSlider-txt"></div>
             </div>
         </div>
         <div class="ReCs-div">
@@ -86,16 +84,16 @@
                         <div class="thumb right"></div>
                     </div>
                 </div>
-                <div class="ReCs-on ReCs-extentSlider-txt"></div>
+                <div class="ReCs-txt ReCs-extentSlider-txt"></div>
                 
             </div>
         </div>
         <div class="ReCs-div">
             <div class="ReCs-title">월세/관리비/보증금</div>
-            <div class="ReCs-content">
+            <div class="ReCs-content" id="ReCs-cost">
                 <div class="ReCs-Slider">
-                    <input type="range" id="month-input-left" min="1" max="40" value="10" />
-                    <input type="range" id="month-input-right" min="1" max="40" value="30" />
+                    <input type="range" id="month-input-left" min="1" max="80" value="30" />
+                    <input type="range" id="month-input-right" min="1" max="80" value="60" />
                     
                     <div class="monthSlider">
                         <div class="track"></div>
@@ -104,7 +102,7 @@
                         <div class="thumb right"></div>
                     </div>
                 </div>
-                <div class="ReCs-on ReCs-monthSlider-txt"></div>
+                <div class="ReCs-txt ReCs-monthSlider-txt"></div>
                 <div class="ReCs-Slider">
                     <input type="range" id="manage-input-left" min="1" max="40" value="10" />
                     <input type="range" id="manage-input-right" min="1" max="40" value="30" />
@@ -116,10 +114,10 @@
                         <div class="thumb right"></div>
                     </div>
                 </div>
-                <div class="ReCs-on ReCs-manageSlider-txt"></div>
+                <div class="ReCs-txt ReCs-manageSlider-txt"></div>
                 <div class="ReCs-Slider">
-                    <input type="range" id="deposit-input-left" min="1" max="40" value="10" />
-                    <input type="range" id="deposit-input-right" min="1" max="40" value="30" />
+                    <input type="range" id="deposit-input-left" min="1" max="3000" value="1000" />
+                    <input type="range" id="deposit-input-right" min="1" max="3000" value="2000" />
                     
                     <div class="depositSlider">
                         <div class="track"></div>
@@ -128,11 +126,19 @@
                         <div class="thumb right"></div>
                     </div>
                 </div>
-                <div class="ReCs-on ReCs-depositSlider-txt"></div>
+                <div class="ReCs-txt ReCs-depositSlider-txt"></div>
             </div>
         </div>
         <script src="../js/ReCs-Slider.js"></script>
-        <div class="ReCs-div"></div>
+        <div class="ReCs-div ReCs-MB-div">
+                <div class="ReCs-MB">저장</div>
+                <div class="ReCs-MB">불러오기</div>
+                <div class="ReCs-MB">초기화</div>
+                <div class="ReCs-MB ReCs-submit">적용</div>
+        </div>
+        <div class="ReEs-leftButton">
+            <i class="fa-solid fa-caret-left"></i>
+        </div>
     </div>
 </body>
 </html>

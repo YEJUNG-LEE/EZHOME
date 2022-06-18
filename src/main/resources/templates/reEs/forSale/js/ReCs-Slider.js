@@ -130,7 +130,7 @@ var month_text_div = document.querySelector(".ReCs-monthSlider-txt");
 if(month_inputRight.value == month_inputMax){
   month_text_div.innerHTML = month_inputLeft.value + " - 최대";
 }else{
-  month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "층";
+  month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "만원";
 }
 
 var month_setLeftValue = () => {
@@ -147,7 +147,7 @@ var month_setLeftValue = () => {
   if(month_inputRight.value == month_inputMax){
     month_text_div.innerHTML = month_inputLeft.value + " - 최대";
   }else{
-    month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "층";
+    month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "만원";
   }
 };
 
@@ -165,7 +165,7 @@ var month_setRightValue = () => {
   if(month_inputRight.value == month_inputMax){
     month_text_div.innerHTML = month_inputLeft.value + " - 최대";
   }else{
-    month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "층";
+    month_text_div.innerHTML = month_inputLeft.value + " - " + month_inputRight.value + "만원";
   }
 };
 
@@ -189,7 +189,7 @@ var manage_text_div = document.querySelector(".ReCs-manageSlider-txt");
 if(manage_inputRight.value == manage_inputMax){
   manage_text_div.innerHTML = manage_inputLeft.value + " - 최대";
 }else{
-  manage_text_div.innerHTML = manage_inputLeft.value + " - " + manage_inputRight.value + "층";
+  manage_text_div.innerHTML = manage_inputLeft.value + " - " + manage_inputRight.value + "만원";
 }
 
 var manage_setLeftValue = () => {
@@ -206,7 +206,7 @@ var manage_setLeftValue = () => {
   if(manage_inputRight.value == manage_inputMax){
     manage_text_div.innerHTML = manage_inputLeft.value + " - 최대";
   }else{
-    manage_text_div.innerHTML = manage_inputLeft.value + " - " + manage_inputRight.value + "층";
+    manage_text_div.innerHTML = manage_inputLeft.value + " - " + manage_inputRight.value + "만원";
   }
 };
 
@@ -224,7 +224,7 @@ var manage_setRightValue = () => {
   if(manage_inputRight.value == manage_inputMax){
     manage_text_div.innerHTML = manage_inputLeft.value + " - 최대";
   }else{
-    manage_text_div.innerHTML = manage_inputLeft.value + " - " + manage_inputRight.value + "층";
+    manage_text_div.innerHTML = manage_inputLeft.value + " - " + manage_inputRight.value + "만원";
   }
 };
 
@@ -249,7 +249,7 @@ var deposit_text_div = document.querySelector(".ReCs-depositSlider-txt");
 if(deposit_inputRight.value == deposit_inputMax){
   deposit_text_div.innerHTML = deposit_inputLeft.value + " - 최대";
 }else{
-  deposit_text_div.innerHTML = deposit_inputLeft.value + " - " + deposit_inputRight.value + "층";
+  deposit_text_div.innerHTML = deposit_inputLeft.value + " - " + deposit_inputRight.value + "만원";
 }
 
 var deposit_setLeftValue = () => {
@@ -266,7 +266,7 @@ var deposit_setLeftValue = () => {
   if(deposit_inputRight.value == deposit_inputMax){
     deposit_text_div.innerHTML = deposit_inputLeft.value + " - 최대";
   }else{
-    deposit_text_div.innerHTML = deposit_inputLeft.value + " - " + deposit_inputRight.value + "층";
+    deposit_text_div.innerHTML = deposit_inputLeft.value + " - " + deposit_inputRight.value + "만원";
   }
 };
 
@@ -284,7 +284,7 @@ var deposit_setRightValue = () => {
   if(deposit_inputRight.value == deposit_inputMax){
     deposit_text_div.innerHTML = deposit_inputLeft.value + " - 최대";
   }else{
-    deposit_text_div.innerHTML = deposit_inputLeft.value + " - " + deposit_inputRight.value + "층";
+    deposit_text_div.innerHTML = deposit_inputLeft.value + " - " + deposit_inputRight.value + "만원";
   }
 };
 

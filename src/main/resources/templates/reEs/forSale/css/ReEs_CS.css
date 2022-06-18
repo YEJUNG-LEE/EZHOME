@@ -117,14 +117,110 @@
     box-sizing:border-box;
     margin-top:13px;
     margin-right:25px;
-    width:150px;
-    height:45px;
+    width:120px;
+    height:35px;
     border-radius:45px;
     border:1px solid #b8b7bb;
     background-color:#b8b7bb;
     display:inline-block;
-    font-weight:600;
-    padding-top:10px;
+    font-size:14px;
+    padding-top:5px;
     letter-spacing:2px;
+    font-weight:600;
+    color:#858484;
     text-align:center;
+}
+#ReCs-cost{
+    font-size:15px;
+    letter-spacing:0.5px;
+}
+/* 저장, 불러오기, 초기화, 적용 버튼 */
+
+.ReCs-MB-div{
+    padding-top:30px;
+    padding-left:350px;
+}
+
+.ReCs-MB{
+    display:inline-block;
+    box-sizing:border-box;
+    width:100px;
+    height:45px;
+    text-align:center;
+    padding-top:10px;
+    margin-left:15px;
+    border:1px solid #94BBCC;
+    color : #3A6BA5;
+    font-weight:600;
+    border-radius:6px;
+}
+.ReCs-MB:hover{
+    border:1px solid #d4a931;
+    background-color:#FEC72F;
+    color:#FFFFFF;
+    font-weight:800;
+}
+.ReEs-leftButton{
+    box-sizing: border-box;
+    position:absolute;
+    top:350px;
+    right:0px;
+    display:inline-block;
+    width:20px;
+    height:50px;
+    border-radius:1px;
+    border: 1px solid #6c93f7;
+    background-color:#f8f8f8;
+    padding-top:6px;
+    font-size:25px;
+    text-align:center;
+    color:#4876EF  
+}
+
+.ReCs-cudiv{
+    height:150px;
+}
+.ReCs-cadiv{
+    height:300px;
+}
+.ReCs-input{
+    margin-top:20px;
+    margin-left:20px;
+    width:275px;
+    height:40px;
+    border:1px solid #b8b7bb;
+    background-color:#6c93f7;
+    border-radius:5px;
+    text-align: center;
+    padding-top:7px;
+    box-sizing: border-box;
+    float:left;
+}
+.ReCs-input:empty::before{
+    content:attr(placeholder);
+    color:rgb(238, 238, 238);
+    font-weight:500;
+}
+.ReCs-add{
+    border:1px solid #b8b7bb;
+    border-radius:6px;
+    width:70px;
+    height:40px;
+    text-align: center;
+    float:left;
+    margin-top:20px;
+    margin-left:10px;
+    padding-top:7px;
+    box-sizing: border-box;
+}
+.ReCs-but-div{
+    padding-left:20px;
+}
+.ReCs-collection{
+    height:600px;
+}
+.ReCs-delete{
+    float:right;
+    margin-right:10px;
+    color:rgb(189, 99, 99);
 }
