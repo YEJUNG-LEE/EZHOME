@@ -1,0 +1,298 @@
+/* 양방향 슬라이더 */
+.ReCs-Slider{
+    display:inline-block;
+    width:200px;
+    height:45px;
+    box-sizing:border-box;
+    padding-top:20px;
+}
+
+.ReCs-Slider > .floorSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
+
+.ReCs-Slider > .floorSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #becfe4;
+}
+.ReCs-Slider > .floorSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #5691da;
+}
+.ReCs-Slider> .floorSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color: #387ccf;
+    border-radius: 50%;
+}
+.ReCs-Slider>.floorSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReCs-Slider>.floorSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
+  
+.ReCs-Slider>input[type="range"] {
+    position: absolute;
+    /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
+    pointer-events: none;
+    -webkit-appearance: none;
+    z-index: 2;
+    height: 10px;
+    width: 199px;
+    opacity: 0;
+    margin-top:10px;
+}
+  
+.ReCs-Slider>input[type="range"]::-webkit-slider-thumb {
+    /* 겹쳐진 두 thumb를 모두 활성화 */
+    pointer-events: all;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    border: 0 none;
+    background-color: red;
+    cursor: pointer;
+    /* appearance를 해야 위의 스타일들을 볼 수 있음 */
+    -webkit-appearance: none;
+}
+
+.ReCs-txt{
+    box-sizing:border-box;
+    margin-top:13px;
+    margin-right:15px;
+    width:140px;
+    height:35px;
+    border-radius:15px;
+    border:1px solid #b7b8bb;
+    background-color:#88a7f7;
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    padding-top:7px;
+    letter-spacing:0.5px;
+    text-align:center;
+}
+
+/* ============================================================= */
+/* ===================== 여기부터는 평수 ======================== */
+/* ============================================================= */
+
+.ReCs-Slider > .extentSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
+
+.ReCs-Slider > .extentSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #becfe4;
+}
+.ReCs-Slider > .extentSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #5691da;
+}
+.ReCs-Slider> .extentSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color: #387ccf;
+    border-radius: 50%;
+}
+.ReCs-Slider>.extentSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReCs-Slider>.extentSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
+
+
+/* ============================================================= */
+/* ===================== 여기부터는 월세 ======================== */
+/* ============================================================= */
+
+.ReCs-Slider > .monthSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
+
+.ReCs-Slider > .monthSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #becfe4;
+}
+.ReCs-Slider > .monthSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #5691da;
+}
+.ReCs-Slider> .monthSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color: #387ccf;
+    border-radius: 50%;
+}
+.ReCs-Slider>.monthSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReCs-Slider>.monthSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
+
+
+
+/* ============================================================= */
+/* ===================== 여기부터는 관리비 ======================== */
+/* ============================================================= */
+
+.ReCs-Slider > .manageSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
+
+.ReCs-Slider > .manageSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #becfe4;
+}
+.ReCs-Slider > .manageSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #5691da;
+}
+.ReCs-Slider> .manageSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color: #387ccf;
+    border-radius: 50%;
+}
+.ReCs-Slider>.manageSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReCs-Slider>.manageSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
+
+
+/* ============================================================= */
+/* ===================== 여기부터는 보증금 ======================== */
+/* ============================================================= */
+.ReCs-Slider > .depositSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
+
+.ReCs-Slider > .depositSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #becfe4;
+}
+.ReCs-Slider > .depositSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #5691da;
+}
+.ReCs-Slider> .depositSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color: #387ccf;
+    border-radius: 50%;
+}
+.ReCs-Slider>.depositSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReCs-Slider>.depositSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
+
+
+
+/* 슬라이더 끝 */
