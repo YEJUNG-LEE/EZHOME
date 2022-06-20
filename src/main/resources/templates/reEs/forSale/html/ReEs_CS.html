@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="UTF-8">
@@ -8,10 +10,9 @@
     <title>Document</title>
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <link href="../css/reset.css" rel="stylesheet">
-    <link href="../css/ReEs_CS.css" rel="stylesheet">
+    <link th:href="@{/css/common/reset.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs_CS.css}" rel="stylesheet">
 </head>
-
 <body>
     <div class="imsi-head">임시헤더</div>
     <div class="imsi-navi">임시네비</div>
@@ -129,7 +130,6 @@
                 <div class="ReCs-txt ReCs-depositSlider-txt"></div>
             </div>
         </div>
-        <script src="../js/ReCs-Slider.js"></script>
         <div class="ReCs-div ReCs-MB-div">
                 <div class="ReCs-MB">저장</div>
                 <div class="ReCs-MB">불러오기</div>
@@ -140,5 +140,6 @@
             <i class="fa-solid fa-caret-left"></i>
         </div>
     </div>
+    <script type="text/javascript" th:src="@{/js/reEs/ReCs-Slider.js}"></script>
 </body>
 </html>

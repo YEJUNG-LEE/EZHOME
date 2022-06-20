@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +10,8 @@
     <title>Document</title>
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <link href="../css/reset.css" rel="stylesheet">
-    <link href="../css/ReEs_CS.css" rel="stylesheet">
+    <link th:href="@{/css/common/reset.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs_List.css}" rel="stylesheet">
 </head>
 
 <body>

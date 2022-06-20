@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>매물 지도</title>
-    <style>
-        @import url(../css/ReEs.css);
-        @import url(../css/reset.css);
-    </style>
+    <link th:href="@{/css/common/reset.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs.css}" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="../js/OnOff.js"></script>
-    <script type="text/javascript" src="../js/naviSlider.js"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/OnOff.js}"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/naviSlider.js}"></script>
 </head>
 <body class="ReEs-body">
     <div class="ReEs-imsiHeader">헤더 영역</div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="ReEs-navi-normal-floor-select-slider-txt"></div>
-                <script src="../js/floorSlider.js"></script>
+                <script type="text/javascript" th:src="@{/js/reEs/floorSlider.js}"></script>
             </div>
             <div class="ReEs-navi-normal-floor-select-div2">
                 <div class="ReEs-navi-floor-halfButton floor-exButton">반지하</div>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="ReEs-navi-normal-extent-select-slider-txt"></div>
-            <script src="../js/extentSlider.js"></script>
+            <script type="text/javascript" th:src="@{/js/reEs/extentSlider.js}"></script>
         </div>
 
         <!-- 월세/관리비/보증금 click시 -->
@@ -130,13 +130,10 @@
                 </div>
                 <div class="ReEs-navi-normal-deposit-select-slider-txt"></div>
             </div>
-
-            <script src="../js/monthSlider.js"></script>
-            <script src="../js/manageSlider.js"></script>
-            <script src="../js/depositSlider.js"></script>
-
+            <script type="text/javascript" th:src="@{/js/reEs/monthSlider.js}"></script>
+            <script type="text/javascript" th:src="@{/js/reEs/manageSlider.js}"></script>
+            <script type="text/javascript" th:src="@{/js/reEs/depositSlider.js}"></script>
         </div>
-
         <!-- 맞춤 영역 -->
         <div class="ReEs-navi-custom">
             <div class="ReEs-navi-custom-button ReEs-navi-font">맞춤</div>
@@ -190,6 +187,7 @@
         </div>
     </div>
     <div class="ReCS"></div>
+
 </body>
 
 </html>
