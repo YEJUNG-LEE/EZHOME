@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainTestController {
     @GetMapping(value = "/")
     public String main(Model model){
-
         return "main";
     }
 }
