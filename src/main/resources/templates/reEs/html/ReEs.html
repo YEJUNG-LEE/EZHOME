@@ -9,11 +9,11 @@
     <title>매물 지도</title>
     <link th:href="@{/css/common/reset.css}" rel="stylesheet">
     <link th:href="@{/css/reEs/ReEs.css}" rel="stylesheet">
-
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/OnOff.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/naviSlider.js}"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49225bbd40a329c7dd66bdf487530d46"></script>
 </head>
 <body class="ReEs-body">
     <div class="ReEs-imsiHeader">헤더 영역</div>
@@ -173,7 +173,7 @@
         </div>
     </div>
     <div class="ReEs-parent">
-        <div class="ReEs-map">
+        <div class="ReEs-map" id="map">
         </div>
         <div class="ReEs-leftButton">
             <i class="fa-solid fa-caret-left"></i>
@@ -187,7 +187,14 @@
         </div>
     </div>
     <div class="ReCS"></div>
-
+    <script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(40.450701, 126.570667),
+			level: 3
+		};
+		var map = new kakao.maps.Map(container, options);
+	</script>
 </body>
 
 </html>

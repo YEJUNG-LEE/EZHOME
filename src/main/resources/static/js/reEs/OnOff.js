@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    
     $(".ReEs-custom-select-button").click(function(){
         tog($(this));
     });
