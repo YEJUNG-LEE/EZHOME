@@ -74,6 +74,7 @@
     height:126px;
     background:white;
     display:none;
+    z-index:999;
 }
 .ReEs-navi-normal-TrType-select>div{
     width:125px;
@@ -93,6 +94,7 @@
     height:168px;
     background:white;
     display:none;
+    z-index:999;
 }
 .ReEs-navi-normal-houseType-select>div{
     width:125px;
@@ -111,6 +113,7 @@
     background-color:white;
     padding:0;
     display:none;
+    z-index:999;
 }
 
 .ReEs-navi-normal-floor-select-div1{
@@ -174,6 +177,7 @@
     background-color:white;
     padding:0;
     display:none;
+    z-index:999;
 }
 .ReEs-navi-normal-extent-select-namediv{
     height:40px;
@@ -196,6 +200,7 @@
     border:1px solid black;
     background-color:white;
     display:none;
+    z-index:999;
 }
 
 /* 지도네비게이션 맞춤 영역 */
@@ -219,6 +224,7 @@
     border:1px solid black;
     background-color:white;
     display:none;
+    z-index:999;
 }
 .ReEs-custom-select-button-div{
     width:280px;
@@ -307,6 +313,7 @@
     border:1px solid black;
     background-color:white;
     display:none;
+    z-index:999;
 }
 .ReEs-category-select-button-div{
     width:280px;
