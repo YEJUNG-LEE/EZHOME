@@ -1,0 +1,22 @@
+{
+  "name": "ez_home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YEJUNG-LEE/EZ_HOME.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YEJUNG-LEE/EZ_HOME/issues"
+  },
+  "homepage": "https://github.com/YEJUNG-LEE/EZ_HOME#readme",
+  "dependencies": {
+    "@types/jquery": "^3.5.14"
+  }
+}

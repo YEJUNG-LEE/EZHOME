@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/CoMm-jarang.css" type = "text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type = "text/javascript">
+        $("document").ready(function(){
+          
+
+            $("#chk-fir").click(function(){
+                $('#chk-fir').css("color","blue")
+                $('#chk-fir').css("font-weight","bold")
+                $("#chk-sec").css("color","#5c667b")
+                $("#chk-thd").css("color","#5c667b")
+            });
+
+            $("#chk-sec").click(function(){
+                $('#chk-fir').css("color","#5c667b")
+                $("#chk-sec").css("color","blue")
+                $('#chk-sec').css("font-weight","bold")
+                $("#chk-thd").css("color","#5c667b")
+            });
+
+            $("#chk-thd").click(function(){
+                $('#chk-fir').css("color","#5c667b")
+                $("#chk-sec").css("color","#5c667b")
+                $("#chk-thd").css("color","blue")
+                $('#chk-thd').css("font-weight","bold")
+            });
+
+            
+        });
+    </script>
+</head>
+<body>
+    <div class = "header"></div>
+    <div class = "CoMm-list-wrap">
+        <div class = "CoMm-list-head">
+            <!--<div class = "CoMm-head-ul">
+                <ul>
+                    <li><a href = "">전체글</a></li>
+                    <li><a href = "">나눠요</a></li>
+                    <li><a href = "">함께해요</a></li>
+                    <li><a href = "">자랑</a></li>
+                    <li><a href = "">정보 공유</a></li>
+                </ul>
+            </div>-->
+
+            <div class = "CoMm-list-tit">
+                <strong class = "CoMm-list-str">자랑</strong>    <!--각 주제별로 이름 변경-->
+                <div class ="CoMm-tit-sub">
+                    자랑 게시판의 전체 게시글입니다.
+                </div>
+
+                <div class = "CoMm-list-cnt">
+                    <div class = "CoMm-cnt-tit">
+                        전체&nbsp;<strong>1234</strong>건
+                    </div>
+                    <div class = "CoMm-sub-sel">
+                        <select>
+                            <option value = "all">전체글</option>
+                            <option value = "share">나눠요</option>
+                            <option vlaue = "together">함께해요</option>
+                            <option value = "Boast">자랑</option>
+                            <option value = "info">정보공유</option>
+                        </select>
+
+                        <div class = "CoMm-area-ftr">
+                            <span class = "CoMm-chk-area">
+                                <input type = "checkbox" class = "CoMm-ckb" name = "chk-area">
+                                <label class = "CoMm-lbl" for = "chk-area" id = "chk-fir">✔&nbsp;인기순</label>
+                            </span>
+                            <span class = "CoMm-chk-area">
+                                <input type = "checkbox" class = "CoMm-ckb" name = "chk-area">
+                                <label class = "CoMm-lbl" for = "chk-area" id = "chk-sec">✔&nbsp;최신순</label>
+                            </span>
+                            <span class = "CoMm-chk-area">
+                                <input type = "checkbox" class = "CoMm-ckb" name = "chk-area">
+                                <label class = "CoMm-lbl" for = "chk-area" id = "chk-thd">✔&nbsp;댓글 많은 순</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class = "CoMm-wr-btn">
+                            <a href = "CoMm-wr.html">게시글 작성</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--게시글 목록-->
+        <div class = "CoMm-list-body">
+            <div class = "CoMm-list-con">
+                <table class = "CoMm-list-tb">
+                    <tr>
+                        <th>글 번호</th>
+                        <th>이미지</th> <!---->
+                        <th>글제목</th>
+                        <th>작성자</th>
+                        <th>작성날짜</th>
+                        <th>조회수</th>
+                    </tr>
+                    <tr>
+                        <td>1</td> <!---->
+                        <td>이미지</td>
+                        <td>글제목</td>
+                        <td>작성자</td>
+                        <td>작성날짜</td>
+                        <td>조회수</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class = "CoMm-pag-no">
+                <ul class = "CoMm-pag-ul">
+                    <li><a href = "">1</a></li>
+                    <li><a href = "">2</a></li>
+                    <li><a href = "">3</a></li>
+                    <li><a href = "">4</a></li>
+                    <li><a href = "">5</a></li>
+                    <li><a href = "">6</a></li>
+                    <li><a href = "">7</a></li>
+                    <li><a href = "">8</a></li>
+                    <li><a href = "">9</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

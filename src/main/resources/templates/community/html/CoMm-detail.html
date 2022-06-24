@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/CoMm-detail.css" type = "text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".CoMm-con-btn").click(function(){
+                $(".sg-wd-wrap").attr("style", "display:block");
+            });
+            $(".sg-wd-cl").click(function(){
+                $(".sg-wd-wrap").attr("style", "display:none");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class = "head"></div>
+    <div class = "CoMm-dt-wrap">
+        <div class = "CoMm-dt-head">
+                <a href = "">👁‍🗨&nbsp;전체 게시글</a>
+        </div>
+
+        <!--게시글 보기-->
+        <div class = "CoMm-pos-wrap">
+            <!--게시글 상단-->
+            <div class = "CoMm-bd1-top">
+                <h1>게시글 제목</h1>
+                <div class = "CoMm-btn-div">
+                    <button type = "button" class = "CoMm-con-btn">신고하기</button>
+                </div>
+
+                <!-- 신고하기 창 -->
+                <div class = "sg-wd-wrap">
+                    <form name = "report-form">
+                        <input type = "hidden" name = "report_id" id = "report_id">
+                        <input type = "hidden" name = "report_type" id = "report_type">
+                        <div class = "sg-head">
+                            <strong>신고하기</strong>
+                            <input type = "reset" value = "닫기" class = "sg-wd-cl">
+                        </div>
+                        <div class = "sg-cont">
+                            <ul class = "sg-rp-list">
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report1" value = "slendar">
+                                        <label class = "sg-lb" for = "report1">비방/욕설</label>
+                                    </span>
+                                </li>
+            
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report2" value = "fFact">
+                                        <label class = "sg-lb" for = "report2">허위사실</label>
+                                    </span>
+                                </li>
+            
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report3" value = "prsinExpsr">
+                                        <label class = "sg-lb" for = "report3">개인정보노출</label>
+                                    </span>
+                                </li>
+            
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report4" value = "indecent">
+                                        <label class = "sg-lb" for = "report4">음란성</label>
+                                    </span>
+                                </li>
+            
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report5" value = "posting">
+                                        <label class = "sg-lb" for = "report5">게시글 도배</label>
+                                    </span>
+                                </li>
+            
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report6" value = "inpPrm">
+                                        <label class = "sg-lb" for = "report6">부적절한 홍보</label>
+                                    </span>
+                                </li>
+                                
+                                <li>
+                                    <span class = "sg-ip-rd">
+                                        <input type = "radio" name = "report" id = "report7" value = "etc">
+                                        <label class = "sg-lb" for = "report7">기타</label>
+                                    </span>
+                                </li>
+                            </ul>
+                            <textarea name = "report_contents" id = "report_contents" class = "sg-inp-ta" title = "신고내용 입력" placeholder="내용을 입력해주세요." rows = "24" cols = "80"></textarea>
+                            <button type = "button" class = "sg-sm-btn">신고접수</button>
+                            
+                        </div>
+                        <!-- <div class = "sg-rp-foot">
+                            <button type = "button" class = "btn-rep-sm">
+                                <span class = "btn-rp-bli">닫기</span>
+                            </button>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+
+            <!--게시글 정보-->
+            <div class = "CoMm-pos-inf">
+                <div class ="CoMm-mem-pic">
+                        <img src = "" alt="프로필사진">
+                        <p class = "CoMm-mem-id"><a href="#">ID</a>
+                            <span class = "CoMm-wr-dt"><a href="#">작성 날짜</a></span></p>
+                </div>
+            </div>
+            
+            <!--게시글 본문-->
+            <div class = "CoMm-dt-con">
+                게시글 본문~~~
+            </div>
+
+            <!--게시글 태그(글쓰기의 태그 내용)-->
+            <div class = "CoMm-dt-tag">
+                <a href = "">태그1</a>
+                <a href = "">태그2</a>
+                <a href = "">태그3</a>
+            </div>
+        </div>
+
+        <!-- 댓글 쓰기 -->
+        <form class = "CoMm-rep-form" enctype="multipart/form-data">
+            <div class = "CoMm-rep-are">
+                <span class = "CoMm-use-id">유저 아이디</span>
+                <textarea placeholder="폭언, 욕설, 비방은 정지 사유입니다." rows="24" cols="80"></textarea>
+                
+                <div class = "CoMm-rep-wra">
+                    <span class = "CoMm-rep-cnt">
+                        <em>0</em>/1000자
+                    </span>
+                </div>
+                <button type = "button" class = "CoMm-rep-sub">댓글 등록</button>
+            </div>
+        </form>
+
+        <!-- 댓글 목록 -->
+        <div class = "CoMm-rep-wrap">
+            <ol class = "CoMm-rep-ob">
+                <li class = "CoMm-rep-list">
+                    <p id = "CoMm-rep-p1">
+                        댓글입니다.
+                    </p>
+                    <input type = "button" class = "CoMm-rep-edt" value = "수정">
+                    <input type = "button" class = "CoMm-rep-del" value = "삭제">
+                    <p id = "CoMm-rep-p2">
+                        댓글 작성자ID
+                    </p>
+                    <p id = "CoMm-rep-p3">
+                        댓글 작성 날짜
+                    </p>
+                </li>
+
+                <li class = "CoMm-rep-list">
+                    <p id = "CoMm-rep-p1">
+                        댓글입니다.
+                    </p>
+                    <input type = "button" class = "CoMm-rep-edt" value = "수정">
+                    <input type = "button" class = "CoMm-rep-del" value = "삭제">
+                    <p id = "CoMm-rep-p2">
+                        댓글 작성자ID
+                    </p>
+                    <p id = "CoMm-rep-p3">
+                        댓글 작성 날짜
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
