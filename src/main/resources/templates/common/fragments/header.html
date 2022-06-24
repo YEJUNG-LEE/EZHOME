@@ -6,19 +6,32 @@
     <title>header</title>
 </head>
 <body>
-    <header th:fragment="header">
+
+<div th:fragment="header">
+    <!-- 헤더, header -->
+    <header>
         <!-- nav -->
         <nav>
             <!-- 로고 -->
             <h1 class="logo"><a href="#"><img src="./img/logo01.png" alt="logo"></a></h1>
+            <!-- EzHome-ul-left -->
             <ul class="EzHome-ul-left">
                 <li sec:authorize=""><a href="#">부동산</a></li>
                 <li sec:authorize=""><a href="#">커뮤니티</a></li>
                 <li sec:authorize=""><a href="#">고객센터</a></li>
             </ul>
+            <!--// EzHome-ul-left -->
+            <!-- EzHome-ul-right -->
             <ul class="EzHome-ul-right">
-                <li class="advert_insert" sec:authorize=""><a href="#">광고등록</a></li>
+                <!-- 회원(공인중개사) 광고(매물)등록 -->
+                <li class="advert_insert" sec:authorize=""><a href="#">광고문의</a></li>
+                <!-- 로그인 -->
                 <li><a href="/members/login">로그인</a></li>
+                <li class="member_user">
+                    <a href="#">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
 
                 <li><a href="#" class="header-signup">회원가입</a></li>
                 <li class="header-signup" sec:authorize="">
@@ -28,9 +41,12 @@
                     </a>
                 </li>
             </ul>
+            <!--// EzHome-ul-right -->
         </nav>
         <!--// nav -->
     </header>
-    <!--// 헤더 -->
+    <!--// 헤더, header -->
+</div>
+
 </body>
 </html>
