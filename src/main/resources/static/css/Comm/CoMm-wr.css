@@ -94,6 +94,7 @@ head{
     padding: 20px 24px;
     height: 497px;
     border-bottom: 1px solid #dedce5;
+    resize: none;
 }
 .CoMm-wr-sec:empty::before{
     content: attr(placeholder);

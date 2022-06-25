@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" th:href=@{"/css/Comm/CoMm-wr.css"} type = "text/css">
+<link rel="stylesheet" th:href=@{"/comm/css/CoMm-wr.css"} type = "text/css">
+<th:block layout:fragment="script">
+
+    <script th:inline="javascript">
+        $(document).ready(function(){
+             var tag = {};
+            var counter = 0;
+
+            // 태그 추가 함수
+            function addTag(value){
+                tag[counter] = value;   // 태그를 Object 안에 추가
+                counter++;  // counter 증가 삭제를 위한 del-btn의 고유 id가 됨
+            }
+            // 최종적으로 서버에서 넘길때 tag에 있는 값을 array type으로 만들어줌
+            function marginTag(){
+                return Object.values(tag).filter(function(word){
+                    return word !== "";
+                });
+            }
+            $("#tag").on("keyup", function(e){
+                var self = $(this);
+                console.log("keypress");
+
+                // input에 focus시 엔터 및 스페이스 입력 구동
+                if(e.key === "Enter" || e.keyCode == 32){
+                    var tagValue = self.val();  // 값 가져오기
+
+                    // 값이 없으면 동작하지 않음
+                    if(tagValue !== ""){
+                        // 같은 태그가 있는지 검사 후 있다면 해당 값이 array로 return
+                        var result = Object.values(tag).filter(function(word){
+                            return word === tagValue;
+                        });
+
+                        // 태그 중복 검사
+                        if(result.length == 0){
+                            $(".CoMm-tag-list").append("<li class='tag-content CoMm-tag'>" + tagValue + "<span class='del-btn' idx='" + counter + "'>x</span></li>");
+                            addTag(tagValue);
+                            self.val("");
+                        }else{
+                            alert("태그 값이 중복됩니다.");
+                        }
+                    }
+                    e.preventDefault(); // spaceBar시 빈 공간이 생기지 않도록 방지
+                }
+            });
+            // 삭제 버튼
+            // 비동기적 생성이므로 document 최초 생성 시가 아닌 검색을 통해 이벤트 구현
+            $(document).on("click", ".del-btn", function (e) {
+                var index = $(this).attr("idx");
+                tag[index] = "";
+                $(this).parent().remove();
+            });
+
+            var errorMessage = [[${errorMessage}]];
+            if(errorMessage != null){
+                alert(errorMessage);
+            }
+
+            bindDomEvent();
+
+        });
+
+        function bindDomEvent(){
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();  //이미지 파일명
+                var fileExt = fileName.substring(fileName.lastIndexOf(".")+1); // 확장자 추출
+                fileExt = fileExt.toLowerCase(); //소문자 변환
+
+                if(fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp"){
+                    alert("이미지 파일만 등록이 가능합니다.");
+                    return;
+                }
+
+                $(this).siblings(".custom-file-label").html(fileName);
+            });
+        }
+
+    </script>
+
+</th:block>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .input-group {
+            margin-bottom : 15px
+        }
+        .img-div {
+            margin-bottom : 10px
+        }
+        .fieldError {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+</head>
+<body>
+<form role="form" method="post" enctype="multipart/form-data" th:object="${contentFormDto}">
+    <div class = "CoMm-wr-wrap">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{email}">
+        <div class = "CoMm-wr-head">
+            <span class = "CoMm-wr-span">카테고리</span>
+            <div class = "CoMm-cg-wrap">
+                <select th:field="*{category}">
+                    <option value = "-">-- 카테고리를 선택하세요. --</option>
+                    <option value = "info">정보공유</option>
+                    <option value = "with">함께해요</option>
+                    <option value = "share">나눠요</option>
+                    <option value = "boast">자랑</option>
+                    <option value = "region">지역소통</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!--글쓰기 작성 폼-->
+        <div class = "CoMm-wr-con">
+            <!--제목-->
+            <input class = "CoMm-wr-inp" type = "text" placeholder="제목을 입력해주세요." th:field="*{title}">
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="fieldError">Incorrect data</p>
+            <div class = "CoMm-wr-pos">
+                <div >
+                    <textarea class = "CoMm-wr-sec" th:field="*{main_text}"
+                              style="overflow: auto;" placeholder="내용을 입력해주세요.&#10;&#10;*등록한 글은 커뮤니티에서 사용중인 닉네임으로 등록됩니다.&#10;*저작권 침해, 음란, 유해물, 기타 위법 자료 등을 게시할 경우 게시물은 경고없이 삭제 됩니다."></textarea>
+                </div>
+                <div class = "CoMm-wr-bot">
+                    <div th:if="${#lists.isEmpty(contentFormDto.contentImgDtoList)}">
+                        <input type = "file" accept="image/*" name = "contentImgFile">
+                        <!--                        <label class="custom-file-label" th:text="게시글이미지 + ${num}"></label>-->
+                        <span class = "CoMm-wr-cnt">
+                            <em>0</em>/5000자
+                        </span>
+                    </div>
+                </div>
+
+                <div th:if = "${not #lists.isEmpty(contentFormDto.contentImgDtoList)}">
+                <div class="form-group" th:each="contentImgDto, status: ${contentFormDto.contentImgDtoList}">
+                    <div class="custom-file img-div">
+                        <input type="file" class="custom-file-input" name="contentImgFile">
+                        <input type="hidden" name="contentImgIds" th:value="${contentImgDto.id}">
+                        <label class="custom-file-label" th:text="${not #strings.isEmpty(contentImgDto.oriImgName)} ? ${contentImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class = "CoMm-tag-wrap">
+            <div class = "CoMm-tag-top">
+                <strong class = "CoMm-tag-str">#해시태그 입력</strong>
+            </div>
+
+            <div class = "CoMm-tag-inp">
+                <div class = "CoMm-tag-in">
+                    <ul class = "CoMm-tag-list">
+                        <li class = "CoMm-tag-itm">
+                            <div class = "CoMm-tag">소통</div>
+                        </li>
+                    </ul>
+                    <div class= "CoMm-inp-tag">
+                        <input type = "text" placeholder="입력(최대 5개)" style="width: 95px;" maxlength="30" th:field="*{tag}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div th:if = "${not #lists.isEmpty(contentFormDto.contentImgDtoList)}">
+            <div class="form-group" th:each="contentImgDto, status: ${contentFormDto.contentImgDtoList}">
+                <div class="custom-file img-div">
+                    <input type="file" class="custom-file-input" name="contentImgFile">
+                    <!--unique content id -->
+                    <input type="hidden" name="contentImgIds" th:value="${contentImgDto.id}">
+                    <label class="custom-file-label" th:text="${not #strings.isEmpty(contentImgDto.oriImgName)} ? ${contentImgDto.oriImgName} : '게시이미지' + ${status.index+1}"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class = "CoMm-wr-smt" th:if="${#strings.isEmpty(contentFormDto.id)}">
+            <button class = "CoMm-wr-btn" th:formaction="@{/community/content/new}">게시글 등록</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
