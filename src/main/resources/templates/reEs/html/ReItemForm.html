@@ -17,7 +17,7 @@
         .ReEs-insert-wrap{
             border: 1px solid black;
             width: 1280px;
-            height: 1000px;
+            height: 1500px;
             margin: auto;
             background-color: #f8f8f8;
         }
@@ -66,7 +66,7 @@
         .ReES-insert-form{
             border: 1px solid black;
             width: 1000px;
-            height: 1000px;
+            height: 1200px;
             margin: auto;
             box-sizing: border-box;
             margin-top: 30px;
@@ -102,6 +102,10 @@
                 height:74px;
                 text-align: left;
                 border: 1px solid black;
+
+        }
+        .ReEs-insert-div{
+            float:left
         }
         .ReEs-insert-td03{
             width:481px;
@@ -156,162 +160,185 @@
         }
         .ReEs-insert-nowfloor , .ReEs-insert-totalfloor{
             padding:10px 0 6px 0;
+            margin-left:20px;
         }
+        p{margin:0 0 0 20px;
+
+        }
+
     </style>
 </th:block>
 <div layout:fragment="content">
-<header></header>
-<div class="ReEs-insert-wrap">
-    <div class="ReEs-insert-header">
-        <h2 class="ReEs-insert-h2">방 등록하기</h2>
+    <header></header>
+    <div class="ReEs-insert-wrap">
+        <div class="ReEs-insert-header">
+            <h2 class="ReEs-insert-h2">방 등록하기</h2>
+        </div>
+        <div class="ReEs-insert-SetRoom">
+            <div class="ReEs-insert-box ReEs-room01">1단계</div>
+            <div  class="ReEs-insert-box ReEs-room02">2단계</div>
+            <div  class="ReEs-insert-box ReEs-room03">3단계</div>
+            <div class="ReEs-insert-box ReEs-room04" >4단계</div>
+        </div>
+        <form class="ReES-insert-form" method="post" role="form" action="/ReItem/InfoDetail" th:object="${ReFormDto}">
+            <h3>방정보</h3>
+            <table class="ReEs-insert-table">
+
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">매물번호</th>
+                    <td class="ReEs-insert-td"><input class="ReEs-insert-input" type="text" th:field="*{reNum}" placeholder="매물번호">
+                        <p th:if="${#fields.hasErrors('reNum')}" th:errors="*{reNum}" class="fieldError">Incorrect data</p>
+                    </td>
+
+                </tr>
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">매물정보</th>
+                    <td class="ReEs-insert-td">
+                        <!--빌라/주택일 때 -> 원룸, 투룸,쓰리룸-->
+                        <div  class="ReEs-insert-div">
+                            <select class="ReEs-insert-select" id ="room01" th:field="*{rehouseType}">
+                                <option value="oneRoom">원룸</option>
+                                <option value="twoRoom">투룸</option>
+                                <option value="threeRoom">오피스텔</option>
+                                <option value="apartment">아파트</option>
+                                <option value="opice">상가/사무실</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('rehouseType')}" th:errors="*{rehouseType}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div  class="ReEs-insert-div">
+                            <select class="ReEs-insert-select" id ="room03" th:field="*{retrType}">
+                                <option value="Jeonse">전세</option>
+                                <option value="monthly_Rent">월세</option>
+                                <option value="buying">매매</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('retrType')}" th:errors="*{retrType}" class="fieldError">Incorrect data</p>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">가격 정보</th>
+                    <td class="ReEs-insert-td"><!--타임리프로 if 조건문 달기 -->
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reMon_price}" placeholder="월세가">
+                            <p  th:if="${#fields.hasErrors('reMon_price')}" th:errors="*{reMon_price}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reDeposit}" placeholder="보증금">
+                            <p th:if="${#fields.hasErrors('reDeposit')}" th:errors="*{reDeposit}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reTrade}" placeholder="매매가">
+                            <p  th:if="${#fields.hasErrors('reTrade')}" th:errors="*{reTrade}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reJeonse}" placeholder="전세가">
+                            <p  th:if="${#fields.hasErrors('reJeonse')}" th:errors="*{reJeonse}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reAdmn_fee}" placeholder="관리비">
+                            <p  th:if="${#fields.hasErrors('reAdmn_fee')}" th:errors="*{reAdmn_fee}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reDeposit}" placeholder="보증금">
+                            <p th:if="${#fields.hasErrors('reDeposit')}" th:errors="*{reDeposit}" class="fieldError">Incorrect data</p>
+                        </div>
+
+                    </td>
+
+                </tr>
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">소재지</th>
+                    <td class="ReEs-insert-td">
+                        <div class="ReEs-insert-div">
+                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="${reSido}">
+                            <option value="-">시/도</option>
+                            <option value="sodo01">경기도</option>
+                            <option value="sodo02">서울특별시</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reSido')}" th:errors="*{reSido}" class="fieldError">Incorrect data</p>
+                        </div>
+
+                        <div class="ReEs-insert-div">
+                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="${reGungu}">
+                            <option value="-">시/군/구</option>
+                            <option value="gungu01">금천구</option>
+                            <option value="gungu02">금천구</option>
+                            <option value="gungu03">금천구</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
+                        </div>
+
+                        <div class="ReEs-insert-div">
+                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="${reDong}">
+                            <option value="-">읍/면/동</option>
+                            <option value="dong01">가산동</option>
+                            <option value="dong02">가산동</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">상세주소</th>
+                    <td class="ReEs-insert-td">
+                        <div class="ReEs-insert-detailAddress">
+                            <input class="ReEs-insert-inputlg" type="text" th:field="${reDtl_Adr}" placeholder="동, 호수를 입력해주세요">
+                            <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>
+                            <ul class="ReEs-insert-ul" style="margin-left: -40px;">
+                                <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
+                                <li class="ReEs-insert-li">2.상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
+                                <li class="ReEs-insert-li">* 동/호 정보는 수정이 불가능합니다. 등기부에 나와있는 동/호수를 정확히 입력해주세요</li>
+                                <li class="ReEs-insert-li">* 상세주소부분에 등기부등본 상의 부동산 소재지번 내용을 입력하시면 빠르고 정확한 매물 등록이 가능합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="ReEs-insert-map">등록하실 매물의 위치를 지도로 표시합니다</div>
+                    </td>
+                </tr>
+
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">방정보</th>
+                    <td class="ReEs-insert-td"><!--타임리프로 if 조건문 달기 -->
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reRoomcnt}" placeholder="침실 개수">
+                            <p  th:if="${#fields.hasErrors('reRoomcnt')}" th:errors="*{reRoomcnt}" class="fieldError">Incorrect data</p>
+                        </div>
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reBathcnt}" placeholder="욕실 개수">
+                            <p th:if="${#fields.hasErrors('reBathcnt')}" th:errors="*{reBathcnt}" class="fieldError">Incorrect data</p>
+                        </div>
+
+                        <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reExtent}" placeholder="평수">
+                            <p th:if="${#fields.hasErrors('reExtent')}" th:errors="*{reExtent}" class="fieldError">Incorrect data</p>
+                        </div>
+
+                </tr>
+
+
+
+
+                <tr rowspan="2" class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">층수</th>
+                    <td class="ReEs-insert-td">
+                        <div class="ReEs-insert-nowfloor">
+                            <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reFlr}" placeholder="층수">
+                                <p th:if="${#fields.hasErrors('reFlr')}" th:errors="*{reFlr}" class="fieldError">Incorrect data</p>
+                            </div>
+                            <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reTotalFlr}" placeholder="전체층수">
+                                <p th:if="${#fields.hasErrors('reTotalFlr')}" th:errors="*{reTotalFlr}" class="fieldError">Incorrect data</p>
+                            </div>
+                            <input th:field="*{reSecndFlr}" type='radio' name='fruits' value='apple' />복층
+                            <input th:field="*{reTopFlr}" type='radio' name='fruits' value='banana' />옥탑방
+                            <input th:field="*{reUndrflr}" type='radio' name='fruits' value='orange' />반지하
+                            <input type='radio' name='fruits' value='orange' />선택안함
+
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+            <div style="margin:auto; width:150px; ">
+                <div th:if="${#strings.isEmpty(ReFormDto.id)}"  style="float:left;">
+                    <button th:formaction="@{/admin/item/new}" type="submit" class="btn btn-primary">저장</button>
+                </div>
+                <div th:unless="${#strings.isEmpty(ReFormDto.id)}" style="float:left;">
+                    <button th:formaction="@{'/admin/item/' + ${ReFormDto.id} }" type="submit" class="btn btn-primary">수정</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="ReEs-insert-SetRoom">
-        <button class="ReEs-insert-box ReEs-room01">빌라/주택</button>
-        <button class="ReEs-insert-box ReEs-room02">오피스텔</button>
-        <button class="ReEs-insert-box ReEs-room03">아파트</button>
-        <!--상가/ 사무실은 disabled-->
-        <button class="ReEs-insert-box ReEs-room04" disabled >상가/사무실</button>
-    </div>
-    <form class="ReES-insert-form" method="post" role="form" action="/ReItem/InfoDetail" >
-        <h3>방정보</h3>
-        <table class="ReEs-insert-table">
-            <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">건물형태</th>
-                <td class="ReEs-insert-td">
-                    <!--빌라/주택일 때 -> 원룸, 투룸,쓰리룸-->
-                    <select class="ReEs-insert-select" id ="room01" name="room01">
-                        <option value="oneRoom">원룸</option>
-                        <option value="twoRoom">투룸</option>
-                        <option value="threeRoom">쓰리룸</option>
-                    </select>
-                    <!--오피스텔일때 -> 오피스텔 selected-->
-                    <input class="ReEs-insert-input" type="text" name="room02" readonly placeholder="오피스텔">
-                    <!--아파트일때 ->  아파트 selected-->
-                    <input class="ReEs-insert-input" type="text" name="room03" readonly placeholder="아파트">
-                    <!--상가/ 사무실은 readyonly-->
-                    <input class="ReEs-insert-input" type="text" name="room03" readonly placeholder="상가/사무실">
-                </td>
-            </tr>
-            <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">매물번호</th>
-                <td class="ReEs-insert-td"><input class="ReEs-insert-input" type="text" name="ReEs-roomNm" placeholder="매물번호"></td>
-            </tr>
-            <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">소재지</th>
-                <td class="ReEs-insert-td">
-                    <select class="ReEs-insert-select" id ="ReES-insert-sido" name="ReES-insert-sido">
-                        <option value="-">시/도</option>
-                        <option value="sodo01">경기도</option>
-                        <option value="sodo02">서울특별시</option>
-                    </select>
-                    <select class="ReEs-insert-select" id ="ReES-insert-gungu" name="ReES-insert-gungu">
-                        <option value="-">시/군/구</option>
-                        <option value="gungu01">금천구</option>
-                        <option value="gungu02">금천구</option>
-                        <option value="gungu03">금천구</option>
-                    </select>
-                    <select class="ReEs-insert-select" id ="ReES-insert-dong" name="ReES-insert-dong">
-                        <option value="-">읍/면/동</option>
-                        <option value="dong01">가산동</option>
-                        <option value="dong02">가산동</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">상세주소</th>
-                <td class="ReEs-insert-td">
-                    <div class="ReEs-insert-detailAddress">
-                        <input class="ReEs-insert-inputlg" type="text" name="ReEs-detailAddress" placeholder="동, 호수를 입력해주세요">
-                        <ul class="ReEs-insert-ul" style="margin-left: -40px;">
-                            <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
-                            <li class="ReEs-insert-li">2.상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
-                            <li class="ReEs-insert-li">* 동/호 정보는 수정이 불가능합니다. 등기부에 나와있는 동/호수를 정확히 입력해주세요</li>
-                            <li class="ReEs-insert-li">* 상세주소부분에 등기부등본 상의 부동산 소재지번 내용을 입력하시면 빠르고 정확한 매물 등록이 가능합니다.</li>
-                        </ul>
-                    </div>
-                    <div class="ReEs-insert-map">등록하실 매물의 위치를 지도로 표시합니다</div>
-                </td>
-            </tr>
-
-            <tr class="ReEs-insert-">
-
-                <td class="ReEs-insert-td02" style="border: 1px solid black;">
-                    <table style="border: 1px solid blue; margin: auto;box-sizing: border-box;">
-                        <tr class="ReEs-insert-tr">
-                            <th class="ReEs-insert-th02" style="text-align: center;">방 개수</th>
-                        </tr>
-                    </table>
-                </td>
-
-                <td class="ReEs-insert-td">
-                    <table>
-                        <tr class="ReEs-insert-tr">
-                            <td class="ReEs-insert-td" style="width:550px; border: 0px solid black;">
-                                <label style="margin-left: 20px;">침실 : </label>
-                                <input class="ReEs-insert-inputsm" type="text" name="ReEs-countRoom">&nbsp;&nbsp;개
-                            </td>
-                            <th class="ReEs-insert-th02" style="border: 1px solid rgb(161, 160, 160); width: 120px; height:83.2px; box-sizing: border-box; text-align: center;">욕실 개수</th>
-                            <td class="ReEs-insert-td03">
-                                <label style="margin-left: 20px;">욕실 : </label>
-                                <input class="ReEs-insert-inputsm" type="text" name="ReEs-countBath">&nbsp;&nbsp;개
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-
-            </tr>
-
-
-            <!-- <tr class="ReEs-insert-">
-
-                <td class="ReEs-insert-td02" style="border: 1px solid black;">
-                    <table style="border: 1px solid blue; margin: auto;box-sizing: border-box;">
-                        <tr class="ReEs-insert-tr">
-                            <th class="ReEs-insert-th02" style="text-align: center;">방 개수</th>
-                        </tr>
-                    </table>
-                </td>
-
-                <td class="ReEs-insert-td">
-                    <table>
-                        <tr class="ReEs-insert-tr">
-                            <td class="ReEs-insert-td" style="width:550px; border: 0px solid black;">
-                                <label style="margin-left: 20px;">침실 : </label>
-                                <input class="ReEs-insert-inputsm" type="text" name="ReEs-countRoom">&nbsp;&nbsp;개
-                            </td>
-                            <th class="ReEs-insert-th02" style="border: 1px solid rgb(161, 160, 160); width: 120px; height:83.2px; box-sizing: border-box; text-align: center;">욕실 개수</th>
-                            <td class="ReEs-insert-td03">
-                                <label style="margin-left: 20px;">욕실 : </label>
-                                <input class="ReEs-insert-inputsm" type="text" name="ReEs-countBath">&nbsp;&nbsp;개
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-
-            </tr> -->
-            <tr rowspan="2" class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">층수</th>
-                <td class="ReEs-insert-td">
-                    <div class="ReEs-insert-nowfloor">
-                        <label style="margin-left: 20px;">해당층 : </label>
-                        <input class="ReEs-insert-inputsm" type="text" name="ReEs-floor">&nbsp;&nbsp;층
-                        <button class="ReEs-insert-btnsm" name="ReEs-duplex">복층</button>
-                        <button class="ReEs-insert-btnsm" name="ReEs-rooftop">옥탑방</button>
-                        <button class="ReEs-insert-btnsm" name="ReEs-basement">반지하</button>
-                    </div>
-                    <div class="ReEs-insert-totalfloor" >
-                        <label style="margin-left: 20px;">전체층 : </label>
-                        <input class="ReEs-insert-inputsm" type="text" name="ReEs-floor">&nbsp;&nbsp;층
-                    </div>
-                </td>
-
-            </tr>
-
-
-
-        </table>
-    </form>
-</div>
 
 
 
