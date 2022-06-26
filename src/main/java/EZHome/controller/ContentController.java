@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class ContentController {
-    @GetMapping(value = "/ezhome/Content/Write")
+    @GetMapping(value = "/content/write")
     public String contentForm(Model model){
         model.addAttribute("contentFormDto", new ContentFormDto());
         return "community/CoMm-wr";
@@ -25,7 +25,7 @@ public class ContentController {
 
     private ContentService contentService;
 
-    @PostMapping(value = "/ezhome/Content/Write")
+    @PostMapping(value = "/content/write")
     public String contentNew(@Valid ContentFormDto contentFormDto, BindingResult bindingResult, Model model,
                              @RequestParam("contentImgFile")List<MultipartFile> contentImgFileList){
         if(bindingResult.hasErrors()){

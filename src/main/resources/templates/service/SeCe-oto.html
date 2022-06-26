@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/SeCe-oto.css" type = "text/css">
-    
+    <link rel="stylesheet" href="css/service/SeCe-oto.css" type = "text/css">
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
     <form>
@@ -18,13 +21,13 @@
                 </h1>
                     <ul class = "SeCe-main-ban">
                         <li>
-                            <a href = "SeCe-freq.html">자주묻는 질문</a>
+                            <a href = "#" th:href = "@{/service/SeCe-freq}">자주묻는 질문</a>
                         </li>
                         <li>
-                            <a href = "SeCe-oto.html">1:1 문의</a>
+                            <a href = "#" th:href = "@{/service/SeCe-oto}">1:1 문의</a>
                         </li>
                         <li>
-                            <a href = "SeCe-not.html">공지사항</a>
+                            <a href = "#" th:href = "@{/service/SeCe-not}">공지사항</a>
                         </li>
                     </ul>
                 </div>
