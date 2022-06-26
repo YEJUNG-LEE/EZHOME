@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 public class ReFormDto {
@@ -73,11 +75,12 @@ public class ReFormDto {
 
 
 
-
-
-    //상품에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다.
+    //매물에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다. (최대 10개 이미지)
+    private List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
 
     //상품의 이미지에 대한 id 정보들을 저장하기 위한 List 컬렉션입니다.
+    // 상품 수정시 해당 이미지들의 unique id 값을 저장할 리스트 컬렉션입니다.
+    private List<Integer> itemImgIds = new ArrayList<Integer>();
 
     private static ModelMapper modelMapper = new ModelMapper();
     //Dto -> Entity

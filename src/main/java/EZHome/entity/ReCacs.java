@@ -13,7 +13,7 @@ public class ReCacs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int caid ; // 매물 카테고리 기본키(Fk)
+    private Long caid ; // 매물 카테고리 기본키(Fk)
 
     private boolean rePublic ; //공공기관(경찰서, 은행 등)
     private boolean reMedic ; //의료시설(병원, 약국)

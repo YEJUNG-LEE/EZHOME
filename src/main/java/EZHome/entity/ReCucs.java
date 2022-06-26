@@ -13,7 +13,7 @@ public class ReCucs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cuid ; //매물 맞춤 기본키(FK)
+    private Long cuid ; //매물 맞춤 기본키(FK)
 
     private boolean reNew ; // 신축
     private boolean reFull ; // 풀옵션

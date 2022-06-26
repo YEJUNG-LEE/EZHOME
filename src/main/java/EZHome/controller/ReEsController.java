@@ -13,7 +13,7 @@ public class ReEsController {
     @GetMapping(value="/admin/item/new")
     public String reesInsert(Model model){
         model.addAttribute("ReFormDto", new ReFormDto());
-        return "ReItem/HelloTest";
+        return "reEs/html/ReItemForm";
     }
 
 

@@ -36,8 +36,8 @@ public class ReEs {
 
         this.reFlr = reFormDto.getReFlr(); // 층수
         this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
-
-
+        
+        // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
         this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
         this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
         this.reUndrflr = reFormDto.isReUndrflr();// 반지하
@@ -48,7 +48,7 @@ public class ReEs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int reid ; // 매물 기본키 (FK)
+    private Long reid ; // 매물 기본키 (FK)
 
     @Column(unique = true) // 고유한 매물번호로 매물을 찾습니다.
     private int reNum;  // 매물 번호
