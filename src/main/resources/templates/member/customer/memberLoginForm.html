@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .error {
+            color: #bd2130;
+        }
+        @import url(reset.css);
+			section{
+				height: 950px;
+				background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) );
+				background-size: cover;
+			}
+			.MeMb-div{
+				padding-top: 125px;
+			}
+			div{
+				margin: 0 auto;
+			}
+			.MeMb-div-logo{
+				width: 200px; height: 100px;
+				background-size: cover;
+			}
+			.MeMb-div2{
+				width: 510px; height: 625px;
+				background-color: white;
+				border-radius: 7px;
+				border: 1px black solid;
+			}
+			.MeMb-login{
+				font-size: 44px;
+				padding-top: 25px;
+				margin-left: 50px;
+			}
+			.MeMb-go-siup{
+				font-size: 14px;
+				margin-top: 10px;
+				margin-left: 50px;
+			}
+			a{border: none;}
+			.MeMb-login-form{
+				width: 420px; height: 102px;
+				margin-top: 25px;
+				margin-left: 45px;
+				border: 1px solid black;
+				border-radius: 5px;
+			}
+			.MeMb-email{
+				width: 395px; height: 45px;
+				margin-left: 10px;
+				margin-top: 3px;
+				font-size: 17px;
+				border: none;
+			}
+			.MeMb-pass{
+				width: 395px; height: 45px;
+				margin-left: 10px;
+				font-size: 17px;
+				border: none;
+			}
+			.MeMb-email{
+				border-bottom: 1px solid black;
+			}
+			.MeMb-button{
+				width: 420px; height: 50px;
+				margin-top: 15px;
+				border-radius: 5px;
+				border: none;
+				background-color: #4876ef;
+				color: white;
+				font-weight: bolder;
+				font-size: 17px;
+				cursor: pointer;
+			}
+			.MeMb-button:hover{
+				background-color: #FEC72F;
+				color: black;
+				font-weight: bolder;
+			}
+			.MeMb-bot-log{
+				margin-top: 85px;
+				text-align: center;
+				width: 250px;
+				font-size: 14px;
+				font-weight: bolder;
+			}
+			.MeMb-simp{
+				width: 420px; height: 50px;
+				margin-top: 5px;
+				margin-left: 45px;
+				border: 1px solid black;
+			}
+			.MeMb-bot{
+				margin-top: 15px;
+				text-align: center;
+				width: 250px;
+				color: rgb(177, 162, 162);
+				font-size: 12px;
+				font-weight: bolder;
+				cursor: pointer;
+			}
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+
+    <link rel="shortcut icon" href="#">
+
+    <section>
+        <div class="MeMb-div">
+            <div class="MeMb-div-logo"></div>
+        </div>
+        <div class="MeMb-div2">
+            <h1 class="MeMb-login">로그인</h1>
+            <h4 class="MeMb-go-siup">신규 사용자이신가요? <a href="/members/new">계정 만들기</a></h4>
+            <form class="MeMb-login-form" action="/members/login" method="POST">
+                <div>
+                    <input class="MeMb-email" id="username" type="text" name="username" placeholder="이메일을 입력해주세요">
+                </div>
+                <div>
+                    <input class="MeMb-pass" id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요">
+                </div>
+                <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+                <div>
+                    <input class="MeMb-button" type="submit" value="로그인">
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            </form>
+            <div class="MeMb-bot-log">
+                SNS 계정으로 간편 로그인/회원가입
+            </div>
+            <div class="MeMb-simp">
+                <a href="javascript:void(0)">
+                    <span><img src="./../img/kakao_login_medium_narrow.png"></span>
+                </a>
+                <p id="token-result"></p>
+                <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+                <script type="text/javascript">
+                    Kakao.init('41ec70f03f68b4fdbd6ba07942477fec');
+                    console.log(Kakao.isInitialized());
+                    Kakao.Auth.login({
+                      success: function (response) {
+                        Kakao.API.request({
+                          url: '/v2/user/me',
+                          success: function (response) {
+                              console.log(response)
+                          },
+                          fail: function (error) {
+                            console.log(error)
+                          },
+                        })
+                      },
+                      fail: function (error) {
+                        console.log(error)
+                      },
+                    })
+                </script>
+            </div>
+            <div class="MeMb-simp">
+                <a id="naverIdLogin_loginButton" href="javascript:void(0)">
+                    <span>네이버 로그인</span>
+                </a>
+                <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+
+                <script>
+
+                    var naverLogin = new naver.LoginWithNaverId(
+                            {
+                                clientId: "A8_pL4hW_2TXiQI31XqT",
+                                callbackUrl: "http://localhost:8880/members/login",
+                                isPopup: false,
+                                callbackHandle: true
+                            }
+                        );
+
+                    naverLogin.init();
+
+                    window.addEventListener('load', function () {
+                        naverLogin.getLoginStatus(function (status) {
+                            if (status) {
+                                var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
+
+                                console.log(naverLogin.user);
+
+                                if( email == undefined || email == null) {
+                                    alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+                                    naverLogin.reprompt();
+                                    return;
+                                }
+                            } else {
+                                console.log("callback 처리에 실패하였습니다.");
+                            }
+                        });
+                    });
+
+
+                    var testPopUp;
+                    function openPopUp() {
+                        testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+                    }
+                    function closePopUp(){
+                        testPopUp.close();
+                    }
+
+                    function naverLogout() {
+                        openPopUp();
+                        setTimeout(function() {
+                            closePopUp();
+                            }, 1000);
+                    }
+                    </script>
+            </div>
+            <div class="MeMb-bot">
+                로그인에 문제가 있으신가요?
+            </div>
+        </div>
+    </section>
+</div>
+
+</html>

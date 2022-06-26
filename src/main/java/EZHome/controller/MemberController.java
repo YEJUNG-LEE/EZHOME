@@ -33,20 +33,20 @@ public class MemberController {
 
     @GetMapping(value = "/login")
     public String loginMember(){
-        return "member/memberLoginForm" ;
+        return "member/customer/memberLoginForm" ;
     }
 
     @GetMapping(value = "/login/error")
     public String loginError(Model model){
         model.addAttribute("loginErrorMsg", "이메일 또는 비밀번호를 확인해 주세요.") ;
-        return "member/memberLoginForm" ;
+        return "member/customer/memberLoginForm" ;
     }
 
     @GetMapping(value = "/new")
     public String memberForm(Model model){
 
         model.addAttribute("memberFormDto", new MemberFormDto());
-        return "member/memberForm";
+        return "member/customer/memberForm";
     }
 
     private final MemberService memberService ;
@@ -59,7 +59,7 @@ public class MemberController {
         if(bindingResult.hasErrors()){
 //            System.out.println("요호서안 걸림");
 //            System.out.println(memberFormDto.toString());
-            return "member/memberForm" ;
+            return "member/customer/memberForm" ;
         }
 //        System.out.println("요호서안 안걸림");
 
@@ -68,7 +68,7 @@ public class MemberController {
             memberService.saveMember(member) ;
             return "redirect:/" ; // 메인 페이지로 이동
         }catch (IllegalStateException e){
-            return "member/memberForm" ;
+            return "member/customer/memberForm" ;
         }
     }
 }
