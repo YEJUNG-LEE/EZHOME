@@ -21,23 +21,22 @@ public class ReImgService {
     private FileService fileService;
 
 
-    // 상품에 대한 이미지 정보 저장
+    // 상품에 대한 이미지 정보를 저장해줍니다.
     public void savedItemImg(ReImg reImg, MultipartFile itemImgFile) throws Exception{
 
-        String oriImgName = itemImgFile.getOriginalFilename() ; // 업로드 했던 이미지의 원본파일 이름
-        String imgName =""; // uuid 형식의 저장된 이미지 이름
-        String imgUrl = "" ; // 상품 이미지 불러 오는 경로
+        String reOriNm = itemImgFile.getOriginalFilename() ; // 업로드 했던 이미지의 원본파일 이름
+        String reImgNm =""; // uuid 형식의 저장된 이미지 이름
+        String reImgUrl = "" ; // 상품 이미지 불러 오는 경로
 
         //StringUtils(.thymeleaf)
-        if(!StringUtils.isEmpty(oriImgName)){  // 원본 파일 이름이 있으면 업로드 하기
-            imgName = fileService.uploadFile(itemImgLocation, oriImgName, itemImgFile.getBytes());
-            imgUrl = "/images/item/" + imgName ;
+        if(!StringUtils.isEmpty(reOriNm)){  // 원본 파일 이름이 있으면 업로드 하기
+            reImgNm = fileService.uploadFile(itemImgLocation, reOriNm, itemImgFile.getBytes());
+            reImgUrl = "/images/item/" + reImgNm ;
 
         }
         // 상품 이미지 정보를 저장합니다.
-        reImg.updateItemImg(oriImgName, imgName, imgUrl);
-
-        ReEsImgRepository.save(reImg);
+        reImg.updateItemImg(reOriNm, reImgNm, reImgUrl);
+        reEsImgRepository.save(reImg);
     }
 
 }
