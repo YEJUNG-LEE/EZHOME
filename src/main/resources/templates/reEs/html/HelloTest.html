@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<th:block layout:fragment="css">
+    <style>
+        header{
+            height:90px;
+            border: 1px solid black;
+            }
+
+        .ReEs-insert-wrap{
+            border: 1px solid black;
+            width: 1280px;
+            height: 1500px;
+            margin: auto;
+            background-color: #f8f8f8;
+        }
+        .ReEs-insert-header{
+            width: 1100px;
+            padding-top: 35px;
+            box-sizing: border-box;
+            height:130px;
+            border: 0px solid red;
+            margin: auto;
+        }
+        .ReEs-insert-SetRoom{
+            width: 1000px;
+            padding-top: 25px;
+            box-sizing: border-box;
+            height:90px;
+            border: 0px solid blue;
+            margin: auto;
+
+
+        }
+
+        .ReEs-insert-h2{
+            padding-top: 35px;
+            box-sizing: border-box;
+            font-size: 24px;
+            border: 1px solid black;
+            margin: auto;
+            padding: 20px 0 20px 0;
+        }
+        .ReEs-insert-box{
+            width: 220px;
+            height: 50px;
+            font-size: 20px;
+            padding-top: 5px;
+            text-align: center;
+            display: inline-block;
+            margin-right: 25px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            margin-top: 20px;
+            border-radius: 3px;
+
+        }
+
+        .ReES-insert-form{
+            border: 1px solid black;
+            width: 1000px;
+            height: 1200px;
+            margin: auto;
+            box-sizing: border-box;
+            margin-top: 30px;
+            background-color: #FFFFFF;
+            padding: 15px;
+
+        }
+        .ReEs-insert-table{
+            margin-top: 20px;
+            width: 970px;
+            margin: auto;
+        }
+        .ReEs-insert-tr{
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: auto;
+        }
+        .ReEs-insert-th{
+            height:20px;
+                width: 50px;
+                padding: 20px 0 0 20px;
+                font-weight: 700;
+                font-size: 14px;
+                color: #333;
+                line-height: 20px;
+                vertical-align: top;
+                text-align: left;
+                padding-top: 29px;
+                border: 1px solid black;
+        }
+        .ReEs-insert-td{
+            width:481px;
+                height:74px;
+                text-align: left;
+                border: 1px solid black;
+        }
+        .ReEs-insert-td03{
+            width:481px;
+                height:74px;
+                text-align: left;
+
+        }
+        .ReEs-insert-input, .ReEs-insert-select, .ReEs-insert-inputlg{
+            width:100px;
+                height: 44px;
+                padding: 0 14px;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                border-radius: 3px;
+                margin-left: 20px;
+        }
+        .ReEs-insert-select{
+            width:130px;
+        }
+        .ReEs-insert-inputlg{
+            width: 160px;
+            margin-left: 10px;
+        }
+        .ReEs-insert-inputsm{
+            width: 30px;
+            height: 44px;
+                padding: 0 14px;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                border-radius: 3px;
+                margin-left: 5px;
+        }
+        .ReEs-insert-detailAddress{
+            padding:15px;float: left; width:400px;height:250px;  margin-right: 15px;
+        }
+        .ReEs-insert-map{
+            padding:10px; float: left; width:300px;height:200px; border:1px solid black; margin-top: 15px; border-radius: 3px;
+        }
+        .ReEs-insert-li{
+            list-style: none; font-size:12px
+        }
+        .ReEs-insert-btnsm{
+            width: 73px;
+            height: 44px;
+                padding: 0 14px;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                border-radius: 3px;
+                vertical-align: middle;
+                display: inline-flex;
+                padding-top: 10px;
+        }
+        .ReEs-insert-nowfloor , .ReEs-insert-totalfloor{
+            padding:10px 0 6px 0;
+            margin-left:20px;
+        }
+        p{margin:0 0 0 20px;}
+
+    </style>
+</th:block>
+<div layout:fragment="content">
+    <header></header>
+    <div class="ReEs-insert-wrap">
+        <div class="ReEs-insert-header">
+            <h2 class="ReEs-insert-h2">방 등록하기</h2>
+        </div>
+        <div class="ReEs-insert-SetRoom">
+            <button class="ReEs-insert-box ReEs-room01">빌라/주택</button>
+            <button class="ReEs-insert-box ReEs-room02">오피스텔</button>
+            <button class="ReEs-insert-box ReEs-room03">아파트</button>
+            <!--상가/ 사무실은 disabled-->
+            <button class="ReEs-insert-box ReEs-room04" disabled >상가/사무실</button>
+        </div>
+        <form class="ReES-insert-form" method="post" role="form" action="/ReItem/InfoDetail" th:object="${ReFormDto}">
+            <h3>방정보</h3>
+            <table class="ReEs-insert-table">
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">매물유형</th>
+                    <td class="ReEs-insert-td">
+                        <!--빌라/주택일 때 -> 원룸, 투룸,쓰리룸-->
+                        <select class="ReEs-insert-select" id ="room01" th:field="*{rehouseType}">
+                            <option value="oneRoom">원룸</option>
+                            <option value="twoRoom">투룸</option>
+                            <option value="threeRoom">쓰리룸</option>
+                        </select>
+                        <!--오피스텔일때 -> 오피스텔 selected-->
+                        <input class="ReEs-insert-input" type="text" name="room02" readonly placeholder="오피스텔">
+                        <!--아파트일때 ->  아파트 selected-->
+                        <input class="ReEs-insert-input" type="text" name="room03" readonly placeholder="아파트">
+                        <!--상가/ 사무실은 readyonly-->
+                        <input class="ReEs-insert-input" type="text" name="room03" readonly placeholder="상가/사무실">
+                        <p th:if="${#fields.hasErrors('rehouseType')}" th:errors="*{rehouseType}" class="fieldError">Incorrect data</p>
+                    </td>
+                </tr>
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">매물번호</th>
+                    <td class="ReEs-insert-td"><input class="ReEs-insert-input" type="text" th:field="*{reNum}" placeholder="매물번호">
+                        <p th:if="${#fields.hasErrors('reNum')}" th:errors="*{reNum}" class="fieldError">Incorrect data</p>
+                    </td>
+                </tr>
+
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">소재지</th>
+                    <td class="ReEs-insert-td">
+                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="${reSido}">
+                            <option value="-">시/도</option>
+                            <option value="sodo01">경기도</option>
+                            <option value="sodo02">서울특별시</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reSido')}" th:errors="*{reSido}" class="fieldError">Incorrect data</p>
+
+                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="${reGungu}">
+                            <option value="-">시/군/구</option>
+                            <option value="gungu01">금천구</option>
+                            <option value="gungu02">금천구</option>
+                            <option value="gungu03">금천구</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
+
+                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="${reDong}">
+                            <option value="-">읍/면/동</option>
+                            <option value="dong01">가산동</option>
+                            <option value="dong02">가산동</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
+                    </td>
+                </tr>
+                <tr class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">상세주소</th>
+                    <td class="ReEs-insert-td">
+                        <div class="ReEs-insert-detailAddress">
+                            <input class="ReEs-insert-inputlg" type="text" th:field="${reDtl_Adr}" placeholder="동, 호수를 입력해주세요">
+                            <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>
+                            <ul class="ReEs-insert-ul" style="margin-left: -40px;">
+                                <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
+                                <li class="ReEs-insert-li">2.상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
+                                <li class="ReEs-insert-li">* 동/호 정보는 수정이 불가능합니다. 등기부에 나와있는 동/호수를 정확히 입력해주세요</li>
+                                <li class="ReEs-insert-li">* 상세주소부분에 등기부등본 상의 부동산 소재지번 내용을 입력하시면 빠르고 정확한 매물 등록이 가능합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="ReEs-insert-map">등록하실 매물의 위치를 지도로 표시합니다</div>
+                    </td>
+                </tr>
+
+                <tr class="ReEs-insert-">
+
+                    <td class="ReEs-insert-td02" style="border: 1px solid black;">
+                        <table style="border: 1px solid blue; margin: auto;box-sizing: border-box;">
+                            <tr class="ReEs-insert-tr">
+                                <th class="ReEs-insert-th02" style="text-align: center;">방 개수</th>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td class="ReEs-insert-td">
+                        <table>
+                            <tr class="ReEs-insert-tr">
+                                <td class="ReEs-insert-td" style="width:550px; border: 0px solid black;">
+                                    <label style="margin-left: 20px;">침실 : </label>
+                                    <input class="ReEs-insert-inputsm" type="text" th:field="*{reRoomcnt}">&nbsp;&nbsp;개
+                                </td>
+                                <th class="ReEs-insert-th02" style="border: 1px solid rgb(161, 160, 160); width: 120px; height:83.2px; box-sizing: border-box; text-align: center;">욕실 개수</th>
+                                <td class="ReEs-insert-td03">
+                                    <label style="margin-left: 20px;">욕실 : </label>
+                                    <input class="ReEs-insert-inputsm" type="text" th:field="*{reBathcnt}">&nbsp;&nbsp;개
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+
+
+                <!-- <tr class="ReEs-insert-">
+
+                    <td class="ReEs-insert-td02" style="border: 1px solid black;">
+                        <table style="border: 1px solid blue; margin: auto;box-sizing: border-box;">
+                            <tr class="ReEs-insert-tr">
+                                <th class="ReEs-insert-th02" style="text-align: center;">방 개수</th>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td class="ReEs-insert-td">
+                        <table>
+                            <tr class="ReEs-insert-tr">
+                                <td class="ReEs-insert-td" style="width:550px; border: 0px solid black;">
+                                    <label style="margin-left: 20px;">침실 : </label>
+                                    <input class="ReEs-insert-inputsm" type="text" name="ReEs-countRoom">&nbsp;&nbsp;개
+                                </td>
+                                <th class="ReEs-insert-th02" style="border: 1px solid rgb(161, 160, 160); width: 120px; height:83.2px; box-sizing: border-box; text-align: center;">욕실 개수</th>
+                                <td class="ReEs-insert-td03">
+                                    <label style="margin-left: 20px;">욕실 : </label>
+                                    <input class="ReEs-insert-inputsm" type="text" name="ReEs-countBath">&nbsp;&nbsp;개
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr> -->
+                <tr rowspan="2" class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">층수</th>
+                    <td class="ReEs-insert-td">
+                        <div class="ReEs-insert-nowfloor">
+                            <label>해당층 : </label>
+                            <input class="ReEs-insert-inputsm" type="text" th:field="*{reFlr}">&nbsp;&nbsp;층
+                            <p th:if="${#fields.hasErrors('reFlr')}" th:errors="*{reFlr}" class="fieldError">Incorrect data</p>
+
+                            <br>
+                            <label>기타 사항</label><br>
+                            <input th:field="*{reSecndFlr}" type='radio' name='fruits' value='apple' />복층
+                            <input th:field="*{reTopFlr}" type='radio' name='fruits' value='banana' />옥탑방
+                            <input th:field="*{reUndrflr}" type='radio' name='fruits' value='orange' />반지하
+
+
+<!--                            <button class="ReEs-insert-btnsm" th:field="*{reSecndFlr}">복층</button>-->
+<!--                            <button class="ReEs-insert-btnsm" th:field="*{reTopFlr}">옥탑방</button>-->
+<!--                            <button class="ReEs-insert-btnsm" th:field="*{reUndrflr}">반지하</button>-->
+                        </div>
+                        <div class="ReEs-insert-totalfloor" >
+                            <label>전체층 : </label>
+                            <input class="ReEs-insert-inputsm" type="text" th:field="*{reTotalFlr}">&nbsp;&nbsp;층
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div th:if="${#strings.isEmpty(ReFormDto.id)}" style="text-align: center">
+                <button th:formaction="@{/admin/item/new}" type="submit" class="btn btn-primary">저장</button>
+            </div>
+            <div th:unless="${#strings.isEmpty(ReFormDto.id)}" style="text-align: center">
+                <button th:formaction="@{'/admin/item/' + ${ReFormDto.id} }" type="submit" class="btn btn-primary">수정</button>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>
+</html>
