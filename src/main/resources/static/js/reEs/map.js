@@ -2,12 +2,19 @@ $(document).ready(function(){
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng(37.5066103, 126.9783882), // 지도의 중심좌표
-            level: 7 // 지도의 확대 레벨
+            level: 6 // 지도의 확대 레벨
         };
 
     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    // 지도의 현재 레벨을 얻어옵니다
+    var level = map.getLevel();
+
+    var polygons=[];
+    var customOverlays=[];
+    var si = 5;
 
     // 행정구역 구분(구)
+    deletePolygon(polygons, customOverlays);
     $.getJSON("json/sig.geojson", function(geojson){
         var data = geojson.features;
         var coordinates = []; // 좌표 저장할 배열
@@ -21,8 +28,40 @@ $(document).ready(function(){
         })
     })
 
+    // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+    kakao.maps.event.addListener(map, 'zoom_changed', function() {
+        if(map.getLevel() >= si && level < si){
+            // 행정구역 구분(구)
+            deletePolygon(polygons, customOverlays);
+            $.getJSON("json/sig.geojson", function(geojson){
+                var data = geojson.features;
+                var coordinates = []; // 좌표 저장할 배열
+                var name = '';  //행정 구 이름
 
-    var polygons=[];
+                $.each(data, function(index, val){
+                    coordinates = val.geometry.coordinates;
+                    name = val.properties.SIG_KOR_NM;
+                    console.log(name);
+                    displayArea(coordinates, name);
+                })
+            })
+        }else if(map.getLevel() < si && level >= si){
+            deletePolygon(polygons, customOverlays);
+            $.getJSON("json/emd.geojson", function(geojson){
+                var data = geojson.features;
+                var coordinates = []; // 좌표 저장할 배열
+                var name = '';  //행정 구 이름
+
+                $.each(data, function(index, val){
+                    coordinates = val.geometry.coordinates;
+                    name = val.properties.EMD_KOR_NM;
+                    console.log(name);
+                    displayArea(coordinates, name);
+                })
+            })
+        }
+        level = map.getLevel();
+    });
 
     // 행정구역 폴리곤
     function displayArea(coordinates, name){
@@ -59,9 +98,9 @@ $(document).ready(function(){
         });
 
         // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다.
-        kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent){
-            customOverlay.setPosition(mouseEvent.latLng);
-        });
+//        kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent){
+//            customOverlay.setPosition(mouseEvent.latLng);
+//        });
 
         // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다.
         // 커스텀 오버레이를 지도에서 제거합니다.
@@ -69,28 +108,28 @@ $(document).ready(function(){
             polygon.setOptions({
                 fillColor:'#fff'
             });
-            customOverlay.setMap(null);
         });
 
         // 다각형에 click 이벤트를 등롟하고 이벤트가 발생하면 해당 지역을 확대합니다.
         kakao.maps.event.addListener(polygon, 'click', function(){
-            // 현재 지도 레벨에서 2레벨 확대한 레벨
-            var level = map.getLevel()-2;
+            // 읍면동으로 이동
+            var emd = 4;
 
             // 지도를 클릭된 폴리곤의 중앙 위치를 기준으로 확대합니다
-            map.setLevel(level, {anchor: centroid(points), animate:{
+            map.setLevel(emd, {anchor: centroid(points), animate:{
                 duration: 350 // 확대시 애니메이션 시간
             }});
-
-            deletePolygon(polygons);    // 폴리곤 제거
         });
 
-        var content = '<div class ="label"><span class="left"></span><span class="center">name</span><span class="right"></span></div>';
+        // 이부분이 제일 중요합니다
+        // 47 부분을 어디서 가져올건지 확인하면 됨
+        var content = '<div class ="customOverlay"><span class="left">'+ 47 +'</span><span class="center">' + name + '</span><span class="right"></span></div>';
         // 시, 구를 표시해주는 커스텀 오버레이를 생성합니다.
         var customOverlay = new kakao.maps.CustomOverlay({
             position:centroid(points),
-            content:name
+            content:content
         });
+        customOverlays.push(customOverlay)
 
         customOverlay.setMap(map);
     }
@@ -114,11 +153,14 @@ $(document).ready(function(){
         return new kakao.maps.LatLng(x / area, y / area);
     }
 
-
-    function deletePolygon(polygons){
+    function deletePolygon(polygons, customOverlays){
         for(var i = 0; i<polygons.length; i++){
             polygons[i].setMap(null);
         }
+        for(var i = 0; i<customOverlays.length; i++){
+            customOverlays[i].setMap(null);
+        }
         polygons = [];
+        customOverlays = [];
     }
 })
