@@ -1,5 +1,6 @@
 package EZHome.entity;
 
+import EZHome.dto.ContentFormDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -36,8 +37,11 @@ public class Content extends BaseEntity{
     @Column
     private String email;
 
-   // @Enumerated(EnumType.STRING)
-    //private ContentLikeStatus contentLikeStatus;
-
-//    public void updateContent()
+    public void updateContent(ContentFormDto contentFormDto){
+        this.title = title;
+        this.email = email;
+        this.main_text = main_text;
+        this.category = category;
+        this.tags = tags;
+    }
 }

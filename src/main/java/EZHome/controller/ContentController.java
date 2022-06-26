@@ -7,11 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import javax.xml.ws.Service;
 import java.util.List;
 
 @Controller
@@ -39,5 +42,18 @@ public class ContentController {
         }
         return "redirect:/";
     }
+
+    // 게시글 디테일 파트
+//    @GetMapping(value = "CoMm/content/{content_id}")
+//    public String conentDtl(@PathVariable("content_id") Long content_Id, Model model){
+//        try{
+//            ContentFormDto contentFormDto = contentService.getContentDtl(content_Id);
+//            model.addAttribute("contentFormDto", contentFormDto);
+//        }catch(EntityNotFoundException e){
+//            model.addAttribute("errorMessage", "존재하지 않는 게시글입니다.");
+//            model.addAttribute("contentFormDto", new ContentFormDto());
+//        }
+//        return "community/CoMm-detail";
+//    }
 
 }

@@ -1,6 +1,7 @@
 package EZHome.service;
 
 import EZHome.dto.ContentFormDto;
+import EZHome.dto.ContentImgDto;
 import EZHome.entity.Content;
 import EZHome.entity.ContentImg;
 import EZHome.repository.ContentImgRepository;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.LongStream;
 
@@ -42,6 +45,20 @@ public class ContentService {
 
     private final ContentImgRepository contentImgRepository;
 
-    //@Transactional(readOnly = true)
-    //public ContentFormDto getContentDtl
+//    @Transactional(readOnly = true)
+//    public ContentFormDto getContentDtl(Long content_id){
+//        List<ContentImg> contentImgList = contentImgRepository.findByContentIdOrderByIdAsc(content_id);
+//        List<ContentImgDto> contentImgDtoList = new ArrayList<ContentImgDto>();
+//
+//        for(ContentImg contentImg : contentImgList){
+//            ContentImgDto contentImgDto = ContentImgDto.of(contentImg);
+//            contentImgDtoList.add(contentImgDto);
+//        }
+//        Content content = contentRepository.findById(content_id)
+//                .orElseThrow(EntityNotFoundException::new);
+//        ContentFormDto contentFormDto = ContentFormDto.of(content);
+//        contentFormDto.setContentImgDtoList(contentImgDtoList);
+//
+//        return contentFormDto;
+//    }
 }

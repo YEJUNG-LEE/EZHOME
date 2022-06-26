@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/service/SeCe-not.css" type = "text/css">
+    <link rel="stylesheet" th:href="@{/css/service/SeCe-not.css}" type = "text/css">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type = "text/javascript">
         $("document").ready(function(){
             $(".SeCe-not-ct").click(function(){
-                $(".SeCe-not-in").slideToggle("slow");
+                $(".SeCe-not-in").slideToggle("slo w");
             });
         });
     </script>
@@ -27,13 +27,13 @@
             </h1>
                 <ul class = "SeCe-main-ban">
                     <li>
-                        <a href = "#" th:href = "@{/service/SeCe-freq}">자주묻는 질문</a>
+                        <a href = "/service">자주묻는 질문</a>
                     </li>
                     <li>
-                        <a href = "#" th:href = "@{/service/SeCe-oto}">1:1 문의</a>
+                        <a href = "/service2">1:1 문의</a>
                     </li>
                     <li>
-                        <a href = "#" th:href = "@{/service/SeCe-not}">공지사항</a>
+                        <a href = "/service3">공지사항</a>
                     </li>
                 </ul>
             </div>

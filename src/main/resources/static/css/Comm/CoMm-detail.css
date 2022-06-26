@@ -272,10 +272,10 @@
 .CoMm-rep-ob{
     list-style: none;
 }
-#CoMm-rep-p1{
+.CoMm-rep-p1{
     font-size: 26px;
 }
-#CoMm-rep-p2{
+.CoMm-rep-p2{
     width: 1000px;
     float: left;
 }
