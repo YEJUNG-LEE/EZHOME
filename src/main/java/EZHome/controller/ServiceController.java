@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @RequiredArgsConstructor
 public class ServiceController {
-    @GetMapping(value = "/service1")
+    @GetMapping(value = "/service")
     public String services_freq(Model model){
         return "service/SeCe-freq";
     }
 
-    @GetMapping(value = "/service2")
-    public String services_not(Model model){
-        return "service/SeCe-not";
-    }
-
-    @GetMapping(value = "/service3")
-    public String services_oto(Model model){
-        return "service/SeCe-oto";
-    }
+//    @GetMapping(value = "/service2")
+//    public String services_not(Model model){
+//        return "service/SeCe-not";
+//    }
+//
+//    @GetMapping(value = "/service3")
+//    public String services_oto(Model model){
+//        return "service/SeCe-oto";
+//    }
 }

@@ -95,6 +95,9 @@ head{
     height: 497px;
     border-bottom: 1px solid #dedce5;
     resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
 }
 .CoMm-wr-sec:empty::before{
     content: attr(placeholder);

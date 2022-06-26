@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout1}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" th:href=@{"/css/Comm/CoMm-wr.css"} type = "text/css">
+<title>EZHome</title>
+<link rel="stylesheet" type="text/css" href="/css/Comm/CoMm-wr.css">
 <!--<link rel="stylesheet" th:href=@{"/comm/css/CoMm-wr.css"} type = "text/css">-->
 <th:block layout:fragment="script">
 
@@ -129,7 +128,7 @@
             <input class = "CoMm-wr-inp" type = "text" placeholder="제목을 입력해주세요." th:field="*{title}">
             <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="fieldError">Incorrect data</p>
             <div class = "CoMm-wr-pos">
-                <div >
+                <div>
                     <textarea class = "CoMm-wr-sec" th:field="*{main_text}"
                               style="overflow: auto;" placeholder="내용을 입력해주세요.&#10;&#10;*등록한 글은 커뮤니티에서 사용중인 닉네임으로 등록됩니다.&#10;*저작권 침해, 음란, 유해물, 기타 위법 자료 등을 게시할 경우 게시물은 경고없이 삭제 됩니다."></textarea>
                 </div>

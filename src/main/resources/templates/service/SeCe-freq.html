@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout1}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EZHome</title>
     <link rel="stylesheet" href="css/service/SeCe-freq.css" type = "text/css">
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 
@@ -32,13 +31,13 @@
             </h1>
                 <ul class = "SeCe-main-ban">
                     <li>
-                        <a href = "#" th:href = "@{/service/SeCe-freq}">자주묻는 질문</a>
+                        <a th:href = "@{/service/SeCe-freq}">자주묻는 질문</a>
                     </li>
                     <li>
-                        <a href = "#" th:href = "@{/service/SeCe-oto}">1:1 문의</a>
+                        <a th:href = "@{/service/SeCe-oto}">1:1 문의</a>
                     </li>
                     <li>
-                        <a href = "#" th:href = "@{/service/SeCe-not}">공지사항</a>
+                        <a th:href = "@{/service/SeCe-not}">공지사항</a>
                     </li>
                 </ul>
             </div>
