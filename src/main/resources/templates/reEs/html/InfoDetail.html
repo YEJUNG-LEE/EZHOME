@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+    <!--fontwesome CDN Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--css-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Side_broker_Info.css">
+    <link rel="stylesheet" href="Modal_reservation.css">
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link src="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+
+
+    </style>
+
+    <script>
+    $(document).ready(function(){
+        var menu_offset = $('.main-menu').offset();  //offset() : 반환하는 객체는 left와 top 속성제공
+
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > menu_offset.top) {
+                $('.main-menu').addClass('menu-fixed');
+            }else{
+                $('.main-menu').removeClass('menu-fixed');
+            }
+        });
+
+});
+    </script>
+</head>
+<body>
+<header></header>
+<section>
+    <!--모달창-->
+    <div id="modal">
+        <div class="modal_content">
+            <div class="modal_content_p1">
+                <div class="modal_header">
+                    <div class="modal_header_txt">
+                        <h2>상담예약</h2>
+                    </div>
+                    <div class="modal_header_btn">
+                        <button type="button" id="modal_close_btn">
+                            <img aria-hidden="true" src="images/icon-close-black.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="modal_content02">
+                    <div>
+                        <div class="modal_content02_info">
+                            부동산 정보
+                        </div>
+                        <div class="modal_content02_phone">
+                            <div class="txtPhone" style="margin-bottom: 7px; color:#000; letter-spacing:-0.43px; font-size:14px;">연락받으실연락처를 남겨주세요</div>
+                            <div>
+                                <input id="getPhoneNm" type="text" placeholder="휴대폰번호를 입력해주세요">
+                            </div>
+                        </div>
+                        <div class="modal_content02_agree">
+                            <div id="privacy-policies">
+                                <div style="display: flex; flex-direction: column; justify-content: space-between; color: #666;">
+
+                                    <p style="color: #000; font-size: 14px; font-weight: unset; margin-bottom: 10px; letter-spacing: -0.43px;">
+                                        상담예약을 위해 아래 약관에 동의해주세요
+                                    </p>
+                                    <div class="privacy-policies-content" style="height: 6.3rem; padding: 15px; border-radius: 2px; border: solid 1px #d0d0d0;font-size:12px;">
+
+                                        <div style="overflow:scroll; width:250px; height:100px;">
+                                            <p>개인정보 수집 및 이용에 관한 동의</p>
+                                            <p>피터팬의 좋은방 구하기 상담예약 서비스(이하 "서비스")와 관련하여, 본인의 개인정보를 아래와 같이 수집 및 이용에 대해 동의합니다.</p>
+                                            <ul>
+                                                <li>수집목적 : 상담예약  서비스 운영</li>
+                                                <li>수집항목 :  연락처</li>
+                                                <li>보유기간 : 목적달성시까지(단, 법령에서 따로 정하는 경우 해당기간 동안 보관)</li>
+                                            </ul>
+                                            <div>※ 본 서비스 이용을 위한 필수적 동의이므로, 동의를 하지 않을 경우 해당 서비스를 이용하실 수 없습니다. 동의를 거부하는 경우라도 피터팬 좋은방 구하기 서비스 이용에는 영향이 없습니다.</div>
+                                        </div>
+                                    </div>
+                                    <div class="smsRightAgree" style="position:relative;">
+                                        <input class="check-agree" id="chk-agree" type="checkbox">
+                                        <label for="chk-agree" style="font-size: 12px;font-weight:normal !important; color: #363636; letter-spacing: -0.34px;">
+                                            <span>(필수) 개인정보취급방침 및 운영원칙에 동의</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal_content03">
+                    <div class="modal_content03_favnum">
+                        <div class="favnum01">
+                            <span>관심매물번호</span>
+                            <span>123456</span>
+                        </div>
+                    </div>
+                    <div class="calendar">
+                        <div class="modal-month">
+                            <label for="month_label">월</label>
+                            <select id="month">
+                                <option value="5월">5월</option>
+                                <option value="6월">6월</option>
+                                <option value="7월">7월</option>
+                            </select>
+                        </div>
+                        <div class="modal-week">
+                            <label for="week_label">요일</label>
+                            <select id="week">
+                                <option value="월">월</option>
+                                <option value="화">화</option>
+                                <option value="수">수</option>
+                            </select>
+                        </div>
+                        <div class="modal-day">
+                            <label for="day_label">일</label>
+                            <select id="day">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="modal-time">
+                            <label for="time_label">시간</label>
+                            <select id="time">
+                                <option value="11">11:00 ~ 12:00</option>
+                                <option value="12">12:00 ~ 13:00</option>
+                                <option value="13">13:00 ~ 14:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal_radio_anotherInFo">
+                        <div class="txtPhone" style="margin-bottom: 7px; color:#000; letter-spacing:-0.43px; font-size:14px;">다른 매물 보기</div>
+                        <div>
+                            <label class="label" >
+                                <input type="radio" name="selected" id="selected" value="selected"><span class="text">선택함</span>
+                            </label>
+                            <label class="label" >
+                                <input type="radio" name="noSelected" id="noSelected" value="noSelected"><span class="text">선택안함</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="summaryInfo">
+                        <div class="txtPhone" style="margin-bottom: 7px; color:#000; letter-spacing:-0.43px; font-size:14px;">매물 정보 요약</div>
+                        <div class="matchInfo">조건일치95%</div>
+                        <div class="priceInfo">가격정보</div>
+                        <div class="addressInfo">주소정보</div>
+                        <div class="conditionInfo">조건정보</div>
+                    </div>
+                </div>
+                <div id="modal_open_btn02">
+                    <button class="Modal-GoTo-book">상담예약하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal02">
+        <div class="modal_content">
+            <div class="modal_content_p2">
+
+                <div class="modal_header">
+                    <div class="modal_header_txt">
+                        <h2>예약완료</h2>
+                    </div>
+                    <div class="modal_header_btn">
+                        <button type="button" id="modal_close_btn02">
+                            <img aria-hidden="true" src="images/icon-close-black.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div style="border:1px solid black; box-sizing:border-box; font-size:20px; text-align:center; margin-bottom: 35px;">성공적으로 예약 되셨습니다!</div>
+                <div class="ReEs_recheck">
+                    부동산 예약정보
+                </div>
+
+                <div id="modal_open_btn03">
+                    <button class="GoTo-main" id="GoTo-Main">확인</button>
+                    <button class="GoTo-mypg" id="GoTo-MyPg" >문의내역보기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end 모달창-->
+
+    <div class="ReEs-div-detail-Wrap">
+        <div class="detail-header">
+            <div class="EzHo-Div10">95%일치</div>
+            <button class="Detail-singo">삭제하기</button>
+        </div>
+        <!--부동산이미지-->
+        <div class="swiper mySwiper container">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper ReEs-div-detail-PicWrap">
+                <div class="swiper-slide ReEs-div-detail-Pic">
+
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="images/img01.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide ReEs-div-detail-Pic">
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="images/img01.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide ReEs-div-detail-Pic">
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="images/img01.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide ReEs-div-detail-Pic">
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="images/img01.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end 부동산이미지-->
+
+        <!--부동산세부네비-->
+        <div class="ReEs-detail-navdiv">
+            <nav class="ReEs-detail-nav">
+                <div class="main-menu">
+                    <ul>
+                        <li><a href="#section1">가격정보</a></li>
+                        <li><a href="#section2">주변정보</a></li>
+                        <li><a href="#section3">주변정보</a></li>
+                        <li><a href="#section4">상세정보</a></li>
+                        <li><a href="#section5">위치/주변시설</a></li>
+                        <li><a href="#section6">지역평균비교</a></li>
+                        <li><a href="#section7">추천매물</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--end 부동산세부네비-->
+
+        <!--broker info-->
+        <div class="ReEs-broker-wrap">
+            <div class="broker01">중개</div>
+            <div class="broker02">매물번호 <span>123456789</span></div>
+            <div class="detail-price">
+                <div class="detail-price02">전세</div>
+                <div class="detail-price03">2억3900</div>
+            </div>
+            <div class="detail-sigudong">서울특별시 강서구 화곡동</div>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="ReEs-bropker-td">
+                                <span class="btn-flat">
+                                    <span>
+                                        <i class="fa-solid fa-heart fa-sm"></i>
+                                    </span>
+                                    <span class="inText">찜</span>
+                                </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="broker03">
+                <img src="images/ReEs01.jpg" alt="">
+                <div class="broker03-name">
+                    <div class="ReEs-Person-name">PersonNmae</div>
+                    <p class="ReEs-bk-detail">대표</p>
+                </div>
+            </div>
+            <div class="broker04">
+                <div class="ReEs-home-name">다온부동산공인중개사사무소</div>
+                <div class="ReEs-description">부동산 정보를 간단히 적어요 ! </div>
+                <ul class="broker04-ul">
+                    <li class="broker04-li">대표자 이정현 | 대표번호 02-2690-8549</li>
+                    <li class="broker04-li">뷰동산주소</li>
+                    <li class="broker04-li">중개사 등록번호 1111-11111-11111</li>
+                </ul>
+            </div>
+            <table class="broker-table">
+                <thead>
+                <tr>
+                    <th class="broker-th">거래완료</th>
+                    <th class="broker-th">등록매물</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="broker-td">659건</td>
+                    <td class="broker-td">12건</td>
+                </tr>
+                </tbody>
+            </table>
+            <button class="GoTo-book" id="modal_open_btn">상담예약</button>
+            <button class="GoTo-msg">채팅문의</button>
+        </div>
+        <!--end broker info-->
+
+        <!--부동산 콘텐츠-->
+        <div class="ReEs-div-Content01">
+            <div id="section1"></div>
+            <h2 class="ReEs-h2-detail">가격정보</h2>
+            <div class="ReEs-div-content02">
+                <table class="ReEs-table-detail">
+                    <tr>
+                        <th class="ReEs-tb-th">전세</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">2억5800</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">관리비 </th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">매월 5만원</p>
+                            <p class="textsize" id="idnull">청소비,승강기 유지비 기타</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">주차</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">가능(무료)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">단기임대</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">불가능</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">한달/예상 주거비용</th>
+
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">5만원</p>
+                            <p class="textsize" id="idnull">관리비</p>
+                            <p class="textsize" id="idnull">별도 금액으로 부과되는 항목 제외</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2 class="ReEs-h2-detail" id="section2">맞춤정보</h2>
+            <div class="ReEs-div-content03" >
+                <div class="EzHo-Div01-on">조건1</div>
+                <div class="EzHo-Div01-on">조건1</div>
+                <div class="EzHo-Div01-on">조건1</div>
+                <div class="EzHo-Div01-on">조건1</div>
+                <div class="EzHo-Div01-on">조건1</div>
+            </div>
+            <h2 class="ReEs-h2-detail">카테고리조건</h2>
+            <div class="ReEs-div-content04">
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+            </div>
+            <h2 class="ReEs-h2-detail">매물관련정보</h2>
+            <p class="ReEs-p-detail">이 매물의 주변 리뷰를 확인해봐요 !</p>
+            <div class="ReEs-div-content05" id="section3">
+                <div class="ReEs-near-Info"><a href="">이미지</a></div>
+                <div class="ReEs-near-Info"><a href="">이미지</a></div>
+                <div class="ReEs-near-Info"><a href="">이미지</a></div>
+                <div class="ReEs-near-Info"><a href="">이미지</a></div>
+                <div class="ReEs-near-Info"><a href="">이미지</a></div>
+            </div>
+            <p class="ReEs-p-detail">이미지 클릭시 주변 리뷰 페이지로 넘어갑니다</p><!--삭제 예정-->
+            <h2 class="ReEs-h2-detail">중개보수</h2>
+            <div class="ReEs-div-content06">
+                <table class="ReEs-table-detail">
+                    <tr>
+                        <th class="ReEs-tb-th">중개보수</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">1,032,000원</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">상한요율</th> <!--what is 상한 요율-->
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">0.4%</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2 class="ReEs-h2-detail">상세정보</h2>
+            <div class="ReEs-div-content07" id="section4">
+                <table class="ReEs-table-detail">
+                    <tr>
+                        <th class="ReEs-tb-th">건물이름</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">리젠트</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">방종류</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">오피스텔</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">해당층/건물층</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">11층/11층</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">전용계약면적</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">20.8m2</p>
+                            <p class="textsize" id="idnull">평수로 변경 기능 넣기</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">방수/욕실 수</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">1개/1개</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">방향</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">남향</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">난방종류</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">개별난방</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">빌트인</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">빌트인 주방</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">해당 면적 세대수</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">30세대</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="ReEs-tb-th">총 세대 수</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" id="idnull">50세대</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2 class="ReEs-h2-detail">옵션</h2>
+            <div class="ReEs-div-content08">
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+            </div>
+            <h2 class="ReEs-h2-detail">보안/안전시설</h2>
+            <div class="ReEs-div-content09">
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+            </div>
+            <h2 class="ReEs-h2-detail">위치 및 주변 시설</h2>
+            <div class="ReEs-div-content10" id="section5">
+                <p class="ReEs-p-detail02">서울시 은평구 역촌동 36-17 리젠트 1동</p>
+                <p class="ReEs-p-detail02">도로명으로 변경 기능 넣어주세요</p><!--삭제예정-->
+                <div class="ReEs-mapH-detail">지도가 들어갈 자리입니다</div>
+            </div>
+            <h2 class="ReEs-h2-detail">지역 평균 거래와 비교하기</h2>
+            <div class="ReEs-div-content11"  id="section6">
+                <div class="ReEs-graph-01">지역평균 거래 금액과 현재 매물 가격 그래프로 비교합니다</div>
+            </div>
+        </div>
+        <!--end부동산 콘텐츠-->
+
+        <!--부동산추천이미지-->
+        <h2 class="ReEs-h2-detail">추천매물</h2>
+        <div class="ReEs-div-content12" id="section7">
+            <div class="Re-recommand div-recomd01">
+                <a href="">2번매물로이동</a>
+                <p>보증금/월세</p>
+                <p>1000/25</p>
+            </div>
+            <div class="Re-recommand div-recomd02">
+                <a href="">2번매물로이동</a>
+                <p>보증금/월세</p>
+                <p>1000/25</p>
+            </div>
+            <div class="Re-recommand div-recomd03">
+                <a href="">2번매물로이동</a>
+                <p>보증금/월세</p>
+                <p>1000/25</p>
+            </div>
+
+        </div>
+        <!--end 부동산이미지-->
+
+    </div>
+
+
+
+
+    <script>
+            //삭제하기
+            $(".Detail-singo").click(function(){
+                alert('삭제하시겠습니까?');
+                //if문 넣어 삭제하기->db확인
+            });
+// detail img_slide
+        //<!-- Initialize Swiper -->
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween:15,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            });
+
+ // Modal 상담예약 01
+        $("#modal_open_btn").click(function(){
+        $("#modal").attr("style", "display:block");
+
+    });
+
+    $("#modal_close_btn").click(function(){
+        $("#modal").attr("style", "display:none");
+
+    });
+
+    $("#modal_close_btn02").click(function(){
+        $("#modal02").attr("style", "display:none");
+    });
+
+
+    $("#modal_open_btn02").click(function(){
+        $("#modal").attr("style", "display:none");
+        $("#modal02").attr("style", "display:block");
+
+
+    });
+
+// end Modal 상담예약
+        </script>
+
+
+</section>
+
+
+</body>
+</html>
