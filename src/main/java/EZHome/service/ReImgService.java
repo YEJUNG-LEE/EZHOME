@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+
 import org.thymeleaf.util.StringUtils;
 
 @Service
@@ -18,7 +19,7 @@ public class ReImgService {
     private String itemImgLocation; // 내가 올린 이미지가 업로드 되는 로컬 경로
 
     private final ReEsImgRepository reEsImgRepository;
-    private FileService fileService;
+    private final FileService fileService;
 
 
     // 상품에 대한 이미지 정보를 저장해줍니다.
