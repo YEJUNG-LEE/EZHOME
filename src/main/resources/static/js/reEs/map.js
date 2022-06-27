@@ -123,7 +123,7 @@ $(document).ready(function(){
 
         // 이부분이 제일 중요합니다
         // 47 부분을 어디서 가져올건지 확인하면 됨
-        var content = '<div class ="customOverlay"><span class="left">'+ 47 +'</span><span class="center">' + name + '</span><span class="right"></span></div>';
+        var content = '<div class ="customOverlay"><span class="leftNumber">'+ 47 +'</span><span class="center">' + name + '</span><span class="right"></span></div>';
         // 시, 구를 표시해주는 커스텀 오버레이를 생성합니다.
         var customOverlay = new kakao.maps.CustomOverlay({
             position:centroid(points),

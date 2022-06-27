@@ -32,36 +32,48 @@
 .ReEs-leftButton{
     box-sizing: border-box;
     position:absolute;
-    top:500px;
-    left:0px;
-    display:inline-block;
-    width:20px;
-    height:50px;
-    border-radius:1px;
-    border: 1px solid black;
-    background-color:white;
-    padding-top:6px;
-    font-size:25px;
+    top:25px;
+    left:25px;
+    background-color:#ededed;
+    border-color: #4b4b4b;
+    color: #4b4b4b;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 16px;
+    height: 32px;
+    min-width: 72px;
+    padding: 0 14px 0;
+    font-size: 15px;
+    font-weight: 700;
     text-align:center;
-    color:#4876EF;
+    padding-top:5px;
     z-index:999;
+}
+.ReEs-leftButton:hover{
+    background-color:#fff86d;
 }
 .ReEs-rightButton{
     box-sizing: border-box;
     position:absolute;
-    top:500px;
-    right:0px;
-    display:inline-block;
-    width:20px;
-    height:50px;
-    border-radius:1px;
-    border: 1px solid black;
-    background-color:white;
-    padding-top:6px;
-    font-size:25px;
+    top:25px;
+    right:25px;
+    background-color:#ededed;
+    border-color: #4b4b4b;
+    color: #4b4b4b;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 16px;
+    height: 32px;
+    min-width: 72px;
+    padding: 0 14px 0;
+    font-size: 15px;
+    font-weight: 700;
     text-align:center;
-    color:#4876EF;
+    padding-top:5px;
     z-index:999;
+}
+.ReEs-rightButton:hover{
+    background-color:#fff86d;
 }
 
 .ReEs-NaviOn{
@@ -76,7 +88,7 @@
     font-weight:600;
     text-align:center;
 }
-.left{
+.leftNumber{
     background-color:#387ccf;
     color:#FFFFFF;
     font-size:13px;
