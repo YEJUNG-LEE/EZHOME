@@ -8,11 +8,18 @@
 		<version>2.6.8</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
+	<groupId>com.EZ_HOME</groupId>
+	<artifactId>EZ_HOME</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>EZ_HOME</name>
+	<description>EZ_HOME project for Spring Boot</description>
 	<groupId>com.EZHome</groupId>
 	<artifactId>EZHome</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>EZHome</name>
 	<description>EZHome project for Spring Boot</description>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -99,6 +106,14 @@
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 	</dependencies>
 
