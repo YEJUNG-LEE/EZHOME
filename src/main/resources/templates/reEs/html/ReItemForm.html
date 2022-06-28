@@ -330,10 +330,10 @@
                             <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reTotalFlr}" placeholder="전체층수">
                                 <p th:if="${#fields.hasErrors('reTotalFlr')}" th:errors="*{reTotalFlr}" class="fieldError">Incorrect data</p>
                             </div>
-                            <input th:field="*{reSecndFlr}" type='radio' name='fruits' value='apple' />복층
-                            <input th:field="*{reTopFlr}" type='radio' name='fruits' value='banana' />옥탑방
-                            <input th:field="*{reUndrflr}" type='radio' name='fruits' value='orange' />반지하
-                            <input type='radio' name='fruits' value='orange' />선택안함
+                            <input th:checked="*{reSecndFlr}" type='radio'/>복층
+                            <input th:checked="*{reTopFlr}" type='radio'/>옥탑방
+                            <input th:checked="*{reUndrflr}" type='radio' />반지하
+                            <input type='radio' name='fruits'/>선택안함
                         </div>
                     </td>
                 </tr>
@@ -355,7 +355,7 @@
                         <div class="ReCs-button" id="ocean">오션View</div>
                         <div class="ReCs-button" id="city">시티View</div>
 
-                        <input type="hidden" name="full" value="false"/>
+                        <input type="hidden" name="full" value="false" th:field="*{full}"/>
                         <input type="hidden" name="debt" value="false"/>
                         <input type="hidden" name="elevator" value="false"/>
                         <input type="hidden" name="pet" value="false"/>
@@ -370,6 +370,45 @@
                         <input type="hidden" name="city" value="false"/>
                     </td>
                 </tr>
+
+<!--                <tr rowspan="2" class="ReEs-insert-tr">-->
+<!--                    <th class="ReEs-insert-th">카테고리</th>-->
+<!--                    <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">-->
+<!--                        <div class="ReCs-button" id="rePublic">공공기관</div>-->
+<!--                        <div class="ReCs-button" id="reMedic">의료시설</div>-->
+<!--                        <div class="ReCs-button" id="reCnvn">편의시설</div>-->
+<!--                        <div class="ReCs-button" id="reSchol">학교주변</div>-->
+<!--                        <div class="ReCs-button" id="reTeen">10대거주</div>-->
+<!--                        <div class="ReCs-button" id="reTwen">20대거주</div>-->
+<!--                        <div class="ReCs-button" id="reThirty">30대거주</div>-->
+<!--                        <div class="ReCs-button" id="reFourty">40대거주</div>-->
+<!--                        <div class="ReCs-button" id="reFifty">50대거주</div>-->
+<!--                        <div class="ReCs-button" id="reSixty">60대이상</div>-->
+<!--                        <div class="ReCs-button" id="reMainroad">대로변</div>-->
+<!--                        <div class="ReCs-button" id="reRocket">로켓배송</div>-->
+<!--                        <div class="ReCs-button" id="reFlat">경사완만</div>-->
+<!--                        <div class="ReCs-button" id="reSubway">역세권</div>-->
+<!--                        <div class="ReCs-button" id="rePark">공원</div>-->
+<!--                        <div class="ReCs-button" id="reRsdnt_Area">주택지구</div>-->
+
+<!--                        <input type="hidden" th:field="*{rePublic}" name="rePublic" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reMedic}" name="reMedic" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reCnvn}" name="reCnvn" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reSchol}" name="reSchol" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reTeen}" name="reTeen" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reTwen}" name="reTwen" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reThirty}" name="reThirty" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reFourty}" name="reFourty" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reFifty}" name="reFifty" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reSixty}" name="reSixty" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reMainroad}" name="reMainroad" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reRocket}" name="reRocket" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reFlat}" name="reFlat" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reSubway}" name="reSubway" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{rePark}" name="rePark" value="false"/>-->
+<!--                        <input type="hidden" th:field="*{reRsdnt_Area}" name="reRsdnt_Area" value="false"/>-->
+<!--                    </td>-->
+<!--                </tr>-->
 
 
                 <tr class="ReEs-insert-tr">
