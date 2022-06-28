@@ -49,6 +49,6 @@ public class ReService {
 
         } // end for다 ~
 
-        return reEs.getReid();
+        return reEs.getId();
     }
 }

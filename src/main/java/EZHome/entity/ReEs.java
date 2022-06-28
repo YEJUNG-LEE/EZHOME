@@ -13,42 +13,13 @@ import javax.persistence.*;
 public class ReEs {
 
 
-    // 매물에 대한 정보를 업데이트하는 비즈니스 로직을 구현합니다.
-    public void updateItem(ReFormDto reFormDto){
-        this.reNum = reFormDto.getReNum(); // 매물번호
-        this.rehouseType = reFormDto.getRehouseType(); // 매물유형
-        this.retrType=reFormDto.getRetrType(); // 매매유형
-        this.reMon_price = reFormDto.getReMon_price(); // 월세
-        this.reAdmn_fee = reFormDto.getReAdmn_fee(); // 관리비
-        this.reDeposit = reFormDto.getReDeposit(); // 보증금
-        this.reTrade = reFormDto.getReTrade(); // 매매가
-        this.reJeonse = reFormDto.getReJeonse(); //전세
-
-
-        this.reSido = reFormDto.getReSido(); //시도
-        this.reGungu = reFormDto.getReGungu(); // 군구
-        this.reDong = reFormDto.getReDong(); // 동
-        this.reDtl_Adr = reFormDto.getReDtl_Adr(); //상세주소
-
-        this.reRoomcnt = reFormDto.getReRoomcnt(); // 방개수
-        this.reBathcnt = reFormDto.getReBathcnt(); // 화장실개수
-        this.reExtent = reFormDto.getReExtent(); // 평수
-
-        this.reFlr = reFormDto.getReFlr(); // 층수
-        this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
-        
-        // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
-        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
-        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
-        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
-
-    }
 
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long reid ; // 매물 기본키 (FK)
+    @Column(name = "reId")
+    private Long id ; // 매물 기본키 (FK)
 
     @Column(unique = true) // 고유한 매물번호로 매물을 찾습니다.
     private int reNum;  // 매물 번호
@@ -117,6 +88,37 @@ public class ReEs {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
+
+    // 매물에 대한 정보를 업데이트하는 비즈니스 로직을 구현합니다.
+    public void updateItem(ReFormDto reFormDto){
+        this.reNum = reFormDto.getReNum(); // 매물번호
+        this.rehouseType = reFormDto.getRehouseType(); // 매물유형
+        this.retrType=reFormDto.getRetrType(); // 매매유형
+        this.reMon_price = reFormDto.getReMon_price(); // 월세
+        this.reAdmn_fee = reFormDto.getReAdmn_fee(); // 관리비
+        this.reDeposit = reFormDto.getReDeposit(); // 보증금
+        this.reTrade = reFormDto.getReTrade(); // 매매가
+        this.reJeonse = reFormDto.getReJeonse(); //전세
+
+
+        this.reSido = reFormDto.getReSido(); //시도
+        this.reGungu = reFormDto.getReGungu(); // 군구
+        this.reDong = reFormDto.getReDong(); // 동
+        this.reDtl_Adr = reFormDto.getReDtl_Adr(); //상세주소
+
+        this.reRoomcnt = reFormDto.getReRoomcnt(); // 방개수
+        this.reBathcnt = reFormDto.getReBathcnt(); // 화장실개수
+        this.reExtent = reFormDto.getReExtent(); // 평수
+
+        this.reFlr = reFormDto.getReFlr(); // 층수
+        this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
+
+        // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
+        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
+        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
+        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
+
+    }
 
 
 
