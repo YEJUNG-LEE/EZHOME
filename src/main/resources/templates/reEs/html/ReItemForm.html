@@ -102,8 +102,25 @@
                 height:74px;
                 text-align: left;
                 border: 1px solid black;
-
         }
+         .ReCs-button{
+            box-sizing:border-box;
+            margin-top:8px;
+            margin-right:5px;
+            width:110px;
+            height:35px;
+            border-radius:45px;
+            border:1px solid #b8b7bb;
+            background-color:#b8b7bb;
+            display:inline-block;
+            font-size:12px;
+            padding-top:7px;
+            letter-spacing:2px;
+            font-weight:600;
+            color:#858484;
+            text-align:center;
+        }
+
         .ReEs-insert-div{
             float:left
         }
@@ -303,11 +320,7 @@
                         <div class="ReEs-insert-div"><input class="ReEs-insert-input" type="text" th:field="*{reExtent}" placeholder="평수">
                             <p th:if="${#fields.hasErrors('reExtent')}" th:errors="*{reExtent}" class="fieldError">Incorrect data</p>
                         </div>
-
                 </tr>
-
-
-
 
                 <tr rowspan="2" class="ReEs-insert-tr">
                     <th class="ReEs-insert-th">층수</th>
@@ -323,10 +336,43 @@
                             <input th:field="*{reTopFlr}" type='radio' name='fruits' value='banana' />옥탑방
                             <input th:field="*{reUndrflr}" type='radio' name='fruits' value='orange' />반지하
                             <input type='radio' name='fruits' value='orange' />선택안함
-
                         </div>
                     </td>
                 </tr>
+                <tr rowspan="2" class="ReEs-insert-tr">
+                    <th class="ReEs-insert-th">맞춤</th>
+                    <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
+                        <div class="ReCs-button" id="newhouse">신축</div>
+                        <div class="ReCs-button" id="full">풀옵션</div>
+                        <div class="ReCs-button" id="debt">대출없음</div>
+                        <div class="ReCs-button" id="elevator">엘리베이터</div>
+                        <div class="ReCs-button" id="pet">반려동물</div>
+                        <div class="ReCs-button" id="security">보안기능</div>
+                        <div class="ReCs-button" id="parking">주차장</div>
+                        <div class="ReCs-button" id="south">남향</div>
+                        <div class="ReCs-button" id="bug">벌레퇴치업체</div>
+                        <div class="ReCs-button" id="woman">여성전용</div>
+                        <div class="ReCs-button" id="forest">숲View</div>
+                        <div class="ReCs-button" id="river">리버View</div>
+                        <div class="ReCs-button" id="ocean">오션View</div>
+                        <div class="ReCs-button" id="city">시티View</div>
+
+                        <input type="hidden" name="full" value="false"/>
+                        <input type="hidden" name="debt" value="false"/>
+                        <input type="hidden" name="elevator" value="false"/>
+                        <input type="hidden" name="pet" value="false"/>
+                        <input type="hidden" name="security" value="false"/>
+                        <input type="hidden" name="parking" value="false"/>
+                        <input type="hidden" name="south" value="false"/>
+                        <input type="hidden" name="bug" value="false"/>
+                        <input type="hidden" name="woman" value="false"/>
+                        <input type="hidden" name="forest" value="false"/>
+                        <input type="hidden" name="river" value="false"/>
+                        <input type="hidden" name="ocean" value="false"/>
+                        <input type="hidden" name="city" value="false"/>
+                    </td>
+                </tr>
+
 
                 <tr class="ReEs-insert-tr">
                     <!-- for insert -->
