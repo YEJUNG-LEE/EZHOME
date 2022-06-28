@@ -195,9 +195,8 @@
             <div  class="ReEs-insert-box ReEs-room03">3단계</div>
             <div class="ReEs-insert-box ReEs-room04" >4단계</div>
         </div>
-        <form class="ReES-insert-form" method="post" role="form" action="/ReItem/InfoDetail" th:object="${ReFormDto}">
+        <form class="ReES-insert-form" method="post" role="form" action="/reEs/InfoDetail" th:object="${ReFormDto}">
             <h3>방정보</h3>
-<!--            <input type = "hidden" th:field="*{reId}">-->
             <table class="ReEs-insert-table">
 
                 <tr class="ReEs-insert-tr">
@@ -261,7 +260,7 @@
                     <th class="ReEs-insert-th">소재지</th>
                     <td class="ReEs-insert-td">
                         <div class="ReEs-insert-div">
-                            <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="${reSido}">
+                            <select class="ReEs-insert-select" id ="ReES-insert-sido" th:selected="${reSido}">
                                 <option value="-">시/도</option>
                                 <option value="sodo01">경기도</option>
                                 <option value="sodo02">서울특별시</option>
@@ -270,7 +269,7 @@
                         </div>
 
                         <div class="ReEs-insert-div">
-                            <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="${reGungu}">
+                            <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:selected="${reGungu}">
                                 <option value="-">시/군/구</option>
                                 <option value="gungu01">금천구</option>
                                 <option value="gungu02">금천구</option>
@@ -280,7 +279,7 @@
                         </div>
 
                         <div class="ReEs-insert-div">
-                            <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="${reDong}">
+                            <select class="ReEs-insert-select" id ="ReES-insert-dong" th:selected="${reDong}">
                                 <option value="-">읍/면/동</option>
                                 <option value="dong01">가산동</option>
                                 <option value="dong02">가산동</option>
@@ -293,7 +292,7 @@
                     <th class="ReEs-insert-th">상세주소</th>
                     <td class="ReEs-insert-td">
                         <div class="ReEs-insert-detailAddress">
-                            <input class="ReEs-insert-inputlg" type="text" th:field="${reDtl_Adr}" placeholder="동, 호수를 입력해주세요">
+                            <input class="ReEs-insert-inputlg" type="text" th:field="*{reDtl_Adr}" placeholder="동, 호수를 입력해주세요">
                             <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>
                             <ul class="ReEs-insert-ul" style="margin-left: -40px;">
                                 <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
