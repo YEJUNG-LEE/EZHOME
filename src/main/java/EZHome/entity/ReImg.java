@@ -13,7 +13,7 @@ public class ReImg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "reId")
+    @Column(name = "reImgId")
     private Long Id;
 
     private String reImgNm; //UUID 형식으로 업로드된 이미지 파일 이름

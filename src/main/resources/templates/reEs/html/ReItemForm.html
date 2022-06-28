@@ -1,8 +1,6 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout1}">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -199,6 +197,7 @@
         </div>
         <form class="ReES-insert-form" method="post" role="form" action="/ReItem/InfoDetail" th:object="${ReFormDto}">
             <h3>방정보</h3>
+<!--            <input type = "hidden" th:field="*{reId}">-->
             <table class="ReEs-insert-table">
 
                 <tr class="ReEs-insert-tr">
