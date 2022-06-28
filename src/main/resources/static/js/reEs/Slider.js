@@ -28,6 +28,7 @@ $(document).ready(function(){
     // 조건, List 슬라이드입니다.
     $('.ReEs-leftButton').click(function(){
         $('.ReEs-rightButton').css('display', 'block')
+        $('.ReEs_List-rightButton').css('display','none');
         $('.ReEs_List').css('display', 'none');
         $('.ReEs-leftButton').toggle();
         $('.ReCS').animate({width:"toggle"},600);
