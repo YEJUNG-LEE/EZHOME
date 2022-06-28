@@ -337,39 +337,39 @@
                         </div>
                     </td>
                 </tr>
-                <tr rowspan="2" class="ReEs-insert-tr">
-                    <th class="ReEs-insert-th">맞춤</th>
-                    <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
-                        <div class="ReCs-button" id="newhouse">신축</div>
-                        <div class="ReCs-button" id="full">풀옵션</div>
-                        <div class="ReCs-button" id="debt">대출없음</div>
-                        <div class="ReCs-button" id="elevator">엘리베이터</div>
-                        <div class="ReCs-button" id="pet">반려동물</div>
-                        <div class="ReCs-button" id="security">보안기능</div>
-                        <div class="ReCs-button" id="parking">주차장</div>
-                        <div class="ReCs-button" id="south">남향</div>
-                        <div class="ReCs-button" id="bug">벌레퇴치업체</div>
-                        <div class="ReCs-button" id="woman">여성전용</div>
-                        <div class="ReCs-button" id="forest">숲View</div>
-                        <div class="ReCs-button" id="river">리버View</div>
-                        <div class="ReCs-button" id="ocean">오션View</div>
-                        <div class="ReCs-button" id="city">시티View</div>
+<!--                <tr rowspan="2" class="ReEs-insert-tr">-->
+<!--                    <th class="ReEs-insert-th">맞춤</th>-->
+<!--                    <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">-->
+<!--                        <div class="ReCs-button" id="newhouse">신축</div>-->
+<!--                        <div class="ReCs-button" id="full">풀옵션</div>-->
+<!--                        <div class="ReCs-button" id="debt">대출없음</div>-->
+<!--                        <div class="ReCs-button" id="elevator">엘리베이터</div>-->
+<!--                        <div class="ReCs-button" id="pet">반려동물</div>-->
+<!--                        <div class="ReCs-button" id="security">보안기능</div>-->
+<!--                        <div class="ReCs-button" id="parking">주차장</div>-->
+<!--                        <div class="ReCs-button" id="south">남향</div>-->
+<!--                        <div class="ReCs-button" id="bug">벌레퇴치업체</div>-->
+<!--                        <div class="ReCs-button" id="woman">여성전용</div>-->
+<!--                        <div class="ReCs-button" id="forest">숲View</div>-->
+<!--                        <div class="ReCs-button" id="river">리버View</div>-->
+<!--                        <div class="ReCs-button" id="ocean">오션View</div>-->
+<!--                        <div class="ReCs-button" id="city">시티View</div>-->
 
-                        <input type="hidden" name="full" value="false" th:field="*{full}"/>
-                        <input type="hidden" name="debt" value="false"/>
-                        <input type="hidden" name="elevator" value="false"/>
-                        <input type="hidden" name="pet" value="false"/>
-                        <input type="hidden" name="security" value="false"/>
-                        <input type="hidden" name="parking" value="false"/>
-                        <input type="hidden" name="south" value="false"/>
-                        <input type="hidden" name="bug" value="false"/>
-                        <input type="hidden" name="woman" value="false"/>
-                        <input type="hidden" name="forest" value="false"/>
-                        <input type="hidden" name="river" value="false"/>
-                        <input type="hidden" name="ocean" value="false"/>
-                        <input type="hidden" name="city" value="false"/>
-                    </td>
-                </tr>
+<!--                        <input type="hidden" name="full" value="false" th:field="*{full}"/>-->
+<!--                        <input type="hidden" name="debt" value="false"/>-->
+<!--                        <input type="hidden" name="elevator" value="false"/>-->
+<!--                        <input type="hidden" name="pet" value="false"/>-->
+<!--                        <input type="hidden" name="security" value="false"/>-->
+<!--                        <input type="hidden" name="parking" value="false"/>-->
+<!--                        <input type="hidden" name="south" value="false"/>-->
+<!--                        <input type="hidden" name="bug" value="false"/>-->
+<!--                        <input type="hidden" name="woman" value="false"/>-->
+<!--                        <input type="hidden" name="forest" value="false"/>-->
+<!--                        <input type="hidden" name="river" value="false"/>-->
+<!--                        <input type="hidden" name="ocean" value="false"/>-->
+<!--                        <input type="hidden" name="city" value="false"/>-->
+<!--                    </td>-->
+<!--                </tr>-->
 
 <!--                <tr rowspan="2" class="ReEs-insert-tr">-->
 <!--                    <th class="ReEs-insert-th">카테고리</th>-->
@@ -441,11 +441,11 @@
             </table>
             <div style="margin:auto; width:150px; ">
                 <div th:if="${#strings.isEmpty(ReFormDto.id)}"  style="float:left;">
-                    <button th:formaction="@{/admin/item/new}" type="submit" class="btn btn-primary">저장</button>
+                    <button th:formaction="@{/item/new}" type="submit" class="btn">저장</button>
                 </div>
-                <div th:unless="${#strings.isEmpty(ReFormDto.id)}" style="float:left;">
-                    <button th:formaction="@{'/admin/item/' + ${ReFormDto.id} }" type="submit" class="btn btn-primary">수정</button>
-                </div>
+<!--                <div th:unless="${#strings.isEmpty(ReFormDto.id)}" style="float:left;">-->
+<!--                    <button th:formaction="@{'/item/' + ${ReFormDto.id} }" type="submit" class="btn btn-primary">수정</button>-->
+<!--                </div>-->
             </div>
         </form>
     </div>
