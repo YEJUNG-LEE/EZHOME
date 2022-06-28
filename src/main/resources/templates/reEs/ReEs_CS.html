@@ -14,18 +14,14 @@
     <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
 </head>
 <body>
-    <div class="imsi-head">임시헤더</div>
-    <div class="imsi-navi">임시네비</div>
-    <div class="imsi-map">임시맵
-    </div>
     <div class="ReCS">
-        <div class="ReCs-div">
+        <div class="ReCs-subject">
             <div class="ReCs-select">
                 <div class="ReCs-sl-div ReCs-normal">
-                    <i class="fa-solid fa-user-large"></i><span>기본</span>
+                    <i class="fa-solid fa-house"></i><span>기본</span>
                 </div>
                 <div class="ReCs-sl-div ReCs-custom">
-                    <i class="fa-solid fa-crosshairs"></i><span>맞춤 / 카테고리</span>
+                    <i class="fa-solid fa-crosshairs"></i><span>맞춤/카테고리</span>
                 </div>
             </div>
         </div>
@@ -58,10 +54,10 @@
                 <div class="ReCs-button ReCs-One">옥탑방</div>
                 <div class="ReCs-button ReCs-TwoOrThree">반지하</div>
                 <div class="ReCs-Slider">
-                    <input type="range" id="floor-input-left" min="1" max="10" value="3" />
-                    <input type="range" id="floor-input-right" min="1" max="10" value="7" />
-                    
-                    <div class="floorSlider">
+                    <input type="range" id="cs-floor-input-left" min="1" max="10" value="3" />
+                    <input type="range" id="cs-floor-input-right" min="1" max="10" value="7" />
+
+                    <div class="cs-floorSlider">
                         <div class="track"></div>
                         <div class="range"></div>
                         <div class="thumb left"></div>
@@ -75,9 +71,10 @@
             <div class="ReCs-title">평수</div>
             <div class="ReCs-content">
                 <div class="ReCs-Slider">
-                    <input type="range" id="extent-input-left" min="1" max="40" value="10" />
-                    <input type="range" id="extent-input-right" min="1" max="40" value="30" />
-                    <div class="extentSlider">
+                    <input type="range" id="cs-extent-input-left" min="1" max="40" value="10" />
+                    <input type="range" id="cs-extent-input-right" min="1" max="40" value="30" />
+
+                    <div class="cs-extentSlider">
                         <div class="track"></div>
                         <div class="range"></div>
                         <div class="thumb left"></div>
@@ -85,16 +82,17 @@
                     </div>
                 </div>
                 <div class="ReCs-txt ReCs-extentSlider-txt"></div>
-                
+
             </div>
         </div>
         <div class="ReCs-div">
             <div class="ReCs-title">월세/관리비/보증금</div>
             <div class="ReCs-content" id="ReCs-cost">
                 <div class="ReCs-Slider">
-                    <input type="range" id="month-input-left" min="1" max="80" value="30" />
-                    <input type="range" id="month-input-right" min="1" max="80" value="60" />
-                    <div class="monthSlider">
+                    <input type="range" id="cs-month-input-left" min="1" max="80" value="30" />
+                    <input type="range" id="cs-month-input-right" min="1" max="80" value="60" />
+
+                    <div class="cs-monthSlider">
                         <div class="track"></div>
                         <div class="range"></div>
                         <div class="thumb left"></div>
@@ -103,9 +101,10 @@
                 </div>
                 <div class="ReCs-txt ReCs-monthSlider-txt"></div>
                 <div class="ReCs-Slider">
-                    <input type="range" id="manage-input-left" min="1" max="40" value="10" />
-                    <input type="range" id="manage-input-right" min="1" max="40" value="30" />
-                    <div class="manageSlider">
+                    <input type="range" id="cs-manage-input-left" min="1" max="40" value="10" />
+                    <input type="range" id="cs-manage-input-right" min="1" max="40" value="30" />
+
+                    <div class="cs-manageSlider">
                         <div class="track"></div>
                         <div class="range"></div>
                         <div class="thumb left"></div>
@@ -114,10 +113,10 @@
                 </div>
                 <div class="ReCs-txt ReCs-manageSlider-txt"></div>
                 <div class="ReCs-Slider">
-                    <input type="range" id="deposit-input-left" min="1" max="3000" value="1000" />
-                    <input type="range" id="deposit-input-right" min="1" max="3000" value="2000" />
-                    
-                    <div class="depositSlider">
+                    <input type="range" id="cs-deposit-input-left" min="1" max="3000" value="1000" />
+                    <input type="range" id="cs-deposit-input-right" min="1" max="3000" value="2000" />
+
+                    <div class="cs-depositSlider">
                         <div class="track"></div>
                         <div class="range"></div>
                         <div class="thumb left"></div>

@@ -23,7 +23,6 @@ $(document).ready(function(){
         $.each(data, function(index, val){
             coordinates = val.geometry.coordinates;
             name = val.properties.SIG_KOR_NM;
-            console.log(name);
             displayArea(coordinates, name);
         })
     })
