@@ -8,7 +8,7 @@ import java.util.List;
 public interface ReEsImgRepository extends JpaRepository<ReImg, Long> {
 
     // 상품의 id를 이용해, 상품에 대한 이미지들의 id를 오름차순으로 정렬하는 쿼리
-    List<ReImg> findByReIdOrderByReImgIdAsc(Long reid);
+    List<ReImg> findByReIdOrderByIdAsc(Long reid);
 
 
     // 상품 아이디를 이용하여 특정 상품에 대한 대표 이미지를 조회합니다.

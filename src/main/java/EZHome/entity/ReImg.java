@@ -13,7 +13,8 @@ public class ReImg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long reImgId;
+    @Column(name = "reId")
+    private Long Id;
 
     private String reImgNm; //UUID 형식으로 업로드된 이미지 파일 이름
     private String reOriNm; //이미지 원본 이름
