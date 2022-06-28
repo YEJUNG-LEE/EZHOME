@@ -14,7 +14,7 @@ public class ReImg {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "reImgId")
-    private Long Id;
+    private Long id;
 
     private String reImgNm; //UUID 형식으로 업로드된 이미지 파일 이름
     private String reOriNm; //이미지 원본 이름
@@ -29,11 +29,11 @@ public class ReImg {
     @JoinColumn(name = "reid")
     private ReEs reEs;
 
-   //이미지 정보를 업데이트 해주는메소드 입니다.
-   public void updateItemImg(String reOriNm, String reImgNm, String reImgUrl) {
-       this.reOriNm = reOriNm;
-       this.reImgNm = reImgNm;
-       this.reImgUrl = reImgUrl;
-   }
+    //이미지 정보를 업데이트 해주는메소드 입니다.
+    public void updateItemImg(String reOriNm, String reImgNm, String reImgUrl) {
+        this.reOriNm = reOriNm;
+        this.reImgNm = reImgNm;
+        this.reImgUrl = reImgUrl;
+    }
 
 }

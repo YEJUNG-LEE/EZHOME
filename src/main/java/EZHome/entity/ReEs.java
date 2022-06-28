@@ -12,13 +12,15 @@ import javax.persistence.*;
 @Getter @Setter @ToString
 public class ReEs {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-//    @Column(name = "")
-    private Long reId ; // 매물 기본키 (FK)
+    @Column(name="reid")
+    private Long id ; // 매물 기본키 (FK)
 
     @Column(unique = true) // 고유한 매물번호로 매물을 찾습니다.
-    private int reNum;  // 매물 번호
+    private Integer reNum;  // 매물 번호
 
     @Column(nullable = false, length = 300)
     private String reNm; // 매물이름 ex) 신사역 도보 10분 이내, 투룸
