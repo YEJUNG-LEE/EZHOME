@@ -102,26 +102,8 @@
                 height:74px;
                 text-align: left;
                 border: 1px solid black;
-        }
 
-        .ReCs-button{
-            box-sizing:border-box;
-            margin-top:8px;
-            margin-right:5px;
-            width:110px;
-            height:35px;
-            border-radius:45px;
-            border:1px solid #b8b7bb;
-            background-color:#b8b7bb;
-            display:inline-block;
-            font-size:12px;
-            padding-top:7px;
-            letter-spacing:2px;
-            font-weight:600;
-            color:#858484;
-            text-align:center;
         }
-
         .ReEs-insert-div{
             float:left
         }
@@ -263,31 +245,31 @@
                     <th class="ReEs-insert-th">소재지</th>
                     <td class="ReEs-insert-td">
                         <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="${reSido}">
-                            <option value="-">시/도</option>
-                            <option value="sodo01">경기도</option>
-                            <option value="sodo02">서울특별시</option>
-                        </select>
-                        <p th:if="${#fields.hasErrors('reSido')}" th:errors="*{reSido}" class="fieldError">Incorrect data</p>
+                            <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="${reSido}">
+                                <option value="-">시/도</option>
+                                <option value="sodo01">경기도</option>
+                                <option value="sodo02">서울특별시</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('reSido')}" th:errors="*{reSido}" class="fieldError">Incorrect data</p>
                         </div>
 
                         <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="${reGungu}">
-                            <option value="-">시/군/구</option>
-                            <option value="gungu01">금천구</option>
-                            <option value="gungu02">금천구</option>
-                            <option value="gungu03">금천구</option>
-                        </select>
-                        <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
+                            <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="${reGungu}">
+                                <option value="-">시/군/구</option>
+                                <option value="gungu01">금천구</option>
+                                <option value="gungu02">금천구</option>
+                                <option value="gungu03">금천구</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
                         </div>
 
                         <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="${reDong}">
-                            <option value="-">읍/면/동</option>
-                            <option value="dong01">가산동</option>
-                            <option value="dong02">가산동</option>
-                        </select>
-                        <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
+                            <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="${reDong}">
+                                <option value="-">읍/면/동</option>
+                                <option value="dong01">가산동</option>
+                                <option value="dong02">가산동</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
                         </div>
                     </td>
                 </tr>
@@ -324,6 +306,9 @@
 
                 </tr>
 
+
+
+
                 <tr rowspan="2" class="ReEs-insert-tr">
                     <th class="ReEs-insert-th">층수</th>
                     <td class="ReEs-insert-td">
@@ -338,40 +323,8 @@
                             <input th:field="*{reTopFlr}" type='radio' name='fruits' value='banana' />옥탑방
                             <input th:field="*{reUndrflr}" type='radio' name='fruits' value='orange' />반지하
                             <input type='radio' name='fruits' value='orange' />선택안함
-                        </div>
-                    </td>
-                </tr>
-                <tr rowspan="2" class="ReEs-insert-tr">
-                    <th class="ReEs-insert-th">맞춤</th>
-                    <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
-                        <div class="ReCs-button" id="newhouse">신축</div>
-                        <div class="ReCs-button" id="full">풀옵션</div>
-                        <div class="ReCs-button" id="debt">대출없음</div>
-                        <div class="ReCs-button" id="elevator">엘리베이터</div>
-                        <div class="ReCs-button" id="pet">반려동물</div>
-                        <div class="ReCs-button" id="security">보안기능</div>
-                        <div class="ReCs-button" id="parking">주차장</div>
-                        <div class="ReCs-button" id="south">남향</div>
-                        <div class="ReCs-button" id="bug">벌레퇴치업체</div>
-                        <div class="ReCs-button" id="woman">여성전용</div>
-                        <div class="ReCs-button" id="forest">숲View</div>
-                        <div class="ReCs-button" id="river">리버View</div>
-                        <div class="ReCs-button" id="ocean">오션View</div>
-                        <div class="ReCs-button" id="city">시티View</div>
 
-                        <input type="hidden" name="full" value="false"/>
-                        <input type="hidden" name="debt" value="false"/>
-                        <input type="hidden" name="elevator" value="false"/>
-                        <input type="hidden" name="pet" value="false"/>
-                        <input type="hidden" name="security" value="false"/>
-                        <input type="hidden" name="parking" value="false"/>
-                        <input type="hidden" name="south" value="false"/>
-                        <input type="hidden" name="bug" value="false"/>
-                        <input type="hidden" name="woman" value="false"/>
-                        <input type="hidden" name="forest" value="false"/>
-                        <input type="hidden" name="river" value="false"/>
-                        <input type="hidden" name="ocean" value="false"/>
-                        <input type="hidden" name="city" value="false"/>
+                        </div>
                     </td>
                 </tr>
 
@@ -386,35 +339,20 @@
                         </div>
                     </div>
                 </tr>
-<<<<<<< HEAD
-                <tr class="ReEs-insert-tr">
-                    <!-- for update -->
-                    <div th:if = "${not #lists.isEmpty(itemFormDto.itemImgDtoList)}">
-                        <div class="form-group" th:each="itemImgDto, status: ${itemFormDto.itemImgDtoList}">
-                            <div class="custom-file img-div">
-                                <input type="file" class="custom-file-input" name="itemImgFile">
-                                <!-- unique item id -->
-                                <input type="hidden" name="itemImgIds" th:value="${itemImgDto.id}">
-                                <label class="custom-file-label" th:text="${not #strings.isEmpty(itemImgDto.oriImgName)} ? ${itemImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>
-                            </div>
-                        </div>
-                    </div>
-                </tr>
-=======
-<!--                <tr class="ReEs-insert-tr">-->
-<!--                    &lt;!&ndash; for update &ndash;&gt;-->
-<!--                    <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
-<!--                        <div class="form-group" th:each="reImgDto, status: ${reFormDto.itemImgDtoList}">-->
-<!--                            <div class="custom-file img-div">-->
-<!--                                <input type="file" class="custom-file-input" name="itemImgFile">-->
-<!--                                &lt;!&ndash; unique item id &ndash;&gt;-->
-<!--                                <input type="hidden" name="itemImgIds" th:value="${itemImgDto.id}">-->
-<!--                                <label class="custom-file-label" th:text="${not #strings.isEmpty(itemImgDto.oriImgName)} ? ${itemImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </tr>-->
->>>>>>> 60e8f075b8162b947f7472b9dd15d1de398196ac
+                <!--                <tr class="ReEs-insert-tr">-->
+                <!--                    &lt;!&ndash; for update &ndash;&gt;-->
+                <!--                    <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
+                <!--                        <div class="form-group" th:each="reImgDto, status: ${reFormDto.itemImgDtoList}">-->
+                <!--                            <div class="custom-file img-div">-->
+                <!--                                <input type="file" class="custom-file-input" name="itemImgFile">-->
+                <!--                                &lt;!&ndash; unique item id &ndash;&gt;-->
+                <!--                                <input type="hidden" name="itemImgIds" th:value="${itemImgDto.id}">-->
+                <!--                                <label class="custom-file-label" th:text="${not #strings.isEmpty(itemImgDto.oriImgName)} ? ${itemImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </tr>-->
+
 
 
             </table>
