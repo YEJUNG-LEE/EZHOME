@@ -18,14 +18,27 @@
     <script type="text/javascript" th:src="@{/js/reEs/Slider.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/map.js}"></script>
     <script>
-        $(document).ready(function() {
-            console.log("히잉");
-            if($(".reCS input").val() == true){
-                $(this).na
-                $(this).css("background-color","#88a7f7");
-            }
-        });
+    //
+        $(document).ready(function(){
 
+            console.log(typeof($('input[value="true"]')));
+            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
+
+            $('.ReCs-button').click(function(){
+                var tagId = $(this).attr("id");
+                console.log(tagId);
+                var values = $('input[name=' + tagId + ']').attr('value');
+                if(values == 'false'){
+                    $(this).css({'background-color':'#0081cc', 'color':'white'});
+                    $('input[name=' + tagId + ']').attr('value', 'true');
+                }else{
+                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
+                    $('input[name=' + tagId + ']').attr('value', 'false');
+                }
+                values = $('input[name=' + tagId + ']').attr('value');
+                console.log(values);
+            });
+        });
     </script>
 </head>
 <body class="ReEs-body">
@@ -329,7 +342,7 @@
                             <div class="ReCs-button" id="river">리버View</div>
                             <div class="ReCs-button" id="ocean">오션View</div>
                             <div class="ReCs-button" id="city">시티View</div>
-                            <input type="hidden" name="newhouse" value="true"/>
+                            <input type="hidden" name="newhouse" value="false"/>
                             <input type="hidden" name="full" value="false"/>
                             <input type="hidden" name="debt" value="false"/>
                             <input type="hidden" name="elevator" value="false"/>
@@ -348,31 +361,40 @@
                     <div class="ReCs-cadiv">
                         <div class="ReCs-title">카테고리</div>
                         <div class="ReCs-but-div">
-                            <input type="hidden" name="pub" value="true"/>
-                            <input type="hidden" name="medic" value="true"/>
-                            <input type="hidden" name="conv" value="true"/>
-                            <input type="hidden" name="school" value="true"/>
-                            <input type="hidden" name="teen" value="true"/>
-                            <input type="hidden" name="twen" value="true"/>
-                            <input type="hidden" name="thirty" value="true"/>
-                            <input type="hidden" name="fourty" value="true"/>
-                            <input type="hidden" name="fifty" value="true"/>
-                            <input type="hidden" name="sixty" value="true"/>
-                            <input type="hidden" name="rocket" value="true"/>
-                            <input type="hidden" name="flat" value="true"/>
-                            <input type="hidden" name="subway" value="true"/>
-                            <input type="hidden" name="park" value="true"/>
-                            <input type="hidden" name="hodi" value="true"/>
-                            <div class="ReCs-button" id="pub">공공기관</div>
-                            <div class="ReCs-button" id="medic">의료시설</div>
-                            <div class="ReCs-button" id="conv">편의시설</div>
-                            <div class="ReCs-button" id="school">학교주변</div>
-                            <div class="ReCs-button" id="teen">10대거주</div>
-                            <div class="ReCs-button" id="twen">20대거주</div>
-                            <div class="ReCs-button" id="thirty">30대거주</div>
-                            <div class="ReCs-button" id="fourty">50대거주</div>
-                            <div class="ReCs-button" id="fifty">60대이상</div>
-                            <div class="ReCs-button" id="sixty">대로변</div>
+                            <input type="hidden" class="fourty" name="fourty" value="false"/>
+                            <input type="hidden" class="fifty" name="fifty" value="false"/>
+                            <input type="hidden" class="sixty" name="sixty" value="false"/>
+                            <input type="hidden" class="school" name="rocket" value="false"/>
+                            <input type="hidden" class="school" name="flat" value="false"/>
+                            <input type="hidden" class="school" name="subway" value="false"/>
+                            <input type="hidden" class="school" name="park" value="false"/>
+                            <input type="hidden" class="school" name="hodi" value="false"/>
+
+                            <div class="ReCs-button pub" id="pub">공공기관
+                                <input type="hidden" class="pub" name="pub" value="false"/>
+                            </div>
+                            <div class="ReCs-button medic" id="medic">의료시설
+                              <input type="hidden" class="medic" name="medic" value="true"/>
+                            </div>
+                            <div class="ReCs-button conv" id="conv">편의시설
+                             <input type="hidden" class="conv" name="conv" value="true"/>
+                            </div>
+                            <div class="ReCs-button school" id="school">학교주변
+                                <input type="hidden" class="school" name="school" value="true"/>
+                            </div>
+                            <div class="ReCs-button" id="teen">10대거주
+                            <input type="hidden" class="teen" name="teen" value="false"/>
+                            </div>
+                            <div class="ReCs-button" id="twen">20대거주
+                            <input type="hidden" class="twen" name="twen" value="false"/>
+
+                            </div>
+                            <div class="ReCs-button" id="thirty">30대거주
+                            <input type="hidden" class="thirty" name="thirty" value="false"/>
+                            </div>
+                            <div class="ReCs-button" id="fourty">40대거주</div>
+                            <div class="ReCs-button" id="fifty">50대이상</div>
+                            <div class="ReCs-button" id="sixty">60대이상</div>
                             <div class="ReCs-button" id="rocket">로켓배송</div>
                             <div class="ReCs-button" id="flat">경사완만</div>
                             <div class="ReCs-button" id="subway">역세권</div>
