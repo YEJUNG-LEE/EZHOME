@@ -14,11 +14,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>EZ_HOME</name>
 	<description>EZ_HOME project for Spring Boot</description>
-	<groupId>com.EZHome</groupId>
-	<artifactId>EZHome</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>EZHome</name>
-	<description>EZHome project for Spring Boot</description>
 
 	<properties>
 		<java.version>17</java.version>
