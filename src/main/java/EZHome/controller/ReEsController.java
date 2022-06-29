@@ -19,14 +19,14 @@ import java.util.List;
 public class ReEsController {
 
     // 메물 올리기
-    @GetMapping(value="/item/new")
+    @GetMapping(value="/admin/item/new")
     public String reesInsert(Model model){
         model.addAttribute("ReFormDto", new ReFormDto());
         return "reEs/html/ReItemForm";
     }
 
     private final ReService reService;
-    @PostMapping(value = "/item/new")
+    @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
 
