@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+    <link th:href="@{/css/common/reset.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs_List.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="imsi-head">임시헤더</div>
+    <div class="imsi-navi">임시네비</div>
+    <div class="imsi-map">임시맵
+    </div>
+    <div class="ReCS">
+        <div class="ReCs-div">
+            <div class="ReCs-select">
+                <div class="ReCs-sl-div ReCs-normal">
+                    <i class="fa-solid fa-user-large"></i><span>기본</span>
+                </div>
+                <div class="ReCs-sl-div ReCs-custom">
+                    <i class="fa-solid fa-crosshairs"></i><span>맞춤 / 카테고리</span>
+                </div>
+            </div>
+        </div>
+        <div class="ReCs-collection">
+            <div class="ReCs-cudiv">
+                <div class="ReCs-title">맞춤</div>
+                <div class="ReCs-but-div">
+                    <div class="ReCs-button">신축</div>
+                    <div class="ReCs-button">풀옵션</div>
+                    <div class="ReCs-button">대출없음</div>
+                    <div class="ReCs-button">엘리베이터</div>
+                    <div class="ReCs-button">반려동물</div>
+                    <div class="ReCs-button">보안기능</div>
+                    <div class="ReCs-button">주차장</div>
+                    <div class="ReCs-button">남향</div>
+                    <div class="ReCs-button">벌레퇴치업체</div>
+                    <div class="ReCs-button">여성전용</div>
+                    <div class="ReCs-button">숲View</div>
+                    <div class="ReCs-button">리버View</div>
+                    <div class="ReCs-button">오션View</div>
+                    <div class="ReCs-button">시티View</div>
+                </div>
+            </div>
+            <div class="ReCs-cadiv">
+                <div class="ReCs-title">카테고리</div>
+                <div class="ReCs-but-div">
+                    <div class="ReCs-button">공공기관</div>
+                    <div class="ReCs-button">의료시설</div>
+                    <div class="ReCs-button">편의시설</div>
+                    <div class="ReCs-button">학교주변</div>
+                    <div class="ReCs-button">10대거주</div>
+                    <div class="ReCs-button">20대거주</div>
+                    <div class="ReCs-button">30대거주</div>
+                    <div class="ReCs-button">50대거주</div>
+                    <div class="ReCs-button">60대이상</div>
+                    <div class="ReCs-button">대로변</div>
+                    <div class="ReCs-button">경사완만</div>
+                    <div class="ReCs-button">역세권</div>
+                    <div class="ReCs-button">공원</div>
+                    <div class="ReCs-button">주택지구</div>
+                    <div class="ReCs-button">엽기떡볶이<span class="ReCs-delete">X</span></div>
+                    <div class="ReCs-button">타코야끼<span class="ReCs-delete">X</span></div>
+                </div>
+                <div class="ReCs-input" contenteditable="true" placeholder="조건을추가하세요"></div>
+                <div class="ReCs-add">추가</div>
+            </div>
+        </div>
+        <div class="ReCs-div ReCs-MB-div">
+            <div class="ReCs-MB">저장</div>
+            <div class="ReCs-MB">불러오기</div>
+            <div class="ReCs-MB">초기화</div>
+            <div class="ReCs-MB ReCs-submit">적용</div>
+        </div>
+        <div class="ReEs-leftButton">
+            <i class="fa-solid fa-caret-left"></i>
+        </div>
+    </div>
+</body>
+
+</html>
