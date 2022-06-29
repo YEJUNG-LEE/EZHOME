@@ -54,6 +54,11 @@ public class MemberController {
     private final MemberService memberService ;
     private final PasswordEncoder passwordEncoder ;
 
+    @PostMapping(value = "/login")
+    public String login(){
+        return "redirect:/" ;
+    }
+
     @PostMapping(value = "/new")
     public String newMember(@Valid MemberFormDto memberFormDto,
                             BindingResult bindingResult,
@@ -68,7 +73,7 @@ public class MemberController {
         try{
             Member member = Member.createMember(memberFormDto, passwordEncoder);
             memberService.saveMember(member) ;
-            return "redirect:/" ; // 메인 페이지로 이동
+            return "member/memberLoginForm" ;
         }catch (IllegalStateException e){
             return "member/memberForm" ;
         }
