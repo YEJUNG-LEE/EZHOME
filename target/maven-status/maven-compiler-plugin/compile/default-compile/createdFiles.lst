@@ -11,6 +11,7 @@ EZHome\repository\MemberRepository.class
 EZHome\entity\BaseEntity.class
 EZHome\MainApplication.class
 EZHome\service\FileService.class
+EZHome\entity\dto\QMainContentDto.class
 EZHome\entity\QBaseEntity.class
 EZHome\dto\MemberDto.class
 EZHome\constant\Role.class
