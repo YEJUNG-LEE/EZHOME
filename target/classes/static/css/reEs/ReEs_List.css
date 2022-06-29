@@ -2,46 +2,40 @@
     margin:0;
     padding:0;
 }
-.imsi-head{
-    height:90px;
-}
-.imsi-navi{
-    width:1920px;
-    height:66px;
-    background-color:#4876EF;
-}
-.imsi-map{
-    position:relative;
-    z-index:1;
-    width:1920px;
-    height:813px;
-    box-sizing:border-box;
-    background-color:antiquewhite
-}
 .ReEs_List{
+    display:none;
     position:absolute;
     top:0;
-    right:0;
+    left:1920px;
     width:900px;
     height:813px;
     background-color:#f7f7f7;
     z-index:90;
+    transform: translateX(-100%);
 }
 .ReEs_List-rightButton{
     box-sizing: border-box;
     position:absolute;
-    top:350px;
-    right:880px;
-    display:inline-block;
-    width:20px;
-    height:50px;
-    border-radius:1px;
-    border: 1px solid #6c93f7;
-    background-color:#f8f8f8;
-    padding-top:10px;
-    font-size:25px;
+    display:none;
+    top:25px;
+    right: 925px;
+    background-color:#ededed;
+    border-color: #4b4b4b;
+    color: #4b4b4b;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 16px;
+    height: 32px;
+    min-width: 72px;
+    padding: 0 14px 0;
+    font-size: 15px;
+    font-weight: 700;
     text-align:center;
-    color:#4876EF  
+    padding-top:5px;
+    z-index:999;
+}
+.ReEs_List-rightButton:hover{
+    background-color:#fff86d;
 }
 .ReLi_extent_button_div{
     height:50px;

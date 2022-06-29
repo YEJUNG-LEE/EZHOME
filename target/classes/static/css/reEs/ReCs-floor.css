@@ -7,14 +7,14 @@
     padding-top:20px;
 }
 
-.ReCs-Slider > .floorSlider {
+.ReCs-Slider > .cs-floorSlider {
     position: relative;
     z-index: 1;
     height: 10px;
     margin: 15px 15px;
 }
 
-.ReCs-Slider > .floorSlider > .track {
+.ReCs-Slider > .cs-floorSlider > .track {
     position: absolute;
     z-index: 1;
     left: 0;
@@ -24,7 +24,7 @@
     border-radius: 5px;
     background-color: #becfe4;
 }
-.ReCs-Slider > .floorSlider > .range {
+.ReCs-Slider > .cs-floorSlider > .range {
     position: absolute;
     z-index: 2;
     left: 25%;
@@ -34,7 +34,7 @@
     border-radius: 5px;
     background-color: #5691da;
 }
-.ReCs-Slider> .floorSlider > .thumb {
+.ReCs-Slider> .cs-floorSlider > .thumb {
     position: absolute;
     top:5px;
     z-index: 3;
@@ -43,11 +43,11 @@
     background-color: #387ccf;
     border-radius: 50%;
 }
-.ReCs-Slider>.floorSlider >.thumb.left {
+.ReCs-Slider>.cs-floorSlider >.thumb.left {
     left: 25%;
     transform: translate(-15px, -10px);
 }
-.ReCs-Slider>.floorSlider > .thumb.right {
+.ReCs-Slider>.cs-floorSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
 }
@@ -98,14 +98,14 @@
 /* ===================== 여기부터는 평수 ======================== */
 /* ============================================================= */
 
-.ReCs-Slider > .extentSlider {
+.ReCs-Slider > .cs-extentSlider {
     position: relative;
     z-index: 1;
     height: 10px;
     margin: 15px 15px;
 }
 
-.ReCs-Slider > .extentSlider > .track {
+.ReCs-Slider > .cs-extentSlider > .track {
     position: absolute;
     z-index: 1;
     left: 0;
@@ -115,7 +115,7 @@
     border-radius: 5px;
     background-color: #becfe4;
 }
-.ReCs-Slider > .extentSlider > .range {
+.ReCs-Slider > .cs-extentSlider > .range {
     position: absolute;
     z-index: 2;
     left: 25%;
@@ -125,7 +125,7 @@
     border-radius: 5px;
     background-color: #5691da;
 }
-.ReCs-Slider> .extentSlider > .thumb {
+.ReCs-Slider> .cs-extentSlider > .thumb {
     position: absolute;
     top:5px;
     z-index: 3;
@@ -134,11 +134,11 @@
     background-color: #387ccf;
     border-radius: 50%;
 }
-.ReCs-Slider>.extentSlider >.thumb.left {
+.ReCs-Slider>.cs-extentSlider >.thumb.left {
     left: 25%;
     transform: translate(-15px, -10px);
 }
-.ReCs-Slider>.extentSlider > .thumb.right {
+.ReCs-Slider>.cs-extentSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
 }
@@ -148,14 +148,14 @@
 /* ===================== 여기부터는 월세 ======================== */
 /* ============================================================= */
 
-.ReCs-Slider > .monthSlider {
+.ReCs-Slider > .cs-monthSlider {
     position: relative;
     z-index: 1;
     height: 10px;
     margin: 15px 15px;
 }
 
-.ReCs-Slider > .monthSlider > .track {
+.ReCs-Slider > .cs-monthSlider > .track {
     position: absolute;
     z-index: 1;
     left: 0;
@@ -165,7 +165,7 @@
     border-radius: 5px;
     background-color: #becfe4;
 }
-.ReCs-Slider > .monthSlider > .range {
+.ReCs-Slider > .cs-monthSlider > .range {
     position: absolute;
     z-index: 2;
     left: 25%;
@@ -175,7 +175,7 @@
     border-radius: 5px;
     background-color: #5691da;
 }
-.ReCs-Slider> .monthSlider > .thumb {
+.ReCs-Slider> .cs-monthSlider > .thumb {
     position: absolute;
     top:5px;
     z-index: 3;
@@ -184,11 +184,11 @@
     background-color: #387ccf;
     border-radius: 50%;
 }
-.ReCs-Slider>.monthSlider >.thumb.left {
+.ReCs-Slider>.cs-monthSlider >.thumb.left {
     left: 25%;
     transform: translate(-15px, -10px);
 }
-.ReCs-Slider>.monthSlider > .thumb.right {
+.ReCs-Slider>.cs-monthSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
 }
@@ -199,14 +199,14 @@
 /* ===================== 여기부터는 관리비 ======================== */
 /* ============================================================= */
 
-.ReCs-Slider > .manageSlider {
+.ReCs-Slider > .cs-manageSlider {
     position: relative;
     z-index: 1;
     height: 10px;
     margin: 15px 15px;
 }
 
-.ReCs-Slider > .manageSlider > .track {
+.ReCs-Slider > .cs-manageSlider > .track {
     position: absolute;
     z-index: 1;
     left: 0;
@@ -216,7 +216,7 @@
     border-radius: 5px;
     background-color: #becfe4;
 }
-.ReCs-Slider > .manageSlider > .range {
+.ReCs-Slider > .cs-manageSlider > .range {
     position: absolute;
     z-index: 2;
     left: 25%;
@@ -226,7 +226,7 @@
     border-radius: 5px;
     background-color: #5691da;
 }
-.ReCs-Slider> .manageSlider > .thumb {
+.ReCs-Slider> .cs-manageSlider > .thumb {
     position: absolute;
     top:5px;
     z-index: 3;
@@ -235,11 +235,11 @@
     background-color: #387ccf;
     border-radius: 50%;
 }
-.ReCs-Slider>.manageSlider >.thumb.left {
+.ReCs-Slider>.cs-manageSlider >.thumb.left {
     left: 25%;
     transform: translate(-15px, -10px);
 }
-.ReCs-Slider>.manageSlider > .thumb.right {
+.ReCs-Slider>.cs-manageSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
 }
@@ -248,14 +248,14 @@
 /* ============================================================= */
 /* ===================== 여기부터는 보증금 ======================== */
 /* ============================================================= */
-.ReCs-Slider > .depositSlider {
+.ReCs-Slider > .cs-depositSlider {
     position: relative;
     z-index: 1;
     height: 10px;
     margin: 15px 15px;
 }
 
-.ReCs-Slider > .depositSlider > .track {
+.ReCs-Slider > .cs-depositSlider > .track {
     position: absolute;
     z-index: 1;
     left: 0;
@@ -265,7 +265,7 @@
     border-radius: 5px;
     background-color: #becfe4;
 }
-.ReCs-Slider > .depositSlider > .range {
+.ReCs-Slider > .cs-depositSlider > .range {
     position: absolute;
     z-index: 2;
     left: 25%;
@@ -275,7 +275,7 @@
     border-radius: 5px;
     background-color: #5691da;
 }
-.ReCs-Slider> .depositSlider > .thumb {
+.ReCs-Slider> .cs-depositSlider > .thumb {
     position: absolute;
     top:5px;
     z-index: 3;
@@ -284,11 +284,11 @@
     background-color: #387ccf;
     border-radius: 50%;
 }
-.ReCs-Slider>.depositSlider >.thumb.left {
+.ReCs-Slider>.cs-depositSlider >.thumb.left {
     left: 25%;
     transform: translate(-15px, -10px);
 }
-.ReCs-Slider>.depositSlider > .thumb.right {
+.ReCs-Slider>.cs-depositSlider > .thumb.right {
     right: 25%;
     transform: translate(15px, -10px);
 }
