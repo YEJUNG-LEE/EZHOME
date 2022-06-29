@@ -9,7 +9,7 @@ import javax.persistence.*;
  @Entity
 @Table(name="ReCucs") // 커스텀 매물
 @Getter @Setter @ToString
-public class ReCucs {
+public class ReCucs extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
