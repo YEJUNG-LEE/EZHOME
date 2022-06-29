@@ -9,11 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.EZ_HOME</groupId>
-	<artifactId>EZ_HOME</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>EZ_HOME</name>
-	<description>EZ_HOME project for Spring Boot</description>
+
 	<groupId>com.EZHome</groupId>
 	<artifactId>EZHome</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
