@@ -1,0 +1,4 @@
+drop user ezhome cascade;
+create user ezhome identified by oracle account unlock;
+alter user ezhome default tablespace users;
+grant connect, resource to ezhome;
