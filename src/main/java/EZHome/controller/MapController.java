@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RequiredArgsConstructor
 @Controller
-public class reEsController {
+public class MapController {
     @GetMapping(value="/reEs")
     public String main(Model model){
         return "reEs/ReEs";
