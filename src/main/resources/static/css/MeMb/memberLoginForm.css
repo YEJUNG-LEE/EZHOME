@@ -8,7 +8,7 @@
 
         section{
             height: 950px;
-            background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(/img/page5.jpg);
+            background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(/img/main_img.jpg);
             background-size: cover;
         }
         .MeMb-div{
@@ -21,6 +21,11 @@
             width: 200px; height: 100px;
             background-image: url(/img/logo01.png);
             background-size: cover;
+        }
+        .MeMb-div-logo > a{
+            width: 100%;
+            height: 100%;
+            display: block;
         }
         .MeMb-div2{
             width: 510px; height: 580px;
