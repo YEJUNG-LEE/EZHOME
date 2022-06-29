@@ -2,8 +2,12 @@ package EZHome.service;
 
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReImgDto;
+import EZHome.entity.ReCacs;
+import EZHome.entity.ReCucs;
 import EZHome.entity.ReEs;
 import EZHome.entity.ReImg;
+import EZHome.repository.ReCacsRepository;
+import EZHome.repository.ReCucsRepository;
 import EZHome.repository.ReEsImgRepository;
 import EZHome.repository.ReEsRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +30,12 @@ public class ReService {
     private final ReImgService reImgService;
     //상품 등록 폼에서 입력 받은 데이터(Dto)를 이용하여  상품 데이터(entity)를 저장시키고,
     // 반 복문을 사용하여 상품에 따른 이미지들을 저장합니다.
+
+    //06.29예중,유진 코딩--------------------------------------
+    private final ReCacsRepository reCacsRepository;
+    private final ReCucsRepository reCucsRepository;
+    //-------------------------------------------------------
+
     public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList) throws Exception {
 
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
@@ -34,6 +44,13 @@ public class ReService {
         /*종욱*/
         // 매물 커스텀 데이터 저장
         // 매물 카테고리 데이터 저장
+
+        //06.29예중,유진 코딩--------------------------------------
+        ReCucs reCucs = reFormDto.createReCucs();
+        ReCacs reCacs = reFormDto.createReCacs();
+        reCucsRepository.save(reCucs);
+        reCacsRepository.save(reCacs);
+        //-------------------------------------------------------
 
         // 2. 상품 이미지 등록
         // 반복문으로 해당 상품(ReEs)과 관련된 이미지(ReImg)들 저장하기
