@@ -20,7 +20,10 @@
             </h1>
             <!-- EzHome-ul-left -->
             <ul class="EzHome-ul-left">
-                <li>
+                <li sec:authorize="isAnonymous()">
+                    <a href="/reEs">부동산</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
                     <a href="/reEs">부동산</a>
                 </li>
                 <li>
