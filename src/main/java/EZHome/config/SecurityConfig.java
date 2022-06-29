@@ -35,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             permitAll() : 로그인 하지 않아도 접근 가능하게 할께요.
             anyRequest().authenticated() : 상기 위에서 열거한 내용 이외의 모든 항목든 인증을 요구합니다.
         * */
+        /* "/reEs/**" */
         http.authorizeRequests()
                 .mvcMatchers("/", "/reEs/**","/members/**", "/item/**", "/images/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
