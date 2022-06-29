@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+    <link th:href="@{/css/common/reset.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs_List.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="imsi-head">임시헤더</div>
+    <div class="imsi-navi">임시네비</div>
+    <div class="imsi-map">임시맵
+    </div>
+    <div class="ReCS">
+    <form method="post" action="/reEs/save">
+        <div class="ReCs-div">
+            <div class="ReCs-select">
+                <div class="ReCs-sl-div ReCs-normal">
+                    <i class="fa-solid fa-user-large"></i><span>기본</span>
+                </div>
+                <div class="ReCs-sl-div ReCs-custom">
+                    <i class="fa-solid fa-crosshairs"></i><span>맞춤 / 카테고리</span>
+                </div>
+            </div>
+        </div>
+        <!--   맞춤/카테고리   -->
+        <div class="ReCs-collection">
+            <div class="ReCs-cudiv">
+                <div class="ReCs-title">맞춤</div>
+                <div class="ReCs-but-div">
+                        <div class="ReCs-button" id="newhouse">신축</div>
+                        <div class="ReCs-button" id="full">풀옵션</div>
+                        <div class="ReCs-button" id="debt">대출없음</div>
+                        <div class="ReCs-button" id="elevator">엘리베이터</div>
+                        <div class="ReCs-button" id="pet">반려동물</div>
+                        <div class="ReCs-button" id="security">보안기능</div>
+                        <div class="ReCs-button" id="parking">주차장</div>
+                        <div class="ReCs-button" id="south">남향</div>
+                        <div class="ReCs-button" id="bug">벌레퇴치업체</div>
+                        <div class="ReCs-button" id="woman">여성전용</div>
+                        <div class="ReCs-button" id="forest">숲View</div>
+                        <div class="ReCs-button" id="river">리버View</div>
+                        <div class="ReCs-button" id="ocean">오션View</div>
+                        <div class="ReCs-button" id="city">시티View</div>
+                        <input type="hidden" name="newhouse" value="true"/>
+                        <input type="hidden" name="full" value="false"/>
+                        <input type="hidden" name="debt" value="false"/>
+                        <input type="hidden" name="elevator" value="false"/>
+                        <input type="hidden" name="pet" value="false"/>
+                        <input type="hidden" name="security" value="false"/>
+                        <input type="hidden" name="parking" value="false"/>
+                        <input type="hidden" name="south" value="false"/>
+                        <input type="hidden" name="bug" value="false"/>
+                        <input type="hidden" name="woman" value="false"/>
+                        <input type="hidden" name="forest" value="false"/>
+                        <input type="hidden" name="river" value="false"/>
+                        <input type="hidden" name="ocean" value="false"/>
+                        <input type="hidden" name="city" value="false"/>
+                </div>
+            </div>
+            <div class="ReCs-cadiv">
+                <div class="ReCs-title">카테고리</div>
+                <div class="ReCs-but-div">
+                    <div class="ReCs-button" id="pub">공공기관</div>
+                    <div class="ReCs-button" id="medic">의료시설</div>
+                    <div class="ReCs-button" id="conv">편의시설</div>
+                    <div class="ReCs-button" id="school">학교주변</div>
+                    <div class="ReCs-button" id="teen">10대거주</div>
+                    <div class="ReCs-button" id="twen">20대거주</div>
+                    <div class="ReCs-button" id="thirty">30대거주</div>
+                    <div class="ReCs-button" id="fourty">50대거주</div>
+                    <div class="ReCs-button" id="fifty">60대이상</div>
+                    <div class="ReCs-button" id="sixty">대로변</div>
+                    <div class="ReCs-button" id="rocket">로켓배송</div>
+                    <div class="ReCs-button" id="flat">경사완만</div>
+                    <div class="ReCs-button" id="subway">역세권</div>
+                    <div class="ReCs-button" id="park">공원</div>
+                    <div class="ReCs-button" id="hodi">주택지구</div>
+                    <input type="hidden" name="pub" value="true"/>
+                    <input type="hidden" name="medic" value="true"/>
+                    <input type="hidden" name="conv" value="true"/>
+                    <input type="hidden" name="school" value="true"/>
+                    <input type="hidden" name="teen" value="true"/>
+                    <input type="hidden" name="twen" value="true"/>
+                    <input type="hidden" name="thirty" value="true"/>
+                    <input type="hidden" name="fourty" value="true"/>
+                    <input type="hidden" name="fifty" value="true"/>
+                    <input type="hidden" name="sixty" value="true"/>
+                    <input type="hidden" name="rocket" value="true"/>
+                    <input type="hidden" name="flat" value="true"/>
+                    <input type="hidden" name="subway" value="true"/>
+                    <input type="hidden" name="park" value="true"/>
+                    <input type="hidden" name="hodi" value="true"/>
+                </div>
+            </div>
+        </div>
+        <div class="ReCs-div ReCs-MB-div">
+            <div class="ReCs-MB">저장</div>
+            <div class="ReCs-MB">불러오기</div>
+            <div class="ReCs-MB">초기화</div>
+            <div class="ReCs-MB ReCs-submit">적용</div>
+        </div>
+        <div class="ReEs-leftButton">
+            <i class="fa-solid fa-caret-left"></i>
+        </div>
+    </form>
+    </div>
+</body>
+
+</html>
