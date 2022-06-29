@@ -20,7 +20,10 @@
             </h1>
             <!-- EzHome-ul-left -->
             <ul class="EzHome-ul-left">
-                <li>
+                <li sec:authorize="isAnonymous()">
+                    <a href="/reEs">부동산</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
                     <a href="/reEs">부동산</a>
                 </li>
                 <li>
@@ -47,7 +50,7 @@
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
                     <a href="#">
-                        <i class="fa-solid fa-user"></i><span th:text="${Memb.Memb_nick}">님</span>
+                        <i class="fa-solid fa-user"></i><span>님</span>
                     </a>
                 </li>
 
