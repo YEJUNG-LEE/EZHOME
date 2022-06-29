@@ -11,7 +11,7 @@ public class MainTestController {
     @GetMapping(value = "/")
     public String main(Model model){
 
-        return "common/main_content";
+        return "common/main";
     }
 
 }
