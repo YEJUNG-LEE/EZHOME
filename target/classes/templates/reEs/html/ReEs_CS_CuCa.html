@@ -9,17 +9,243 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
-    <link th:href="@{/css/common/reset.css}" rel="stylesheet">
-    <link th:href="@{/css/reEs/ReEs_List.css}" rel="stylesheet">
+    <style>
+        .ReCS{
+            position:absolute;
+            width:1182px;
+            height:780px;
+            background-color:#f7f7f7;
+            z-index:90;
+            border-right:1px solid #8d8d8f;
+        }
+        .ReCs-div{
+            box-sizing:border-box;
+            width:1182px;
+            height:100px;
+            /* border:1px solid black; */
+        }
+
+        .ReCs-subject{
+            box-sizing:border-box;
+            width:1182px;
+            height:60px;
+        }
+        .ReCs-select{
+            box-sizing: border-box;
+            width: 300px;
+            height: 40px;
+            border: 1px solid black;
+            margin: 20px auto 0;
+            font-size: 0;
+        }
+        .ReCs-sl-div{
+            box-sizing: border-box;
+            width: 149px;
+            height: 38px;
+            float: left;
+            padding-top: 8px;
+            padding-left: 18px;
+        }
+        .ReCs-normal{
+            background-color: #6c93f7;
+        }
+        .ReCs-normal:hover{
+            background-color: #6c93f7;
+        }
+        .ReCs-custom {
+            background-color: #cfcfcf;
+        }
+        .ReCs-custom:hover{
+            background-color: #6c93f7;
+        }
+        .ReCs-sl-div i{
+            opacity:0.7;
+            font-size:20px;
+        }
+        .fa-house{
+            margin-right:30px;
+
+        }
+        .fa-crosshairs{
+        }
+        .ReCs-normal > span{
+            font-size:15px;
+            font-weight:600;
+        }
+        .ReCs-custom > span{
+            font-size:14px;
+            font-weight:600;
+        }
+        .ReCs-sl-div>i{
+            height:30px;
+            width:30px;
+        }
+        .ReCs-custom{
+            border-left:1px solid black;
+        }
+        .ReCs-title{
+            height:30px;
+            border-bottom:3px solid #8d8d8f;
+            padding-left:20px;
+            color:#535353;
+            font-size:20px;
+            font-weight:600;
+        }
+        .ReCs-content{
+            padding-bottom:10px;
+            padding-left:50px;
+            height:65px;
+            box-sizing: border-box;
+        }
+        .ReCs-region{
+            height:45px;
+            width:350px;
+            margin-top:13px;
+            border-radius:45px;
+            border:1px solid #b8b7bb;
+            background-color:#6c93f7;
+            opacity:1;
+            color:white;
+            font-size:16px;
+            padding-top:10px;
+            padding-left:30px;
+            box-sizing: border-box;
+        }
+        .ReCs-region:empty::before{
+            content:attr(placeholder);
+            color:rgb(238, 238, 238);
+            font-weight:500;
+        }
+
+        .ReCs-button{
+            box-sizing:border-box;
+            margin-top:13px;
+            margin-right:25px;
+            width:120px;
+            height:35px;
+            border-radius:45px;
+            border:1px solid #b8b7bb;
+            background-color:#b8b7bb;
+            display:inline-block;
+            font-size:14px;
+            padding-top:5px;
+            letter-spacing:2px;
+            font-weight:600;
+            color:#858484;
+            text-align:center;
+        }
+        #ReCs-cost{
+            font-size:15px;
+            letter-spacing:0.5px;
+        }
+        /* 저장, 불러오기, 초기화, 적용 버튼 */
+
+        .ReCs-MB-div{
+            padding-top:30px;
+            padding-left:350px;
+        }
+
+        .ReCs-MB{
+            display:inline-block;
+            box-sizing:border-box;
+            width:100px;
+            height:45px;
+            text-align:center;
+            padding-top:10px;
+            margin-left:15px;
+            border:1px solid #94BBCC;
+            color : #3A6BA5;
+            font-weight:600;
+            border-radius:6px;
+        }
+        .ReCs-MB:hover{
+            border:1px solid #d4a931;
+            background-color:#FEC72F;
+            color:#FFFFFF;
+            font-weight:800;
+        }
+        .ReCs-leftButton{
+            box-sizing: border-box;
+            position: fixed;
+            top: 175px;
+            left: 1200px;
+            background-color:#ededed;
+            border-color: #4b4b4b;
+            color: #4b4b4b;
+            border-width: 2px;
+            border-style: solid;
+            border-radius: 16px;
+            height: 32px;
+            min-width: 72px;
+            padding: 0 14px 0;
+            font-size: 15px;
+            font-weight: 700;
+            text-align:center;
+            padding-top:5px;
+            z-index:999;
+        }
+        .ReCs-leftButton:hover{
+            background-color:#fff86d;
+        }
+
+        .ReCs-cudiv{
+            height:150px;
+        }
+        .ReCs-cadiv{
+            height:300px;
+        }
+        .ReCs-input{
+            margin-top:20px;
+            margin-left:20px;
+            width:275px;
+            height:40px;
+            border:1px solid #b8b7bb;
+            background-color:#6c93f7;
+            border-radius:5px;
+            text-align: center;
+            padding-top:7px;
+            box-sizing: border-box;
+            float:left;
+        }
+        .ReCs-input:empty::before{
+            content:attr(placeholder);
+            color:rgb(238, 238, 238);
+            font-weight:500;
+        }
+        .ReCs-add{
+            border:1px solid #b8b7bb;
+            border-radius:6px;
+            width:70px;
+            height:40px;
+            text-align: center;
+            float:left;
+            margin-top:20px;
+            margin-left:10px;
+            padding-top:7px;
+            box-sizing: border-box;
+        }
+        .ReCs-save{
+            box-sizing:border-box;
+            width:1182px;
+            height:100px;
+        }
+        .ReCs-but-div{
+            padding-left:20px;
+        }
+        .ReCs-collection{
+            height:600px;
+        }
+        .ReCs-delete{
+            float:right;
+            margin-right:10px;
+            color:rgb(189, 99, 99);
+        }
+    </style>
 </head>
 
 <body>
-    <div class="imsi-head">임시헤더</div>
-    <div class="imsi-navi">임시네비</div>
-    <div class="imsi-map">임시맵
-    </div>
-    <div class="ReCS">
+<div class="ReCS">
+    <form method="post" action="/reEs/save">
         <div class="ReCs-div">
             <div class="ReCs-select">
                 <div class="ReCs-sl-div ReCs-normal">
@@ -30,48 +256,75 @@
                 </div>
             </div>
         </div>
+        <!--   맞춤/카테고리   -->
         <div class="ReCs-collection">
             <div class="ReCs-cudiv">
                 <div class="ReCs-title">맞춤</div>
                 <div class="ReCs-but-div">
-                    <div class="ReCs-button">신축</div>
-                    <div class="ReCs-button">풀옵션</div>
-                    <div class="ReCs-button">대출없음</div>
-                    <div class="ReCs-button">엘리베이터</div>
-                    <div class="ReCs-button">반려동물</div>
-                    <div class="ReCs-button">보안기능</div>
-                    <div class="ReCs-button">주차장</div>
-                    <div class="ReCs-button">남향</div>
-                    <div class="ReCs-button">벌레퇴치업체</div>
-                    <div class="ReCs-button">여성전용</div>
-                    <div class="ReCs-button">숲View</div>
-                    <div class="ReCs-button">리버View</div>
-                    <div class="ReCs-button">오션View</div>
-                    <div class="ReCs-button">시티View</div>
+                    <div class="ReCs-button" id="newhouse">신축</div>
+                    <div class="ReCs-button" id="full">풀옵션</div>
+                    <div class="ReCs-button" id="debt">대출없음</div>
+                    <div class="ReCs-button" id="elevator">엘리베이터</div>
+                    <div class="ReCs-button" id="pet">반려동물</div>
+                    <div class="ReCs-button" id="security">보안기능</div>
+                    <div class="ReCs-button" id="parking">주차장</div>
+                    <div class="ReCs-button" id="south">남향</div>
+                    <div class="ReCs-button" id="bug">벌레퇴치업체</div>
+                    <div class="ReCs-button" id="woman">여성전용</div>
+                    <div class="ReCs-button" id="forest">숲View</div>
+                    <div class="ReCs-button" id="river">리버View</div>
+                    <div class="ReCs-button" id="ocean">오션View</div>
+                    <div class="ReCs-button" id="city">시티View</div>
+
+                    <input type="hidden" name="full" value="false"/>
+                    <input type="hidden" name="debt" value="false"/>
+                    <input type="hidden" name="elevator" value="false"/>
+                    <input type="hidden" name="pet" value="false"/>
+                    <input type="hidden" name="security" value="false"/>
+                    <input type="hidden" name="parking" value="false"/>
+                    <input type="hidden" name="south" value="false"/>
+                    <input type="hidden" name="bug" value="false"/>
+                    <input type="hidden" name="woman" value="false"/>
+                    <input type="hidden" name="forest" value="false"/>
+                    <input type="hidden" name="river" value="false"/>
+                    <input type="hidden" name="ocean" value="false"/>
+                    <input type="hidden" name="city" value="false"/>
                 </div>
             </div>
             <div class="ReCs-cadiv">
                 <div class="ReCs-title">카테고리</div>
                 <div class="ReCs-but-div">
-                    <div class="ReCs-button">공공기관</div>
-                    <div class="ReCs-button">의료시설</div>
-                    <div class="ReCs-button">편의시설</div>
-                    <div class="ReCs-button">학교주변</div>
-                    <div class="ReCs-button">10대거주</div>
-                    <div class="ReCs-button">20대거주</div>
-                    <div class="ReCs-button">30대거주</div>
-                    <div class="ReCs-button">50대거주</div>
-                    <div class="ReCs-button">60대이상</div>
-                    <div class="ReCs-button">대로변</div>
-                    <div class="ReCs-button">경사완만</div>
-                    <div class="ReCs-button">역세권</div>
-                    <div class="ReCs-button">공원</div>
-                    <div class="ReCs-button">주택지구</div>
-                    <div class="ReCs-button">엽기떡볶이<span class="ReCs-delete">X</span></div>
-                    <div class="ReCs-button">타코야끼<span class="ReCs-delete">X</span></div>
+                    <div class="ReCs-button" id="pub">공공기관</div>
+                    <div class="ReCs-button" id="medic">의료시설</div>
+                    <div class="ReCs-button" id="conv">편의시설</div>
+                    <div class="ReCs-button" id="school">학교주변</div>
+                    <div class="ReCs-button" id="teen">10대거주</div>
+                    <div class="ReCs-button" id="twen">20대거주</div>
+                    <div class="ReCs-button" id="thirty">30대거주</div>
+                    <div class="ReCs-button" id="fourty">50대거주</div>
+                    <div class="ReCs-button" id="fifty">60대이상</div>
+                    <div class="ReCs-button" id="sixty">대로변</div>
+                    <div class="ReCs-button" id="rocket">로켓배송</div>
+                    <div class="ReCs-button" id="flat">경사완만</div>
+                    <div class="ReCs-button" id="subway">역세권</div>
+                    <div class="ReCs-button" id="park">공원</div>
+                    <div class="ReCs-button" id="hodi">주택지구</div>
+                    <input type="hidden" name="pub" value="true"/>
+                    <input type="hidden" name="medic" value="true"/>
+                    <input type="hidden" name="conv" value="true"/>
+                    <input type="hidden" name="school" value="true"/>
+                    <input type="hidden" name="teen" value="true"/>
+                    <input type="hidden" name="twen" value="true"/>
+                    <input type="hidden" name="thirty" value="true"/>
+                    <input type="hidden" name="fourty" value="true"/>
+                    <input type="hidden" name="fifty" value="true"/>
+                    <input type="hidden" name="sixty" value="true"/>
+                    <input type="hidden" name="rocket" value="true"/>
+                    <input type="hidden" name="flat" value="true"/>
+                    <input type="hidden" name="subway" value="true"/>
+                    <input type="hidden" name="park" value="true"/>
+                    <input type="hidden" name="hodi" value="true"/>
                 </div>
-                <div class="ReCs-input" contenteditable="true" placeholder="조건을추가하세요"></div>
-                <div class="ReCs-add">추가</div>
             </div>
         </div>
         <div class="ReCs-div ReCs-MB-div">
@@ -83,7 +336,8 @@
         <div class="ReEs-leftButton">
             <i class="fa-solid fa-caret-left"></i>
         </div>
-    </div>
-</body>
+    </form>
+</div>
 
+</body>
 </html>

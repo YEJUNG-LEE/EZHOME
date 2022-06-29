@@ -44,20 +44,16 @@ public class ReEs {
     private String reDtl_Adr ; // 상세주소
 
     @Column(nullable = false)
-<<<<<<< HEAD
+
     private Integer reFlr ; // 층수
-=======
-    private int reFlr ; // 층수
->>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
+
 
     /* 전체층수부터 평수는 빠른 구현을 위해 'null 값 허용' 으로 설정하겠습니다.*/
 
     @Column(nullable = false)
-<<<<<<< HEAD
+
     private Integer reTotalFlr ; // 전체 층수
-=======
-    private int reTotalFlr ; // 전체 층수
->>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
+
 
 
     private boolean reSecndFlr ; //  복층
@@ -69,7 +65,6 @@ public class ReEs {
     private boolean reUndrflr ; // 반지하
 
     @Column(nullable = false)
-<<<<<<< HEAD
     private Integer reRoomcnt ; //방개수
     @Column(nullable = false)
     private Integer reBathcnt; // 욕실개수
@@ -90,28 +85,7 @@ public class ReEs {
 
     @Column(nullable = false)
     private Integer reJeonse ; // 전세가
-=======
-    private int reRoomcnt ; //방개수
-    @Column(nullable = false)
-    private int reBathcnt; // 욕실개수
-    @Column(nullable = false)
-    private int reExtent ; // 평수
 
-    @Column(nullable = false)
-    private int reMon_price ; // 월세
-
-    @Column(nullable = false)
-    private int reAdmn_fee ; // 관리비
-
-    @Column(nullable = false)
-    private int reDeposit; // 보증금
-
-    @Column(nullable = false)
-    private int reTrade ; // 매매가
-
-    @Column(nullable = false)
-    private int reJeonse ; // 전세가
->>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
 
     //회원(일)이 여러개(다)의 매물을 올릴 수 있음으로 '일대다'로 설정했습니다.
     @ManyToOne

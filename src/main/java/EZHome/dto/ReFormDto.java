@@ -64,7 +64,7 @@ public class ReFormDto {
     @NotBlank(message="전체 층수는 필수 입력 값입니다.")
     private Integer reTotalFlr ; // 전체 층수
 
-<<<<<<< HEAD
+
 
     private boolean reSecndFlr ; //  복층
 
@@ -74,12 +74,7 @@ public class ReFormDto {
 
     private boolean reUndrflr ; // 반지하
 
-=======
-    private boolean reSecndFlr ; //  복층
 
-    private boolean reTopFlr ; // 옥탑방
-
-    private boolean reUndrflr ; // 반지하
 
     //매물 맞춤 조건 추가
     private boolean reNew; //신축
@@ -142,7 +137,7 @@ public class ReFormDto {
     private boolean rePark; //공원
 
     private boolean reRsdnt_Area; //주택지구
->>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
+
 
 
     //매물에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다. (최대 10개 이미지)
