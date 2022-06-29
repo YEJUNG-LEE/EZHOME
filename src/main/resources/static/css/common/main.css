@@ -5,9 +5,9 @@
     font-family: 'NanumBarunGothic';
     font-style: normal;
     font-weight: 400;
-    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
-    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), 
-    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), 
+    src: url('/cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('/cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'),
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'),
     url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
 
@@ -16,9 +16,9 @@
     font-family: 'NanumBarunGothic';
     font-style: normal;
     font-weight: 700;
-    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
-    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), 
-    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), 
+    src: url('/cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('/cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'),
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'),
     url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
 }
 
@@ -26,9 +26,9 @@
     font-family: 'NanumBarunGothic';
     font-style: normal;
     font-weight: 300;
-    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
-    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), 
-    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), 
+    src: url('/cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('/cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'),
+    url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'),
     url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
 }
 
@@ -108,7 +108,7 @@ nav > ul {
 .EzHome-ul-left {
     width: 450px;
     height: 100%;
-    margin-left: 300px;
+    margin-left: 360px;
     padding: 0;
     display: flex;
 }
@@ -135,10 +135,11 @@ nav > ul {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: flex-end;
 }
 
 .EzHome-ul-right > li {
-    width: 100%;
+    width: 140px;
     height: 90px;
     display: block;
     float: left;
@@ -161,7 +162,7 @@ nav > ul {
 }
 
 /* 로그인 버튼 */
-.EzHome-ul-right li:nth-child(2) > a{
+.main_login > .main_login_log{
     width: 100px;
     height: 48px;
     line-height: 50px;
@@ -179,15 +180,15 @@ nav > ul {
 .EzHome-ul-right li:nth-child(1) > a {
     color: #4876ef;
 }
-.EzHome-ul2 li a{
+.EzHome-ul-right li a{
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
 }
 .EzHome-ul-right li:nth-child(1) > a:hover{
     color: #fec72f;
 }
 /* 로그인 호버 */
-.EzHome-ul-right li:nth-child(2) > a:hover{
+.main_login_log:hover{
     background: #4876ef;
     color: #fff;
     border: 1px solid #4876ef;
@@ -366,7 +367,7 @@ main {
 .main-section01{
     width: 100%;
     height: 930px;
-    background: url(../img/main_img.jpg) no-repeat 0 -200px;
+    background: url(/img/main_img.jpg) no-repeat 0 -200px;
 }
 .container-div {
     width: 100%;
@@ -824,7 +825,7 @@ main {
 
 /* 편의시설 모양 가로 정렬잡아주는 역활 */
 /* justify-content: space-between; */
-.info-coulumn-jcsb{
+.info-column-jcsb{
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -833,7 +834,7 @@ main {
 }
 
 /* info-coulumn-type 편의시설 종류 구분 div */
-.info-coulumn-type{
+.info-column-type{
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -843,8 +844,8 @@ main {
 }
 
 /* 편의시설 공통 */
-/* coulumn-type-icon 공통 아이콘 div */
-.coulumn-type-icon{
+/* column-type-icon 공통 아이콘 div */
+.column-type-icon{
     display: flex;
     flex-direction: column;
     -webkit-box-align: center;
@@ -858,40 +859,40 @@ main {
 .type-icon-cafe{
     width: 36px;
     height: 36px;
-    background: url(../img/icon-cafe.svg) center center no-repeat #ffffff;
+    background: url(/img/icon-cafe.svg) center center no-repeat #ffffff;
     box-sizing: border-box;
 }
 .type-icon-cvs{
     width: 36px;
     height: 36px;
-    background: url(../img/icon-cvs.svg) center center no-repeat #ffffff;
+    background: url(/img/icon-cvs.svg) center center no-repeat #ffffff;
     box-sizing: border-box;
 }
 /* 수퍼마켓 */
 .type-icon-supermarket{
     width: 36px;
     height: 36px;
-    background: url(../img/icon-supermarket.svg) center center no-repeat #ffffff;
+    background: url(/img/icon-supermarket.svg) center center no-repeat #ffffff;
     box-sizing: border-box;
 }
 /* 미용실 */
 .type-icon-beautyslaon{
     width: 36px;
     height: 36px;
-    background: url(../img/icon-beautyslaon.svg) center center no-repeat #ffffff;
+    background: url(/img/icon-beautyslaon.svg) center center no-repeat #ffffff;
     box-sizing: border-box;
 }
 /* 세탁빨래방 */
 .type-icon-laundry{
     width: 36px;
     height: 36px;
-    background: url(../img/icon-laundry.svg) center center no-repeat #ffffff;
+    background: url(/img/icon-laundry.svg) center center no-repeat #ffffff;
     box-sizing: border-box;
 }
 .type-icon-exercise{
     width: 36px;
     height: 36px;
-    background: url(../img/icon-exercise.svg) center center no-repeat #ffffff;
+    background: url(/img/icon-exercise.svg) center center no-repeat #ffffff;
     box-sizing: border-box;
 }
 
@@ -919,8 +920,8 @@ main {
     box-sizing: border-box;
 }
 
-/* info-coulumn 열(세로 정렬) */
-.info-coulumn{
+/* info-column 열(세로 정렬) */
+.info-column{
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -929,7 +930,7 @@ main {
 }
 
 /* info-monthly 월세 div */
-.info-coulumn-inner{
+.info-column-inner{
     display: flex;
     box-sizing: border-box;
 }
@@ -943,11 +944,11 @@ main {
 }
 
 /* 숫자 왼쪽만 여백 margin-left: 16px; */
-.info-coulumn-inner > p + p{
+.info-column-inner > p + p{
     margin-left: 16px;
 }
 
-/* inner-name-numberr P태그 월세 가격(숫자) */
+/* inner-name-number P태그 월세 가격(숫자) */
 .inner-name-number{
     font-size: 18px;
     line-height: 28px;
@@ -956,7 +957,7 @@ main {
 }
 
 /* 전세 div  */
-.info-coulumn-inne{
+.info-column-inner{
     display: flex;
     box-sizing: border-box;
 }
@@ -986,7 +987,7 @@ main {
 /* footer w = 100% , h = 100% */
 footer{
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     background: #373737;
 }
 
@@ -1123,7 +1124,7 @@ footer{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url(../img/sns01.png) center center / cover no-repeat;
+    background: url(/img/sns01.png) center center / cover no-repeat;
 }
 /* 페북 왼쪽 여백 */
 .instagram + a{
@@ -1134,7 +1135,7 @@ footer{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url(../img/sns02.png) center center / cover no-repeat;
+    background: url(/img/sns02.png) center center / cover no-repeat;
 }
 /* 블로그 왼쪽 여백 */
 .facebook + a {
@@ -1145,7 +1146,7 @@ footer{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url(../img/sns03.png) center center / cover no-repeat;
+    background: url(/img/sns03.png) center center / cover no-repeat;
 }
 /* 포스트 왼쪽 여백 */
 .blog + a {
@@ -1156,7 +1157,7 @@ footer{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url(../img/sns04.png) center center / cover no-repeat;
+    background: url(/img/sns04.png) center center / cover no-repeat;
 }
 .naverpost + a {
     margin-left: 10px;
@@ -1165,7 +1166,7 @@ footer{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url(../img/sns05.png) center center / cover no-repeat;
+    background: url(/img/sns05.png) center center / cover no-repeat;
 }
 
 
