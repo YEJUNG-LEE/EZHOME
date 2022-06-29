@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MapController {
     @GetMapping(value="/map")
     public String main(Model model){
-        return "reEs/ReEs";
+        return "reEs/html/ReEs";
     }
 }

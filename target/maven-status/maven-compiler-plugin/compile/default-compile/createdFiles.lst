@@ -6,12 +6,13 @@ EZHome\entity\QReEs.class
 EZHome\entity\BaseTimeEntity.class
 EZHome\config\WebMvcConfig.class
 EZHome\entity\QMember.class
+EZHome\entity\QMcacs.class
 EZHome\entity\Member.class
 EZHome\repository\MemberRepository.class
 EZHome\entity\BaseEntity.class
+EZHome\entity\QMncs.class
 EZHome\MainApplication.class
 EZHome\service\FileService.class
-EZHome\entity\dto\QMainContentDto.class
 EZHome\entity\QBaseEntity.class
 EZHome\dto\MemberDto.class
 EZHome\constant\Role.class
@@ -22,6 +23,9 @@ EZHome\dto\MainContentDto.class
 EZHome\service\MemberService.class
 EZHome\entity\QReImg.class
 EZHome\entity\QReCucs.class
+EZHome\entity\QMcsadd.class
 EZHome\entity\QBaseTimeEntity.class
 EZHome\entity\QReCacs.class
 EZHome\controller\MainTestController.class
+EZHome\entity\QMcs.class
+EZHome\entity\QMcucs.class

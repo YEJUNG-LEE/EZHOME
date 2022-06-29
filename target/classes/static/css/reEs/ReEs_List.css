@@ -32,7 +32,7 @@
     font-weight: 700;
     text-align:center;
     padding-top:5px;
-    z-index:999;
+    z-index:90;
 }
 .ReEs_List-rightButton:hover{
     background-color:#fff86d;
