@@ -36,7 +36,7 @@ public class ReEsController {
         }
 
         // 이미지 파일 존재하는지 체크
-        if(itemImgFileList.get(0).isEmpty() && reFormDto.getReid() == null){
+        if(itemImgFileList.get(0).isEmpty() && reFormDto.getId() == null){
             model.addAttribute("errorMessage","첫 번째 이미지는 필수 입력 값입니다.");
             return "reEs/html/ReItemForm" ;
         }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter @Setter
 public class ReFormDto {
-    private Long reid ; // 매물 기본키 (fk)
+    private Long id ; // 매물 기본키 (fk)
 
     @NotBlank(message="매물 번호는 필수 입력 값입니다.")
     private Integer reNum;  // 매물 번호
