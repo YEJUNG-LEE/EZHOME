@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             anyRequest().authenticated() : 상기 위에서 열거한 내용 이외의 모든 항목든 인증을 요구합니다.
         * */
         http.authorizeRequests()
-                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
+                .mvcMatchers("/", "/reEs/**","/members/**", "/item/**", "/images/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
 

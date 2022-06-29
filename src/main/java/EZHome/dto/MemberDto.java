@@ -10,5 +10,4 @@ public class MemberDto {
     private String Memb_name;
     private String Memb_nick;
 
-
 }

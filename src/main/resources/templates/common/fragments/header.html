@@ -20,7 +20,10 @@
             </h1>
             <!-- EzHome-ul-left -->
             <ul class="EzHome-ul-left">
-                <li>
+                <li sec:authorize="isAnonymous()">
+                    <a href="/reEs">부동산</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
                     <a href="/reEs">부동산</a>
                 </li>
                 <li>
@@ -31,35 +34,44 @@
                 </li>
             </ul>
             <!--// EzHome-ul-left -->
+            <!--
+
+             -->
             <!-- EzHome-ul-right -->
             <ul class="EzHome-ul-right">
-                <!-- 회원(공인중개사) 광고(매물)등록 -->
+                <!-- 비회원, 광고문의 -->
                 <li sec:authorize="!isAuthenticated()" class="advert_insert">
                     <a href="#">광고문의</a>
                 </li>
+                <!-- 회원(공인중개사) 광고(매물)등록 -->
                 <li sec:authorize="hasRole('LREA')" class="advert_insert">
-                    <a href="#">광고문의</a>
+                    <a href="#">광고등록</a>
                 </li>
                 <!-- 로그인 -->
                 <li sec:authorize="isAnonymous()"  class="main_login">
                     <a class="main_login_log" href="/members/login">로그인</a>
                 </li>
+                <!--// 로그인 -->
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
                     <a href="#">
-                        <i class="fa-solid fa-user"></i><span th:text="${Memb.Memb_nick}">님</span>
+                        <i class="fa-solid fa-user"></i><span>님</span><!-- 유저 이름 -->
                     </a>
                 </li>
-
+                <!--// 유저 이름 -->
+                <!-- 회원가입 -->
                 <li sec:authorize="isAnonymous()">
                     <a href="/members/new" class="header-signup">회원가입</a>
                 </li>
+                <!--// 회원가입 -->
+                <!-- 로그아웃 -->
                 <li class="header-signup" sec:authorize="isAuthenticated()">
                     <a href="/members/logout">
                         로그아웃
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     </a>
                 </li>
+                <!--// 로그아웃 -->
             </ul>
             <!--// EzHome-ul-right -->
         </nav>

@@ -172,7 +172,7 @@
                 <p th:if="${#fields.hasErrors('membPhone')}" th:errors="*{membPhone}" class="fieldError">Incorrect data</p>
             </div>
             <div style="text-align: center">
-                <input class="MeMb-button" type="submit" value="회원가입">
+                <input class="MeMb-button" type="submit" th:formaction="@{/members/login}" value="회원가입">
             </div>
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         </form>
