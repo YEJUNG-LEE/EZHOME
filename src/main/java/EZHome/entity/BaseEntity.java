@@ -1,8 +1,12 @@
 package EZHome.entity;
 
+<<<<<<< HEAD
 
 import lombok.Getter;
 import lombok.Setter;
+=======
+import lombok.Getter;
+>>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +15,7 @@ import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 
+<<<<<<< HEAD
 // Entity에 대하여 AuditingEntityListener를 이용하여 리스닝할 겁니다.
 @EntityListeners(value={AuditingEntityListener.class})
 @MappedSuperclass
@@ -22,4 +27,17 @@ public abstract class BaseEntity extends BaseTimeEntity {
 
     @LastModifiedBy // 엔터티 수정시 수정자 id를 기록할께요
     private String modifiedBy ; // 수정자
+=======
+@EntityListeners(value = {AuditingEntityListener.class})
+@MappedSuperclass
+@Getter
+
+public abstract class BaseEntity extends BaseTimeEntity{
+    @CreatedBy
+    @Column(updatable = false)
+    private String createdBy;
+
+    @LastModifiedBy
+    private String modifiedBy;
+>>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
 }

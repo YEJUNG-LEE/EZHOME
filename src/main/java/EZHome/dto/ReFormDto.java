@@ -64,6 +64,7 @@ public class ReFormDto {
     @NotBlank(message="전체 층수는 필수 입력 값입니다.")
     private Integer reTotalFlr ; // 전체 층수
 
+<<<<<<< HEAD
 
     private boolean reSecndFlr ; //  복층
 
@@ -73,6 +74,75 @@ public class ReFormDto {
 
     private boolean reUndrflr ; // 반지하
 
+=======
+    private boolean reSecndFlr ; //  복층
+
+    private boolean reTopFlr ; // 옥탑방
+
+    private boolean reUndrflr ; // 반지하
+
+    //매물 맞춤 조건 추가
+    private boolean reNew; //신축
+
+    private boolean reFull; //풀옵션
+
+    private boolean reDebt; //대출없음
+
+    private boolean reElvtr; //엘리베이터
+
+    private boolean rePet; //반려동물
+
+    private boolean reScrty; //보안기능
+
+    private boolean reParking; //주차장
+
+    private boolean reSouth; //남향
+
+    private boolean reBug; //벌레퇴치업체
+
+    private boolean reWoman; //여성전용
+
+    private boolean reForest; //숲View
+
+    private boolean reRiver; //리버View
+
+    private boolean reOcean; //오션View
+
+    private boolean reCity; //시티View
+
+    //카테고리 조건 추가
+    private boolean rePublic; //공공기관(경찰서, 은행 등)
+
+    private boolean reMedic; //의료시설(병원, 약국)
+
+    private boolean reCnvn; //편의시설(시장, 운동시설, 편의점)
+
+    private boolean reSchol; //학교시설(초등,중등,고등)
+
+    private boolean reTeen; //10대 거주
+
+    private boolean reTwen; //20대 거주
+
+    private boolean reThirty; //30대 거주
+
+    private boolean reFourty; //40대 거주
+
+    private boolean reFifty; //50대 거주
+
+    private boolean reSixty; //60대 이상 거주
+
+    private boolean reMainroad; //대로변
+
+    private boolean reRocket; //로켓배송
+
+    private boolean reFlat; //경사완만
+
+    private boolean reSubway; //역세권
+
+    private boolean rePark; //공원
+
+    private boolean reRsdnt_Area; //주택지구
+>>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
 
 
     //매물에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다. (최대 10개 이미지)

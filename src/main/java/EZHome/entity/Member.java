@@ -1,8 +1,13 @@
 package EZHome.entity;
 
+<<<<<<< HEAD
 
 import EZHome.dto.MemberFormDto;
 import EZHome.Role.Role;
+=======
+import EZHome.constant.Role;
+import EZHome.dto.MemberFormDto;
+>>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,7 +20,11 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+<<<<<<< HEAD
 public class Member {
+=======
+public class Member{
+>>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
     @Id
     @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

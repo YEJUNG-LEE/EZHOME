@@ -11,8 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+<<<<<<< HEAD
 @RequiredArgsConstructor
 @Transactional
+=======
+@Transactional
+@RequiredArgsConstructor
+>>>>>>> 1165e2ed5b4c1ee3c1aab0b8157f5ae81385c2a7
 public class MemberService implements UserDetailsService {
     private final MemberRepository memberRepository;
 
