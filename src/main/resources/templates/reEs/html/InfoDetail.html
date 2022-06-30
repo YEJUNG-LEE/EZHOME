@@ -221,39 +221,15 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
             <div class="swiper-wrapper ReEs-div-detail-PicWrap">
-                <div class="swiper-slide ReEs-div-detail-Pic">
 
+
+                <div class="swiper-slide ReEs-div-detail-Pic" th:each="dtlImg : ${DtlItem.reImgDtoList}">
                     <div class="card-content">
                         <div class="image">
-                            <img th:src="${item.itemImgDtoList[0].imgUrl}>
+                            <img th:if="${not #string.isEmpty(dtlImg.reImgUrl)}" th:src="${dtlImg.reImgUrl}">
                         </div>
                     </div>
                 </div>
-
-                <div class="swiper-slide ReEs-div-detail-Pic">
-                    <div class="card-content">
-                        <div class="image">
-                            <img src="images/img01.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide ReEs-div-detail-Pic">
-                    <div class="card-content">
-                        <div class="image">
-                            <img src="images/img01.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide ReEs-div-detail-Pic">
-                    <div class="card-content">
-                        <div class="image">
-                            <img src="images/img01.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <!--end 부동산이미지-->
 
@@ -529,7 +505,6 @@
 
         </div>
         <!--end 부동산이미지-->
-
     </div>
 
 
@@ -585,7 +560,8 @@
 // end Modal 상담예약
         </script>
 
-
+        </div>
+    </div>
 </section>
 
 

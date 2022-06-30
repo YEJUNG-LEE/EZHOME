@@ -85,6 +85,8 @@ public class ReService {
 
     private final ReEsImgRepository reEsImgRepository;
 
+
+    //디테일 페이지
     public ReFormDto getItemDtl(Long id){
         List<ReImg> itemImgList = reEsImgRepository.findByIdOrderByIdAsc(id);
 
@@ -114,11 +116,11 @@ public class ReService {
         //상품 등록시 첨부할 상품 이미지 정보들을
         // 저장할 리스트 컬렉션으로 화면에 기재가 됨(최대 5개 이미지)
         reFormDto.setReImgDtoList(reImgDtoList);
-
+        System.out.println("이미지 리턴");
         return reFormDto;
     }
 
-    // 메인 페이지에 보여줄 상품 데이터를 조히하는 메소드를 구현합니다.
+    // 메인 페이지에 보여줄 상품 데이터를 조회하는 메소드를 구현합니다.
     @Transactional(readOnly = true)
     public Page<MapMainDto> getMainItemPage(MapSearchDto mapSearchDto, Pageable pageable){
         return reEsRepository.getMainItemPage(mapSearchDto,pageable );
