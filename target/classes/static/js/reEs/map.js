@@ -19,7 +19,7 @@ $(document).ready(function(){
         var data = geojson.features;
         var coordinates = []; // 좌표 저장할 배열
         var name = '';  //행정 구 이름
-
+        console.log('name');
         $.each(data, function(index, val){
             coordinates = val.geometry.coordinates;
             name = val.properties.SIG_KOR_NM;
