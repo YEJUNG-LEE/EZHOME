@@ -6,12 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -28,10 +30,15 @@ public class ReEsController {
     private final ReService reService;
     @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
-                          @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
+                          @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
+        System.out.println("aaaaaaa");
 
         // Dto 유효성검사에 에러가 있는지 체크
         if(bindingResult.hasErrors()){ // 파라미터가 유효성검사에 문제가 있어 에러가 존재하다면
+            List<ObjectError> list =  bindingResult.getAllErrors();
+            for(ObjectError e : list) {
+                System.out.println(e.getDefaultMessage());
+            }
             return "reEs/html/ReItemForm" ;  // ReItemForm 으로 이동
         }
 
@@ -41,6 +48,9 @@ public class ReEsController {
             return "reEs/html/ReItemForm" ;
         }
 
+        // principal : (로그인한) 인증된 사용자에 대한 정보를 구할 수 있다.
+        String email = principal.getName();
+
         try {
             reService.savedReEs(reFormDto, itemImgFileList);
         }catch (Exception e){
@@ -48,7 +58,11 @@ public class ReEsController {
             return "reEs/html/ReItemForm" ;
         }
 
-        return "redirect:/"; //메인페이지로
+
+        System.out.println("@@@@@@@@@@@@@@@@@");
+
+        return "reEs/html/InfoDetail"; // 디테일 페이지로
+
     }
 
     // 수정 페이지로 진입하기 위한코드

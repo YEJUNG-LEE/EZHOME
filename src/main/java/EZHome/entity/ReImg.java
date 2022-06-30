@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ReImg")
 @Getter @Setter @ToString
-public class ReImg {
+public class ReImg extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class ReImg {
     private String reImgUrl ;
     private String reYN ; // 대표이미지 Y, 나머지 N
 
-    @Column(nullable = false, length = 300)
+    @Column(nullable = true, length = 300)
     private String reDscp ; // 매물 상세설명
 
     // 하나의 매물(1)에 여러개(n)의 이미지를 올릴 수 있음으로 '일대다'로 설정했습니다.
