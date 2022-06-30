@@ -13,8 +13,6 @@ import java.util.List;
 @Getter @Setter @ToString
 public class ReEs extends BaseEntity {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="reid")

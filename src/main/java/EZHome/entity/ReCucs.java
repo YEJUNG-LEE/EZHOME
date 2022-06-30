@@ -13,7 +13,10 @@ public class ReCucs extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cuid ; //매물 맞춤 기본키(FK)
+    @Column(name = "cuid")
+    private Long id ; //매물 맞춤 기본키(FK)
+
+
 
     private boolean reNew ; // 신축
     private boolean reFull ; // 풀옵션
@@ -30,9 +33,7 @@ public class ReCucs extends BaseEntity{
     private boolean reOcean ; // 오션 view
     private boolean reCity ; // 도시 view
 
-     //회원(일)이 여러개(다)의 매물커스텀조건을 올릴 수 있음으로  '일대다'로 설정했습니다.
-     @ManyToOne
-     @JoinColumn(name = "member_id")
-     private Member member;
-
+    @OneToOne()
+    @JoinColumn(name = "reid")
+     private ReEs reEs;
 }

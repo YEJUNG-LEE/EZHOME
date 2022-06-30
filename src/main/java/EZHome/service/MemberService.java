@@ -43,4 +43,10 @@ public class MemberService implements UserDetailsService {
                     .roles(member.getRole().toString())
                     .build();
     }
+    public String userInfo(String email){
+        String info = "" ;
+        info = memberRepository.findByEmail(email).getMemb_name() ;
+        return info ;
+    }
+
 }
