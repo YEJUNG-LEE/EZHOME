@@ -33,12 +33,7 @@ public class ReCacs extends BaseEntity{
     private boolean rePark; // 공원
     private boolean reRsdnt_Area ; // 주택가
 
-    //회원(일)이 여러개(다)의 매물카테고리조건을 올릴 수 있음으로 '일대다'로 설정했습니다.
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
-
-    @JoinColumn(name = "re_id")
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne()
+    @JoinColumn(name = "reid")
     private ReEs reEs;
 }

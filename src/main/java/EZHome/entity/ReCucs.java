@@ -33,12 +33,7 @@ public class ReCucs extends BaseEntity{
     private boolean reOcean ; // 오션 view
     private boolean reCity ; // 도시 view
 
-     //회원(일)이 여러개(다)의 매물커스텀조건을 올릴 수 있음으로  '일대다'로 설정했습니다.
-     @ManyToOne(fetch = FetchType.LAZY)
-     @JoinColumn(name = "member_id")
-     private Member member;
-
-    @JoinColumn(name = "re_id")
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne()
+    @JoinColumn(name = "reid")
      private ReEs reEs;
 }
