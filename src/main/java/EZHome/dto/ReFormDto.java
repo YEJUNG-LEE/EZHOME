@@ -148,7 +148,7 @@ public class ReFormDto {
     public ReEs createReEs(){
         return modelMapper.map(this, ReEs.class);
     }
-    public ReCucs creatReCucs(){
+    public ReCucs createReCucs(){
         return modelMapper.map(this, ReCucs.class);
     }
     public ReCacs createReCacs(){
