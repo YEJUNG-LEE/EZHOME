@@ -2,11 +2,14 @@ package EZHome.service;
 
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReImgDto;
+import EZHome.entity.Member;
 import EZHome.entity.ReEs;
 import EZHome.entity.ReImg;
+import EZHome.repository.MemberRepository;
 import EZHome.repository.ReEsImgRepository;
 import EZHome.repository.ReEsRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,10 +26,15 @@ public class ReService {
 
 
     private final ReEsRepository reEsRepository;
+    private final MemberRepository memberRepository;
     private final ReImgService reImgService;
     //상품 등록 폼에서 입력 받은 데이터(Dto)를 이용하여  상품 데이터(entity)를 저장시키고,
     // 반 복문을 사용하여 상품에 따른 이미지들을 저장합니다.
     public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList) throws Exception {
+//        System.out.println("======================================");
+////        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+
 
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
         ReEs reEs = reFormDto.createReEs();
