@@ -23,7 +23,7 @@ public class ReEsController {
     // 메물 올리기
     @GetMapping(value="/admin/item/new")
     public String reesInsert(Model model){
-        model.addAttribute("ReFormDto", new ReFormDto());
+        model.addAttribute("reFormDto", new ReFormDto());
         return "reEs/html/ReItemForm";
     }
 
@@ -31,10 +31,15 @@ public class ReEsController {
     @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
-        System.out.println("aaaaaaa");
+        System.out.println("==========================================================");
+        System.out.println("컨트롤러로 넘어왔습니다!");
+        System.out.println("==========================================================");
 
         // Dto 유효성검사에 에러가 있는지 체크
         if(bindingResult.hasErrors()){ // 파라미터가 유효성검사에 문제가 있어 에러가 존재하다면
+            System.out.println("==========================================================");
+            System.out.println("1번 BindingResult 오류입니다.");
+            System.out.println("==========================================================");
             List<ObjectError> list =  bindingResult.getAllErrors();
             for(ObjectError e : list) {
                 System.out.println(e.getDefaultMessage());
@@ -44,6 +49,9 @@ public class ReEsController {
 
         // 이미지 파일 존재하는지 체크
         if(itemImgFileList.get(0).isEmpty() && reFormDto.getId() == null){
+            System.out.println("==========================================================");
+            System.out.println("2번 이미지와 아이디가 비어져있을때의 오류입니다.");
+            System.out.println("==========================================================");
             model.addAttribute("errorMessage","첫 번째 이미지는 필수 입력 값입니다.");
             return "reEs/html/ReItemForm" ;
         }
@@ -54,12 +62,15 @@ public class ReEsController {
         try {
             reService.savedReEs(reFormDto, itemImgFileList);
         }catch (Exception e){
+            System.out.println("==========================================================");
+            System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
+            System.out.println("==========================================================");
             model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
             return "reEs/html/ReItemForm" ;
         }
 
 
-        System.out.println("@@@@@@@@@@@@@@@@@");
+        System.out.println("완료!");
 
         return "reEs/html/InfoDetail"; // 디테일 페이지로
 
