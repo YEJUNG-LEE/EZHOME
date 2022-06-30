@@ -13,6 +13,7 @@ public class ReCacs extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JoinColumn(name = "re_id")
     private Long caid ; // 매물 카테고리 기본키(Fk)
 
     private boolean rePublic ; //공공기관(경찰서, 은행 등)

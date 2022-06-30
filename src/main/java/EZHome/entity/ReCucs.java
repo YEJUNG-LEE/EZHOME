@@ -13,6 +13,7 @@ public class ReCucs extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JoinColumn(name = "re_id")
     private Long cuid ; //매물 맞춤 기본키(FK)
 
     private boolean reNew ; // 신축
