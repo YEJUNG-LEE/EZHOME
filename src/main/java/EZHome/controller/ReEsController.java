@@ -66,6 +66,7 @@ public class ReEsController {
             System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
             System.out.println("==========================================================");
             model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
+            e.printStackTrace();
             return "reEs/html/ReItemForm" ;
         }
 
