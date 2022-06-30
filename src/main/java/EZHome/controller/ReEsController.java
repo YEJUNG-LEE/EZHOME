@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,7 +29,7 @@ public class ReEsController {
     }
 
     private final ReService reService;
-    @PostMapping(value = "/map/{id}")
+    @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
         System.out.println("aaaaaaa");
@@ -72,12 +73,6 @@ public class ReEsController {
 //    }
 
 
-    // 메인 매물 리스트 접근 테스트 중입니다
-    @GetMapping(value="/rees")
-    public String check(Model model){
-        model.addAttribute("ReFormDto", new ReFormDto());
-        return "reEs/html/ReEs";
-    }
 
 
 }
