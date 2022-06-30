@@ -4,12 +4,8 @@ import EZHome.dto.MapMainDto;
 import EZHome.dto.MapSearchDto;
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReImgDto;
-import EZHome.entity.Member;
-import EZHome.entity.ReEs;
-import EZHome.entity.ReImg;
-import EZHome.repository.MemberRepository;
-import EZHome.repository.ReEsImgRepository;
-import EZHome.repository.ReEsRepository;
+import EZHome.entity.*;
+import EZHome.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,18 +30,38 @@ public class ReService {
     private final ReImgService reImgService;
     //상품 등록 폼에서 입력 받은 데이터(Dto)를 이용하여  상품 데이터(entity)를 저장시키고,
     // 반 복문을 사용하여 상품에 따른 이미지들을 저장합니다.
+    private final ReCacsRepository reCacsRepository;
+    private final ReCucsRepository reCucsRepository;
+
     public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList) throws Exception {
 //        System.out.println("======================================");
 ////        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
 //        String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
+        System.out.println("======================================");
+        System.out.println("============서비스로 들어갔습니다=========");
+        System.out.println("======================================");
 
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
         ReEs reEs = reFormDto.createReEs();
+        System.out.println("createReEs 오류안남");
+
         reEsRepository.save(reEs); // 매물 상품 데이터 저장
+        System.out.println("save(reEs) 오류안남");
         /*종욱*/
         // 매물 커스텀 데이터 저장
         // 매물 카테고리 데이터 저장
+
+        ReCucs reCucs = reFormDto.createReCucs();
+        reCucs.setReEs(reEs);
+        System.out.println("createReCucs 오류안남");
+
+        ReCacs reCacs = reFormDto.createReCacs();
+        reCacs.setReEs(reEs);
+        System.out.println("createReCacs 오류안남");
+        reCucsRepository.save(reCucs);
+        reCacsRepository.save(reCacs);
+
 
         // 2. 상품 이미지 등록
         // 반복문으로 해당 상품(ReEs)과 관련된 이미지(ReImg)들 저장하기
