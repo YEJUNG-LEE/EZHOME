@@ -157,8 +157,14 @@ public class ReFormDto {
     }
 
     // Entity -> Dto
-    public static ReFormDto of(ReEs reEs){
+    public static ReFormDto ofReEs(ReEs reEs){
         return modelMapper.map(reEs, ReFormDto.class);
+    }
+    public static ReFormDto ofReCucs(ReCucs reCucs){
+        return modelMapper.map(reCucs, ReFormDto.class);
+    }
+    public static ReFormDto ofReCacs(ReCacs reCacs){
+        return modelMapper.map(reCacs, ReFormDto.class);
     }
 
 }

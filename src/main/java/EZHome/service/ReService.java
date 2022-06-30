@@ -82,17 +82,25 @@ public class ReService {
     private final ReEsImgRepository reEsImgRepository;
 
     public ReFormDto getItemDtl(Long id){
-        List<ReImg> itemImgList = reEsImgRepository.findByIdOrderByIdAsc(id);
+        List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
 
-        // 3. dto를 저장시킬 리스트 컬렉션 생성 ( dto -> Jpa 연동)
+        for (ReImg reImg: itemImgList) {
+            System.out.println("itemImgList : " + reImg.getId());
+        }
+
         List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
+
+
 
         // 수정페이지는 기존 등록정보가 화면에 띄어져야 하므로
         // 반복문을 사용하여 entity를 dto로 변경시켜 컬렉션에 답습니다.
-
         for(ReImg reImg: itemImgList){
             // 타입이 다름으로 of()메소드를 이용해 itemImg(entity)-> dto 타입으로 변경
+            System.out.println("============================================");
+            System.out.println("ReImgDto.of 전");
             ReImgDto reImgDto = ReImgDto.of(reImg);
+            System.out.println("ReImgDto.of 후");
+            System.out.println("============================================");
 
             // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
             reImgDtoList.add(reImgDto);
@@ -101,10 +109,18 @@ public class ReService {
         //4. 상품 entity 정보를 구합니다.
         ReEs reEs = reEsRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
+        ReCucs recucs = reCucsRepository.findByReEs_Id(id);
+        ReCacs recacs = reCacsRepository.findByReEs_Id(id);
+
+        System.out.println("recucs : " + recucs.toString());
+        System.out.println("recacs : " + recacs.toString());
 
         //5. of() 메소드를 사용해서 id로 조회한 등록된 item entity 정보들을 dto로 변경 ->
         // 이유 : 화면에 넣기 위해서
-        ReFormDto reFormDto = ReFormDto.of(reEs);
+        ReFormDto reFormDto = ReFormDto.ofReEs(reEs);
+        reFormDto.ofReCucs(recucs);
+        reFormDto.ofReCacs(recacs);
+
 
         // 6 setItemImgDtoList() :
         //상품 등록시 첨부할 상품 이미지 정보들을

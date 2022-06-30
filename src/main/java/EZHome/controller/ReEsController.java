@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import javax.xml.ws.Service;
 import java.security.Principal;
@@ -22,20 +24,27 @@ import java.util.List;
 public class ReEsController {
 //
     // 메물 올리기
+    private final ReService reService;
     @GetMapping(value="/admin/item/new")
     public String reesInsert(Model model){
         model.addAttribute("reFormDto", new ReFormDto());
         return "reEs/html/ReItemForm";
     }
 
-    @GetMapping(value = "/admin/item/update")
-    public String reesUpdate(Model model){
-        
-
-        return null ;
+    @GetMapping(value = "/admin/item/update{reid}")
+    public String reesUpdate(@PathVariable("reid") Long itemId, Model model){
+        try {
+            ReFormDto reFormDto = reService.getItemDtl(itemId) ;
+            System.out.println("reFormDto : " + reFormDto.toString());
+            model.addAttribute("reFormDto", reFormDto) ;
+        }catch(EntityNotFoundException e){
+            model.addAttribute("errorMessage", "존재 하지 않는 상품입니다.") ;
+            return "redirect:/";
+        }
+        return "redirect:/";
+//        return "reEs/html/ReUpdateForm" ;
     }
 
-    private final ReService reService;
     @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
