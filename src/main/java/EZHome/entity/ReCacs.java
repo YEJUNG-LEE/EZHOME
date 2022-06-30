@@ -13,8 +13,8 @@ public class ReCacs extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JoinColumn(name = "re_id")
-    private Long caid ; // 매물 카테고리 기본키(Fk)
+    @Column(name="caid")
+    private Long id ; // 매물 카테고리 기본키(Fk)
 
     private boolean rePublic ; //공공기관(경찰서, 은행 등)
     private boolean reMedic ; //의료시설(병원, 약국)
@@ -38,4 +38,7 @@ public class ReCacs extends BaseEntity{
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @JoinColumn(name = "re_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    private ReEs reEs;
 }
