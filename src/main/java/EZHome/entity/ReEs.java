@@ -47,7 +47,7 @@ public class ReEs extends BaseEntity {
     @Column(nullable = false)
     private Integer reFlr ; // 층수
 
-    /* 전체층수부터 평수는 빠른 구현을 위해 'null 값 허용' 으로 설정하겠습니다.*/
+
 
     @Column(nullable = false)
     private Integer reTotalFlr ; // 전체 층수

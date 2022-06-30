@@ -72,4 +72,12 @@ public class ReEsController {
 //    }
 
 
+    // 메인 매물 리스트 접근 테스트 중입니다
+    @GetMapping(value="/rees")
+    public String check(Model model){
+        model.addAttribute("ReFormDto", new ReFormDto());
+        return "reEs/html/ReEs";
+    }
+
+
 }
