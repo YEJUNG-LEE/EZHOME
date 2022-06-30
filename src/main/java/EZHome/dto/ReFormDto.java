@@ -14,6 +14,7 @@ import java.util.List;
 
 @Getter @Setter
 public class ReFormDto {
+
     private Long id ; // 매물 기본키 (fk)
 
     @NotNull(message="매물 번호는 필수 입력 값입니다.")
@@ -148,7 +149,7 @@ public class ReFormDto {
     public ReEs createReEs(){
         return modelMapper.map(this, ReEs.class);
     }
-    public ReCucs creatReCucs(){
+    public ReCucs createReCucs(){
         return modelMapper.map(this, ReCucs.class);
     }
     public ReCacs createReCacs(){
