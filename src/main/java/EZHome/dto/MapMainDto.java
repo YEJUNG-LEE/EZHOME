@@ -7,7 +7,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 
 @Getter @Setter
-public class MainContentDto {
+public class MapMainDto {
     private Long id; //매물 id
 
     private String retrType ; // 매매 유형
@@ -25,16 +25,16 @@ public class MainContentDto {
     private String reDong; // 동
     private String reDtl_Adr ; // 상세주소
 
-    private String Memb_nick; // @@ 공인중개사
-
-    private String Memb_name; // 중개사 이름
+//    private String Memb_nick; // @@ 공인중개사
+//
+//    private String Memb_name; // 중개사 이름
 
     private String reImgUrl ;// 이미지 url
 
 
     @QueryProjection
-    public MainContentDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
-                          String reSido,String reGungu, String reDong, String reDtl_Adr, String Memb_nick, String Memb_name, String reImgUrl ){
+    public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
+                          String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
         this.id = id;
         this.retrType = retrType;
         this.reDeposit = reDeposit;
@@ -46,8 +46,8 @@ public class MainContentDto {
         this.reGungu = reGungu;
         this.reDong = reDong;
         this.reDtl_Adr = reDtl_Adr;
-        this.Memb_nick = Memb_nick;
-        this.Memb_name = Memb_name;
+//        this.Memb_nick = Memb_nick;
+//        this.Memb_name = Memb_name;
         this.reImgUrl = reImgUrl;
 
     }

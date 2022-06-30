@@ -1,5 +1,7 @@
 package EZHome.service;
 
+import EZHome.dto.MapMainDto;
+import EZHome.dto.MapSearchDto;
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReImgDto;
 import EZHome.entity.Member;
@@ -9,6 +11,8 @@ import EZHome.repository.MemberRepository;
 import EZHome.repository.ReEsImgRepository;
 import EZHome.repository.ReEsRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -98,6 +102,11 @@ public class ReService {
         return reFormDto;
     }
 
+    // 메인 페이지에 보여줄 상품 데이터를 조히하는 메소드를 구현합니다.
+    @Transactional(readOnly = true)
+    public Page<MapMainDto> getMainItemPage(MapSearchDto mapSearchDto, Pageable pageable){
+        return reEsRepository.getMainItemPage(mapSearchDto,pageable );
+    }
 
 
 }

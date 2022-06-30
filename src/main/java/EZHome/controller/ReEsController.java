@@ -28,7 +28,7 @@ public class ReEsController {
     }
 
     private final ReService reService;
-    @PostMapping(value = "/admin/item/new")
+    @PostMapping(value = "/map/{id}")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
         System.out.println("aaaaaaa");
@@ -61,7 +61,7 @@ public class ReEsController {
 
         System.out.println("@@@@@@@@@@@@@@@@@");
 
-        return "reEs/html/InfoDetail"; // 디테일 페이지로
+        return "reEs/html/ReEs"; // 디테일 페이지로
 
     }
 
