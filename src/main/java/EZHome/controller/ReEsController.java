@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import javax.xml.ws.Service;
 import java.security.Principal;
 import java.util.List;
 
@@ -25,6 +26,13 @@ public class ReEsController {
     public String reesInsert(Model model){
         model.addAttribute("reFormDto", new ReFormDto());
         return "reEs/html/ReItemForm";
+    }
+
+    @GetMapping(value = "/admin/item/update")
+    public String reesUpdate(Model model){
+        
+
+        return null ;
     }
 
     private final ReService reService;
