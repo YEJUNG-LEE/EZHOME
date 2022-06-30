@@ -123,7 +123,7 @@ public class ReService {
     // 메인 페이지에 보여줄 상품 데이터를 조회하는 메소드를 구현합니다.
     @Transactional(readOnly = true)
     public Page<MapMainDto> getMainItemPage(MapSearchDto mapSearchDto, Pageable pageable){
-        return reEsRepository.getMainItemPage(mapSearchDto,pageable );
+        return reEsRepository.getMainItemPage(mapSearchDto,pageable);
     }
 
 

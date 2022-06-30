@@ -314,15 +314,31 @@
             <div class="ReEs-div-content02">
                 <table class="ReEs-table-detail">
                     <tr>
-                        <th class="ReEs-tb-th">전세</th>
+                        <th class="ReEs-tb-th">전, 월세</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >2억5800</p>
+                            <p class="textsize" th:text="${DtlItem.retrType}">[[${DtlItem.reJeonse}]]</p>
                         </td>
                     </tr>
+
+                    <tr>
+                        <th class="ReEs-tb-th">보증금</th>
+                        <td class="ReEs-tb-td">
+                            <p class="textsize" th:text="${DtlItem.reDeposit}"></p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="ReEs-tb-th">전·월세 가격</th>
+                        <td class="ReEs-tb-td">
+                            <!--월세면 보증금에 값 넣기-->
+                            <p class="textsize" th:text="${DtlItem.reTrade}"></p>
+                        </td>
+                    </tr>
+
                     <tr>
                         <th class="ReEs-tb-th">관리비 </th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >매월 5만원</p>
+                            <p class="textsize" >매월[[${DtlItem.reAdmn_fee}]]만원</p>
                             <p class="textsize" >청소비,승강기 유지비 기타</p>
                         </td>
                     </tr>
@@ -332,21 +348,8 @@
                             <p class="textsize" >가능(무료)</p>
                         </td>
                     </tr>
-                    <tr>
-                        <th class="ReEs-tb-th">단기임대</th>
-                        <td class="ReEs-tb-td">
-                            <p class="textsize">불가능</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="ReEs-tb-th">한달/예상 주거비용</th>
 
-                        <td class="ReEs-tb-td">
-                            <p class="textsize" >5만원</p>
-                            <p class="textsize" >관리비</p>
-                            <p class="textsize" >별도 금액으로 부과되는 항목 제외</p>
-                        </td>
-                    </tr>
+
                 </table>
             </div>
             <h2 class="ReEs-h2-detail" id="section2">맞춤정보</h2>
@@ -380,7 +383,7 @@
                     <tr>
                         <th class="ReEs-tb-th">중개보수</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >1,032,000원</p>
+                            <p class="textsize" >[[${DtlItem.reDeposit * 0.1}]]원</p>
                         </td>
                     </tr>
                     <tr>
@@ -397,38 +400,38 @@
                     <tr>
                         <th class="ReEs-tb-th">건물이름</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >리젠트</p>
+                            <p class="textsize" th:text="${DtlItem.reNm}"></p>
                         </td>
                     </tr>
                     <tr>
                         <th class="ReEs-tb-th">방종류</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >오피스텔</p>
+                            <p class="textsize"  th:text="${DtlItem.rehouseType}"></p>
                         </td>
                     </tr>
                     <tr>
-                        <th class="ReEs-tb-th">해당층/건물층</th>
+                        <th class="ReEs-tb-th">해당층 · 건물층</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >11층/11층</p>
+                            <p class="textsize" >[[${DtlItem.reFlr} · $DtlItem.reTotalFlr]]</p>
                         </td>
                     </tr>
                     <tr>
                         <th class="ReEs-tb-th">전용계약면적</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >20.8m2</p>
+                            <p class="textsize" th:text="${DtlItem.reExtent}"></p>
                             <p class="textsize" >평수로 변경 기능 넣기</p>
                         </td>
                     </tr>
                     <tr>
-                        <th class="ReEs-tb-th">방수/욕실 수</th>
+                        <th class="ReEs-tb-th">방 개수 · 욕실 수</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >1개/1개</p>
+                            <p class="textsize" >[[${DtlItem.reRoomcnt} · $DtlItem.reBathcnt]]</p>
                         </td>
                     </tr>
                     <tr>
                         <th class="ReEs-tb-th">방향</th>
                         <td class="ReEs-tb-td">
-                            <p class="textsize" >남향</p>
+                            <p class="textsize" th:text="${DtlItem.reSouth}"></p>
                         </td>
                     </tr>
                     <tr>

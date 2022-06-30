@@ -12,6 +12,7 @@ public class MapMainDto {
 
     private String retrType ; // 매매 유형
 
+
     private Integer reDeposit; // 보증금
     private Integer reMon_price ; // 월세
     private Integer reAdmn_fee ; // 관리비
@@ -34,7 +35,7 @@ public class MapMainDto {
 
     @QueryProjection
     public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
-                          String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
+                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
         this.id = id;
         this.retrType = retrType;
         this.reDeposit = reDeposit;

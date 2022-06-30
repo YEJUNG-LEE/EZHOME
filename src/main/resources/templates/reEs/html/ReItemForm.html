@@ -252,6 +252,7 @@
                             <option value="monthly_Rent">월세</option>
                             <option value="buying">매매</option>
                         </select>
+
                         <p th:if="${#fields.hasErrors('retrType')}" th:errors="*{retrType}" class="fieldError">Incorrect data</p>
                     </div>
                 </td>
@@ -341,7 +342,7 @@
                 <th class="ReEs-insert-th">방정보</th>
                 <td class="ReEs-insert-td"><!--타임리프로 if 조건문 달기 -->
                     <div class="ReEs-insert-div">
-                        <input class="ReEs-insert-input" type="number" th:field="*{reRoomcnt}" placeholder="침실 개수">
+                        <input class="ReEs-insert-input" type="number" th:field="*{reRoomcnt}" placeholder="방 개수">
                         <p  th:if="${#fields.hasErrors('reRoomcnt')}" th:errors="*{reRoomcnt}" class="fieldError">Incorrect data</p>
                     </div>
                     <div class="ReEs-insert-div">
