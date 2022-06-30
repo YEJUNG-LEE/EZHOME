@@ -5,6 +5,7 @@ import EZHome.entity.ReCucs;
 import EZHome.entity.ReEs;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter @Setter
+@ToString
 public class ReFormDto {
 
     private Long id ; // 매물 기본키 (fk)
@@ -138,6 +140,10 @@ public class ReFormDto {
 
     private boolean reRsdnt_Area; //주택지구
 
+    private String lreaName;
+
+    private String lreaNick;
+
     //매물에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다. (최대 10개 이미지)
     private List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
 
@@ -146,6 +152,7 @@ public class ReFormDto {
     private List<Integer> itemImgIds = new ArrayList<Integer>();
 
     private static ModelMapper modelMapper = new ModelMapper();
+
 
     //Dto -> Entity
     public ReEs createReEs(){
@@ -161,6 +168,9 @@ public class ReFormDto {
     // Entity -> Dto
     public static ReFormDto of(ReEs reEs){
         return modelMapper.map(reEs, ReFormDto.class);
+    }
+    public static MapMainDto ofMap(ReEs reEs) {
+        return modelMapper.map(reEs, MapMainDto.class);
     }
 
 }

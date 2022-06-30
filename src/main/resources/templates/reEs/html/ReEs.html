@@ -433,8 +433,7 @@
                 <!-- 리스트 -->
                 <div class="ReLi_content_div">
                     <th:block>
-                        <div class="ReLi_content" th:each="item, status: ${items.getContent()}">
-
+                        <div class="ReLi_content" th:each="item : ${mapMainDtoList}">
                                 <div class="ReLi_img">
                                     <div class="ReLi_ranking">Top 1</div>
                                     <img th:src="${item.reImgUrl}">
@@ -456,13 +455,12 @@
                                     <div class="ReLi_agent">
                                         <div class="ReLi_agent_img"></div>
                                         <div class="ReLi_agent_div">
-                                            <div class="ReLi_agent_company" th:text="Memb_nick"></div>
-                                            <div class="ReLi_agent_name" th:text="Memb_name"></div>
+                                            <div class="ReLi_agent_company" th:text="${item.lreaNick}" ></div>
+                                            <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
                                         </div>
-                                        <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>
+                                        <div class="ReLi_agent_heart" ><i class="fa-solid fa-heart"></i></div>
                                     </div>
                                 </div>
-
                         </div>
                     </th:block>
                     </div>

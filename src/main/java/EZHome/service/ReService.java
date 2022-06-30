@@ -24,7 +24,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReService {
 
-
     private final ReEsRepository reEsRepository;
     private final MemberRepository memberRepository;
     private final ReImgService reImgService;
@@ -33,7 +32,7 @@ public class ReService {
     private final ReCacsRepository reCacsRepository;
     private final ReCucsRepository reCucsRepository;
 
-    public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList) throws Exception {
+    public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList, String email) throws Exception {
 //        System.out.println("======================================");
 ////        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
 //        String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -44,9 +43,12 @@ public class ReService {
 
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
         ReEs reEs = reFormDto.createReEs();
+        Member member = memberRepository.findByEmail(email);
+        reEs.setMember(member);
         System.out.println("createReEs 오류안남");
 
         reEsRepository.save(reEs); // 매물 상품 데이터 저장
+
         System.out.println("save(reEs) 오류안남");
         /*종욱*/
         // 매물 커스텀 데이터 저장
@@ -127,4 +129,30 @@ public class ReService {
     }
 
 
+    public List<MapMainDto> getItemAll() {
+        List<MapMainDto> mapMainDtoList = new ArrayList<MapMainDto>();
+        // 1. repository를 통해 ReES에 있는 모든 데이터를 객체로 불러온다
+        List<ReEs> reEsList = reEsRepository.findAll();
+        // 2. ReFormDto와 Of를 통해 매핑시킨다.
+        for (ReEs reEs :reEsList) {
+            Long id = reEs.getId();
+            List<ReImg> reImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
+            String imgUrl = "";
+            for (ReImg reImg:reImgList) {
+                if(reImg.getReYN() == "Y"){
+                    imgUrl = reImg.getReImgUrl();
+                }
+            }
+            Member member = reEs.getMember();
+            String name = member.getMemb_name();
+            String nick = member.getMemb_nick();
+            MapMainDto mapMainDto = ReFormDto.ofMap(reEs);
+            mapMainDto.setLreaName(name);
+            mapMainDto.setLreaNick(nick);
+            mapMainDto.setReImgUrl(imgUrl);
+            mapMainDtoList.add(mapMainDto);
+        }
+
+        return mapMainDtoList;
+    }
 }

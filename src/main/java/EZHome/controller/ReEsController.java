@@ -61,7 +61,8 @@ public class ReEsController {
         String email = principal.getName();
 
         try {
-            reService.savedReEs(reFormDto, itemImgFileList);
+
+            reService.savedReEs(reFormDto, itemImgFileList, email);
         }catch (Exception e){
             System.out.println("==========================================================");
             System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");

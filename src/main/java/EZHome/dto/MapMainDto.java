@@ -26,30 +26,30 @@ public class MapMainDto {
     private String reDong; // 동
     private String reDtl_Adr ; // 상세주소
 
-//    private String Memb_nick; // @@ 공인중개사
-//
-//    private String Memb_name; // 중개사 이름
+    private String lreaName;    // 공인중개사 이름
+
+    private String lreaNick;    // 공인중개사 닉네임
 
     private String reImgUrl ;// 이미지 url
 
 
-    @QueryProjection
-    public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
-                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
-        this.id = id;
-        this.retrType = retrType;
-        this.reDeposit = reDeposit;
-        this.reMon_price = reMon_price;
-        this.reAdmn_fee = reAdmn_fee;
-        this.reFlr = reFlr;
-        this.reExtent = reExtent;
-        this.reSido = reSido;
-        this.reGungu = reGungu;
-        this.reDong = reDong;
-        this.reDtl_Adr = reDtl_Adr;
-//        this.Memb_nick = Memb_nick;
-//        this.Memb_name = Memb_name;
-        this.reImgUrl = reImgUrl;
-
-    }
+//    @QueryProjection
+//    public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
+//                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
+//        this.id = id;
+//        this.retrType = retrType;
+//        this.reDeposit = reDeposit;
+//        this.reMon_price = reMon_price;
+//        this.reAdmn_fee = reAdmn_fee;
+//        this.reFlr = reFlr;
+//        this.reExtent = reExtent;
+//        this.reSido = reSido;
+//        this.reGungu = reGungu;
+//        this.reDong = reDong;
+//        this.reDtl_Adr = reDtl_Adr;
+////        this.Memb_nick = Memb_nick;
+////        this.Memb_name = Memb_name;
+//        this.reImgUrl = reImgUrl;
+//
+//    }
 }
