@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="ReCacs") // 카테고리 매물
 @Getter @Setter @ToString
-public class ReCacs {
+public class ReCacs extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,13 +33,8 @@ public class ReCacs {
     private boolean reRsdnt_Area ; // 주택가
 
     //회원(일)이 여러개(다)의 매물카테고리조건을 올릴 수 있음으로 '일대다'로 설정했습니다.
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
-
-
-
-
-
 
 }
