@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
-import javax.xml.ws.Service;
 import java.security.Principal;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class ReEsController {
     @GetMapping(value = "/admin/item/update{reid}")
     public String reesUpdate(@PathVariable("reid") Long itemId, Model model){
         try {
-            ReFormDto reFormDto = reService.getItemDtl(itemId) ;
+            ReFormDto reFormDto = reService.getItemUpdate(itemId) ;
             System.out.println("reFormDto : " + reFormDto.toString());
             model.addAttribute("reFormDto", reFormDto) ;
         }catch(EntityNotFoundException e){

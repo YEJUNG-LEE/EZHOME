@@ -2,14 +2,15 @@ package EZHome.service;
 
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReImgDto;
-import EZHome.entity.*;
+import EZHome.entity.ReCacs;
+import EZHome.entity.ReCucs;
+import EZHome.entity.ReEs;
+import EZHome.entity.ReImg;
 import EZHome.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public class ReService {
 
     private final ReEsImgRepository reEsImgRepository;
 
-    public ReFormDto getItemDtl(Long id){
+    public ReFormDto getItemUpdate(Long id){
         List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
 
         for (ReImg reImg: itemImgList) {
@@ -121,10 +122,9 @@ public class ReService {
         reFormDto.ofReCucs(recucs);
         reFormDto.ofReCacs(recacs);
 
+        // reFormDto에 of로 매핑을 시켰으니까, reFromDto의 toString()를 통해서 나오는지 확인해주고
+        // html이랑 연결도 해보고
 
-        // 6 setItemImgDtoList() :
-        //상품 등록시 첨부할 상품 이미지 정보들을
-        // 저장할 리스트 컬렉션으로 화면에 기재가 됨(최대 5개 이미지)
         reFormDto.setReImgDtoList(reImgDtoList);
 
         return reFormDto;
