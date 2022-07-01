@@ -47,7 +47,6 @@ public class MapController {
 
     @GetMapping(value="/map")
     public String main(Model model){
-
         try{
             List<MapMainDto> mapMainDtoList = reService.getItemAll(); //id로 기존에 상품 정보를 formdto에 담기
             for (MapMainDto mapMainDto: mapMainDtoList) {
@@ -74,5 +73,4 @@ public class MapController {
         model.addAttribute("member", member);
         return "reEs/html/InfoDetail";
     }
-
 }

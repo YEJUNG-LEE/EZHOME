@@ -89,6 +89,7 @@ public class ReService {
 
 
     //디테일 페이지
+    @Transactional(readOnly = true)
     public ReFormDto getItemDtl(Long id){
         List<ReImg> itemImgList = reEsImgRepository.findByIdOrderByIdAsc(id);
 
