@@ -69,7 +69,9 @@ public class MapController {
     @GetMapping(value="/map/{id}")
     public String gotoDtl(@PathVariable("id") Long DtlId, Model model ){
         ReFormDto reFormDto = reService.getItemDtl(DtlId);
+        Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
+        model.addAttribute("member", member);
         return "reEs/html/InfoDetail";
     }
 

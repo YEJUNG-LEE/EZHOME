@@ -253,12 +253,12 @@
         <!--broker info-->
         <div class="ReEs-broker-wrap">
             <div class="broker01">중개</div>
-            <div class="broker02">매물번호 <span>123456789</span></div>
+            <div class="broker02">매물번호 <span>[[${DtlItem.reNum}]]</span></div>
             <div class="detail-price">
-                <div class="detail-price02">전세</div>
-                <div class="detail-price03">2억3900</div>
+                <div class="detail-price02">[[${DtlItem.retrType}]]</div>
+                <div class="detail-price03">[[${DtlItem.reMon_price}]]</div>
             </div>
-            <div class="detail-sigudong">서울특별시 강서구 화곡동</div>
+            <div class="detail-sigudong">[[${DtlItem.reSido}]] [[${DtlItem.reGungu}]] [[${DtlItem.reDong}]] [[${DtlItem.reDtl_Adr}]]</div>
             <table>
                 <tbody>
                 <tr>
@@ -277,15 +277,15 @@
                 <img src="images/ReEs01.jpg" alt="">
                 <div class="broker03-name">
 
-                    <div class="ReEs-home-name">[[${DtlItem.lreaNick}]]공인중개사사무소</div>
+                    <div class="ReEs-home-name" th:text="${member.Memb_nick}">공인중개사사무소</div>
                     <p class="ReEs-bk-detail">대표</p>
                 </div>
             </div>
             <div class="broker04">
                 <div class="ReEs-description">부동산 정보를 간단히 적어요 ! </div>
                 <ul class="broker04-ul">
-                    <li class="broker04-li">대표자 [[${DtlItem.lreaName}]] | 대표번호 02-2690-8549</li>
-                    <li class="broker04-li">부동산주소</li>
+                    <li class="broker04-li">대표자 [[${member.Memb_name}]] | 대표번호 [[${member.Memb_phone}]]</li>
+                    <li class="broker04-li">부동산주소 [[${member.Memb_address}]]</li>
 <!--                    <li class="broker04-li">중개사 등록번호 1111-11111-11111</li>-->
                 </ul>
             </div>
