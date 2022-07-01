@@ -139,14 +139,16 @@ public class ReService {
             List<ReImg> reImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
             String imgUrl = "";
             for (ReImg reImg:reImgList) {
-                if(reImg.getReYN() == "Y"){
+                System.out.println("서비스 이미지 경로" + reImg.getReImgUrl());
+                if(reImg.getReYN().equals("Y")){
                     imgUrl = reImg.getReImgUrl();
+                    System.out.println("대표 이미지 경로 : " + reImg.getReImgUrl());
                 }
             }
             Member member = reEs.getMember();
             String name = member.getMemb_name();
             String nick = member.getMemb_nick();
-            MapMainDto mapMainDto = ReFormDto.ofMap(reEs);
+            MapMainDto mapMainDto = MapMainDto.of(reEs);
             mapMainDto.setLreaName(name);
             mapMainDto.setLreaNick(nick);
             mapMainDto.setReImgUrl(imgUrl);

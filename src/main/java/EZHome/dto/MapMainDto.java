@@ -1,8 +1,10 @@
 package EZHome.dto;
 
+import EZHome.entity.ReEs;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
 import lombok.Setter;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.Column;
 
@@ -31,6 +33,11 @@ public class MapMainDto {
     private String lreaNick;    // 공인중개사 닉네임
 
     private String reImgUrl ;// 이미지 url
+
+    private static ModelMapper modelMapper = new ModelMapper();
+    public static MapMainDto of(ReEs reEs) {
+            return modelMapper.map(reEs, MapMainDto.class);
+    }
 
 
 //    @QueryProjection

@@ -3,6 +3,8 @@ package EZHome.controller;
 import EZHome.dto.MapMainDto;
 import EZHome.dto.MapSearchDto;
 import EZHome.dto.ReFormDto;
+import EZHome.entity.Member;
+import EZHome.service.MemberService;
 import EZHome.service.ReService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -52,6 +54,7 @@ public class MapController {
                 System.out.println("reFormDto : " + mapMainDto.toString());
                 System.out.println("lreaName : " + mapMainDto.getLreaName());
                 System.out.println("lreaNick : " + mapMainDto.getLreaNick());
+                System.out.println("src : " + mapMainDto.getReImgUrl());
             }
             model.addAttribute("mapMainDtoList", mapMainDtoList); //기존에 등록했던 내용이담긴
         }catch(EntityNotFoundException e){

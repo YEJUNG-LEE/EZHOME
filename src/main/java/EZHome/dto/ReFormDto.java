@@ -169,8 +169,6 @@ public class ReFormDto {
     public static ReFormDto of(ReEs reEs){
         return modelMapper.map(reEs, ReFormDto.class);
     }
-    public static MapMainDto ofMap(ReEs reEs) {
-        return modelMapper.map(reEs, MapMainDto.class);
-    }
+
 
 }
