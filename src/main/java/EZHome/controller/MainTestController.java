@@ -17,7 +17,7 @@ public class MainTestController {
 
     @GetMapping(value = "/")
     public String main(Principal principal, Model model, HttpSession httpSession){
-        if (principal != null) {
+        if (principal != null || httpSession.getAttribute("username") != null) {
             String email = principal.getName() ;
             String username = memberService.userInfo(email) ;
             httpSession.setAttribute("username", username);
