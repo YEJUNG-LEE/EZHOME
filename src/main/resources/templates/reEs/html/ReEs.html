@@ -434,13 +434,12 @@
                     <i class="fa-solid fa-rotate"></i>
                 </div>
                 <!-- 리스트 -->
-                <div class="ReLi_content_div">
+                <div class="ReLi_content_div" style="overflow : scroll">
                     <th:block>
                         <div class="ReLi_content" th:each="item : ${mapMainDtoList}">
                                 <div class="ReLi_img">
                                     <div class="ReLi_ranking">Top 1</div>
                                     <img th:src="${item.reImgUrl}">
-                                    [[${mapMainDtoList}]]
                                 </div>
                                 <div class="ReLi_text">
                                     <div class="ReLi_accuracy">일치율 100%</div>
