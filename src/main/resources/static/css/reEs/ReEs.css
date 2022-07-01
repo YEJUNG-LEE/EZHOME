@@ -13,8 +13,15 @@
     /* border:1px solid black; */
     /* box-sizing:border-box; */
 }
+
+.ReEs-overflow{
+    width: 100%;
+    height: 100%;
+    overflow : hidden;
+}
 /* 교체필요(header영역) */
 .ReEs-imsiHeader{
+    width: 100%;
     height:90px;
 }
 
