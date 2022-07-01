@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequestMapping(value = "/members")
@@ -77,7 +78,20 @@ public class MemberController {
     }
 
     @GetMapping(value = "/update")
-    public String update(){
+    public String update(Model model, Principal principal){
+        // 목표 : Member member 객체를 Model.attribute로 넘겨주는거
+        // 지금 가지고 있는거 : Principal principal 객체에 getName으로 email값을 가져올 수 있다.
+        // 즉, email값으로 Member 객체를 조회해서 가져오면됨.
+        String email = principal.getName();
+        MemberFormDto memberFormDto = memberService.getName(email);
+
+        model.addAttribute("member", memberFormDto);
+
+        return "member/memberUpdateForm" ;
+    }
+
+    @PostMapping(value = "/update/{id}")
+    public String updateId(){
         return "member/memberUpdateForm" ;
     }
 }
