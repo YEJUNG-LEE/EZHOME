@@ -51,7 +51,7 @@ public class ReEs extends BaseEntity {
     private Integer reTotalFlr ; // 전체 층수
 
 
-    private boolean reSecndFlr ; //  복층
+    private Integer reSecndFlr ; //  복층
 
 
     private boolean reTopFlr ; // 옥탑방
@@ -111,7 +111,7 @@ public class ReEs extends BaseEntity {
         this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
 
         // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
-        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
+        this.reSecndFlr = reFormDto.getReSecndFlr(); // 복층
         this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
         this.reUndrflr = reFormDto.isReUndrflr();// 반지하
 

@@ -69,7 +69,7 @@ public class ReFormDto {
     @NotNull(message="전체 층수는 필수 입력 값입니다.")
     private Integer reTotalFlr ; // 전체 층수
 
-    private boolean reSecndFlr ; //  복층
+    private Integer reSecndFlr ; //  복층
 
     private boolean reTopFlr ; // 옥탑방
 

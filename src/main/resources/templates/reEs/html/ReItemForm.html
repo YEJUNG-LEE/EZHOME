@@ -304,8 +304,8 @@
                         <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="*{reGungu}">
                             <option value="-">시/군/구</option>
                             <option value="gungu01">금천구</option>
-                            <option value="gungu02">금천구</option>
-                            <option value="gungu03">금천구</option>
+                            <option value="gungu02">소사구</option>
+                            <option value="gungu03">송파구</option>
                         </select>
                         <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
                     </div>
@@ -314,7 +314,7 @@
                         <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="*{reDong}">
                             <option value="-">읍/면/동</option>
                             <option value="dong01">가산동</option>
-                            <option value="dong02">가산동</option>
+                            <option value="dong02">합정동</option>
                         </select>
                         <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
                     </div>
@@ -367,10 +367,10 @@
                             <input class="ReEs-insert-input" type="number" th:field="*{reTotalFlr}" placeholder="전체층수">
                             <p th:if="${#fields.hasErrors('reTotalFlr')}" th:errors="*{reTotalFlr}" class="fieldError">Incorrect data</p>
                         </div>
-                        <input th:checked="*{reSecndFlr}" type='radio'/>복층
-                        <input th:checked="*{reTopFlr}" type='radio'/>옥탑방
-                        <input th:checked="*{reUndrflr}" type='radio' />반지하
-                        <input type='radio' name='fruits'/>선택안함
+                        <input th:checked="*{reSecndFlr eq '02'}" type='radio' value="02" name='fruits'/>복층
+                        <input th:checked="*{reSecndFlr eq '03'}" type='radio' value="03" name='fruits'/>옥탑방
+                        <input th:checked="*{reSecndFlr eq '04'}" type='radio' value="04" name='fruits'/>반지하
+                        <input th:checked="*{reSecndFlr eq '01'}" type='radio' value="01" name='fruits'/>선택안함
                     </div>
                 </td>
             </tr>
