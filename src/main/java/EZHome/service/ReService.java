@@ -91,7 +91,7 @@ public class ReService {
     //디테일 페이지
     @Transactional(readOnly = true)
     public ReFormDto getItemDtl(Long id){
-        List<ReImg> itemImgList = reEsImgRepository.findByIdOrderByIdAsc(id);
+        List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
 
         // 3. dto를 저장시킬 리스트 컬렉션 생성 ( dto -> Jpa 연동)
         List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
