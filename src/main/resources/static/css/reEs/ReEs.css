@@ -106,7 +106,7 @@
 /* ************************** */
 /* ↓ 지도네비게이션 ↓ */
 .ReEs-navi{
-    width:1920px;
+    width:100%;
     height:66px;
     background-color:#4876EF;
 }
@@ -115,9 +115,11 @@
 }
 .ReEs-navi-normal{
     height:66px;
-    width:1250px;
+    width:100%;
     float:left;
     padding:12px 0;
+    display:flex;
+    justify-content:center;
 }
 .ReEs-navi-font{
     box-sizing:border-box;
@@ -317,7 +319,7 @@
 .ReEs-navi-custom-button{
     height:42px;
     width:200px;
-    margin:12px auto;
+    /*margin:12px auto;*/
     border:1px solid black;
     background-color:white;
 }
@@ -406,7 +408,7 @@
 .ReEs-navi-category-button{
     height:42px;
     width:200px;
-    margin:12px auto;
+    /* margin:12px auto; */
     border:1px solid black;
     background-color:white;
 }
