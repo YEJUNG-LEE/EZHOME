@@ -22,7 +22,7 @@ public class ReFormDto {
     @NotNull(message="매물 번호는 필수 입력 값입니다.")
     private Integer reNum;  // 매물 번호
 
-
+    private String reNm;
 
     @NotBlank(message="매물 유형은 필수 입력 값입니다.")
     private String rehouseType ; // 매물 유형

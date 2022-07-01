@@ -68,12 +68,12 @@ public class ReEsRepositoryCustomImpl implements ReEsRepositoryCustom{
     }
 
 
-    // 상품 이름으로 매물을겁색하는 메소드 (in map)
+    // 상품 이름으로 매물을 검색하는 메소드 (in map)
     private BooleanExpression itemNmLike(String searchQuery){
         return StringUtils.isEmpty(searchQuery) ? null : QReEs.reEs.reNm.like("%" + searchQuery + "%");
     }
 
-    // 관리자 상품 목록 페이지를만들시, 관리자가 상품이름으로 매물을 겁색하는 메소드
+    // 관리자 상품 목록 페이지를만들시, 관리자가 상품이름으로 매물을 검색하는 메소드
     private Predicate searchByLike(String searchBy, String searchQuery) {
         // 상품이름, 등록자 아이디로 내용을 검색
         if(StringUtils.equals("itemNm", searchBy)){ //상품이름이 같다면

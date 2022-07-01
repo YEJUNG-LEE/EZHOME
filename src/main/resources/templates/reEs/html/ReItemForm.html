@@ -222,6 +222,7 @@
     </div>
     <form class="ReES-insert-form" method="post" role="form"  th:object="${reFormDto}" enctype="multipart/form-data">
         <h3>방정보</h3>
+        <input type="hidden" th:field="*{id}">
         <table class="ReEs-insert-table">
 
             <tr class="ReEs-insert-tr">
