@@ -226,7 +226,7 @@
                 <div class="swiper-slide ReEs-div-detail-Pic" th:each="dtlImg : ${DtlItem.reImgDtoList}">
                     <div class="card-content">
                         <div class="image">
-                            <img th:if="${not #string.isEmpty(dtlImg.reImgUrl)}" th:src="${dtlImg.reImgUrl}">
+                            <img th:src="${dtlImg.reImgUrl}">
                         </div>
                     </div>
                 </div>
