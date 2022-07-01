@@ -69,11 +69,11 @@ public class ReFormDto {
     @NotNull(message="전체 층수는 필수 입력 값입니다.")
     private Integer reTotalFlr ; // 전체 층수
 
-    private Integer reSecndFlr ; //  복층
-
-    private boolean reTopFlr ; // 옥탑방
-
-    private boolean reUndrflr ; // 반지하
+    @NotBlank(message="기타 층수 유형은 필수 입력 값입니다.")
+    private String reFlrType ; // 층수별 유형
+//    private Integer reSecndFlr ; //  복층
+//    private boolean reTopFlr ; // 옥탑방
+//    private boolean reUndrflr ; // 반지하
 
     //매물 맞춤 조건 추가
     private boolean reNew; //신축

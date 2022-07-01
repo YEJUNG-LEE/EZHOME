@@ -44,6 +44,49 @@ public class ReEsController {
         return "reEs/html/ReUpdateForm" ;
     }
 
+    @PostMapping(value = "/admin/item/update/{reid}")
+    public String reesUpdatePost(@Valid ReFormDto reFormDto, @PathVariable("reid") Long itemId,
+                                 BindingResult bindingResult, Model model,
+                                 @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
+
+        System.out.println("오류?발생?");
+        // reFormDto에 id값을 setter해줍니다.
+        reFormDto.setId(itemId);
+        // Dto 유효성검사에 에러가 있는지 체크
+        if(bindingResult.hasErrors()){ // 파라미터가 유효성검사에 문제가 있어 에러가 존재하다면
+            System.out.println("==========================================================");
+            System.out.println("1번 BindingResult 오류입니다.");
+            System.out.println("==========================================================");
+            List<ObjectError> list =  bindingResult.getAllErrors();
+            for(ObjectError e : list) {
+                System.out.println(e.getDefaultMessage());
+            }
+            return "redirect:/" ;  // ReItemForm 으로 이동
+        }
+
+        // 이미지 파일 존재하는지 체크
+        if(itemImgFileList.get(0).isEmpty() && reFormDto.getId() == null){
+            System.out.println("==========================================================");
+            System.out.println("2번 이미지와 아이디가 비어져있을때의 오류입니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage","첫 번째 이미지는 필수 입력 값입니다.");
+            return "reEs/html/ReItemForm" ;
+        }
+
+        try {
+            reService.updateReEs(reFormDto, itemImgFileList);
+        }catch (Exception e){
+            System.out.println("==========================================================");
+            System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
+            e.printStackTrace();
+            return "/admin/item/update/" + itemId ;
+        }
+//        return "redirect:/";
+        return "reEs/html/ReUpdateForm" ;
+    }
+
     @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){

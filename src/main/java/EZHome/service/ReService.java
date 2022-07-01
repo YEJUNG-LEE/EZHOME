@@ -133,4 +133,50 @@ public class ReService {
     }
 
 
+    public void updateReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList) {
+        System.out.println("======================================");
+        System.out.println("============서비스로 들어갔습니다=========");
+        System.out.println("======================================");
+
+        // 1. 상품등록 ( createReEs() : Dto -> Entity )
+        ReEs reEs = reFormDto.createReEs();
+        System.out.println("createReEs 오류안남");
+
+        reEsRepository.save(reEs); // 매물 상품 데이터 저장
+        System.out.println("save(reEs) 오류안남");
+        /*종욱*/
+        // 매물 커스텀 데이터 저장
+        // 매물 카테고리 데이터 저장
+
+        ReCucs reCucs = reFormDto.createReCucs();
+        reCucs.setReEs(reEs);
+        System.out.println("createReCucs 오류안남");
+
+        ReCacs reCacs = reFormDto.createReCacs();
+        reCacs.setReEs(reEs);
+        System.out.println("createReCacs 오류안남");
+        reCucsRepository.save(reCucs);
+        reCacsRepository.save(reCacs);
+
+
+        // 2. 상품 이미지 등록
+        // 반복문으로 해당 상품(ReEs)과 관련된 이미지(ReImg)들 저장하기
+        for (int i = 0; i < itemImgFileList.size(); i++) {
+            ReImg reImg = new ReImg();
+
+            reImg.setReEs(reEs);
+            if(i == 0 ){
+                reImg.setReYN("Y"); //대표이미지
+            }else{
+                reImg.setReYN("N"); //나머지 이미지
+            }
+
+            // 상품의 이미지 정보를 저장합니다.
+            try {
+                reImgService.savedItemImg(reImg, itemImgFileList.get(i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // end for다 ~
+    }
 }

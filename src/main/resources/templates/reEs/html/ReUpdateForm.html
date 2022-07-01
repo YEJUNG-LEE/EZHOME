@@ -227,7 +227,8 @@
             <tr class="ReEs-insert-tr">
                 <th class="ReEs-insert-th">매물번호</th>
                 <td class="ReEs-insert-td">
-                    <input class="ReEs-insert-input" type="number" th:field="*{reNum}" th:text="${reFormDto.reNum}" disabled placeholder="매물번호" >
+                    <input class="ReEs-insert-input" type="number" th:text="${reFormDto.reNum}" disabled placeholder="매물번호" >
+                    <input class="ReEs-insert-input" type="hidden" th:field="*{reNum}" th:text="${reFormDto.reNum}">
                     <p th:if="${#fields.hasErrors('reNum')}" th:errors="*{reNum}" class="fieldError">Incorrect data</p>
                 </td>
 
@@ -304,8 +305,8 @@
                         <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="*{reGungu}">
                             <option value="-">시/군/구</option>
                             <option value="gungu01">금천구</option>
-                            <option value="gungu02">금천구</option>
-                            <option value="gungu03">금천구</option>
+                            <option value="gungu02">소사구</option>
+                            <option value="gungu03">송파구</option>
                         </select>
                         <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
                     </div>
@@ -314,7 +315,7 @@
                         <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="*{reDong}">
                             <option value="-">읍/면/동</option>
                             <option value="dong01">가산동</option>
-                            <option value="dong02">가산동</option>
+                            <option value="dong02">합정동</option>
                         </select>
                         <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
                     </div>
@@ -367,10 +368,18 @@
                             <input class="ReEs-insert-input" type="number" th:field="*{reTotalFlr}" th:text="${reFormDto.reTotalFlr}" placeholder="전체층수">
                             <p th:if="${#fields.hasErrors('reTotalFlr')}" th:errors="*{reTotalFlr}" class="fieldError">Incorrect data</p>
                         </div>
-                        <input th:checked="*{reSecndFlr}" autocomplete="off" name="fruits" type='radio'/>복층
-                        <input th:checked="*{reTopFlr}" autocomplete="off" name="fruits" type='radio'/>옥탑방
-                        <input th:checked="*{reUndrflr}" autocomplete="off" name="fruits" type='radio'/>반지하
-                        <input name='fruits' type='radio'/>선택안함
+                        <select class="ReEs-insert-select" th:field="*{reFlrType}">
+                            <option value="-">기타 층수</option>
+                            <option value="flr01">선택안함</option>
+                            <option value="flr02">복층</option>
+                            <option value="flr03">반지하</option>
+                            <option value="flr04">옥탑방</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('reFlrType')}" th:errors="*{reFlrType}" class="fieldError">Incorrect data</p>
+<!--                        <input th:checked="*{reSecndFlr}" autocomplete="off" name="fruits" type='radio'/>복층-->
+<!--                        <input th:checked="*{reTopFlr}" autocomplete="off" name="fruits" type='radio'/>옥탑방-->
+<!--                        <input th:checked="*{reUndrflr}" autocomplete="off" name="fruits" type='radio'/>반지하-->
+<!--                        <input name='fruits' type='radio'/>선택안함-->
                     </div>
                 </td>
             </tr>
@@ -506,10 +515,11 @@
 <!--                <button th:formaction="@{/admin/item/new}" type="submit" class="btn">저장</button>-->
 <!--            </div>-->
             <div th:unless="${#strings.isEmpty(reFormDto.id)}" style="float:left;">
-                <button th:formaction="@{'/item/' + ${reFormDto.id} }" type="submit" class="btn btn-primary">수정</button>
+                <button th:formaction="@{'/admin/item/update/' + *{id} }" type="submit" class="btn btn-primary">수정</button>
             </div>
         </div>
     </form>
+
 </div>
 
 
