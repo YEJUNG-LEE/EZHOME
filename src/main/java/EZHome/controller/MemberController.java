@@ -77,7 +77,7 @@ public class MemberController {
     }
 
     @GetMapping(value = "/update")
-    public String loginMember(){
-        return "member/memberLoginForm" ;
+    public String update(){
+        return "member/memberUpdateForm" ;
     }
 }
