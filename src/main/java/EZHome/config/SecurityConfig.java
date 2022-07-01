@@ -18,6 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable(); //post 403에러 수정코딩
         // 차후 구성할 예정
         http.formLogin()
                 .loginPage("/members/login")
@@ -36,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             anyRequest().authenticated() : 상기 위에서 열거한 내용 이외의 모든 항목든 인증을 요구합니다.
         * */
         http.authorizeRequests()
-                .mvcMatchers("/", "/reEs/**", "/members/**", "/item/**", "/images/**", "/map/**").permitAll()
+                .mvcMatchers("/", "/reEs/**", "/members/**", "/item/**", "/images/**", "/map/**", "/admin/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("LREA")
                 .anyRequest().authenticated();
 

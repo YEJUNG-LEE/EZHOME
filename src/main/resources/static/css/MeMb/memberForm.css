@@ -4,9 +4,9 @@
             color: #bd2130;
             margin-left: 40px;
         }
-        section{
+        .section{
             height: 950px;
-            background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) );
+            background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(/img/main_img.jpg);
             background-size: cover;
         }
         .MeMb-div{
@@ -17,6 +17,7 @@
         }
         .MeMb-div-logo{
             width: 200px; height: 100px;
+            background-image: url(/img/logo01.png);
             background-size: cover;
         }
         .MeMb-div2{

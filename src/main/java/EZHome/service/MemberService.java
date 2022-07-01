@@ -1,5 +1,6 @@
 package EZHome.service;
 
+import EZHome.dto.MemberFormDto;
 import EZHome.entity.Member;
 import EZHome.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityNotFoundException;
 
 @Service
 @Transactional
@@ -39,8 +42,23 @@ public class MemberService implements UserDetailsService {
             }
             return User.builder()
                     .username(member.getEmail())
-                    .password(member.getMemb_password())
+                    .password(member.getMembPassword())
                     .roles(member.getRole().toString())
                     .build();
+    }
+    public String userInfo(String email){
+        String info = "" ;
+        info = memberRepository.findByEmail(email).getMembName() ;
+        return info ;
+    }
+
+    @Transactional(readOnly = true)
+    public MemberFormDto getName(String email) {
+        System.out.println(email);
+        Member member = memberRepository.findByEmail(email);
+        System.out.println(member.toString());
+        MemberFormDto memberFormDto = MemberFormDto.of(member) ;
+
+        return memberFormDto ;
     }
 }
