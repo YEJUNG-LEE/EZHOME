@@ -23,17 +23,19 @@ public class Member{
     @Column(unique = true)
     private String email;
 
-    private String Memb_password;
+    private String membPassword;
 
-    private String Memb_nick;
+    private String membNick;
 
-    private String Memb_name;
+    private String membName;
 
-    private String Memb_birth;
+    private String membBirth;
 
-    private String Memb_address;
+    private String membAddress1;
 
-    private String Memb_phone;
+    private String membAddress2;
+
+    private String membPhone;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -41,17 +43,18 @@ public class Member{
     public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         Member member = new Member();
 
-        member.setMemb_name(memberFormDto.getMembName());
+        member.setMembName(memberFormDto.getMembName());
         member.setEmail(memberFormDto.getEmail());
-        member.setMemb_address(memberFormDto.getMembAddress());
-        member.setMemb_birth(memberFormDto.getMembBirth());
-        member.setMemb_nick(memberFormDto.getMembNick());
-        member.setMemb_phone(memberFormDto.getMembPhone());
+        member.setMembAddress1(memberFormDto.getMembAddress1());
+        member.setMembAddress2(memberFormDto.getMembAddress2());
+        member.setMembBirth(memberFormDto.getMembBirth());
+        member.setMembNick(memberFormDto.getMembNick());
+        member.setMembPhone(memberFormDto.getMembPhone());
         member.setRole(Role.valueOf(memberFormDto.getRole()));
 
 
         String password = passwordEncoder.encode(memberFormDto.getMembPassword());
-        member.setMemb_password(password);
+        member.setMembPassword(password);
 //        member.setRole(Role.ADMIN); // 관리자
 //        member.setRole(Role.USER); // 일반사용자
 //        member.setRole(Role.LREA); // 공인중개사

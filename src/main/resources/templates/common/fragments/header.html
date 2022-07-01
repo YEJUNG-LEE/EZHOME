@@ -49,7 +49,7 @@
                 </li>
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
-                    <a href="#">
+                    <a href="/members/update" methods="post">
                         <i class="fa-solid fa-user"></i><span th:text="${username}">님</span>
                     </a>
                 </li>
