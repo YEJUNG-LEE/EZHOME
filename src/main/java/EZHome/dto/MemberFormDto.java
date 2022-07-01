@@ -1,9 +1,11 @@
 package EZHome.dto;
 
 
+import EZHome.entity.Member;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -35,11 +37,19 @@ public class MemberFormDto {
     private String membBirth ;
 
     @NotEmpty(message = "주소는 필수 입력 값입니다.")
-    private String membAddress ;
+    private String membAddress1 ;
+
+    private String membAddress2 ;
 
     @Pattern(regexp = "^\\d{2,3}-\\d{3,4}-\\d{4}$", message = "잘못된 전화번호 형식입니다.")
     @NotEmpty(message = "전화번호는 필수 입력 값입니다. ex)010-0000-0000")
     private String membPhone ;
 
     private String role;
+
+    private static ModelMapper modelMapper = new ModelMapper() ;
+
+    public static MemberFormDto of(Member member) {
+        return modelMapper.map(member, MemberFormDto.class);
+    }
 }
