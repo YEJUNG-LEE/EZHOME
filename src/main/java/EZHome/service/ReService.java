@@ -95,17 +95,17 @@ public class ReService {
 
         // 수정페이지는 기존 등록정보가 화면에 띄어져야 하므로
         // 반복문을 사용하여 entity를 dto로 변경시켜 컬렉션에 답습니다.
-        for(ReImg reImg: itemImgList){
-            // 타입이 다름으로 of()메소드를 이용해 itemImg(entity)-> dto 타입으로 변경
-            System.out.println("============================================");
-            System.out.println("ReImgDto.of 전");
-            ReImgDto reImgDto = ReImgDto.of(reImg);
-            System.out.println("ReImgDto.of 후");
-            System.out.println("============================================");
-
-            // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
-            reImgDtoList.add(reImgDto);
-        }
+//        for(ReImg reImg: itemImgList){
+//            // 타입이 다름으로 of()메소드를 이용해 itemImg(entity)-> dto 타입으로 변경
+//            System.out.println("============================================");
+//            System.out.println("ReImgDto.of 전");
+//            ReImgDto reImgDto = ReImgDto.of(reImg);
+//            System.out.println("ReImgDto.of 후");
+//            System.out.println("============================================");
+//
+//            // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
+//            reImgDtoList.add(reImgDto);
+//        }
 
         //4. 상품 entity 정보를 구합니다.
         ReEs reEs = reEsRepository.findById(id)
@@ -119,17 +119,18 @@ public class ReService {
         //5. of() 메소드를 사용해서 id로 조회한 등록된 item entity 정보들을 dto로 변경 ->
         // 이유 : 화면에 넣기 위해서
         ReFormDto reFormDto = ReFormDto.ofReEs(reEs);
-        reFormDto.ofReCucs(recucs);
-        reFormDto.ofReCacs(recacs);
+        reFormDto = ReFormDto.ofReCucs(reFormDto, recucs);
+        reFormDto = ReFormDto.ofReCacs(reFormDto, recacs);
 
         // reFormDto에 of로 매핑을 시켰으니까, reFromDto의 toString()를 통해서 나오는지 확인해주고
+        System.out.println("여기에는 출력됩니까?");
+        System.out.println(reFormDto.toString());
         // html이랑 연결도 해보고
 
         reFormDto.setReImgDtoList(reImgDtoList);
 
         return reFormDto;
     }
-
 
 
 }

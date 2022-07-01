@@ -30,7 +30,7 @@ public class ReEsController {
         return "reEs/html/ReItemForm";
     }
 
-    @GetMapping(value = "/admin/item/update{reid}")
+    @GetMapping(value = "/admin/item/update/{reid}")
     public String reesUpdate(@PathVariable("reid") Long itemId, Model model){
         try {
             ReFormDto reFormDto = reService.getItemUpdate(itemId) ;
@@ -40,8 +40,8 @@ public class ReEsController {
             model.addAttribute("errorMessage", "존재 하지 않는 상품입니다.") ;
             return "redirect:/";
         }
-        return "redirect:/";
-//        return "reEs/html/ReUpdateForm" ;
+//        return "redirect:/";
+        return "reEs/html/ReUpdateForm" ;
     }
 
     @PostMapping(value = "/admin/item/new")

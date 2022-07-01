@@ -5,6 +5,7 @@ import EZHome.entity.ReCucs;
 import EZHome.entity.ReEs;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
@@ -12,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter @Setter @ToString
 public class ReFormDto {
 
     private Long id ; // 매물 기본키 (fk)
@@ -146,6 +147,7 @@ public class ReFormDto {
     private static ModelMapper modelMapper = new ModelMapper();
 
 
+
     //Dto -> Entity
     public ReEs createReEs(){
         return modelMapper.map(this, ReEs.class);
@@ -161,11 +163,41 @@ public class ReFormDto {
     public static ReFormDto ofReEs(ReEs reEs){
         return modelMapper.map(reEs, ReFormDto.class);
     }
-    public ReFormDto ofReCucs(ReCucs reCucs){
-        return modelMapper.map(reCucs, ReFormDto.class);
+    public static ReFormDto ofReCucs(ReFormDto reFormDto, ReCucs reCucs){
+        reFormDto.setReNew(reCucs.isReNew());
+        reFormDto.setReFull(reCucs.isReFull());
+        reFormDto.setReDebt(reCucs.isReDebt());
+        reFormDto.setReElvtr(reCucs.isReElvtr());
+        reFormDto.setRePet(reCucs.isRePet());
+        reFormDto.setReScrty(reCucs.isReScrty());
+        reFormDto.setReParking(reCucs.isReParking());
+        reFormDto.setReSouth(reCucs.isReSouth());
+        reFormDto.setReBug(reCucs.isReBug());
+        reFormDto.setReWoman(reCucs.isReWoman());
+        reFormDto.setReForest(reCucs.isReForest());
+        reFormDto.setReRiver(reCucs.isReRiver());
+        reFormDto.setReOcean(reCucs.isReOcean());
+        reFormDto.setReCity(reCucs.isReCity());
+        return reFormDto;
     }
-    public ReFormDto ofReCacs(ReCacs reCacs){
-        return modelMapper.map(reCacs, ReFormDto.class);
+    public static ReFormDto ofReCacs(ReFormDto reFormDto, ReCacs reCacs){
+        reFormDto.setRePublic(reCacs.isRePublic());
+        reFormDto.setReMedic(reCacs.isReMedic());
+        reFormDto.setReCnvn(reCacs.isReCnvn());
+        reFormDto.setReSchol(reCacs.isReSchol());
+        reFormDto.setReTeen(reCacs.isReTeen());
+        reFormDto.setReTwen(reCacs.isReTwen());
+        reFormDto.setReThirty(reCacs.isReThirty());
+        reFormDto.setReFourty(reCacs.isReFourty());
+        reFormDto.setReFifty(reCacs.isReFifty());
+        reFormDto.setReSixty(reCacs.isReSixty());
+        reFormDto.setReMainroad(reCacs.isReMainroad());
+        reFormDto.setReRocket(reCacs.isReRocket());
+        reFormDto.setReFlat(reCacs.isReFlat());
+        reFormDto.setReSubway(reCacs.isReSubway());
+        reFormDto.setRePark(reCacs.isRePark());
+        reFormDto.setReRsdnt_Area(reCacs.isReRsdnt_Area());
+        return reFormDto;
     }
 
 }

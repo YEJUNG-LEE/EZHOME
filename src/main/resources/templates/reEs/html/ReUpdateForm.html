@@ -237,7 +237,7 @@
                 <td class="ReEs-insert-td">
                     <!--빌라/주택일 때 -> 원룸, 투룸,쓰리룸-->
                     <div  class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="room01" th:field="*{rehouseType}" th:text="${reFormDto.rehouseType}">
+                        <select class="ReEs-insert-select" id ="room01" th:field="*{rehouseType}">
                             <option value="oneRoom">원룸</option>
                             <option value="twoRoom">투룸</option>
                             <option value="threeRoom">오피스텔</option>
@@ -247,7 +247,7 @@
                         <p th:if="${#fields.hasErrors('rehouseType')}" th:errors="*{rehouseType}" class="fieldError">Incorrect data</p>
                     </div>
                     <div  class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="room03" th:field="*{retrType}" th:text="${reFormDto.retrType}">
+                        <select class="ReEs-insert-select" id ="room03" th:field="*{retrType}">
                             <option value="Jeonse">전세</option>
                             <option value="monthly_Rent">월세</option>
                             <option value="buying">매매</option>
@@ -292,7 +292,7 @@
                 <th class="ReEs-insert-th">소재지</th>
                 <td class="ReEs-insert-td">
                     <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="*{reSido}" th:text="${reFormDto.reSido}">
+                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="*{reSido}">
                             <option value="-">시/도</option>
                             <option value="sodo01">경기도</option>
                             <option value="sodo02">서울특별시</option>
@@ -301,7 +301,7 @@
                     </div>
 
                     <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="*{reGungu}" th:text="${reFormDto.reGungu}">
+                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="*{reGungu}">
                             <option value="-">시/군/구</option>
                             <option value="gungu01">금천구</option>
                             <option value="gungu02">금천구</option>
@@ -311,7 +311,7 @@
                     </div>
 
                     <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="*{reDong}" th:text="${reFormDto.reDong}">
+                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="*{reDong}">
                             <option value="-">읍/면/동</option>
                             <option value="dong01">가산동</option>
                             <option value="dong02">가산동</option>
@@ -367,9 +367,9 @@
                             <input class="ReEs-insert-input" type="number" th:field="*{reTotalFlr}" th:text="${reFormDto.reTotalFlr}" placeholder="전체층수">
                             <p th:if="${#fields.hasErrors('reTotalFlr')}" th:errors="*{reTotalFlr}" class="fieldError">Incorrect data</p>
                         </div>
-                        <input th:checked="*{reSecndFlr}" th:attr="checked=${fruits.toString() == '복층' ? 'true' : 'false'}" autocomplete="off" name="fruits" type='radio'/>복층
-                        <input th:checked="*{reTopFlr}" th:attr="checked=${fruits.toString() == '옥탑방' ? 'true' : 'false'}" autocomplete="off" name="fruits" type='radio'/>옥탑방
-                        <input th:checked="*{reUndrflr}" th:attr="checked=${fruits.toString() == '반지하' ? 'true' : 'false'}" autocomplete="off" name="fruits" type='radio'/>반지하
+                        <input th:checked="*{reSecndFlr}" autocomplete="off" name="fruits" type='radio'/>복층
+                        <input th:checked="*{reTopFlr}" autocomplete="off" name="fruits" type='radio'/>옥탑방
+                        <input th:checked="*{reUndrflr}" autocomplete="off" name="fruits" type='radio'/>반지하
                         <input name='fruits' type='radio'/>선택안함
                     </div>
                 </td>
@@ -378,46 +378,46 @@
                 <th class="ReEs-insert-th">맞춤</th>
                 <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
                     <div class="ReCs-button" id="reNew">신축
-                        <input type="hidden" th:field="*{reNew}" th:text="${reFormDto.reNew}" name="reNew" value="false"/>
+                        <input type="hidden" th:field="*{reNew}" name="reNew"/>
                     </div>
                     <div class="ReCs-button" id="reFull">풀옵션
-                        <input type="hidden" th:field="*{reFull}" th:text="${reFormDto.reFull}" name="reFull" value="false"/>
+                        <input type="hidden" th:field="*{reFull}" name="reFull"/>
                     </div>
                     <div class="ReCs-button" id="reDebt">대출없음
-                        <input type="hidden" th:field="*{reDebt}" th:text="${reFormDto.reDebt}" name="reDebt" value="false"/>
+                        <input type="hidden" th:field="*{reDebt}" name="reDebt"/>
                     </div>
                     <div class="ReCs-button" id="reElvtr">엘리베이터
-                        <input type="hidden" th:field="*{reElvtr}" th:text="${reFormDto.reElvtr}" name="reElvtr" value="false"/>
+                        <input type="hidden" th:field="*{reElvtr}" name="reElvtr"/>
                     </div>
                     <div class="ReCs-button" id="rePet">반려동물
-                        <input type="hidden" th:field="*{rePet}" th:text="${reFormDto.rePet}" name="rePet" value="false"/>
+                        <input type="hidden" th:field="*{rePet}" name="rePet"/>
                     </div>
                     <div class="ReCs-button" id="reScrty">보안기능
-                        <input type="hidden" th:field="*{reScrty}" th:text="${reFormDto.reScrty}" name="reScrty" value="false"/>
+                        <input type="hidden" th:field="*{reScrty}" name="reScrty"/>
                     </div>
                     <div class="ReCs-button" id="reParking">주차장
-                        <input type="hidden" th:field="*{reParking}" th:text="${reFormDto.reParking}" name="reParking" value="false"/>
+                        <input type="hidden" th:field="*{reParking}" name="reParking" />
                     </div>
                     <div class="ReCs-button" id="reSouth">남향
-                        <input type="hidden" th:field="*{reSouth}" th:text="${reFormDto.reSouth}" name="reSouth" value="false"/>
+                        <input type="hidden" th:field="*{reSouth}" name="reSouth" />
                     </div>
                     <div class="ReCs-button" id="reBug">벌레퇴치업체
-                        <input type="hidden" th:field="*{reBug}" th:text="${reFormDto.reBug}" name="reBug" value="false"/>
+                        <input type="hidden" th:field="*{reBug}" name="reBug" />
                     </div>
                     <div class="ReCs-button" id="reWoman">여성전용
-                        <input type="hidden" th:field="*{reWoman}" th:text="${reFormDto.reWoman}" name="reWoman" value="false"/>
+                        <input type="hidden" th:field="*{reWoman}" name="reWoman" />
                     </div>
                     <div class="ReCs-button" id="reForest">숲View
-                        <input type="hidden" th:field="*{reForest}" th:text="${reFormDto.reForest}" name="reForest" value="false"/>
+                        <input type="hidden" th:field="*{reForest}" name="reForest" />
                     </div>
                     <div class="ReCs-button" id="reRiver">리버View
-                        <input type="hidden" th:field="*{reRiver}" th:text="${reFormDto.reRiver}" name="reRiver" value="false"/>
+                        <input type="hidden" th:field="*{reRiver}" name="reRiver" />
                     </div>
                     <div class="ReCs-button" id="reOcean">오션View
-                        <input type="hidden" th:field="*{reOcean}" th:text="${reFormDto.reOcean}" name="reOcean" value="false"/>
+                        <input type="hidden" th:field="*{reOcean}" name="reOcean" />
                     </div>
                     <div class="ReCs-button" id="reCity">시티View
-                        <input type="hidden" th:field="*{reCity}" th:text="${reFormDto.reCity}" name="reCity" value="false"/>
+                        <input type="hidden" th:field="*{reCity}" name="reCity" />
                     </div>
                 </td>
             </tr>
@@ -425,52 +425,52 @@
                 <th class="ReEs-insert-th">카테고리</th>
                 <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
                     <div class="ReCs-button" id="rePublic">공공기관
-                        <input type="hidden" th:field="*{rePublic}" th:text="${reFormDto.rePublic}" name="rePublic" value="false"/>
+                        <input type="hidden" th:field="*{rePublic}" name="rePublic"/>
                     </div>
                     <div class="ReCs-button" id="reMedic">의료시설
-                        <input type="hidden" th:field="*{reMedic}" th:text="${reFormDto.reMedic}" name="reMedic" value="false"/>
+                        <input type="hidden" th:field="*{reMedic}" name="reMedic" />
                     </div>
                     <div class="ReCs-button" id="reCnvn">편의시설
-                        <input type="hidden" th:field="*{reCnvn}" th:text="${reFormDto.reCnvn}" name="reCnvn" value="false"/>
+                        <input type="hidden" th:field="*{reCnvn}" name="reCnvn" />
                     </div>
                     <div class="ReCs-button" id="reSchol">학교주변
-                        <input type="hidden" th:field="*{reSchol}" th:text="${reFormDto.reSchol}" name="reSchol" value="false"/>
+                        <input type="hidden" th:field="*{reSchol}" name="reSchol"/>
                     </div>
                     <div class="ReCs-button" id="reTeen">10대거주
-                        <input type="hidden" th:field="*{reTeen}" th:text="${reFormDto.reTeen}" name="reTeen" value="false"/>
+                        <input type="hidden" th:field="*{reTeen}" name="reTeen" />
                     </div>
                     <div class="ReCs-button" id="reTwen">20대거주
-                        <input type="hidden" th:field="*{reTwen}" th:text="${reFormDto.reTwen}" name="reTwen" value="false"/>
+                        <input type="hidden" th:field="*{reTwen}" name="reTwen"/>
                     </div>
                     <div class="ReCs-button" id="reThirty">30대거주
-                        <input type="hidden" th:field="*{reThirty}" th:text="${reFormDto.reThirty}" name="reThirty" value="false"/>
+                        <input type="hidden" th:field="*{reThirty}" name="reThirty"/>
                     </div>
                     <div class="ReCs-button" id="reFourty">40대거주
-                        <input type="hidden" th:field="*{reFourty}" th:text="${reFormDto.reFourty}" name="reFourty" value="false"/>
+                        <input type="hidden" th:field="*{reFourty}" name="reFourty"/>
                     </div>
                     <div class="ReCs-button" id="reFifty">50대거주
-                        <input type="hidden" th:field="*{reFifty}" th:text="${reFormDto.reFifty}" name="reFifty" value="false"/>
+                        <input type="hidden" th:field="*{reFifty}" name="reFifty"/>
                     </div>
                     <div class="ReCs-button" id="reSixty">60대이상
-                        <input type="hidden" th:field="*{reSixty}" th:text="${reFormDto.reSixty}" name="reSixty" value="false"/>
+                        <input type="hidden" th:field="*{reSixty}" name="reSixty"/>
                     </div>
                     <div class="ReCs-button" id="reMainroad">대로변
-                        <input type="hidden" th:field="*{reMainroad}" th:text="${reFormDto.reMainroad}" name="reMainroad" value="false"/>
+                        <input type="hidden" th:field="*{reMainroad}" name="reMainroad"/>
                     </div>
                     <div class="ReCs-button" id="reRocket">로켓배송
-                        <input type="hidden" th:field="*{reRocket}" th:text="${reFormDto.reRocket}" name="reRocket" value="false"/>
+                        <input type="hidden" th:field="*{reRocket}" name="reRocket"/>
                     </div>
                     <div class="ReCs-button" id="reFlat">경사완만
-                        <input type="hidden" th:field="*{reFlat}" th:text="${reFormDto.reFlat}" name="reFlat" value="false"/>
+                        <input type="hidden" th:field="*{reFlat}" name="reFlat"/>
                     </div>
                     <div class="ReCs-button" id="reSubway">역세권
-                        <input type="hidden" th:field="*{reSubway}" th:text="${reFormDto.reSubway}" name="reSubway" value="false"/>
+                        <input type="hidden" th:field="*{reSubway}" name="reSubway"/>
                     </div>
                     <div class="ReCs-button" id="rePark">공원
-                        <input type="hidden" th:field="*{rePark}" th:text="${reFormDto.rePark}" name="rePark" value="false"/>
+                        <input type="hidden" th:field="*{rePark}" name="rePark"/>
                     </div>
                     <div class="ReCs-button" id="reRsdnt_Area">주택지구
-                        <input type="hidden" th:field="*{reRsdnt_Area}" th:text="${reFormDto.reRsdnt_Area}" name="reRsdnt_Area" value="false"/>
+                        <input type="hidden" th:field="*{reRsdnt_Area}" name="reRsdnt_Area"/>
                     </div>
                 </td>
             </tr>
