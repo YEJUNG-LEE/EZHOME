@@ -17,6 +17,7 @@
     <script type="text/javascript" th:src="@{/js/reEs/OnOff.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/Slider.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/map.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
     //
         $(document).ready(function(){
@@ -426,6 +427,8 @@
             <!--  ======================================================================================================  -->
             <!--  ======================================================================================================  -->
             <!--  ============================================== 매물 리스트 =============================================  -->
+
+            </script>
             <div class="ReEs_List">
                 <div class="ReLi_extent_button_div">
                     <i class="fa-solid fa-rotate"></i>
@@ -441,7 +444,7 @@
                                 <div class="ReLi_text">
                                     <div class="ReLi_accuracy">일치율 100%</div>
                                     <div class="ReLi_TrType" >
-                                            <a th:href="'/map/'+${item.id}" th:text="${item.reFlr}"></a>
+<!--                                            <a th:href="'/map/'+${item.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
                                     <div class="ReLi_cost">
                                         2000/50/10 <!-- 보증금 / 월세/ 관리비-->
@@ -459,6 +462,10 @@
                                             <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
                                         </div>
                                         <div class="ReLi_agent_heart" ><i class="fa-solid fa-heart"></i></div>
+                                    </div>
+
+                                    <div class="ReLi-move-dtl">
+                                        <a th:href ="'/map/'+${item.id}">자세히보기</a>
                                     </div>
                                 </div>
                         </div>
