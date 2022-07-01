@@ -17,6 +17,8 @@ import javax.validation.constraints.Pattern;
 @ToString
 public class MemberFormDto {
 
+    private Long id;
+
     @Email(message = "이메일 형식이 올바르지 않습니다.")
     @NotEmpty(message = "이메일은 필수 입력 값입니다.")
     private String email ;
@@ -45,6 +47,7 @@ public class MemberFormDto {
     @NotEmpty(message = "전화번호는 필수 입력 값입니다. ex)010-0000-0000")
     private String membPhone ;
 
+    @NotEmpty(message = "구분을 선택해주세요.")
     private String role;
 
     private static ModelMapper modelMapper = new ModelMapper() ;

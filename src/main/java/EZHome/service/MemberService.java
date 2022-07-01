@@ -61,4 +61,14 @@ public class MemberService implements UserDetailsService {
 
         return memberFormDto ;
     }
+
+    public MemberFormDto updateMember(Long id){
+        Member member = memberRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+
+        MemberFormDto memberFormDto = MemberFormDto.of(member) ;
+
+        member.updateMember(memberFormDto);
+
+        return memberFormDto;
+    }
 }

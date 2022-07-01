@@ -2,6 +2,7 @@ package EZHome.controller;
 
 import EZHome.constant.Role;
 import EZHome.dto.MemberFormDto;
+import EZHome.dto.ReFormDto;
 import EZHome.entity.Member;
 import EZHome.repository.MemberRepository;
 import EZHome.service.MemberService;
@@ -10,11 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -90,8 +89,24 @@ public class MemberController {
         return "member/memberUpdateForm" ;
     }
 
+//    @GetMapping(value = "/update")
+//    public String update(){
+//        return "member/memberUpdateForm" ;
+//    }
+
     @PostMapping(value = "/update/{id}")
-    public String updateId(){
+    public String updateMember(@PathVariable("id") Long id, Model model){
+        try{
+            MemberFormDto memberFormDto = memberService.updateMember(id) ;
+            System.out.println("memberFormDto : " + memberFormDto.toString());
+            model.addAttribute("memberFormDto", memberFormDto);
+        }catch (Exception e){
+            model.addAttribute("errorMessage", "회원 수정 중에 오류가 발생하였습니다.");
+
+            return "member/memberUpdateForm" ;
+        }
+
         return "member/memberUpdateForm" ;
     }
 }
+
