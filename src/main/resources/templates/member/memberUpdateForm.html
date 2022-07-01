@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<link type="text/css" th:href="@{/css/MeMb/memberUpdateForm.css}" rel="stylesheet">
+
+<th:block layout:fragment="css"></th:block>
+
+
+<body layout:fragment="content">
+<header></header>
+<div class="MyPa-div-all">
+    <div class="MyPa-div-con-all">
+        <div class="MyPa-div-all-pro">
+            <div class="MyPa-div-pro">
+                <div class="MyPa-div-pro01">
+                    <div class="MyPa-div-pro-pic"></div>
+                    <p class="MyPa-pro-nam">사용자닉네임</p>
+                    <p class="MyPa-pro-rat">개인회원</p>
+                </div>
+                <div class="MyPa-div-pro02"></div>
+            </div>
+            <div class="MyPa-div-all-pag">
+                <div class="MyPa-div-pag">
+                    <p class="MyPa-pag-tit">알림 및 메세지</p>
+                    <p class="MyPa-pag-con">알림</p>
+                    <p class="MyPa-pag-con">메세지</p>
+                    <p class="MyPa-pag-tit">매물리스트</p>
+                    <p class="MyPa-pag-con">찜 매물 보기</p>
+                    <p class="MyPa-pag-con">관심중개사 보기</p>
+                    <p class="MyPa-pag-con">내가 문의한 매물</p>
+                    <p class="MyPa-pag-con">내가 방문한 매물</p>
+                    <p class="MyPa-pag-con">최근 본 매물</p>
+                    <p class="MyPa-pag-tit">커뮤니티</p>
+                    <p class="MyPa-pag-con">글 쓰기</p>
+                    <p class="MyPa-pag-con">내가 쓴 덧글 보기</p>
+                    <p class="MyPa-pag-tit">내정보</p>
+                    <p class="MyPa-pag-con">나의 맞춤 조건</p>
+                    <p class="MyPa-pag-con">회원 정보 수정</p>
+                    <p class="MyPa-pag-con">회원 탈퇴</p>
+                </div>
+            </div>
+        </div>
+        <div class="MyPa-div-con">
+            <div class="MyPa-div-tit">
+                <h1 class="MyPa-tit-font">회원 정보 수정</h1>
+            </div>
+            <div class="MyPa-div-con-inf">
+                <div class="MyPa-div-inf-top">
+                    <p class="MyPa-inf-tit">내정보</p>
+                </div>
+                <div class="MyPa-div-inf-bot">
+                    <table>
+                        <colgroup>
+                            <col width="20%" />
+                            <col width="80%" />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>구분</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이름</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>닉네임</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이메일</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>비밀번호</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="add">주소</th>
+                            <td>
+                                <input type="text"><br>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>전화번호</th>
+                            <td>
+                                <input type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="withdraw">
+                                <div>
+                                    <a href="#"><button>회원탈퇴</button></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="correction">
+                                <div>
+                                    <button type="submit">회원 정보 수정하기</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+
+</body>
+</html>

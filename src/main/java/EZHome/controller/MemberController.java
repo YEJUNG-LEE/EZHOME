@@ -64,11 +64,8 @@ public class MemberController {
                             BindingResult bindingResult,
                             Model model){
         if(bindingResult.hasErrors()){
-//            System.out.println("요호서안 걸림");
-//            System.out.println(memberFormDto.toString());
             return "member/memberForm" ;
         }
-//        System.out.println("요호서안 안걸림");
 
         try{
             Member member = Member.createMember(memberFormDto, passwordEncoder);
@@ -77,5 +74,10 @@ public class MemberController {
         }catch (IllegalStateException e){
             return "member/memberForm" ;
         }
+    }
+
+    @GetMapping(value = "/update")
+    public String loginMember(){
+        return "member/memberLoginForm" ;
     }
 }
