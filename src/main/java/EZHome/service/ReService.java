@@ -1,10 +1,14 @@
 package EZHome.service;
 
+import EZHome.dto.MapMainDto;
+import EZHome.dto.MapSearchDto;
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReImgDto;
 import EZHome.entity.*;
 import EZHome.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +24,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReService {
 
-
     private final ReEsRepository reEsRepository;
     private final MemberRepository memberRepository;
     private final ReImgService reImgService;
@@ -29,7 +32,7 @@ public class ReService {
     private final ReCacsRepository reCacsRepository;
     private final ReCucsRepository reCucsRepository;
 
-    public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList) throws Exception {
+    public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList, String email) throws Exception {
 //        System.out.println("======================================");
 ////        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
 //        String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -40,9 +43,12 @@ public class ReService {
 
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
         ReEs reEs = reFormDto.createReEs();
+        Member member = memberRepository.findByEmail(email);
+        reEs.setMember(member);
         System.out.println("createReEs 오류안남");
 
         reEsRepository.save(reEs); // 매물 상품 데이터 저장
+
         System.out.println("save(reEs) 오류안남");
         /*종욱*/
         // 매물 커스텀 데이터 저장
@@ -81,8 +87,11 @@ public class ReService {
 
     private final ReEsImgRepository reEsImgRepository;
 
+
+    //디테일 페이지
+    @Transactional(readOnly = true)
     public ReFormDto getItemDtl(Long id){
-        List<ReImg> itemImgList = reEsImgRepository.findByIdOrderByIdAsc(id);
+        List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
 
         // 3. dto를 저장시킬 리스트 컬렉션 생성 ( dto -> Jpa 연동)
         List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
@@ -110,10 +119,53 @@ public class ReService {
         //상품 등록시 첨부할 상품 이미지 정보들을
         // 저장할 리스트 컬렉션으로 화면에 기재가 됨(최대 5개 이미지)
         reFormDto.setReImgDtoList(reImgDtoList);
-
+        System.out.println("이미지 리턴");
         return reFormDto;
     }
 
+    // 메인 페이지에 보여줄 상품 데이터를 조회하는 메소드를 구현합니다.
+    @Transactional(readOnly = true)
+    public Page<MapMainDto> getMainItemPage(MapSearchDto mapSearchDto, Pageable pageable){
+        return reEsRepository.getMainItemPage(mapSearchDto,pageable);
+    }
 
+
+    public List<MapMainDto> getItemAll() {
+        List<MapMainDto> mapMainDtoList = new ArrayList<MapMainDto>();
+        // 1. repository를 통해 ReES에 있는 모든 데이터를 객체로 불러온다
+        List<ReEs> reEsList = reEsRepository.findAll();
+        // 2. ReFormDto와 Of를 통해 매핑시킨다.
+        for (ReEs reEs :reEsList) {
+            Long id = reEs.getId();
+            List<ReImg> reImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
+            String imgUrl = "";
+            for (ReImg reImg:reImgList) {
+                System.out.println("서비스 이미지 경로" + reImg.getReImgUrl());
+                if(reImg.getReYN().equals("Y")){
+                    imgUrl = reImg.getReImgUrl();
+                    System.out.println("대표 이미지 경로 : " + reImg.getReImgUrl());
+                }
+            }
+            Member member = reEs.getMember();
+            String name = member.getMemb_name();
+            String nick = member.getMemb_nick();
+            MapMainDto mapMainDto = MapMainDto.of(reEs);
+            mapMainDto.setLreaName(name);
+            mapMainDto.setLreaNick(nick);
+            mapMainDto.setReImgUrl(imgUrl);
+            mapMainDtoList.add(mapMainDto);
+        }
+
+        return mapMainDtoList;
+    }
+    public Member getLrea(Long id){
+        // repository 매물아이디로 reEs 엔터티 객체를 가져온다
+        ReEs reEs = reEsRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        // reEs.get올린사람아이디를 가져온다
+        Member member = reEs.getMember();
+        // 그 아이디로 Member member 객체를 반환한다.
+        System.out.println("공인중개사 아이디 : " + member.getMemb_nick());
+        return member;
+    }
 
 }

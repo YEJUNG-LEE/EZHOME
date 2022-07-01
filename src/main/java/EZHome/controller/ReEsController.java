@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -60,7 +61,8 @@ public class ReEsController {
         String email = principal.getName();
 
         try {
-            reService.savedReEs(reFormDto, itemImgFileList);
+
+            reService.savedReEs(reFormDto, itemImgFileList, email);
         }catch (Exception e){
             System.out.println("==========================================================");
             System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
@@ -73,7 +75,7 @@ public class ReEsController {
 
         System.out.println("완료!");
 
-        return "reEs/html/InfoDetail"; // 디테일 페이지로
+        return "reEs/html/ReEs"; // 디테일 페이지로
 
     }
 
@@ -82,6 +84,8 @@ public class ReEsController {
 //    public String itemDtl(@PathVariable("reImgId") Long reImgId, Model model){
 //        return "reEs/html/ReItemForm" ;
 //    }
+
+
 
 
 }
