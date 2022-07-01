@@ -60,25 +60,25 @@
                         <tr>
                             <th>구분</th>
                             <td>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.role}]]" disabled>
                             </td>
                         </tr>
                         <tr>
                             <th>이름</th>
                             <td>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.Memb_name}]]">
                             </td>
                         </tr>
                         <tr>
                             <th>닉네임</th>
                             <td>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.Memb_nick}]]">
                             </td>
                         </tr>
                         <tr>
                             <th>이메일</th>
                             <td>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.email}]]">
                             </td>
                         </tr>
                         <tr>
@@ -90,20 +90,20 @@
                         <tr>
                             <th class="add">주소</th>
                             <td>
-                                <input type="text"><br>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.Memb_address1}]]"><br>
+                                <input type="text" th:text="[[${memberFormDto.Memb_address2}]]">
                             </td>
                         </tr>
                         <tr>
                             <th>생년월일</th>
                             <td>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.Memb_birth}]]">
                             </td>
                         </tr>
                         <tr>
                             <th>전화번호</th>
                             <td>
-                                <input type="text">
+                                <input type="text" th:text="[[${memberFormDto.Memb_phone}]]">
                             </td>
                         </tr>
                         <tr>
