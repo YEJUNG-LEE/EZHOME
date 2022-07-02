@@ -129,26 +129,27 @@ public class ReService {
 //    }
 
     public ReFormDto getItemUpdate(Long id){
-//        List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
-//
-//        for (ReImg reImg: itemImgList) {
-//            System.out.println("itemImgList : " + reImg.getId());
-//        }
-//        List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
-//
-        // 수정페이지는 기존 등록정보가 화면에 띄어져야 하므로
-        // 반복문을 사용하여 entity를 dto로 변경시켜 컬렉션에 답습니다.
-//        for(ReImg reImg: itemImgList){
-//            // 타입이 다름으로 of()메소드를 이용해 itemImg(entity)-> dto 타입으로 변경
-//            System.out.println("============================================");
-//            System.out.println("ReImgDto.of 전");
-//            ReImgDto reImgDto = ReImgDto.of(reImg);
-//            System.out.println("ReImgDto.of 후");
-//            System.out.println("============================================");
-//
-//            // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
-//            reImgDtoList.add(reImgDto);
-//        }
+        List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
+
+        for (ReImg reImg: itemImgList) {
+            System.out.println("itemImgList : " + reImg.getId());
+        }
+
+        List<String> reOriNmList = new ArrayList<String>();
+
+//         수정페이지는 기존 등록정보가 화면에 띄어져야 하므로
+//         반복문을 사용하여 entity를 dto로 변경시켜 컬렉션에 답습니다.
+        for(ReImg reImg: itemImgList){
+            // 타입이 다름으로 of()메소드를 이용해 itemImg(entity)-> dto 타입으로 변경
+            System.out.println("============================================");
+            System.out.println("ReImgDto.of 전");
+            ReImgDto reImgDto = ReImgDto.of(reImg);
+            System.out.println("ReImgDto.of 후");
+            System.out.println("============================================");
+
+            // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
+            reOriNmList.add(reImgDto.getReOriNm());
+        }
 
         //4. 상품 entity 정보를 구합니다.
         ReEs reEs = reEsRepository.findById(id)
@@ -169,7 +170,7 @@ public class ReService {
         System.out.println(reFormDto.toString());
         // html이랑 연결도 해보고
 
-//        reFormDto.setReImgDtoList(reImgDtoList);
+        reFormDto.setReOriNmList(reOriNmList);
         System.out.println("이미지 리턴");
         return reFormDto;
     }
@@ -214,14 +215,12 @@ public class ReService {
         return member;
     }
 
-    public void updateReEs(ReFormDto reFormDto, Long reId /*, List<MultipartFile> itemImgFileList*/) {
+    public void updateReEs(ReFormDto reFormDto, Long reId, List<MultipartFile> itemImgFileList) {
         System.out.println("======================================");
         System.out.println("============서비스로 들어갔습니다=========");
         System.out.println("======================================");
         Long cuId = reCucsRepository.findByReEs_Id(reId).getId();
         Long caId = reCacsRepository.findByReEs_Id(reId).getId();
-
-//        ReEs reEs = reEsRepository.findById(reId).orElseThrow(EntityNotFoundException::new);
 
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
         ReEs reEs = reFormDto.createReEs();
@@ -246,24 +245,27 @@ public class ReService {
 
 
 
+        List<ReImg> reImgList = reImgService.getAll(reId);
         // 2. 상품 이미지 등록
-        // 반복문으로 해당 상품(ReEs)과 관련된 이미지(ReImg)들 저장하기
-//        for (int i = 0; i < itemImgFileList.size(); i++) {
-//            ReImg reImg = new ReImg();
-//
-//            reImg.setReEs(reEs);
-//            if(i == 0 ){
-//                reImg.setReYN("Y"); //대표이미지
-//            }else{
-//                reImg.setReYN("N"); //나머지 이미지
-//            }
-//
-//            // 상품의 이미지 정보를 저장합니다.
-//            try {
-//                reImgService.savedItemImg(reImg, itemImgFileList.get(i));
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        } // end for다 ~
+        // 우선 이미지를 변경하였는지 확인하고, 넣었다면 그 부분만 변경한다
+        for (int i = 0; i < itemImgFileList.size(); i++) {
+            ReImg reImg = reImgList.get(i);
+            ReImg newReImg = new ReImg();
+            newReImg.setReEs(reEs);
+            System.out.println("reImg : " + reImg.toString());
+            if(i == 0 ){
+                reImg.setReYN("Y"); //대표이미지
+            }else{
+                reImg.setReYN("N"); //나머지 이미지
+            }
+
+            // 상품의 이미지 정보를 저장합니다.
+            try {
+                reImgService.deleteItemImg(reImg);
+                reImgService.savedItemImg(newReImg, itemImgFileList.get(i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // end for다 ~
     }
 }

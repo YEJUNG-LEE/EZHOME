@@ -45,8 +45,8 @@ public class ReEsController {
 
     @PostMapping(value = "/admin/item/update/{reid}")
     public String reesUpdatePost(@Valid ReFormDto reFormDto, @PathVariable("reid") Long reId,
-                                 BindingResult bindingResult, Model model
-                                 /*,@RequestParam("itemImgFile") List<MultipartFile> itemImgFileList*/){
+                                 BindingResult bindingResult, Model model,
+                                 @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
 
         System.out.println("오류?발생?");
         // reFormDto에 id값을 setter해줍니다.
@@ -63,17 +63,16 @@ public class ReEsController {
             return "/admin/item/update/" + reId ;  // ReItemForm 으로 이동
         }
 
-        // 이미지 파일 존재하는지 체크
-//        if(itemImgFileList.get(0).isEmpty() && reFormDto.getId() == null){
-//            System.out.println("==========================================================");
-//            System.out.println("2번 이미지와 아이디가 비어져있을때의 오류입니다.");
-//            System.out.println("==========================================================");
-//            model.addAttribute("errorMessage","첫 번째 이미지는 필수 입력 값입니다.");
-//            return "/admin/item/update/" + reId ;
-//        }
+        if(reFormDto.getId() == null){
+            System.out.println("==========================================================");
+            System.out.println("2번 아이디가 비어져있을때의 오류입니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage","아이디는 필수 입력값입니다.");
+            return "/admin/item/update/" + reId ;
+        }
 
         try {
-            reService.updateReEs(reFormDto, reId/*, itemImgFileList*/);
+            reService.updateReEs(reFormDto, reId, itemImgFileList);
         }catch (Exception e){
             System.out.println("==========================================================");
             System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
@@ -118,7 +117,6 @@ public class ReEsController {
         String email = principal.getName();
 
         try {
-
             reService.savedReEs(reFormDto, itemImgFileList, email);
         }catch (Exception e){
             System.out.println("==========================================================");
