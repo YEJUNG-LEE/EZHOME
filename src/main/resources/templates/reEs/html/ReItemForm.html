@@ -305,11 +305,17 @@
                 <th class="ReEs-insert-th">소재지</th>
                 <td class="ReEs-insert-td">
                     <div class="ReEs-insert-div">
-                        <input type="text" id="reGungu" th:field="*{reGungu}" value="" placeholder="우편번호를 입력해주세요.">
-                        <input type="text" readonly id="reSido" placeholder="도로명 주소를 입력해주세요." value="" th:field="*{reSido}" onclick="findAddr()">
-                        <input type="text" id="reDong" th:field="*{reDong}" value="" placeholder="지번주소 ? ">
+                        <p>도로명주소 입력 칸을 누르면 주소찾기가 가능합니다.</p>
+                        <input type="text" id="reSido" th:field="*{reSido}" value="" placeholder="시/도" onclick="findAddr()">
+                        <input type="text" id="reGungu" th:field="*{reGungu}" value="" placeholder="군/구">
+                        <input type="text" id="reDong" th:field="*{reDong}" value="" placeholder="동">
                         <input type="text" id="reDtl_Adr" placeholder="상세주소를 입력해주세요." value="" th:field="*{reDtl_Adr}">
-
+                        <ul class="ReEs-insert-ul" style="margin-left: -40px;">
+                            <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
+                            <li class="ReEs-insert-li">2.상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
+                            <li class="ReEs-insert-li">* 동/호 정보는 수정이 불가능합니다. 등기부에 나와있는 동/호수를 정확히 입력해주세요</li>
+                            <li class="ReEs-insert-li">* 상세주소부분에 등기부등본 상의 부동산 소재지번 내용을 입력하시면 빠르고 정확한 매물 등록이 가능합니다.</li>
+                        </ul>
                         <div class="ReEs-insert-map" id = "map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
                         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
                         <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=41ec70f03f68b4fdbd6ba07942477fec&libraries=services"></script>
@@ -322,15 +328,16 @@
 
                                         // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
                                         // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                                        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                                        var roadAddr = data.roadAddress; // 도로명 주소 변수
-                                        var jibunAddr = data.jibunAddress; // 지번 주소 변수
+
+                                        var sido = data.sido;   // 시, 도 변수
+                                        var sigungu = data.sigungu; // 도로명 주소 변수
+                                        var bname = data.bname; // 동 주소 변수
                                         // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                                        document.getElementById('reGungu').value = data.zonecode; //우편
+                                            document.getElementById('reSido').value = sido; //시, 도
 
-                                            document.getElementById("reSido").value = roadAddr; // 도로명
+                                            document.getElementById("reGungu").value = sigungu; // 군, 구
 
-                                            document.getElementById("reDong").value = jibunAddr; // 지번
+                                            document.getElementById("reDong").value = bname; // 동 이름
 
                                     }
                                 }).open();
@@ -381,22 +388,17 @@
                     </div>
                 </td>
             </tr>
-            <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">상세주소</th>
-                <td class="ReEs-insert-td">
-                    <div class="ReEs-insert-detailAddress">
-<!--                        <input class="ReEs-insert-inputlg" type="text" th:field="*{reDtl_Adr}" placeholder="동, 호수를 입력해주세요">-->
-<!--                        <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>-->
-                        <ul class="ReEs-insert-ul" style="margin-left: -40px;">
-                            <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
-                            <li class="ReEs-insert-li">2.상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
-                            <li class="ReEs-insert-li">* 동/호 정보는 수정이 불가능합니다. 등기부에 나와있는 동/호수를 정확히 입력해주세요</li>
-                            <li class="ReEs-insert-li">* 상세주소부분에 등기부등본 상의 부동산 소재지번 내용을 입력하시면 빠르고 정확한 매물 등록이 가능합니다.</li>
-                        </ul>
-                    </div>
+<!--            <tr class="ReEs-insert-tr">-->
+<!--                <th class="ReEs-insert-th">상세주소</th>-->
+<!--                <td class="ReEs-insert-td">-->
+<!--                    <div class="ReEs-insert-detailAddress">-->
+<!--&lt;!&ndash;                        <input class="ReEs-insert-inputlg" type="text" th:field="*{reDtl_Adr}" placeholder="동, 호수를 입력해주세요">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>&ndash;&gt;-->
+<!--                       -->
+<!--                    </div>-->
 
-                </td>
-            </tr>
+<!--                </td>-->
+<!--            </tr>-->
 
             <tr class="ReEs-insert-tr">
                 <th class="ReEs-insert-th">방정보</th>

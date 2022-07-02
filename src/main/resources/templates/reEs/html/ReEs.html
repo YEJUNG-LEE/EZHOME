@@ -447,13 +447,13 @@
 <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
                                     <div class="ReLi_cost">
-                                        2000/50/10 <!-- 보증금 / 월세/ 관리비-->
+                                        [[${item.reDeposit}]] [[${item.reMon_price}]] [[${item.reAdmn_fee}]] <!-- 보증금 / 월세/ 관리비-->
                                     </div>
                                     <div class="ReLi_extent">
                                         5층 · 16평 <!-- 층수 / 평수-->
                                     </div>
                                     <div class="ReLi_address">
-                                        서울특별시 구로구 구로동 <!-- 시도 / 군구 / 동-->
+                                        [[${item.reSido}]] [[${item.reGungu}]] [[${item.reDong}]] <!-- 시도 / 군구 / 동-->
                                     </div>
                                     <div class="ReLi_agent">
                                         <div class="ReLi_agent_img"></div>
