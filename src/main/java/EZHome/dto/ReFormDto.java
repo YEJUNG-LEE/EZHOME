@@ -16,7 +16,6 @@ import java.util.List;
 
 @Getter @Setter
 @ToString
-
 public class ReFormDto {
 
     private Long id ; // 매물 기본키 (fk)

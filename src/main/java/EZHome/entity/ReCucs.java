@@ -34,6 +34,6 @@ public class ReCucs extends BaseEntity{
     private boolean reCity ; // 도시 view
 
     @OneToOne()
-    @JoinColumn(name = "reid")
+    @JoinColumn(name = "reid", unique = true)
      private ReEs reEs;
 }
