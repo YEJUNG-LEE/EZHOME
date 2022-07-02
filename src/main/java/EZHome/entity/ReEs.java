@@ -22,8 +22,7 @@ public class ReEs extends BaseEntity {
     private Integer reNum;  // 매물 번호
 
     @Column(nullable = true, length = 300)
-    private String reNm; // 매물이름 ex) 신사역 도보 10분 이내, 투룸
-
+    private String reNm;
     @Column(nullable = false, length = 300)
     private String rehouseType ; // 매물 유형
 
@@ -45,7 +44,7 @@ public class ReEs extends BaseEntity {
     @Column(nullable = false)
     private Integer reFlr ; // 층수
 
-    /* 전체층수부터 평수는 빠른 구현을 위해 'null 값 허용' 으로 설정하겠습니다.*/
+
 
     @Column(nullable = false)
     private Integer reTotalFlr ; // 전체 층수
