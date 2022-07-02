@@ -4,8 +4,8 @@ $(function(){
 
 var $window = $(window),
     $mainHeader = $('header'),
-    $defultLogo = 'img/logo01.png' ,
-    $smallLogo = 'img/logo03.png' ;
+    $defultLogo = '/img/logo01.png' ,
+    $smallLogo = '/img/logo03.png' ;
 
     $window.scroll(function(){
         /* 스크롤이 100 보다 커지면 */
