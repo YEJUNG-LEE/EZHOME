@@ -28,44 +28,44 @@ public class ReEsRepositoryCustomImpl implements ReEsRepositoryCustom{
 
 
     // 상품 이름으로 매물을 검색하는 메소드 (in map)
-    @Override
-    public Page<MapMainDto> getMainItemPage(MapSearchDto mapSearchDto, Pageable pageable) {
-        QReEs reEs = QReEs.reEs;
-        QReImg reImg = QReImg.reImg;
-
-        QueryResults<MapMainDto> results = queryFactory
-                .select(
-                        new QMapMainDto(
-                                reEs.id,
-                                reEs.retrType,
-                                reEs.reDeposit,
-                                reEs.reMon_price,
-                                reEs.reAdmn_fee,
-                                reEs.reFlr,
-                                reEs.reExtent,
-                                reEs.reSido,
-                                reEs.reGungu,
-                                reEs.reDong,
-                                reEs.reDtl_Adr,
-                                reImg.reImgUrl)
-                )
-                .from(reImg)
-                .join(reImg.reEs, reEs)
-//                .join(reEs.member, mem )
-                .where(reImg.reYN.eq("Y"))
-                .where(itemNmLike(mapSearchDto.getSearchQuery()))
-
-
-                .orderBy(reEs.id.desc())
-                .offset(pageable.getOffset())
-                .limit(pageable.getPageSize())
-                .fetchResults();
-
-        List<MapMainDto> content = results.getResults();
-        long total = results.getTotal();
-
-        return new PageImpl<>(content, pageable, total);
-    }
+//    @Override
+//    public Page<MapMainDto> getMainItemPage(MapSearchDto mapSearchDto, Pageable pageable) {
+//        QReEs reEs = QReEs.reEs;
+//        QReImg reImg = QReImg.reImg;
+//
+//        QueryResults<MapMainDto> results = queryFactory
+//                .select(
+//                        new QMapMainDto(
+//                                reEs.id,
+//                                reEs.retrType,
+//                                reEs.reDeposit,
+//                                reEs.reMon_price,
+//                                reEs.reAdmn_fee,
+//                                reEs.reFlr,
+//                                reEs.reExtent,
+//                                reEs.reSido,
+//                                reEs.reGungu,
+//                                reEs.reDong,
+//                                reEs.reDtl_Adr,
+//                                reImg.reImgUrl)
+//                )
+//                .from(reImg)
+//                .join(reImg.reEs, reEs)
+////                .join(reEs.member, mem )
+//                .where(reImg.reYN.eq("Y"))
+//                .where(itemNmLike(mapSearchDto.getSearchQuery()))
+//
+//
+//                .orderBy(reEs.id.desc())
+//                .offset(pageable.getOffset())
+//                .limit(pageable.getPageSize())
+//                .fetchResults();
+//
+//        List<MapMainDto> content = results.getResults();
+//        long total = results.getTotal();
+//
+//        return new PageImpl<>(content, pageable, total);
+//    }
 
 
     // 상품 이름으로 매물을 검색하는 메소드 (in map)
