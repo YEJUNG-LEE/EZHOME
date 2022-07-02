@@ -44,7 +44,7 @@ public class MapMainDto {
 
     @QueryProjection
     public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
-                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
+                         String reDoro, String reDtl_Adr,  String reImgUrl ){
         this.id = id;
         this.retrType = retrType;
         this.reDeposit = reDeposit;
@@ -52,9 +52,9 @@ public class MapMainDto {
         this.reAdmn_fee = reAdmn_fee;
         this.reFlr = reFlr;
         this.reExtent = reExtent;
-        this.reSido = reSido;
-        this.reGungu = reGungu;
-        this.reDong = reDong;
+        this.reSido = reDoro;
+//        this.reGungu = reGungu;
+//        this.reDong = reDong;
         this.reDtl_Adr = reDtl_Adr;
 //        this.Memb_nick = Memb_nick;
 //        this.Memb_name = Memb_name;

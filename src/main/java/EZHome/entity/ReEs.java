@@ -30,7 +30,7 @@ public class ReEs extends BaseEntity {
     private String retrType ; // 매매 유형
 
     @Column(nullable = false, length = 300)
-    private String reSido; // 시도
+    private String reDoro; // 도로명주소
 
     @Column(nullable = false, length = 300)
     private String reGungu; // 군구
@@ -97,7 +97,7 @@ public class ReEs extends BaseEntity {
         this.reJeonse = reFormDto.getReJeonse(); //전세
 
 
-        this.reSido = reFormDto.getReSido(); //시도
+        this.reDoro = reFormDto.getReDoro(); //시도
         this.reGungu = reFormDto.getReGungu(); // 군구
         this.reDong = reFormDto.getReDong(); // 동
         this.reDtl_Adr = reFormDto.getReDtl_Adr(); //상세주소

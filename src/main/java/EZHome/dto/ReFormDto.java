@@ -45,8 +45,8 @@ public class ReFormDto {
     @NotNull(message="전세는 필수 입력 값입니다.")
     private Integer reJeonse ; // 전세
 
-    @NotBlank(message="'시도' 작성은 필수 입력입니다.")
-    private String reSido; // 시도
+    @NotBlank(message="'도로명주소' 작성은 필수 입력입니다.")
+    private String reDoro; // 도로명주소
 
     @NotBlank(message="'군구' 작성은 필수 입력입니다.")
     private String reGungu; // 군구
