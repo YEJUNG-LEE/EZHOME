@@ -15,9 +15,8 @@
             <div class="MyPa-div-pro">
                 <div class="MyPa-div-pro01">
                     <div class="MyPa-div-pro-pic"></div>
-                    <p class="MyPa-pro-nam"th:value="${member.membNick}">사용자닉네임</p>
-                    <p class="MyPa-pro-rat" th:if="${role == T(EZHome.constant.Role).USER}">개인회원</p>
-                    <p class="MyPa-pro-rat" th:unless="${role == T(EZHome.constant.Role).USER}">공인중개사</p>
+                    <p class="MyPa-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
+                    <p class="MyPa-pro-rat" th:text="${memberFormDto.role}"></p>
                 </div>
                 <div class="MyPa-div-pro02"></div>
             </div>
@@ -53,7 +52,7 @@
                 </div>
                 <div class="MyPa-div-inf-bot">
                     <form  role="form" method="post" enctype="multipart/form-data">
-                        <input type="hidden" th:field="*{member.id}">
+                        <input type="hidden" th:field="*{memberFormDto.id}">
 
                         <table>
                         <colgroup>
@@ -64,41 +63,43 @@
                         <tr>
                             <th>구분</th>
                             <td class="MyPa_roem">
-                                <p th:if="${role == T(EZHome.constant.Role).USER}">개인회원</p>
-                                <p th:unless="${role == T(EZHome.constant.Role).USER}">공인중개사</p>
+                                <p th:if="${role != T(EZHome.constant.Role).LREA}">개인회원</p>
+                                <p th:unless="${role != T(EZHome.constant.Role).LREA}">공인중개사</p>
+                                <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
                             </td>
                         </tr>
                         <tr>
                             <th>이름</th>
                             <td>
-                                <input type="text" class="MyPg_input" th:field="*{member.membName}" th:value="${membName}">
+                                <input type="text" class="MyPg_input" th:field="*{memberFormDto.membName}" th:value="${membName}">
                             </td>
                         </tr>
                         <tr>
                             <th>닉네임</th>
                             <td>
-                                <input type="text" class="MyPg_input" th:field="*{member.membNick}" th:value="${membNick}">
+                                <input type="text" class="MyPg_input" th:field="*{memberFormDto.membNick}" th:value="${membNick}">
                             </td>
                         </tr>
                         <tr>
                             <th>이메일</th>
                             <td class="MyPa_roem">
-                                <input type="hidden" th:text="${member.email}">
+                                <input type="text" th:value="${memberFormDto.email}" disabled >
+                                <input type="hidden" th:field="*{memberFormDto.email}">
                             </td>
                         </tr>
                         <tr>
                             <th>비밀번호</th>
                             <td>
-                                <input type="hidden" class="MyPg_input" th:field="*{member.membPassword}">
+                                <input type="password" class="MyPg_input" th:field="*{memberFormDto.membPassword}">
                             </td>
                         </tr>
                         <tr>
                             <th class="add">주소</th>
                             <td>
                                 <input type="hidden" id="sample6_postcode" placeholder="우편번호">
-                                <input type="text" class="MyPg_addr"th:value="${membAddress1}" th:field="*{member.membAddress1}" id="sample6_address">
+                                <input type="text" class="MyPg_addr"th:value="${membAddress1}" th:field="*{memberFormDto.membAddress1}" id="sample6_address">
                                 <input type="button" class="MyPg_adse" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
-                                <input type="text" class="form-control MyPg_input" th:value="${membAddress2}" th:field="*{member.membAddress2}" id="sample6_detailAddress">
+                                <input type="text" class="form-control MyPg_input" th:value="${membAddress2}" th:field="*{memberFormDto.membAddress2}" id="sample6_detailAddress">
                                 <input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
                             </td>
                             <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -155,13 +156,13 @@
                         <tr>
                             <th>생년월일</th>
                             <td>
-                                <input type="text" class="MyPg_input" th:field="*{member.membBirth}" th:value="${membBirth}">
+                                <input type="text" class="MyPg_input" th:field="*{memberFormDto.membBirth}" th:value="${membBirth}">
                             </td>
                         </tr>
                         <tr>
                             <th>전화번호</th>
                             <td>
-                                <input type="text" class="MyPg_input" th:field="*{member.membPhone}" th:value="${membPhone}">
+                                <input type="text" class="MyPg_input" th:field="*{memberFormDto.membPhone}" th:value="${membPhone}">
                             </td>
                         </tr>
                         <tr>
@@ -174,7 +175,7 @@
                         <tr>
                             <td colspan="2" class="correction">
                                 <div>
-                                    <button th:formaction="@{'/members/update/' + ${member.id} }" type="submit">회원 정보 수정하기</button>
+                                    <button th:formaction="@{'/members/update/' + ${memberFormDto.id} }" type="submit">회원 정보 수정하기</button>
                                 </div>
                             </td>
                         </tr>

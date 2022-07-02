@@ -27,14 +27,14 @@ public class MemberFormDto {
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}", message = "비밀번호는 8~16자 대, 소문자, 숫자, 특수문자를 이용하세요.")
     private String membPassword ;
 
-    @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$", message = "닉네임은 특수문자를 제외한 2~10자리여야 합니다.")
-    @NotEmpty(message = "닉네임은 필수 입력 값입니다.")
+    @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$", message = "닉네임/상호명은 특수문자를 제외한 2~10자리여야 합니다.")
+    @NotEmpty(message = "닉네임/상호명은 필수 입력 값입니다.")
     private String membNick ;
 
     @NotEmpty(message = "이름은 필수 입력 값입니다.")
     private String membName ;
 
-    @Pattern(regexp = "^\\d{6}$")
+    @Pattern(regexp = "^\\d{6}$", message = "생년월일은 숫자로 이루어진 6자리입니다.")
     @NotEmpty(message = "생년월일은 필수 입력 값입니다.")
     private String membBirth ;
 

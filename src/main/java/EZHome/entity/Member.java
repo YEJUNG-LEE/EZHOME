@@ -72,4 +72,8 @@ public class Member{
         this.membBirth = memberFormDto.getMembBirth();
         this.membPhone = memberFormDto.getMembPhone();
     }
+
+    public void deleteMember(Long id){
+
+    }
 }

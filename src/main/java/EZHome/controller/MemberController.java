@@ -70,6 +70,7 @@ public class MemberController {
         try{
             Member member = Member.createMember(memberFormDto, passwordEncoder);
             memberService.saveMember(member) ;
+            System.out.println(member.toString());
             return "member/memberLoginForm" ;
         }catch (IllegalStateException e){
             return "member/memberForm" ;
@@ -84,7 +85,7 @@ public class MemberController {
         String email = principal.getName();
         MemberFormDto memberFormDto = memberService.getName(email);
 
-        model.addAttribute("member", memberFormDto);
+        model.addAttribute("memberFormDto", memberFormDto);
 
         return "member/memberUpdateForm" ;
     }
@@ -95,18 +96,27 @@ public class MemberController {
 //    }
 
     @PostMapping(value = "/update/{id}")
-    public String updateMember(@PathVariable("id") Long id, Model model){
+    public String updateMember(@Valid MemberFormDto memberFormDto, @PathVariable("id") Long id, Model model){
+//        System.out.println("들어가나요..?");
         try{
-            MemberFormDto memberFormDto = memberService.updateMember(id) ;
-            System.out.println("memberFormDto : " + memberFormDto.toString());
+            MemberFormDto newMemberFormDto = memberService.updateMember(id, memberFormDto) ;
             model.addAttribute("memberFormDto", memberFormDto);
+            System.out.println("memberFormDto : " + memberFormDto.toString());
         }catch (Exception e){
             model.addAttribute("errorMessage", "회원 수정 중에 오류가 발생하였습니다.");
 
             return "member/memberUpdateForm" ;
         }
 
-        return "member/memberUpdateForm" ;
+        return "redirect:/" ;
+    }
+
+    @GetMapping(value = "/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+
+        memberService.deleteMember(id);
+
+        return "redirect:/" ;
     }
 }
 
