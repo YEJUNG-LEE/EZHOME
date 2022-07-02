@@ -3,6 +3,7 @@
     margin:0;
     padding:0;
 }
+
 .imsi-head{
     height:90px;
 }
@@ -27,6 +28,7 @@
     z-index:90;
     border-right:1px solid #8d8d8f;
     display:none;
+    text-align: left;
 }
 .ReCs-div{
     box-sizing:border-box;
@@ -143,6 +145,9 @@
     font-weight:600;
     color:#858484;
     text-align:center;
+}
+.ReCs-button:hover{
+    cursor:pointer;
 }
 #ReCs-cost{
     font-size:15px;

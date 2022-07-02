@@ -354,6 +354,11 @@ nav > ul {
     background: #4876EF;
 }
 
+/* content */
+.content{
+    width: 100%;
+    min-height: 100%;
+}
 
 /* 메인 컨테이너 */
 main {
@@ -719,7 +724,7 @@ main {
 /* 지역매물 info */
 .main-section03{
     width: 1280px;
-    margin: 30px auto 300px;
+    margin: 30px auto 110px;
 }
 
 .section03-contents{
