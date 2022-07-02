@@ -1,215 +1,15 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <link type="text/css" th:href="@{/css/reEs/ReItemForm.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/reEs/ReIemForm.js}" defer></script>
 </head>
-<th:block layout:fragment="css">
-    <style>
-        header{
-            height:90px;
-            border: 1px solid black;
-            }
-
-        .ReEs-insert-wrap{
-            border: 1px solid black;
-            width: 1280px;
-            height: 1700px;
-            margin: auto;
-            background-color: #f8f8f8;
-        }
-        .ReEs-insert-header{
-            width: 1100px;
-            padding-top: 35px;
-            box-sizing: border-box;
-            height:130px;
-            border: 0px solid red;
-            margin: auto;
-        }
-        .ReEs-insert-SetRoom{
-            width: 1000px;
-            padding-top: 25px;
-            box-sizing: border-box;
-            height:90px;
-            border: 0px solid blue;
-            margin: auto;
-
-
-        }
-
-        .ReEs-insert-h2{
-            padding-top: 35px;
-            box-sizing: border-box;
-            font-size: 24px;
-            border: 1px solid black;
-            margin: auto;
-            padding: 20px 0 20px 0;
-        }
-        .ReEs-insert-box{
-            width: 220px;
-            height: 50px;
-            font-size: 20px;
-            padding-top: 5px;
-            text-align: center;
-            display: inline-block;
-            margin-right: 25px;
-            border: 1px solid black;
-            box-sizing: border-box;
-            margin-top: 20px;
-            border-radius: 3px;
-
-        }
-
-        .ReES-insert-form{
-            border: 1px solid black;
-            width: 1000px;
-            height: 1380px;
-            margin: auto;
-            box-sizing: border-box;
-            margin-top: 30px;
-            background-color: #FFFFFF;
-            padding: 15px;
-
-        }
-        .ReEs-insert-table{
-            margin-top: 20px;
-            width: 970px;
-            margin: auto;
-        }
-        .ReEs-insert-tr{
-            box-sizing: border-box;
-            border: 1px solid black;
-            width: auto;
-        }
-        .ReEs-insert-th{
-            height:20px;
-                width: 50px;
-                padding: 20px 0 0 20px;
-                font-weight: 700;
-                font-size: 14px;
-                color: #333;
-                line-height: 20px;
-                vertical-align: top;
-                text-align: left;
-                padding-top: 29px;
-                border: 1px solid black;
-        }
-        .ReEs-insert-td{
-            width:481px;
-                height:74px;
-                text-align: left;
-                border: 1px solid black;
-        }
-         .ReCs-button{
-            box-sizing:border-box;
-            margin-top:8px;
-            margin-right:5px;
-            width:110px;
-            height:35px;
-            border-radius:45px;
-            border:1px solid #b8b7bb;
-            background-color:#b8b7bb;
-            display:inline-block;
-            font-size:12px;
-            padding-top:7px;
-            letter-spacing:2px;
-            font-weight:600;
-            color:#858484;
-            text-align:center;
-        }
-        .ReCs-button:hover{
-            cursor:pointer;
-        }
-
-        .ReEs-insert-div{
-            float:left
-        }
-        .ReEs-insert-td03{
-            width:481px;
-                height:74px;
-                text-align: left;
-
-        }
-        .ReEs-insert-input, .ReEs-insert-select, .ReEs-insert-inputlg{
-            width:100px;
-                height: 44px;
-                padding: 0 14px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                border-radius: 3px;
-                margin-left: 20px;
-        }
-        .ReEs-insert-select{
-            width:130px;
-        }
-        .ReEs-insert-inputlg{
-            width: 160px;
-            margin-left: 10px;
-        }
-        .ReEs-insert-inputsm{
-            width: 30px;
-            height: 44px;
-                padding: 0 14px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                border-radius: 3px;
-                margin-left: 5px;
-        }
-        .ReEs-insert-detailAddress{
-            padding:15px;float: left; width:400px;height:250px;  margin-right: 15px;
-        }
-        .ReEs-insert-map{
-            padding:10px; float: left; width:300px;height:200px; border:1px solid black; margin-top: 15px; border-radius: 3px;
-        }
-        .ReEs-insert-li{
-            list-style: none; font-size:12px
-        }
-        .ReEs-insert-btnsm{
-            width: 73px;
-            height: 44px;
-                padding: 0 14px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                border-radius: 3px;
-                vertical-align: middle;
-                display: inline-flex;
-                padding-top: 10px;
-        }
-        .ReEs-insert-nowfloor , .ReEs-insert-totalfloor{
-            padding:10px 0 6px 0;
-        }
-        p{margin:0 0 0 20px;
-
-        }
-
-    </style>
-    <script type="text/javascript" th:src="@{/js/common/jquery-3.6.0.min.js}"></script>
-    <script>
-        $(document).ready(function(){
-
-            console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
-
-            $('.ReCs-button').click(function(){
-                var tagId = $(this).attr("id");
-                console.log(tagId);
-                var values = $('input[name=' + tagId + ']').attr('value');
-                if(values == 'false'){
-                    $(this).css({'background-color':'#0081cc', 'color':'white'});
-                    $('input[name=' + tagId + ']').attr('value', 'true');
-                }else{
-                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
-                    $('input[name=' + tagId + ']').attr('value', 'false');
-                }
-                values = $('input[name=' + tagId + ']').attr('value');
-                console.log(values);
-            });
-        });
-    </script>
-</th:block>
-<!--<div layout:fragment="content">-->
-<header></header>
+<div layout:fragment="content" class="content">
+<div class="header"></div>
 <div class="ReEs-insert-wrap">
     <div class="ReEs-insert-header">
         <h2 class="ReEs-insert-h2">방 등록하기</h2>
@@ -297,7 +97,6 @@
                         <input class="ReEs-insert-input" type="number" th:field="*{reDeposit}" placeholder="보증금">
                         <p th:if="${#fields.hasErrors('reDeposit')}" th:errors="*{reDeposit}" class="fieldError">Incorrect data</p>
                     </div>
-
                 </td>
 
             </tr>
@@ -399,7 +198,6 @@
 
 <!--                </td>-->
 <!--            </tr>-->
-
             <tr class="ReEs-insert-tr">
                 <th class="ReEs-insert-th">방정보</th>
                 <td class="ReEs-insert-td"><!--타임리프로 if 조건문 달기 -->
@@ -562,9 +360,6 @@
             <!--                        </div>-->
             <!--                    </div>-->
             <!--                </tr>-->
-
-
-
         </table>
         <div style="margin:auto; width:150px; ">
             <div th:if="${#strings.isEmpty(reFormDto.id)}"  style="float:left;">
@@ -577,8 +372,5 @@
         </div>
     </form>
 </div>
-
-
-
-<!--</div>-->
+</div>
 </html>
