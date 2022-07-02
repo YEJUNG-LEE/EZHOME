@@ -35,28 +35,30 @@ public class MapMainDto {
     private String reImgUrl ;// 이미지 url
 
     private static ModelMapper modelMapper = new ModelMapper();
+
     public static MapMainDto of(ReEs reEs) {
             return modelMapper.map(reEs, MapMainDto.class);
     }
 
+    public MapMainDto(){}
 
-//    @QueryProjection
-//    public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
-//                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
-//        this.id = id;
-//        this.retrType = retrType;
-//        this.reDeposit = reDeposit;
-//        this.reMon_price = reMon_price;
-//        this.reAdmn_fee = reAdmn_fee;
-//        this.reFlr = reFlr;
-//        this.reExtent = reExtent;
-//        this.reSido = reSido;
-//        this.reGungu = reGungu;
-//        this.reDong = reDong;
-//        this.reDtl_Adr = reDtl_Adr;
-////        this.Memb_nick = Memb_nick;
-////        this.Memb_name = Memb_name;
-//        this.reImgUrl = reImgUrl;
-//
-//    }
+    @QueryProjection
+    public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
+                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
+        this.id = id;
+        this.retrType = retrType;
+        this.reDeposit = reDeposit;
+        this.reMon_price = reMon_price;
+        this.reAdmn_fee = reAdmn_fee;
+        this.reFlr = reFlr;
+        this.reExtent = reExtent;
+        this.reSido = reSido;
+        this.reGungu = reGungu;
+        this.reDong = reDong;
+        this.reDtl_Adr = reDtl_Adr;
+//        this.Memb_nick = Memb_nick;
+//        this.Memb_name = Memb_name;
+        this.reImgUrl = reImgUrl;
+
+    }
 }

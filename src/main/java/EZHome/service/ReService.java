@@ -147,8 +147,8 @@ public class ReService {
                 }
             }
             Member member = reEs.getMember();
-            String name = member.getMemb_name();
-            String nick = member.getMemb_nick();
+            String name = member.getMembName();
+            String nick = member.getMembNick();
             MapMainDto mapMainDto = MapMainDto.of(reEs);
             mapMainDto.setLreaName(name);
             mapMainDto.setLreaNick(nick);
@@ -158,13 +158,14 @@ public class ReService {
 
         return mapMainDtoList;
     }
+
     public Member getLrea(Long id){
         // repository 매물아이디로 reEs 엔터티 객체를 가져온다
         ReEs reEs = reEsRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         // reEs.get올린사람아이디를 가져온다
         Member member = reEs.getMember();
         // 그 아이디로 Member member 객체를 반환한다.
-        System.out.println("공인중개사 아이디 : " + member.getMemb_nick());
+        System.out.println("공인중개사 아이디 : " + member.getMembNick());
         return member;
     }
 
