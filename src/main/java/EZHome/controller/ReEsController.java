@@ -29,7 +29,7 @@ public class ReEsController {
     }
 
     private final ReService reService;
-    @PostMapping(value = "/admin/item/new")
+    @PostMapping(value = "/map")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
         System.out.println("==========================================================");
