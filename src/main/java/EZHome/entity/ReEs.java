@@ -30,7 +30,7 @@ public class ReEs extends BaseEntity {
     private String retrType ; // 매매 유형
 
     @Column(nullable = false, length = 300)
-    private String reSido;
+    private String reSido;  //시/도
 
     @Column(nullable = false, length = 300)
     private String reGungu; // 군구

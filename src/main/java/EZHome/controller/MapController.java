@@ -71,6 +71,8 @@ public class MapController {
         Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
         model.addAttribute("member", member);
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@멤버닉네임 왜 안나오냐고ㅠ");
+        System.out.println(member.toString());
         return "reEs/html/InfoDetail";
     }
 }
