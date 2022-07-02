@@ -12,7 +12,7 @@
             background-size: cover;
         }
         .MeMb-div{
-            padding-top: 96px;
+            padding-top: 76px;
             padding-bottom: 30px;
         }
         div{
@@ -20,7 +20,7 @@
         }
 
         .MeMb-div-logo{
-            width: 150px; height: 150px;
+            width: 130px; height: 130px;
             background-image: url(/img/logo05.png);
             background-size: cover;
         }

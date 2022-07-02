@@ -10,17 +10,24 @@
             background-size: cover;
         }
         .MeMb-div{
-            padding-top: 125px;
+            padding-top: 76px;
         }
         div{
             margin: 0 auto;
         }
         .MeMb-div-logo{
-            width: 200px; height: 100px;
-            background-image: url(/img/logo01.png);
+            width: 130px; height: 130px;
+            background-image: url(/img/logo05.png);
             background-size: cover;
         }
-        input{outline:none;
+        input{border:1px solid #d1d1d1;
+            border-radius:4px;
+            color:#000;
+            caret-color:#afadad;
+        }
+
+        input:focus{outline:none;
+            border-color:#52b0fb;
         }
 
         .MeMb-div2{
@@ -34,7 +41,7 @@
         .MeMb-sing{
             font-size: 40px;
             padding-top: 36px;
-            margin-left: 40px;
+            margin-left: 172px;
             float: left;
             font-weight: 600;
         }
@@ -48,12 +55,19 @@
         .MeMb-memb{
             text-align: center;
             margin-bottom: 10px;
+            margin-left:10px;
+            font-size:14px;
             display: inline-block;
         }
+
         #rolerole{
-            width: 300px;
-            padding-left: 120px;
-            margin-top:10px;
+            width: 200px;
+            margin:auto;
+        }
+
+        input[type="radio"]:checked + label{
+            accent-color: #52b0fb;
+            color: #52b0fb;
         }
 
         .MeMb-gene{
@@ -98,10 +112,13 @@
         }
         .MeMb-email{
             width: 418px; height: 35px;
-            font-size: 17px;
+            font-size: 14px;
+            padding-left:5px;
         }
         .MeMb-label{
-            margin-top: 20px
+            margin-top: 20px;
+            font-size:16px;
+            font-weight:600;
         }
         .MeMb-button{
             width: 422px; height: 50px;
@@ -124,17 +141,20 @@
         }
         .form-group{
             margin-top:4px;
+            font-size:12px;
+            color:#5c5c5c;
         }
         .MeMb-addr{
 				width: 308px; height: 35px;
 				margin-top: 5px;
-				font-size: 17px;
+				font-size: 14px;
+				padding-left:5px;
 				float: left;
         }
 
         .MeMb-adse{
             all:unset;
-            font-size: 16px;
+            font-size: 14px;
             width: 90px;  height: 39px;
             border-radius:4px;
             margin-top: 5px;
@@ -147,6 +167,8 @@
         .MeMb-adse:hover{
                     background-color: #FEC72F;
                     color: black;
+
+
         .MeMb-number1{
             width: 418px; height: 35px;
             margin-top: 10px;
