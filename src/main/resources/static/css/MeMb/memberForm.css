@@ -20,18 +20,23 @@
             background-image: url(/img/logo01.png);
             background-size: cover;
         }
+        input{outline:none;
+        }
+
         .MeMb-div2{
             width: 510px; height: 625px;
             background-color: white;
             border-radius: 7px;
             border : 1px solid black;
             box-sizing:border-box;
+            margin-top:30px;
         }
         .MeMb-sing{
-            font-size: 44px;
-            padding-top: 25px;
-            margin-left: 50px;
+            font-size: 40px;
+            padding-top: 36px;
+            margin-left: 40px;
             float: left;
+            font-weight: 600;
         }
         .MeMb-Numb{
             font-size: 25px;
@@ -48,36 +53,62 @@
         #rolerole{
             width: 300px;
             padding-left: 120px;
+            margin-top:10px;
         }
+
         .MeMb-gene{
             font-size: 19px;
         }
         .MeMb-form{
             width: 420px; height: 400px;
         }
+        .MeMb-sign-form-all{
+            width: 440px;
+            height: 420px;
+            position: relative;
+        }
         .MeMb-sign-form{
             height: 420px;
             margin-top: 125px;
-            position:absolute;
-            overflow:scroll;
+            overflow:auto;
             overflow-x:hidden;
         }
+        .MeMb-sign-form::-webkit-scrollbar{width:12px;}
+        .MeMb-sign-form::-webkit-scrollbar-thumb{background-color:#52b0fb;
+            border-radius:10px;
+            background-clip:padding-box;
+            border:2px solid transparent;
+            }
+        .MeMb-sign-form::-webkit-scrollbar-track{border-radius:10px;
+            box-shadow:inset 0px 0px 5px white;
+            }
+        .MeMb-sign-form-all:hover .MeMb-sign-form-cover{opacity:0;
+            -webkit-transition:all .5s;
+        }
+
+        .MeMb-sign-form-cover{
+            width: 12px;
+            height: 420px;
+            position: absolute;
+            top:0; right:0;
+            -webkit-transition:all. 5s;
+            opacity:1;
+            background-color:#FFFFFF;
+            border:0px solid black;
+        }
         .MeMb-email{
-            width: 420px; height: 35px;
+            width: 418px; height: 35px;
             font-size: 17px;
-            margin-left: 40px;
         }
         .MeMb-label{
-            margin-left: 40px;
             margin-top: 20px
         }
         .MeMb-button{
-            width: 430px; height: 50px;
+            width: 422px; height: 50px;
             margin-top: 30px;
-            margin-left: 35px;
             border-radius: 5px;
             border: none;
-            background-color: #4876ef;
+            background-color: #52b0fb;
             color: white;
             font-size: 16px;
             font-weight: bolder;
@@ -92,24 +123,32 @@
             margin: 0; padding: 0;
         }
         .form-group{
-            margin-top:10px;
+            margin-top:4px;
         }
         .MeMb-addr{
-				width: 320px; height: 35px;
+				width: 308px; height: 35px;
 				margin-top: 5px;
-				margin-left: 39px;
 				font-size: 17px;
 				float: left;
         }
+
         .MeMb-adse{
+            all:unset;
             font-size: 16px;
             width: 90px;  height: 39px;
+            border-radius:4px;
             margin-top: 5px;
             margin-left: 10px;
+            text-align:center;
+            font-weight:bolder;
+            background-color:#52b0fb;
+            color:#FFFFFF;
         }
+        .MeMb-adse:hover{
+                    background-color: #FEC72F;
+                    color: black;
         .MeMb-number1{
-            width: 420px; height: 35px;
+            width: 418px; height: 35px;
             margin-top: 10px;
-            margin-left: 39px;
             font-size: 17px;
         }
