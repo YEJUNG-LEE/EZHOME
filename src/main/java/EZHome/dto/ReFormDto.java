@@ -156,6 +156,7 @@ public class ReFormDto {
     private static ModelMapper modelMapper = new ModelMapper();
 
 
+
     //Dto -> Entity
     public ReEs createReEs(){
         return modelMapper.map(this, ReEs.class);
@@ -168,6 +169,9 @@ public class ReFormDto {
     }
 
     // Entity -> Dto
+    public static ReFormDto of(ReEs reEs) {
+        return modelMapper.map(reEs, ReFormDto.class);
+    }
     public static ReFormDto ofReEs(ReEs reEs){
         return modelMapper.map(reEs, ReFormDto.class);
     }
