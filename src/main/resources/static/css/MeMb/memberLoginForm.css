@@ -12,54 +12,71 @@
             background-size: cover;
         }
         .MeMb-div{
-            padding-top: 125px;
+            padding-top: 76px;
+            padding-bottom: 30px;
         }
         div{
             margin: 0 auto;
         }
+
         .MeMb-div-logo{
-            width: 200px; height: 100px;
-            background-image: url(/img/logo01.png);
+            width: 130px; height: 130px;
+            background-image: url(/img/logo05.png);
             background-size: cover;
         }
         .MeMb-div2{
-            width: 510px; height: 580px;
+            width: 500px; height: 570px;
             background-color: white;
             border-radius: 7px;
         }
         .MeMb-login{
             font-size: 44px;
-            padding-top: 80px;
+            padding-top: 60px;
             margin-left: 50px;
+            font-weight: 600;
         }
+
         .MeMb-go-siup{
             font-size: 14px;
-            margin-top: 45px;
+            margin-top: 10px;
             margin-left: 50px;
         }
         a{border: none;}
+
         .MeMb-login-form{
             width: 420px; height: 102px;
-            margin-top: 35px;
-            margin-left: 45px;
-            border: 1px solid black;
+            margin-top: 66px;
+            margin-left: 40px;
+            border: 1px solid #d1d1d1;
             border-radius: 5px;
         }
+
         .MeMb-email, .MeMb-pass{
-            width: 395px; height: 50px;
-            margin-left: 10px;
+            width: 385px;
+            height: 38px;
+            margin-left: 18px;
+            margin-top: 5px;
+            padding-bottom: 7px;
             font-size: 17px;
             border: none;
         }
+
         .MeMb-email{
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #d1d1d1;
         }
+
+        input{
+            outline:none;
+            color:#000;
+            caret-color:#afadad;
+            }
+
         .MeMb-button{
             width: 420px; height: 50px;
-            margin-top: 55px;
+            margin-top: 46px;
             border-radius: 5px;
             border: none;
-            background-color: #4876ef;
+            background-color: #52b0fb;
             color: white;
             font-weight: bolder;
             font-size: 17px;
@@ -74,7 +91,7 @@
             margin-top: 20px;
             text-align: center;
             width: 250px;
-            color: rgb(177, 162, 162);
+            color: #a9a7a7;
             font-size: 12px;
             font-weight: bolder;
             cursor: pointer;

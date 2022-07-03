@@ -2,6 +2,7 @@ package EZHome.controller;
 
 import EZHome.constant.Role;
 import EZHome.dto.MemberFormDto;
+import EZHome.dto.ReFormDto;
 import EZHome.entity.Member;
 import EZHome.repository.MemberRepository;
 import EZHome.service.MemberService;
@@ -10,11 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -71,6 +70,7 @@ public class MemberController {
         try{
             Member member = Member.createMember(memberFormDto, passwordEncoder);
             memberService.saveMember(member) ;
+            System.out.println(member.toString());
             return "member/memberLoginForm" ;
         }catch (IllegalStateException e){
             return "member/memberForm" ;
@@ -85,13 +85,38 @@ public class MemberController {
         String email = principal.getName();
         MemberFormDto memberFormDto = memberService.getName(email);
 
-        model.addAttribute("member", memberFormDto);
+        model.addAttribute("memberFormDto", memberFormDto);
 
         return "member/memberUpdateForm" ;
     }
+
+//    @GetMapping(value = "/update")
+//    public String update(){
+//        return "member/memberUpdateForm" ;
+//    }
 
     @PostMapping(value = "/update/{id}")
-    public String updateId(){
-        return "member/memberUpdateForm" ;
+    public String updateMember(@Valid MemberFormDto memberFormDto, @PathVariable("id") Long id, Model model){
+//        System.out.println("들어가나요..?");
+        try{
+            MemberFormDto newMemberFormDto = memberService.updateMember(id, memberFormDto) ;
+            model.addAttribute("memberFormDto", memberFormDto);
+            System.out.println("memberFormDto : " + memberFormDto.toString());
+        }catch (Exception e){
+            model.addAttribute("errorMessage", "회원 수정 중에 오류가 발생하였습니다.");
+
+            return "member/memberUpdateForm" ;
+        }
+
+        return "redirect:/" ;
+    }
+
+    @GetMapping(value = "/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+
+        memberService.deleteMember(id);
+
+        return "redirect:/" ;
     }
 }
+
