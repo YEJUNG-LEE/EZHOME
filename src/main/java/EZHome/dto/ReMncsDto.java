@@ -1,8 +1,11 @@
 package EZHome.dto;
 
+import EZHome.entity.MapFilter;
+import EZHome.entity.ReEs;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.OneToOne;
 
@@ -58,6 +61,17 @@ public class ReMncsDto { // 기본 Dto
     private boolean park ;// 공원
     private boolean hodi ; // 주택지구
 
+    private static ModelMapper modelMapper = new ModelMapper();
+
+    //Dto -> Entity (insert)
+    public MapFilter createReEs(){
+        return modelMapper.map(this, MapFilter.class);
+    }
+
+    // Entity -> Dto (view)
+    public static ReMncsDto of(MapFilter mapFilter){
+        return modelMapper.map(mapFilter, ReMncsDto.class);
+    }
 
 
 }
