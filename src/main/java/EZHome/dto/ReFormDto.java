@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Getter @Setter
 @ToString
 public class ReFormDto {
@@ -45,8 +46,8 @@ public class ReFormDto {
     @NotNull(message="전세는 필수 입력 값입니다.")
     private Integer reJeonse ; // 전세
 
-    @NotBlank(message="시도는 필수 입력입니다.")
-    private String reSido; // 도로명주소
+    @NotBlank(message="'시도' 작성은 필수 입력입니다.")
+    private String reSido; // 시도
 
     @NotBlank(message="'군구' 작성은 필수 입력입니다.")
     private String reGungu; // 군구
@@ -72,11 +73,11 @@ public class ReFormDto {
     @NotNull(message="전체 층수는 필수 입력 값입니다.")
     private Integer reTotalFlr ; // 전체 층수
 
-    private boolean reSecndFlr ; //  복층
-
-    private boolean reTopFlr ; // 옥탑방
-
-    private boolean reUndrflr ; // 반지하
+    @NotBlank(message="기타 층수 유형은 필수 입력 값입니다.")
+    private String reFlrType ; // 층수별 유형
+//    private Integer reSecndFlr ; //  복층
+//    private boolean reTopFlr ; // 옥탑방
+//    private boolean reUndrflr ; // 반지하
 
     //매물 맞춤 조건 추가
     private boolean reNew; //신축
@@ -147,11 +148,15 @@ public class ReFormDto {
     //매물에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다. (최대 10개 이미지)
     private List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
 
+    private List<String> reOriNmList = new ArrayList<String>();
+
     //상품의 이미지에 대한 id 정보들을 저장하기 위한 List 컬렉션입니다.
     // 상품 수정시 해당 이미지들의 unique id 값을 저장할 리스트 컬렉션입니다.
     private List<Integer> itemImgIds = new ArrayList<Integer>();
 
+
     private static ModelMapper modelMapper = new ModelMapper();
+
 
 
     //Dto -> Entity
@@ -166,9 +171,47 @@ public class ReFormDto {
     }
 
     // Entity -> Dto
-    public static ReFormDto of(ReEs reEs){
+    public static ReFormDto of(ReEs reEs) {
         return modelMapper.map(reEs, ReFormDto.class);
     }
-
+    public static ReFormDto ofReEs(ReEs reEs){
+        return modelMapper.map(reEs, ReFormDto.class);
+    }
+    public static ReFormDto ofReCucs(ReFormDto reFormDto, ReCucs reCucs){
+        reFormDto.setReNew(reCucs.isReNew());
+        reFormDto.setReFull(reCucs.isReFull());
+        reFormDto.setReDebt(reCucs.isReDebt());
+        reFormDto.setReElvtr(reCucs.isReElvtr());
+        reFormDto.setRePet(reCucs.isRePet());
+        reFormDto.setReScrty(reCucs.isReScrty());
+        reFormDto.setReParking(reCucs.isReParking());
+        reFormDto.setReSouth(reCucs.isReSouth());
+        reFormDto.setReBug(reCucs.isReBug());
+        reFormDto.setReWoman(reCucs.isReWoman());
+        reFormDto.setReForest(reCucs.isReForest());
+        reFormDto.setReRiver(reCucs.isReRiver());
+        reFormDto.setReOcean(reCucs.isReOcean());
+        reFormDto.setReCity(reCucs.isReCity());
+        return reFormDto;
+    }
+    public static ReFormDto ofReCacs(ReFormDto reFormDto, ReCacs reCacs){
+        reFormDto.setRePublic(reCacs.isRePublic());
+        reFormDto.setReMedic(reCacs.isReMedic());
+        reFormDto.setReCnvn(reCacs.isReCnvn());
+        reFormDto.setReSchol(reCacs.isReSchol());
+        reFormDto.setReTeen(reCacs.isReTeen());
+        reFormDto.setReTwen(reCacs.isReTwen());
+        reFormDto.setReThirty(reCacs.isReThirty());
+        reFormDto.setReFourty(reCacs.isReFourty());
+        reFormDto.setReFifty(reCacs.isReFifty());
+        reFormDto.setReSixty(reCacs.isReSixty());
+        reFormDto.setReMainroad(reCacs.isReMainroad());
+        reFormDto.setReRocket(reCacs.isReRocket());
+        reFormDto.setReFlat(reCacs.isReFlat());
+        reFormDto.setReSubway(reCacs.isReSubway());
+        reFormDto.setRePark(reCacs.isRePark());
+        reFormDto.setReRsdnt_Area(reCacs.isReRsdnt_Area());
+        return reFormDto;
+    }
 
 }
