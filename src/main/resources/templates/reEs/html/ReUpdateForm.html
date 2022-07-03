@@ -525,7 +525,7 @@
                             <div class="custom-file img-div">
                                 <input type="file" class="custom-file-input" name="itemImgFile">
 <!--                                <input type="hidden" name="itemImgIds" th:value="${reFormDto.reImgDtoList[num].id}">-->
-                                <label class="custom-file-label" th:text="${not #strings.isEmpty(reFormDto.reOriNmList[num])} ? ${reFormDto.reOriNmList[num]} : '상품이미지' + ${status.index+1}"></label>
+                                <label class="custom-file-label" th:text="${not #strings.isEmpty(reFormDto.reOriNmList[num])} ? ${reFormDto.reOriNmList[num]} : '상품이미지' + ${num+1}"></label>
                             </div>
                     </div>
                 </div>
