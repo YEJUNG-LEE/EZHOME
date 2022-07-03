@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.OneToOne;
+
 @Getter @Setter @ToString
 public class ReMncsDto { // 기본 Dto
     private String id;  // 필터 정보를 저장하기 위한 기본키
@@ -20,7 +22,7 @@ public class ReMncsDto { // 기본 Dto
 
     private Integer reAdmn_fee; // 관리비
 
-    private Integer reDeposit;
+    private Integer reDeposit; // 보증금
 
     // 맞춤 Dto
     private boolean reNew ; // 신축
@@ -54,4 +56,8 @@ public class ReMncsDto { // 기본 Dto
     private boolean reSubway ; // 역세권
     private boolean rePark; // 공원
     private boolean reRsdnt_Area ; // 주택가
+
+
+
+
 }
