@@ -6,12 +6,11 @@
     display:none;
     position:absolute;
     top:0;
-    left:1920px;
+    right:0;
     width:900px;
-    height:813px;
+    height:100%;
     background-color:#f7f7f7;
     z-index:90;
-    transform: translateX(-100%);
 }
 .ReEs_List-rightButton{
     box-sizing: border-box;
