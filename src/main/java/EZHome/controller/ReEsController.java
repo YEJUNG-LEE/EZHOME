@@ -45,7 +45,7 @@ public class ReEsController {
 
     @PostMapping(value = "/admin/item/update/{reid}")
     public String reesUpdatePost(@Valid ReFormDto reFormDto, @PathVariable("reid") Long reId,
-                                 BindingResult bindingResult, Model model,
+                                 BindingResult bindingResult, Model model, Principal principal,
                                  @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
 
         System.out.println("오류?발생?");
@@ -70,9 +70,9 @@ public class ReEsController {
             model.addAttribute("errorMessage","아이디는 필수 입력값입니다.");
             return "/admin/item/update/" + reId ;
         }
-
+        String email = principal.getName();
         try {
-            reService.updateReEs(reFormDto, reId, itemImgFileList);
+            reService.updateReEs(reFormDto, reId, email, itemImgFileList);
         }catch (Exception e){
             System.out.println("==========================================================");
             System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");

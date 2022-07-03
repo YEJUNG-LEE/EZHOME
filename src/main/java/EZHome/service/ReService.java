@@ -215,17 +215,18 @@ public class ReService {
         return member;
     }
 
-    public void updateReEs(ReFormDto reFormDto, Long reId, List<MultipartFile> itemImgFileList) {
+    public void updateReEs(ReFormDto reFormDto, Long reId, String email, List<MultipartFile> itemImgFileList) {
         System.out.println("======================================");
         System.out.println("============서비스로 들어갔습니다=========");
         System.out.println("======================================");
         Long cuId = reCucsRepository.findByReEs_Id(reId).getId();
         Long caId = reCacsRepository.findByReEs_Id(reId).getId();
-
+        Member member = memberRepository.findByEmail(email);
         // 1. 상품등록 ( createReEs() : Dto -> Entity )
         ReEs reEs = reFormDto.createReEs();
         ReCucs reCucs = reFormDto.createReCucs();
         ReCacs reCacs = reFormDto.createReCacs();
+        reEs.setMember(member);
         reCucs.setReEs(reEs);
         reCacs.setReEs(reEs);
         reCucs.setId(cuId);
@@ -254,9 +255,9 @@ public class ReService {
             newReImg.setReEs(reEs);
             System.out.println("reImg : " + reImg.toString());
             if(i == 0 ){
-                reImg.setReYN("Y"); //대표이미지
+                newReImg.setReYN("Y"); //대표이미지
             }else{
-                reImg.setReYN("N"); //나머지 이미지
+                newReImg.setReYN("N"); //나머지 이미지
             }
 
             // 상품의 이미지 정보를 저장합니다.

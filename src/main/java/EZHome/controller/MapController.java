@@ -3,6 +3,7 @@ package EZHome.controller;
 import EZHome.dto.MapMainDto;
 import EZHome.dto.MapSearchDto;
 import EZHome.dto.ReFormDto;
+import EZHome.dto.ReMncsDto;
 import EZHome.entity.Member;
 import EZHome.service.MemberService;
 import EZHome.service.ReService;
@@ -60,6 +61,7 @@ public class MapController {
             model.addAttribute("errorMessage", "존재하지 않는 상품입니다.");
         }
         System.out.println("잘돼요~!");
+        model.addAttribute("ReMncsDto",new ReMncsDto());
         return "reEs/html/ReEs";
     }
 
