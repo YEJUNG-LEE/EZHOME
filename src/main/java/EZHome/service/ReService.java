@@ -119,7 +119,6 @@ public class ReService {
         //상품 등록시 첨부할 상품 이미지 정보들을
         // 저장할 리스트 컬렉션으로 화면에 기재가 됨(최대 5개 이미지)
         reFormDto.setReImgDtoList(reImgDtoList);
-        System.out.println("이미지 리턴");
         return reFormDto;
     }
 
@@ -168,5 +167,4 @@ public class ReService {
         System.out.println("공인중개사 아이디 : " + member.getMembNick());
         return member;
     }
-
 }
