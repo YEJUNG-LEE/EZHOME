@@ -7,9 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
@@ -17,16 +21,70 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class ReEsController {
-//
+    //
     // 메물 올리기
+    private final ReService reService;
     @GetMapping(value="/admin/item/new")
     public String reesInsert(Model model){
         model.addAttribute("reFormDto", new ReFormDto());
         return "reEs/html/ReItemForm";
     }
 
-    private final ReService reService;
-//    @RequestMapping(value = "/map", method = {RequestMethod.POST})
+    @GetMapping(value = "/admin/item/update/{reid}")
+    public String reesUpdate(@PathVariable("reid") Long itemId, Model model){
+        try {
+            ReFormDto reFormDto = reService.getItemUpdate(itemId) ;
+            System.out.println("reFormDto : " + reFormDto.toString());
+            model.addAttribute("reFormDto", reFormDto) ;
+        }catch(EntityNotFoundException e){
+            model.addAttribute("errorMessage", "존재 하지 않는 상품입니다.") ;
+            return "redirect:/";
+        }
+        return "reEs/html/ReUpdateForm" ;
+    }
+
+    @PostMapping(value = "/admin/item/update/{reid}")
+    public String reesUpdatePost(@Valid ReFormDto reFormDto, @PathVariable("reid") Long reId,
+                                 BindingResult bindingResult, Model model,
+                                 @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
+
+        System.out.println("오류?발생?");
+        // reFormDto에 id값을 setter해줍니다.
+        reFormDto.setId(reId);
+        // Dto 유효성검사에 에러가 있는지 체크
+        if(bindingResult.hasErrors()){ // 파라미터가 유효성검사에 문제가 있어 에러가 존재하다면
+            System.out.println("==========================================================");
+            System.out.println("1번 BindingResult 오류입니다.");
+            System.out.println("==========================================================");
+            List<ObjectError> list =  bindingResult.getAllErrors();
+            for(ObjectError e : list) {
+                System.out.println(e.getDefaultMessage());
+            }
+            return "/admin/item/update/" + reId ;  // ReItemForm 으로 이동
+        }
+
+        if(reFormDto.getId() == null){
+            System.out.println("==========================================================");
+            System.out.println("2번 아이디가 비어져있을때의 오류입니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage","아이디는 필수 입력값입니다.");
+            return "/admin/item/update/" + reId ;
+        }
+
+        try {
+            reService.updateReEs(reFormDto, reId, itemImgFileList);
+        }catch (Exception e){
+            System.out.println("==========================================================");
+            System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
+            e.printStackTrace();
+            return "/admin/item/update/" + reId ;
+        }
+        return "redirect:/";
+//        return "reEs/html/ReUpdateForm" ;
+    }
+
     @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ReFormDto reFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Principal principal){
@@ -59,7 +117,6 @@ public class ReEsController {
         String email = principal.getName();
 
         try {
-
             reService.savedReEs(reFormDto, itemImgFileList, email);
         }catch (Exception e){
             System.out.println("==========================================================");
@@ -73,7 +130,7 @@ public class ReEsController {
 
         System.out.println("완료!");
 
-        return "reEs/ReEs";
+        return "reEs/html/ReEs"; // 디테일 페이지로
 
     }
 
