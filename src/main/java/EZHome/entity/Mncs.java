@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="mncs")
 @Getter @Setter @ToString
-public class Mncs {
+public class Mncs { // 기본조건
     @Id
     @GeneratedValue
     @Column(name="mncs_id")

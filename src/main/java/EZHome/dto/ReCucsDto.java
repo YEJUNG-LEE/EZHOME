@@ -1,4 +1,10 @@
 package EZHome.dto;
 
-public class ReCucsDto {
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter @Setter @ToString
+public class ReCucsDto { // 맞춤 Dto
 }

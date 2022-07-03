@@ -37,8 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             anyRequest().authenticated() : 상기 위에서 열거한 내용 이외의 모든 항목든 인증을 요구합니다.
         * */
         http.authorizeRequests()
-                .mvcMatchers("/", "/reEs/**", "/members/**", "/item/**", "/images/**", "/map/**", "/admin/**").permitAll()
+                .mvcMatchers("/", "/reEs/**", "/members/**", "/item/**", "/images/**", "/map/**", "/admin/**","/user/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("LREA")
+                .mvcMatchers("/user/**").hasRole("USER")
                 .anyRequest().authenticated();
 
         /* 인증 받지 못한 사용자가 접근 시도시 http 응답 코드 401을 보여 줍니다. */
