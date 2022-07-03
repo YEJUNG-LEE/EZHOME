@@ -33,9 +33,6 @@ public class ReService {
     private final ReCucsRepository reCucsRepository;
 
     public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList, String email) throws Exception {
-//        System.out.println("======================================");
-////        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
-//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
         System.out.println("======================================");
         System.out.println("============서비스로 들어갔습니다=========");

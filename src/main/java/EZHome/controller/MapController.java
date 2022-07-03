@@ -13,10 +13,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,7 +65,23 @@ public class MapController {
             model.addAttribute("errorMessage", "존재하지 않는 상품입니다.");
         }
         System.out.println("잘돼요~!");
-        model.addAttribute("ReMncsDto",new ReMncsDto());
+
+        model.addAttribute("ReMncsDto",new ReMncsDto()); // 회원의 조건 정보를 담고 있음
+
+        return "reEs/html/ReEs";
+    }
+
+    // 회원 조건 저장
+    @PostMapping(value = "/map")
+    public String saveCondition(@Valid ReMncsDto reMncsDto, BindingResult bindingResult,
+                                Model model, Principal principal){
+
+        System.out.println("********************************");
+        System.out.println("*********컨트롤러 들어왔습니다.*******");
+        System.out.println("********************************");
+
+
+
         return "reEs/html/ReEs";
     }
 
