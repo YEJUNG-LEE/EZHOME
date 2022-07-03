@@ -14,6 +14,6 @@ public class ConditionController {
     @GetMapping(value = "/user/map")
     public String condiInsert(Model model){
         model.addAttribute("ReMncsDto",new ReMncsDto());
-        return "reEs/trash/ReEs_CS_CuCa";
+        return "reEs/html/ReEs";
     }
 }

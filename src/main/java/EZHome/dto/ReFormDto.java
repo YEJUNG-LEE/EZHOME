@@ -1,7 +1,5 @@
 package EZHome.dto;
 
-import EZHome.entity.ReCacs;
-import EZHome.entity.ReCucs;
 import EZHome.entity.ReEs;
 import lombok.Getter;
 import lombok.Setter;

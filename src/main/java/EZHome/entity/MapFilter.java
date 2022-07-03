@@ -2,10 +2,17 @@ package EZHome.entity;
 
 import EZHome.dto.ReMncsDto;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
+@Entity
+@Table(name="MapFilter")
 public class MapFilter {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="MapF_id")
+    private String id;
+
     // 회원 기본 조건
     private String houseType ; // 매물 유형
     private String trType; // 매매 유형
@@ -21,8 +28,6 @@ public class MapFilter {
     private Integer maxMan ; // 최대 관리비
     private Integer minDep ; // 최소 보증금
     private Integer maxDep ; // 최대 보증금
-    private Integer minTrd ; // 최소 매매가
-    private Integer maxTrd ; // 최대 매매가
 
     // 회원 맞춤 조건
     private boolean newhouse; // 신축
@@ -77,8 +82,6 @@ public class MapFilter {
         this.maxMan = maxMan ; // 최대 관리비
         this.minDep = minDep ; // 최소 보증금
         this.maxDep = maxDep ; // 최대 보증금
-        this.minTrd = minTrd ; // 최소 매매가
-        this.maxTrd = maxTrd ; // 최대 매매가
 
         // 회원 맞춤 조건
         this.newhouse = newhouse; ; // 신축
