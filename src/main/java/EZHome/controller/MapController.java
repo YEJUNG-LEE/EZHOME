@@ -5,6 +5,8 @@ import EZHome.dto.MapSearchDto;
 import EZHome.dto.ReFormDto;
 import EZHome.dto.ReMncsDto;
 import EZHome.entity.Member;
+import EZHome.repository.ConditionRepository;
+import EZHome.service.ConditionService;
 import EZHome.service.MemberService;
 import EZHome.service.ReService;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +31,8 @@ import java.util.Optional;
 public class MapController {
 
     private final ReService reService;
+
+    private final ConditionService conditionService;
 //    @GetMapping(value="/map")
 //    public String main(MapSearchDto mapSearchDto, Optional<Integer> page, Model model){
 //
@@ -72,17 +76,32 @@ public class MapController {
     }
 
     // 회원 조건 저장
-    @PostMapping(value = "/map")
-    public String saveCondition(@Valid ReMncsDto reMncsDto, BindingResult bindingResult,
-                                Model model, Principal principal){
+    @PostMapping(value = "/map/save")
+    public String saveCondition( ReMncsDto reMncsDto,Model model, Principal principal){
 
         System.out.println("********************************");
         System.out.println("*********컨트롤러 들어왔습니다.*******");
         System.out.println("********************************");
 
+        // 로그인한 인증된 사용자에 대한 정보를 구할 수 있다.
+        String email = principal.getName();
+//        if(email == null){
+//            System.out.println("조건 저장시 로그인 정보가 없다면 발생하는 오류입니다.");
+//            model.addAttribute("errorMessage", "로그인을 진행해주세요");
+//            return "member/customer/memberLoginForm"; //로그인 폼 이동
+//        }
 
+        try{
+            conditionService.saveCondi(reMncsDto,email);
+        }catch (Exception e){
+            model.addAttribute("errorMessage", "조건 저장중에 에러가 발생했습니다.");
+            return "common/main_content"; // 메인페이지로
+        }
 
-        return "reEs/html/ReEs";
+        System.out.println("완료!");
+
+        return "common/main_content"; // 에러 안남
+//        return "reEs/html/ReEs"; // 에러남
     }
 
 

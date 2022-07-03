@@ -20,7 +20,7 @@ public class ConditionService {
 
 
     // 조건 저장
-    public Long saveCondi(ReMncsDto reMncsDto, Model model, String email){
+    public Long saveCondi(ReMncsDto reMncsDto, String email){
 
         System.out.println("********************************");
         System.out.println("*********서비스 들어왔습니다.*******");
