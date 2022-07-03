@@ -224,34 +224,54 @@
                 <div class="ReCs-div">
                     <div class="ReCs-title">지역</div>
                     <div class="ReCs-content">
-                        <div class="ReCs-region" contenteditable="true" placeholder="지역을 입력하세요"></div>
+                        <div class="ReCs-region" contenteditable="true" placeholder="지역을 입력하세요" th:field=""></div>
                     </div>
                 </div>
                 <div class="ReCs-div">
                     <div class="ReCs-title">거래 유형</div>
                     <div class="ReCs-content">
-                        <div class="ReCs-button ReCs-Month">월세</div>
-                        <div class="ReCs-button ReCs-Lease">전세</div>
-                        <div class="ReCs-button ReCs-Buy">매매</div>
+                        <div class="ReCs-button ReCs-Month">월세
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
+                        <div class="ReCs-button ReCs-Lease">전세
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
+                        <div class="ReCs-button ReCs-Buy">매매
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
                     </div>
                 </div>
                 <div class="ReCs-div">
                     <div class="ReCs-title">방 유형</div>
                     <div class="ReCs-content">
-                        <div class="ReCs-button ReCs-One">원룸</div>
-                        <div class="ReCs-button ReCs-TwoOrThree">투·쓰리룸</div>
-                        <div class="ReCs-button ReCs-Office">오피스텔</div>
-                        <div class="ReCs-button ReCs-Apart">아파트</div>
+                        <div class="ReCs-button ReCs-One">원룸
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
+                        <div class="ReCs-button ReCs-TwoOrThree">투·쓰리룸
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
+                        <div class="ReCs-button ReCs-Office">오피스텔
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
+                        <div class="ReCs-button ReCs-Apart">아파트
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
                     </div>
                 </div>
                 <div class="ReCs-div">
-                    <div class="ReCs-title">층수</div>
+                    <div class="ReCs-title">층수
+                        <input type="hidden" name="full" value="false" th:field=""/>
+                    </div>
                     <div class="ReCs-content">
-                        <div class="ReCs-button ReCs-One">옥탑방</div>
-                        <div class="ReCs-button ReCs-TwoOrThree">반지하</div>
+                        <div class="ReCs-button ReCs-One">옥탑방
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
+                        <div class="ReCs-button ReCs-TwoOrThree">반지하
+                            <input type="hidden" name="full" value="false" th:field=""/>
+                        </div>
                         <div class="ReCs-Slider">
-                            <input type="range" id="cs-floor-input-left" min="1" max="10" value="3" />
-                            <input type="range" id="cs-floor-input-right" min="1" max="10" value="7" />
+                            <input type="range" id="cs-floor-input-left" min="1" max="10" value="3" th:field=""/>
+                            <input type="range" id="cs-floor-input-right" min="1" max="10" value="7" th:field="" />
 
                             <div class="cs-floorSlider">
                                 <div class="track"></div>
@@ -267,8 +287,8 @@
                     <div class="ReCs-title">평수</div>
                     <div class="ReCs-content">
                         <div class="ReCs-Slider">
-                            <input type="range" id="cs-extent-input-left" min="1" max="40" value="10" />
-                            <input type="range" id="cs-extent-input-right" min="1" max="40" value="30" />
+                            <input type="range" id="cs-extent-input-left" min="1" max="40" value="10" th:field="" />
+                            <input type="range" id="cs-extent-input-right" min="1" max="40" value="30" th:field=""  />
 
                             <div class="cs-extentSlider">
                                 <div class="track"></div>
@@ -277,16 +297,17 @@
                                 <div class="thumb right"></div>
                             </div>
                         </div>
-                        <div class="ReCs-txt ReCs-extentSlider-txt"></div>
+                        <div class="ReCs-txt ReCs-extentSlider-txt">
+                        </div>
 
                     </div>
                 </div>
                 <div class="ReCs-div">
                     <div class="ReCs-title">월세/관리비/보증금</div>
                     <div class="ReCs-content" id="ReCs-cost">
-                        <div class="ReCs-Slider">
-                            <input type="range" id="cs-month-input-left" min="1" max="80" value="30" />
-                            <input type="range" id="cs-month-input-right" min="1" max="80" value="60" />
+                        <div class="ReCs-Slider"><!--월세-->
+                            <input type="range" id="cs-month-input-left" min="1" max="80" value="30" th:field=""/>
+                            <input type="range" id="cs-month-input-right" min="1" max="80" value="60" th:field=""/>
 
                             <div class="cs-monthSlider">
                                 <div class="track"></div>
@@ -296,9 +317,9 @@
                             </div>
                         </div>
                         <div class="ReCs-txt ReCs-monthSlider-txt"></div>
-                        <div class="ReCs-Slider">
-                            <input type="range" id="cs-manage-input-left" min="1" max="40" value="10" />
-                            <input type="range" id="cs-manage-input-right" min="1" max="40" value="30" />
+                        <div class="ReCs-Slider"><!--관리비-->
+                            <input type="range" id="cs-manage-input-left" min="1" max="40" value="10"  th:field=""/>
+                            <input type="range" id="cs-manage-input-right" min="1" max="40" value="30" th:field="" />
 
                             <div class="cs-manageSlider">
                                 <div class="track"></div>
@@ -308,9 +329,9 @@
                             </div>
                         </div>
                         <div class="ReCs-txt ReCs-manageSlider-txt"></div>
-                        <div class="ReCs-Slider">
-                            <input type="range" id="cs-deposit-input-left" min="1" max="3000" value="1000" />
-                            <input type="range" id="cs-deposit-input-right" min="1" max="3000" value="2000" />
+                        <div class="ReCs-Slider"><!--보증금-->
+                            <input type="range" id="cs-deposit-input-left" min="1" max="3000" value="1000" th:field="" />
+                            <input type="range" id="cs-deposit-input-right" min="1" max="3000" value="2000"  th:field=""/>
 
                             <div class="cs-depositSlider">
                                 <div class="track"></div>
@@ -330,46 +351,46 @@
                         <div class="ReCs-title">맞춤</div>
                         <div class="ReCs-but-div">
                             <div class="ReCs-button" id="newhouse">신축
-                                <input type="hidden" name="newhouse" value="false"/>
+                                <input type="hidden" name="newhouse" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="full">풀옵션
-                                <input type="hidden" name="full" value="false"/>
+                                <input type="hidden" name="full" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="debt">대출없음
-                                <input type="hidden" name="debt" value="false"/>
+                                <input type="hidden" name="debt" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="elevator">엘리베이터
-                                <input type="hidden" name="elevator" value="false"/>
+                                <input type="hidden" name="elevator" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="pet">반려동물
-                                <input type="hidden" name="pet" value="false"/>
+                                <input type="hidden" name="pet" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="security">보안기능
-                                <input type="hidden" name="security" value="false"/>
+                                <input type="hidden" name="security" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="parking">주차장
-                                <input type="hidden" name="parking" value="false"/>
+                                <input type="hidden" name="parking" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="south">남향
-                                <input type="hidden" name="south" value="false"/>
+                                <input type="hidden" name="south" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="bug">벌레퇴치업체
-                                <input type="hidden" name="bug" value="false"/>
+                                <input type="hidden" name="bug" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="woman">여성전용
-                                <input type="hidden" name="woman" value="false"/>
+                                <input type="hidden" name="woman" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="forest">숲View
-                                <input type="hidden" name="forest" value="false"/>
+                                <input type="hidden" name="forest" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="river">리버View
-                                <input type="hidden" name="river" value="false"/>
+                                <input type="hidden" name="river" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="ocean">오션View
-                                <input type="hidden" name="ocean" value="false"/>
+                                <input type="hidden" name="ocean" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="city">시티View
-                                <input type="hidden" name="city" value="false"/>
+                                <input type="hidden" name="city" value="false" th:field=""/>
                             </div>
                         </div>
                     </div>
@@ -379,49 +400,49 @@
 
 
                             <div class="ReCs-button pub" id="pub">공공기관
-                                <input type="hidden"name="pub" value="false"/>
+                                <input type="hidden"name="pub" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button medic" id="medic">의료시설
-                              <input type="hidden"name="medic" value="true"/>
+                              <input type="hidden"name="medic" value="true" th:field=""/>
                             </div>
                             <div class="ReCs-button conv" id="conv">편의시설
-                             <input type="hidden"name="conv" value="true"/>
+                             <input type="hidden"name="conv" value="true" th:field=""/>
                             </div>
                             <div class="ReCs-button school" id="school">학교주변
-                                <input type="hidden"name="school" value="true"/>
+                                <input type="hidden"name="school" value="true" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="teen">10대거주
-                            <input type="hidden" name="teen" value="false"/>
+                            <input type="hidden" name="teen" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="twen">20대거주
-                            <input type="hidden" name="twen" value="false"/>
+                            <input type="hidden" name="twen" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="thirty">30대거주
-                            <input type="hidden" name="thirty" value="false"/>
+                            <input type="hidden" name="thirty" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="fourty">40대거주
-                            <input type="hidden" name="fourty" value="false"/>
+                            <input type="hidden" name="fourty" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="fifty">50대이상
-                                <input type="hidden" name="fifty" value="false"/>
+                                <input type="hidden" name="fifty" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="sixty">60대이상
-                                <input type="hidden" name="sixty" value="false"/>
+                                <input type="hidden" name="sixty" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="rocket">로켓배송
-                                <input type="hidden" name="rocket" value="false"/>
+                                <input type="hidden" name="rocket" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="flat">경사완만
-                                <input type="hidden" name="flat" value="false"/>
+                                <input type="hidden" name="flat" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="subway">역세권
-                                <input type="hidden" name="subway" value="false"/>
+                                <input type="hidden" name="subway" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="park">공원
-                                <input type="hidden" name="park" value="false"/>
+                                <input type="hidden" name="park" value="false" th:field=""/>
                             </div>
                             <div class="ReCs-button" id="hodi">주택지구
-                                <input type="hidden" name="hodi" value="false"/>
+                                <input type="hidden" name="hodi" value="false" th:field=""/>
                             </div>
                         </div>
                     </div>
