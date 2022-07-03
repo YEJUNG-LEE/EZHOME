@@ -63,9 +63,13 @@ public class Member{
         return member;
     }
 
-    public void updateMember(MemberFormDto memberFormDto) {
+    public void updateMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         this.membName = memberFormDto.getMembName();
         this.membNick = memberFormDto.getMembNick();
+
+        String password = passwordEncoder.encode(memberFormDto.getMembPassword());
+        memberFormDto.setMembPassword(password);
+
         this.membPassword = memberFormDto.getMembPassword();
         this.membAddress1 = memberFormDto.getMembAddress1();
         this.membAddress2 = memberFormDto.getMembAddress2();
@@ -74,6 +78,5 @@ public class Member{
     }
 
     public void deleteMember(Long id){
-
     }
 }

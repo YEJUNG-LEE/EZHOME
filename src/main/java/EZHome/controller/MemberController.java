@@ -2,7 +2,6 @@ package EZHome.controller;
 
 import EZHome.constant.Role;
 import EZHome.dto.MemberFormDto;
-import EZHome.dto.ReFormDto;
 import EZHome.entity.Member;
 import EZHome.repository.MemberRepository;
 import EZHome.service.MemberService;
@@ -13,7 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityNotFoundException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -111,12 +111,17 @@ public class MemberController {
         return "redirect:/" ;
     }
 
-    @GetMapping(value = "/delete/{id}")
-    public String delete(@PathVariable("id") Long id){
+    @PostMapping(value = "/delete/{id}")
+    public String Delete(@PathVariable("id") String id, HttpServletRequest request){
+        int cnt = -999;
+        cnt = memberService.Delete(id);
 
-        memberService.deleteMember(id);
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
 
-        return "redirect:/" ;
+        return "redirect:/";
     }
 }
 

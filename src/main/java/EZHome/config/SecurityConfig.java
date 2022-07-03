@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable(); //post 403에러 수정코딩
-        // 차후 구성할 예정
+
         http.formLogin()
                 .loginPage("/members/login")
                 .defaultSuccessUrl("/")

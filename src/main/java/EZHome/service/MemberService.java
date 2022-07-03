@@ -2,12 +2,14 @@ package EZHome.service;
 
 import EZHome.dto.MemberFormDto;
 import EZHome.entity.Member;
+import EZHome.mapper.MemberMapperInterface;
 import EZHome.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,8 @@ import javax.persistence.EntityNotFoundException;
 @RequiredArgsConstructor
 public class MemberService implements UserDetailsService {
     private final MemberRepository memberRepository;
+
+    private final PasswordEncoder passwordEncoder ;
 
     public Member saveMember(Member member){
         validateDuplicateMember(member);
@@ -49,6 +53,7 @@ public class MemberService implements UserDetailsService {
     public String userInfo(String email){
         String info = "" ;
         info = memberRepository.findByEmail(email).getMembName() ;
+
         return info ;
     }
 
@@ -64,13 +69,14 @@ public class MemberService implements UserDetailsService {
 
     public MemberFormDto updateMember(Long id, MemberFormDto memberFormDto){
         Member member = memberRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        System.out.println("of전");
 
-        member.updateMember(memberFormDto);
+        member.updateMember(memberFormDto, passwordEncoder);
         memberRepository.save(member);
         return memberFormDto;
     }
 
-    public void deleteMember(Long id){
+    private final MemberMapperInterface memberMapperInterface;
+    public int Delete(String id){
+        return memberMapperInterface.Delete(id);
     }
 }

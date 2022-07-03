@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<link type="text/css" th:href="@{/css/myPage/myPage.css}" rel="stylesheet">
+
+<th:block layout:fragment="css"></th:block>
+
+
+<body layout:fragment="content">
+<header></header>
+<div class="MyPa-div-all">
+    <div class="MyPa-div-con-all">
+        <div class="MyPa-div-all-pro">
+            <div class="MyPa-div-pro">
+                <div class="MyPa-div-pro01">
+                    <div class="MyPa-div-pro-pic"></div>
+                    <p class="MyPa-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
+                    <p class="MyPa-pro-rat"  th:if="${role == T(EZHome.constant.Role).USER}">개인회원</p>
+                    <p class="MyPa-pro-rat"  th:unless="${role == T(EZHome.constant.Role).USER}">공인중개사</p>
+                    <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                </div>
+                <div class="MyPa-div-pro02"></div>
+            </div>
+            <div class="MyPa-div-all-pag">
+                <div class="MyPa-div-pag">
+                    <p class="MyPa-pag-tit">매물리스트</p>
+                    <p class="MyPa-pag-tit">공인중개사 보기</p>
+                    <p class="MyPa-pag-tit">최근 본 매물</p>
+                    <p class="MyPa-pag-tit">내정보</p>
+                    <p class="MyPa-pag-con">나의 맞춤 조건</p>
+                    <p class="MyPa-pag-con">회원 정보 수정</p>
+                    <p class="MyPa-pag-con">회원 탈퇴</p>
+                </div>
+            </div>
+        </div>
+        <div class="MyPa-div-con">
+            <div class="MyPa-div-tit">
+                <h1 class="MyPa-tit-font">마이페이지</h1>
+            </div>
+            <div class="MyPa-div-con-inf">
+                <div class="MyPa-div-inf-top">
+                    <p class="MyPa-inf-tit">내정보</p>
+                </div>
+            </div>
+            <div class="ReSi-div-cat-mes">
+                <div class="ReSi-div-cat">
+                    <div class="ReSi-div-cat-tit">
+                        <p class="ReSi-tit-p">내 맞춤 조건</p>
+                        <p class="ReSi-out">더보기></p>
+                    </div>
+                    <div class="ReSi-div-cat-con"></div>
+                    <div class="ReSi-div-cat-con">
+                        <tr rowspan="2" class="ReEs-insert-tr">
+                            <th class="ReEs-insert-th">맞춤</th>
+                            <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
+                                <div class="ReCs-button" id="reNew">신축
+                                    <input type="hidden" th:field="*{reNew}" name="reNew" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reFull">풀옵션
+                                    <input type="hidden" th:field="*{reFull}" name="reFull" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reDebt">대출없음
+                                    <input type="hidden" th:field="*{reDebt}" name="reDebt" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reElvtr">엘리베이터
+                                    <input type="hidden" th:field="*{reElvtr}" name="reElvtr" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="rePet">반려동물
+                                    <input type="hidden" th:field="*{rePet}" name="rePet" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reScrty">보안기능
+                                    <input type="hidden" th:field="*{reScrty}" name="reScrty" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reParking">주차장
+                                    <input type="hidden" th:field="*{reParking}" name="reParking" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reSouth">남향
+                                    <input type="hidden" th:field="*{reSouth}" name="reSouth" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reBug">벌레퇴치업체
+                                    <input type="hidden" th:field="*{reBug}" name="reBug" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reWoman">여성전용
+                                    <input type="hidden" th:field="*{reWoman}" name="reWoman" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reForest">숲View
+                                    <input type="hidden" th:field="*{reForest}" name="reForest" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reRiver">리버View
+                                    <input type="hidden" th:field="*{reRiver}" name="reRiver" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reOcean">오션View
+                                    <input type="hidden" th:field="*{reOcean}" name="reOcean" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reCity">시티View
+                                    <input type="hidden" th:field="*{reCity}" name="reCity" value="false"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="ReSi-div-cat-con">
+                        <tr rowspan="2" class="ReEs-insert-tr">
+                            <th class="ReEs-insert-th">카테고리</th>
+                            <td class="ReEs-insert-td" style="padding-left:15px; padding-bottom:10px;">
+                                <div class="ReCs-button" id="rePublic">공공기관
+                                    <input type="hidden" th:field="*{rePublic}" name="rePublic" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reMedic">의료시설
+                                    <input type="hidden" th:field="*{reMedic}" name="reMedic" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reCnvn">편의시설
+                                    <input type="hidden" th:field="*{reCnvn}" name="reCnvn" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reSchol">학교주변
+                                    <input type="hidden" th:field="*{reSchol}" name="reSchol" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reTeen">10대거주
+                                    <input type="hidden" th:field="*{reTeen}" name="reTeen" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reTwen">20대거주
+                                    <input type="hidden" th:field="*{reTwen}" name="reTwen" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reThirty">30대거주
+                                    <input type="hidden" th:field="*{reThirty}" name="reThirty" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reFourty">40대거주
+                                    <input type="hidden" th:field="*{reFourty}" name="reFourty" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reFifty">50대거주
+                                    <input type="hidden" th:field="*{reFifty}" name="reFifty" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reSixty">60대이상
+                                    <input type="hidden" th:field="*{reSixty}" name="reSixty" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reMainroad">대로변
+                                    <input type="hidden" th:field="*{reMainroad}" name="reMainroad" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reRocket">로켓배송
+                                    <input type="hidden" th:field="*{reRocket}" name="reRocket" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reFlat">경사완만
+                                    <input type="hidden" th:field="*{reFlat}" name="reFlat" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reSubway">역세권
+                                    <input type="hidden" th:field="*{reSubway}" name="reSubway" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="rePark">공원
+                                    <input type="hidden" th:field="*{rePark}" name="rePark" value="false"/>
+                                </div>
+                                <div class="ReCs-button" id="reRsdnt_Area">주택지구
+                                    <input type="hidden" th:field="*{reRsdnt_Area}" name="reRsdnt_Area" value="false"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+            <div class="ReSi-div-rec">
+                <div class="ReSi-div-rec-tit">
+                    <p class="ReSi-tit-p">최근 본 매물 목록</p>
+                    <p class="ReSi-out">더보기></p>
+                </div>
+                <ul class="ReSi-ul-rec">
+                    <li class="ReSi-li-rec">
+                        <div class="ReSi-rec-img"></div>
+                        <div class="ReSi-rec-heart"></div>
+                        <p class="ReSi-rec-tit-p">매물제목</p>
+                        <div class="ReSi-rec-con-pdiv">
+                            <p class="ReSi-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="ReSi-li-rec">
+                        <div class="ReSi-rec-img"></div>
+                        <div class="ReSi-rec-heart"></div>
+                        <p class="ReSi-rec-tit-p">매물제목</p>
+                        <div class="ReSi-rec-con-pdiv">
+                            <p class="ReSi-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="ReSi-li-rec">
+                        <div class="ReSi-rec-img"></div>
+                        <div class="ReSi-rec-heart"></div>
+                        <p class="ReSi-rec-tit-p">매물제목</p>
+                        <div class="ReSi-rec-con-pdiv">
+                            <p class="ReSi-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="ReSi-li-rec">
+                        <div class="ReSi-rec-img"></div>
+                        <div class="ReSi-rec-heart"></div>
+                        <p class="ReSi-rec-tit-p">매물제목</p>
+                        <div class="ReSi-rec-con-pdiv">
+                            <p class="ReSi-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="ReSi-li-rec">
+                        <div class="ReSi-rec-img"></div>
+                        <div class="ReSi-rec-heart"></div>
+                        <p class="ReSi-rec-tit-p">매물제목</p>
+                        <div class="ReSi-rec-con-pdiv">
+                            <p class="ReSi-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="ReSi-li-rec">
+                        <div class="ReSi-rec-img"></div>
+                        <div class="ReSi-rec-heart"></div>
+                        <p class="ReSi-rec-tit-p">매물제목</p>
+                        <div class="ReSi-rec-con-pdiv">
+                            <p class="ReSi-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+
+</body>
+</html>

@@ -16,7 +16,9 @@
                 <div class="MyPa-div-pro01">
                     <div class="MyPa-div-pro-pic"></div>
                     <p class="MyPa-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
-                    <p class="MyPa-pro-rat" th:text="${memberFormDto.role}"></p>
+                    <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                    <p class="MyPa-pro-rat"  th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
+                    <p class="MyPa-pro-rat"  th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
                 </div>
                 <div class="MyPa-div-pro02"></div>
             </div>
@@ -63,9 +65,9 @@
                         <tr>
                             <th>구분</th>
                             <td class="MyPa_roem">
-                                <p th:if="${role != T(EZHome.constant.Role).LREA}">개인회원</p>
-                                <p th:unless="${role != T(EZHome.constant.Role).LREA}">공인중개사</p>
                                 <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                                <p th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
+                                <p th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
                             </td>
                         </tr>
                         <tr>
@@ -168,7 +170,7 @@
                         <tr>
                             <td colspan="2" class="withdraw">
                                 <div>
-                                    <a href="#"><button>회원탈퇴</button></a>
+                                    <button href="/members/logout" th:formaction="@{'/members/delete/' + ${memberFormDto.id} }" type="submit">회원탈퇴</button>
                                 </div>
                             </td>
                         </tr>
