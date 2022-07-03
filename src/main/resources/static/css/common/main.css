@@ -66,7 +66,8 @@ header {
     transition: .3s ease-in-out;
 }
 header:after{content: ""; display: block; clear: both;}
-nav{
+
+.header-nav{
     width: 1280px;
     height: 100%;
     margin: 0 auto;
@@ -354,11 +355,6 @@ nav > ul {
     background: #4876EF;
 }
 
-/* content */
-.content{
-    width: 100%;
-    min-height: 100%;
-}
 
 /* 메인 컨테이너 */
 main {
@@ -724,7 +720,7 @@ main {
 /* 지역매물 info */
 .main-section03{
     width: 1280px;
-    margin: 30px auto 110px;
+    margin: 30px auto 300px;
 }
 
 .section03-contents{
