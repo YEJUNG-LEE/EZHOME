@@ -49,7 +49,6 @@ public class ReMncsDto { // 기본 Dto
     private boolean reFourty; // 40대 거주
     private boolean reFifty; // 50대 거주
     private boolean reSixty; // 60대 거주
-    private boolean reMainroad; // 대로변
     private boolean reRocket ; // 로캣배송
     private boolean reFlat ; // 경사완만
     private boolean reSubway ; // 역세권
