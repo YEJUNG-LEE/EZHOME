@@ -34,6 +34,6 @@ public class ReCacs extends BaseEntity{
     private boolean reRsdnt_Area ; // 주택가
 
     @OneToOne()
-    @JoinColumn(name = "reid")
+    @JoinColumn(name = "reid", unique = true)
     private ReEs reEs;
 }

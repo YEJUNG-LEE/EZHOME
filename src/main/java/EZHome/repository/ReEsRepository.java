@@ -12,4 +12,5 @@ public interface ReEsRepository extends JpaRepository<ReEs, Long>,
 
     List<ReEs>findByReNum(Integer reNum);
 
+
 }

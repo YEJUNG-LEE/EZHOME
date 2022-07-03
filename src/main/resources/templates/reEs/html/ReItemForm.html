@@ -228,12 +228,11 @@
         <table class="ReEs-insert-table">
 
             <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">매물번호</th>
+                <th class="ReEs-insert-th">부동산정보</th>
                 <td class="ReEs-insert-td">
-                    <input class="ReEs-insert-input" type="text" th:field="*{lreaNick}" placeholder="공인중개사 이름">
-                    <input class="ReEs-insert-input" type="text" th:field="*{lreaName}" placeholder="매물올리는 사람의 이름">
+                    <input class="ReEs-insert-input" type="text" th:field="*{lreaNick}" placeholder="부동산 이름">
+                    <input class="ReEs-insert-input" type="text" th:field="*{lreaName}" placeholder="공인중개사 이름">
                 </td>
-
             </tr>
 
             <tr class="ReEs-insert-tr">
@@ -507,19 +506,19 @@
                     </div>
                 </div>
             </tr>
-            <!--                <tr class="ReEs-insert-tr">-->
-            <!--                    &lt;!&ndash; for update &ndash;&gt;-->
-            <!--                    <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
-            <!--                        <div class="form-group" th:each="reImgDto, status: ${reFormDto.itemImgDtoList}">-->
-            <!--                            <div class="custom-file img-div">-->
-            <!--                                <input type="file" class="custom-file-input" name="itemImgFile">-->
-            <!--                                &lt;!&ndash; unique item id &ndash;&gt;-->
-            <!--                                <input type="hidden" name="itemImgIds" th:value="${itemImgDto.id}">-->
-            <!--                                <label class="custom-file-label" th:text="${not #strings.isEmpty(itemImgDto.oriImgName)} ? ${itemImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </tr>-->
+<!--            <tr class="ReEs-insert-tr">-->
+<!--                &lt;!&ndash; for update &ndash;&gt;-->
+<!--                <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
+<!--                    <div class="form-group" th:each="reImgDto, status: ${reFormDto.reImgDtoList}">-->
+<!--                        <div class="custom-file img-div">-->
+<!--                            <input type="file" class="custom-file-input" name="itemImgFile">-->
+<!--                            &lt;!&ndash; unique item id &ndash;&gt;-->
+<!--                            <input type="hidden" th:filed="${reImgDto.id}">-->
+<!--                            <label class="custom-file-label" th:text="${not #strings.isEmpty(reImgDto.oriImgName)} ? ${reImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </tr>-->
 
 
 
