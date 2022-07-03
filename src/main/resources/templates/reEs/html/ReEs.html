@@ -11,7 +11,7 @@
     <script>
     //
         $(document).ready(function(){
-
+            /* 회원조건 ReCS 선택된 사항 표시해주는 js */
             console.log(typeof($('input[value="true"]')));
             $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
 
@@ -202,6 +202,7 @@
                 <div class="ReEs-rightButton">
                     목록 보기
                 </div>
+                <div class="ReEs_List-rightButton">목록 숨기기</div>
                 <!--  ======================================================================================================  -->
                 <!--  ======================================================================================================  -->
                 <!--  ================================================= 조건 필터 ============================================  -->
@@ -465,115 +466,10 @@
                                         <a th:href ="'/map/'+${item.id}">자세히보기</a>
                                     </div>
                                 </div>
-
                         </div>
                     </th:block>
                     </div>
-                    <!---->
-<!--                    <div class="ReLi_content">-->
-<!--                        <div class="ReLi_img">-->
-<!--                            <div class="ReLi_ranking">Top 1</div>-->
-<!--                        </div>-->
-<!--                        <div class="ReLi_text">-->
-<!--                            <div class="ReLi_accuracy">일치율 100%</div>-->
-<!--                            <div class="ReLi_TrType">월세</div>-->
-<!--                            <div class="ReLi_cost">2000/50/10</div>-->
-<!--                            <div class="ReLi_extent">5층 · 16평</div>-->
-<!--                            <div class="ReLi_address">서울특별시 구로구 구로동</div>-->
-<!--                            <div class="ReLi_agent">-->
-<!--                                <div class="ReLi_agent_img"></div>-->
-<!--                                <div class="ReLi_agent_div">-->
-<!--                                    <div class="ReLi_agent_company">ㅇㅇㅇ공인중개사</div>-->
-<!--                                    <div class="ReLi_agent_name">이예중</div>-->
-<!--                                </div>-->
-<!--                                <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="ReLi_content">-->
-<!--                        <div class="ReLi_img">-->
-<!--                            <div class="ReLi_ranking">Top 1</div>-->
-<!--                        </div>-->
-<!--                        <div class="ReLi_text">-->
-<!--                            <div class="ReLi_accuracy">일치율 100%</div>-->
-<!--                            <div class="ReLi_TrType">월세</div>-->
-<!--                            <div class="ReLi_cost">2000/50/10</div>-->
-<!--                            <div class="ReLi_extent">5층 · 16평</div>-->
-<!--                            <div class="ReLi_address">서울특별시 구로구 구로동</div>-->
-<!--                            <div class="ReLi_agent">-->
-<!--                                <div class="ReLi_agent_img"></div>-->
-<!--                                <div class="ReLi_agent_div">-->
-<!--                                    <div class="ReLi_agent_company">ㅇㅇㅇ공인중개사</div>-->
-<!--                                    <div class="ReLi_agent_name">이예중</div>-->
-<!--                                </div>-->
-<!--                                <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="ReLi_content">-->
-<!--                        <div class="ReLi_img">-->
-<!--                            <div class="ReLi_ranking">Top 1</div>-->
-<!--                        </div>-->
-<!--                        <div class="ReLi_text">-->
-<!--                            <div class="ReLi_accuracy">일치율 100%</div>-->
-<!--                            <div class="ReLi_TrType">월세</div>-->
-<!--                            <div class="ReLi_cost">2000/50/10</div>-->
-<!--                            <div class="ReLi_extent">5층 · 16평</div>-->
-<!--                            <div class="ReLi_address">서울특별시 구로구 구로동</div>-->
-<!--                            <div class="ReLi_agent">-->
-<!--                                <div class="ReLi_agent_img"></div>-->
-<!--                                <div class="ReLi_agent_div">-->
-<!--                                    <div class="ReLi_agent_company">ㅇㅇㅇ공인중개사</div>-->
-<!--                                    <div class="ReLi_agent_name">이예중</div>-->
-<!--                                </div>-->
-<!--                                <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="ReLi_content">-->
-<!--                        <div class="ReLi_img">-->
-<!--                            <div class="ReLi_ranking">Top 1</div>-->
-<!--                        </div>-->
-<!--                        <div class="ReLi_text">-->
-<!--                            <div class="ReLi_accuracy">일치율 100%</div>-->
-<!--                            <div class="ReLi_TrType">월세</div>-->
-<!--                            <div class="ReLi_cost">2000/50/10</div>-->
-<!--                            <div class="ReLi_extent">5층 · 16평</div>-->
-<!--                            <div class="ReLi_address">서울특별시 구로구 구로동</div>-->
-<!--                            <div class="ReLi_agent">-->
-<!--                                <div class="ReLi_agent_img"></div>-->
-<!--                                <div class="ReLi_agent_div">-->
-<!--                                    <div class="ReLi_agent_company">ㅇㅇㅇ공인중개사</div>-->
-<!--                                    <div class="ReLi_agent_name">이예중</div>-->
-<!--                                </div>-->
-<!--                                <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="ReLi_content">-->
-<!--                        <div class="ReLi_img">-->
-<!--                            <div class="ReLi_ranking">Top 1</div>-->
-<!--                        </div>-->
-<!--                        <div class="ReLi_text">-->
-<!--                            <div class="ReLi_accuracy">일치율 100%</div>-->
-<!--                            <div class="ReLi_TrType">월세</div>-->
-<!--                            <div class="ReLi_cost">2000/50/10</div>-->
-<!--                            <div class="ReLi_extent">5층 · 16평</div>-->
-<!--                            <div class="ReLi_address">서울특별시 구로구 구로동</div>-->
-<!--                            <div class="ReLi_agent">-->
-<!--                                <div class="ReLi_agent_img"></div>-->
-<!--                                <div class="ReLi_agent_div">-->
-<!--                                    <div class="ReLi_agent_company">ㅇㅇㅇ공인중개사</div>-->
-<!--                                    <div class="ReLi_agent_name">이예중</div>-->
-<!--                                </div>-->
-<!--                                <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <!---->
-
                 </div>
-
             </div>
         </div>
     </div>

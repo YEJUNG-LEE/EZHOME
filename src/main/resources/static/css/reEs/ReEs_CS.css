@@ -1,29 +1,11 @@
-@import url('ReCs-floor.css');
 *{
     margin:0;
     padding:0;
 }
-
-.imsi-head{
-    height:90px;
-}
-.imsi-navi{
-    width:1920px;
-    height:66px;
-    background-color:#4876EF;
-}
-.imsi-map{
-    position:relative;
-    z-index:1;
-    width:1920px;
-    height:813px;
-    box-sizing:border-box;
-    background-color:antiquewhite;
-}
 .ReCS{
     position:absolute;
     width:1182px;
-    height:780px;
+    height:100%;
     background-color:#f7f7f7;
     z-index:90;
     border-right:1px solid #8d8d8f;
@@ -52,7 +34,7 @@
 }
 .ReCs-sl-div{
     box-sizing: border-box;
-    width: 149px;
+    width: 50%;
     height: 38px;
     float: left;
     padding-top: 8px;
