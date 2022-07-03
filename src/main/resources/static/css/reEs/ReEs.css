@@ -176,7 +176,7 @@
 .ReEs-navi-normal-TrType-select{
     position:absolute;
     top:155px;
-    left:315px;
+    left:463px;
     width:125px;
     height:126px;
     background:white;
@@ -196,7 +196,7 @@
 .ReEs-navi-normal-houseType-select{
     position:absolute;
     top:155px;
-    left:475px;
+    left:618px;
     width:125px;
     height:168px;
     background:white;
@@ -213,7 +213,7 @@
 .ReEs-navi-normal-floor-select{
     position:absolute;
     top:155px;
-    left:462px;
+    left:558px;
     width:300px;
     height:230px;
     border:1px solid black;
@@ -277,7 +277,7 @@
 .ReEs-navi-normal-extent-select{
     position:absolute;
     top:155px;
-    left:625px;
+    left:753px;
     width:300px;
     height:150px;
     border:1px solid black;
@@ -301,7 +301,7 @@
 .ReEs-navi-normal-cost-select{
     position:absolute;
     top:155px;
-    left:858px;
+    left:983px;
     width:325px;
     height:420px;
     border:1px solid black;
@@ -326,7 +326,7 @@
 .ReEs-navi-custom-button-select{
     position:absolute;
     top:155px;
-    left:1250px;
+    left:1229px;
     width:310px;
     border:1px solid black;
     background-color:white;
@@ -415,7 +415,7 @@
 .ReEs-navi-category-button-select{
     position:absolute;
     top:155px;
-    left:1560px;
+    left:1458px;
     width:310px;
     border:1px solid black;
     background-color:white;
