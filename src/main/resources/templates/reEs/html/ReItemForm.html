@@ -387,10 +387,10 @@
                             <option value="flr04">옥탑방</option>
                         </select>
                         <p th:if="${#fields.hasErrors('reFlrType')}" th:errors="*{reFlrType}" class="fieldError">Incorrect data</p>
-<!--                        <input th:checked="*{reSecndFlr eq '02'}" type='radio' value="02" name='fruits'/>복층-->
-<!--                        <input th:checked="*{reSecndFlr eq '03'}" type='radio' value="03" name='fruits'/>옥탑방-->
-<!--                        <input th:checked="*{reSecndFlr eq '04'}" type='radio' value="04" name='fruits'/>반지하-->
-<!--                        <input th:checked="*{reSecndFlr eq '01'}" type='radio' value="01" name='fruits'/>선택안함-->
+                        <!--                        <input th:checked="*{reSecndFlr eq '02'}" type='radio' value="02" name='fruits'/>복층-->
+                        <!--                        <input th:checked="*{reSecndFlr eq '03'}" type='radio' value="03" name='fruits'/>옥탑방-->
+                        <!--                        <input th:checked="*{reSecndFlr eq '04'}" type='radio' value="04" name='fruits'/>반지하-->
+                        <!--                        <input th:checked="*{reSecndFlr eq '01'}" type='radio' value="01" name='fruits'/>선택안함-->
                     </div>
                 </td>
             </tr>
@@ -506,19 +506,19 @@
                     </div>
                 </div>
             </tr>
-<!--            <tr class="ReEs-insert-tr">-->
-<!--                &lt;!&ndash; for update &ndash;&gt;-->
-<!--                <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
-<!--                    <div class="form-group" th:each="reImgDto, status: ${reFormDto.reImgDtoList}">-->
-<!--                        <div class="custom-file img-div">-->
-<!--                            <input type="file" class="custom-file-input" name="itemImgFile">-->
-<!--                            &lt;!&ndash; unique item id &ndash;&gt;-->
-<!--                            <input type="hidden" th:filed="${reImgDto.id}">-->
-<!--                            <label class="custom-file-label" th:text="${not #strings.isEmpty(reImgDto.oriImgName)} ? ${reImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </tr>-->
+            <!--            <tr class="ReEs-insert-tr">-->
+            <!--                &lt;!&ndash; for update &ndash;&gt;-->
+            <!--                <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
+            <!--                    <div class="form-group" th:each="reImgDto, status: ${reFormDto.reImgDtoList}">-->
+            <!--                        <div class="custom-file img-div">-->
+            <!--                            <input type="file" class="custom-file-input" name="itemImgFile">-->
+            <!--                            &lt;!&ndash; unique item id &ndash;&gt;-->
+            <!--                            <input type="hidden" th:filed="${reImgDto.id}">-->
+            <!--                            <label class="custom-file-label" th:text="${not #strings.isEmpty(reImgDto.oriImgName)} ? ${reImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </tr>-->
 
 
 
