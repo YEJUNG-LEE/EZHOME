@@ -73,7 +73,7 @@ public class ReEsController {
 
         System.out.println("완료!");
 
-        return "reEs/html/ReEs"; // map 페이지로 가야쥐 안카나~
+        return "reEs/ReEs";
 
     }
 
