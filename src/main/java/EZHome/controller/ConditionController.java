@@ -1,5 +1,6 @@
 package EZHome.controller;
 
+import EZHome.dto.ReCucsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ public class ConditionController {
 
     @GetMapping(value = "/user/map")
     public String condiInsert(Model model){
-        return "reEs/trash/ReES_CS";
+        model.addAttribute("ReCusDto",new ReCucsDto());
+        return "reEs/trash/ReEs_CS_CuCa";
     }
 }
