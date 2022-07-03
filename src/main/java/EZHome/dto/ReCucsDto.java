@@ -6,5 +6,5 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Getter @Setter @ToString
-public class eCucsDto { // 맞춤 Dto
+public class ReCucsDto { // 맞춤 Dto
 }

@@ -39,6 +39,17 @@
                 values = $('input[name=' + tagId + ']').attr('value');
                 console.log(values);
             });
+            $('.ReCs-buttons').click(function(){
+                var tagId = $(this).attr("id");
+                var tagName = $(this).parent().attr("id");
+                console.log(tagId);
+                $('input[name=' + tagName + ']').attr('value', tagId);
+                $(this).css({'background-color':'#0081cc', 'color':'white'});
+                $(this).siblings().css({'background-color':'#b8b7bb', 'color':'#858484'});
+                values = $('input[name=' + tagName + ']').attr('value');
+                console.log(tagName + " : " + values);
+            })
+            
         });
     </script>
 </head>
@@ -229,42 +240,30 @@
                 </div>
                 <div class="ReCs-div">
                     <div class="ReCs-title">거래 유형</div>
-                    <div class="ReCs-content">
-                        <div class="ReCs-button ReCs-Month">월세
-                            <input type="hidden" name="trType" value="false" th:field="*{trType}"/>
-                        </div>
-                        <div class="ReCs-button ReCs-Lease">전세
-                            <input type="hidden" name="trType" value="false" th:field="*{trType}"/>
-                        </div>
-                        <div class="ReCs-button ReCs-Buy">매매
-                            <input type="hidden" name="trType" value="false" th:field="*{trType}"/>
-                        </div>
+                    <div class="ReCs-content" id="trType">
+                        <div class="ReCs-buttons ReCs-Month" id="월세">월세</div>
+                        <div class="ReCs-buttons ReCs-Lease" id="전세">전세</div>
+                        <div class="ReCs-buttons ReCs-Buy" id="매매">매매</div>
+                        <input type="hidden" name="trType" th:field="*{trType}"/>
                     </div>
                 </div>
                 <div class="ReCs-div">
                     <div class="ReCs-title">방 유형</div>
-                    <div class="ReCs-content">
-                        <div class="ReCs-button ReCs-One">원룸
-                            <input type="hidden" name="houseType" value="false" th:field="*{houseType}"/>
-                        </div>
-                        <div class="ReCs-button ReCs-TwoOrThree">투·쓰리룸
-                            <input type="hidden" name="houseType" value="false" th:field="*{houseType}"/>
-                        </div>
-                        <div class="ReCs-button ReCs-Office">오피스텔
-                            <input type="hidden" name="houseType" value="false" th:field="*{houseType}"/>
-                        </div>
-                        <div class="ReCs-button ReCs-Apart">아파트
-                            <input type="hidden" name="houseType" value="false" th:field="*{houseType}"/>
-                        </div>
+                    <div class="ReCs-content" id="houseType">
+                        <div class="ReCs-buttons ReCs-One" id="원룸">원룸</div>
+                        <div class="ReCs-buttons ReCs-TwoOrThree" id="투·쓰리룸">투·쓰리룸</div>
+                        <div class="ReCs-buttons ReCs-Office" id="오피스텔">오피스텔</div>
+                        <div class="ReCs-buttons ReCs-Apart" id="아파트">아파트</div>
+                        <input type="hidden" name="houseType" th:field="*{houseType}"/>
                     </div>
                 </div>
                 <div class="ReCs-div">
                     <div class="ReCs-title">층수</div>
                     <div class="ReCs-content">
-                        <div class="ReCs-button ReCs-One">옥탑방
+                        <div class="ReCs-button ReCs-One" id="loofTop">옥탑방
                             <input type="hidden" name="loofTop" value="false" th:field="*{loofTop}"/>
                         </div>
-                        <div class="ReCs-button ReCs-TwoOrThree">반지하
+                        <div class="ReCs-button ReCs-TwoOrThree" id="halfUnder">반지하
                             <input type="hidden" name="halfUnder" value="false" th:field="*{halfUnder}"/>
                         </div>
                         <div class="ReCs-Slider">
