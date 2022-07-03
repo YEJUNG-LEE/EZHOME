@@ -28,7 +28,7 @@
                          .MyPa-div-pro{width:144px;
                                      height:215px;
                                      border-radius:6px;
-                                     border:1px solid #94BBCC;
+                                     border:1px solid #52b0fb;
                                      box-sizing:border-box;}
 
                          .MyPa-div-pro01{width:144px;
@@ -38,7 +38,7 @@
                          .MyPa-div-pro-pic{width:62px;
                                          height:62px;
                                          border-radius:6px;
-                                         border:1px solid #94BBCC;
+                                         border:1px solid #d1d1d1;
                                          box-sizing:border-box;
                                          margin-left:41px;
                                          margin-top:40px;
@@ -60,7 +60,7 @@
                                          height:49px;
                                          border-bottom-left-radius:5px;
                                          border-bottom-right-radius:5px;
-                                         background-color:#4876ef;}
+                                         background-color:#52b0fb;}
 
                          /* 왼쪽 사이드바 메뉴 영역 css */
                          .MyPa-div-all-pag{width:144px;
@@ -70,21 +70,21 @@
 
                          .MyPa-div-pag{width:144px;
                                      height:510px;
-                                     border:0px solid black;
+                                     border:1px solid #d1d1d1;
                                      box-sizing:border-box;
                                      margin-top:16px;
                                      padding-top:10px;
                                      border-radius:6px;
-                                     background-color:#4876ef;}
+                                     }
 
                          .MyPa-pag-tit{font-size:14px;
                                      font-weight:600;
-                                     color:#FFFFFF;
+                                     color:#6c6c6c;
                                      margin-top:20px;
                                      margin-left:10px;}
 
                          .MyPa-pag-con{font-size:12px;
-                                     color:#FFFFFF;
+                                     color:#878787;
                                      margin-left:17px;
                                      margin-top:10px;}
 
@@ -101,10 +101,10 @@
                                      box-sizing:border-box;}
 
                          .MyPa-tit-font{font-size:30px;
-                             font-weight:bold;
-                             margin-left:20px;
+                             font-weight:600;
+                             margin-left:15px;
                              margin-top:50px;
-                             padding-bottom:20px;}
+                             padding-bottom:18px;}
 
                          /* 내정보 text 영역 css */
                          .MyPa-div-con-inf{width:1024px;
@@ -114,10 +114,9 @@
                          .MyPa-div-inf-top{width:1024px;
                                          height:78px;
                                          border:0px solid black;
-                                         border-top-right-radius:6px;
-                                         border-top-left-radius:6px;
+                                         border-radius:6px;
                                          box-sizing:border-box;
-                                         background-color:#4876ef;}
+                                         background-color:#52b0fb;}
 
                          .MyPa-inf-tit{font-size:20px;
                                      font-weight:700;
@@ -127,20 +126,23 @@
 
                          .MyPa-div-inf-bot{width:1024px;
                                          height:80px;
+                                         margin-left:10px;
                                          border:0px solid black;
                                          box-sizing:border-box;}
 
                          /* table, th, td, tr, tbody {border: 1px solid black;} */
 
                          table {
-                             width: 1024px; height: 600px;
+                             width: 976px; height: 600px;
                              margin-top: 25px;
                              border-collapse: collapse;
                          }
 
                          th{
-                             background-color:#eaf7f7;
-                             border-bottom: 1px solid black;
+                             font-size:15px;
+                             font-weight:600;
+                             color:#343434;
+                             text-align:right;
                          }
 
                          td{
@@ -149,45 +151,70 @@
                          }
 
                          .MyPa_roem{
-                            padding-left:40px;
-                            font-size:17px;
+                            padding-left:34px;
+                            font-size:14px;
                          }
 
                          .add{
                              height: 120px;
                          }
 
-                         input{width: 200px; height: 20px;}
+                         input{
+                            width: 200px;
+                            height: 35px;
+                            color:#000;
+                            caret-color:#afadad;
+                            border-radius:4px;
+                            padding-left:5px;
+                            border:1px solid #d1d1d1;
+                            }
+
+                         input:focus{outline:none;
+                             border-color:#52b0fb;
+                             }
+
                          .aa {width: auto; height: auto;}
 
                          .withdraw{
-                             width: 100%; height: 70px;
-                             margin-top: 5px;
+                             width: 100%; height: 34px;
                              text-align: right;
-                             border-top: 1px solid black;
+                             padding-right:30px;
+                             border-top: 1px solid #d1d1d1;
                          }
 
                          .withdraw button {
-                             width: 80px; height: 30px;
+                             width: 80px; height: 32px;
+                             border-radius:4px;
+                             border:1px solid #52b0fb;
+                             background-color:#52b0fb;
+                             color:#FFFFFF;
+                         }
+
+                         .withdraw button:hover{
+                             background-color: #FEC72F;
+                             color: black;
+                             border:1px solid #FEC72F;
                          }
 
                          .correction{
-                             width: 100%; height: 70px;
+                             width: 100%; height: 0px;
                              margin-top: 15px;
                              text-align: center;
                          }
 
                          .correction button {
-                             width: 200px; height: 30px;
-                             background-color: #4876ef;
+                             width: 200px; height: 45px;
+                             background-color: #52b0fb;
                              color: white;
-                             font-weight: bolder;
+                             font-weight: 600;
+                             border-radius:4px;
+                             border:1px solid #52b0fb;
                          }
 
                          .correction button:hover{
                              background-color: #FEC72F;
                              color: black;
-                             font-weight: bolder;
+                             border:1px solid #FEC72F;
                          }
 
                          footer{width:100%;
@@ -197,21 +224,38 @@
 
                           /* 주소 api */
                          .MyPg_addr{
-                                 width: 320px; height: 35px;
-                                 margin-top: 5px;
-                                 margin-left: 39px;
-                                 font-size: 17px;
+                                 width: 329px;
+                                 height: 35px;
+                                 margin-left: 30px;
+                                 padding-left:5px;
+                                 margin-bottom:5px;
+                                 border-radius:4px;
+                                 border:1px solid #d1d1d1;
+                                 font-size: 14px;
                                  float: left;
                          }
                          .MyPg_adse{
-                             font-size: 16px;
-                             width: 90px;  height: 39px;
-                             margin-top: 5px;
+                             font-size: 14px;
+                             width: 82px;
+                             height: 37px;
+                             border-radius:4px;
+                             background-color:#52b0fb;
+                             color:#FFFFFF;
                              margin-left: 10px;
+                             padding-right:5px;
+                             border:1px solid #52b0fb;
+                         }
+
+                         .MyPg_adse:hover{
+                             background-color: #FEC72F;
+                             color: black;
+                             border:1px solid #FEC72F;
                          }
                          .MyPg_input{
                              width: 420px; height: 35px;
-                             margin-top: 10px;
-                             margin-left: 39px;
-                             font-size: 17px;
+                             margin-left: 30px;
+                             font-size: 14px;
+                             border:1px solid #d1d1d1;
+                             border-radius:4px;
+                             padding-left:5px;
                          }
