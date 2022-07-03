@@ -7,11 +7,9 @@
 
 /* 전체 영역 wrap*/
 .ReEs-insert-wrap{
-    border: 1px solid black;
     width: 1280px;
     height: 1700px;
     margin: auto;
-    background-color: #f8f8f8;
     text-align: left;
 }
 
@@ -26,81 +24,87 @@
 
 .ReEs-insert-SetRoom{
     width: 1000px;
-    padding-top: 25px;
     box-sizing: border-box;
-    height:90px;
     border: 0px solid blue;
     margin: auto;
 }
 
 .ReEs-insert-h2{
-    padding-top: 35px;
     box-sizing: border-box;
-    font-size: 24px;
-    border: 1px solid black;
+    font-size: 40px;
+    border: 0px solid black;
     margin: auto;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 0 90px;
+    font-weight:600;
 }
 .ReEs-insert-box{
     width: 220px;
     height: 50px;
-    font-size: 20px;
-    padding-top: 5px;
+    font-size: 16px;
+    padding-top: 15px;
     text-align: center;
     display: inline-block;
-    margin-right: 25px;
-    border: 1px solid black;
+    margin-left: 22px;
+    border: 1px solid #52b0fb;
     box-sizing: border-box;
     margin-top: 20px;
-    border-radius: 3px;
+    border-radius: 5px;
+    font-weight:600;
+    background-color:#52b0fb;
+    color:#FFFFFF;
 }
 
 .ReES-insert-form{
-    border: 1px solid black;
+    border: 0px solid black;
     width: 1000px;
     height: 1380px;
     margin: auto;
     box-sizing: border-box;
-    margin-top: 30px;
+    margin-top: 15px;
     background-color: #FFFFFF;
     padding: 15px;
+}
+h3{
+margin-left:8px;
+font-size:16px;
+font-weight:600;
 }
 
 /* 첨부파일 div 여백 */
 .form-group{
-    margin: 14px 8px 14px 0px;
+    margin: 14px 0px 14px 30px;
 }
 
 .ReEs-insert-table{
-    margin-top: 20px;
+    margin-top: 0px;
     width: 970px;
     margin: auto;
 }
 
 .ReEs-insert-tr{
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 0px solid black;
     width: auto;
 }
 
 .ReEs-insert-th{
     height:20px;
-    width: 50px;
-    padding: 20px 0 0 20px;
-    font-weight: 700;
-    font-size: 14px;
+    width: 73px;
+    padding: 20px 0 0 10px;
+    font-weight: 600;
+    font-size: 16px;
     color: #333;
     line-height: 20px;
     vertical-align: top;
     text-align: left;
     padding-top: 29px;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 .ReEs-insert-td{
     width:481px;
     height:74px;
     text-align: left;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .ReCs-button{
@@ -135,32 +139,50 @@
 }
 /* 시, 도 */
 #reSido{
-    width: 100px;
+    width: 96px;
     height: 30px;
-    padding: 5px 5px 5px 12px;
+    padding: 5px 5px 5px 10px;
     letter-spacing: 2px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
 }
 /* 군,구 */
 #reGungu{
-    width: 180px;
+    width: 100px;
     height: 30px;
-    padding: 5px 5px 5px 12px;
+    padding: 5px 5px 5px 10px;
     letter-spacing: 2px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
 }
 /* 동 */
 #reDong{
-    width: 180px;
+    width: 144px;
     height: 30px;
-    padding: 5px 5px 5px 12px;
+    padding: 5px 5px 5px 10px;
     letter-spacing: 2px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
 }
 /* 상세주소 */
 #reDtl_Adr{
-    width: 180px;
+    width: 250px;
     height: 30px;
-    padding: 5px 5px 5px 12px;
+    padding: 5px 5px 5px 10px;
     letter-spacing: 2px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
 }
+#reDtl_Adr:focus{
+    outline:none;
+    border-color:#52b0fb;
+}
+
+
 /* 도로명 주소 , 설명 제목 */
 .ReEs-insert-div > p {
     margin: 10px 0px;
@@ -189,13 +211,28 @@
 }
 
 .ReEs-insert-input, .ReEs-insert-select, .ReEs-insert-inputlg{
-    width:100px;
+    width:182px;
     height: 44px;
-    padding: 0 14px;
+    padding: 0 10px;
+    border: 1px solid #d1d1d1;
+    font-size: 14px;
+    border-radius: 5px;
+    color:#6c6c6c;
+}
+
+select:focus{
+    outline:none;
+    border-color:#52b0fb;
+}
+
+.ReEs-insert-name{
+    width:277px;
+    height: 44px;
+    padding: 0 10px;
     border: 1px solid #ccc;
     font-size: 14px;
-    border-radius: 3px;
-    margin-left: 20px;
+    border-radius: 5px;
+    margin-right: 27px;
 }
 
 .ReEs-insert-select{
@@ -248,3 +285,19 @@
 .ReEs-insert-nowfloor , .ReEs-insert-totalfloor{
     padding:10px 0 6px 0;
 }
+input{
+    border:1px solid #d1d1d1;
+    color:#000;
+    caret-color:#afadad;
+        }
+
+input:focus{
+    outline:none;
+    border-color:#52b0fb;
+}
+
+select#reFlrType {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
