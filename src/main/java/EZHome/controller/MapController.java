@@ -52,8 +52,9 @@ public class MapController {
 //        return "reEs/html/ReEs";
 //    }
 
-   @RequestMapping(value = "/map", method = {RequestMethod.GET, RequestMethod.POST})
-    public String main(ReMncsDto reMncsDto,Model model, Principal principal){
+//   @RequestMapping(value = "/map", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/map")
+    public String main(Model model){
         try{
             List<MapMainDto> mapMainDtoList = reService.getItemAll(); //id로 기존에 상품 정보를 formdto에 담기
             for (MapMainDto mapMainDto: mapMainDtoList) {
@@ -70,20 +71,19 @@ public class MapController {
 
         model.addAttribute("ReMncsDto",new ReMncsDto()); // 회원의 조건 정보를 담고 있음
 
+       return "reEs/html/ReEs";
+    }
 
+    // 회원 조건 저장
+    @PostMapping(value = "/map/save")
+    public String saveCondition( ReMncsDto reMncsDto,Model model, Principal principal){
 
-        //post
         System.out.println("********************************");
         System.out.println("*********컨트롤러 들어왔습니다.*******");
         System.out.println("********************************");
 
         // 로그인한 인증된 사용자에 대한 정보를 구할 수 있다.
         String email = principal.getName();
-//        if(email == null){
-//            System.out.println("조건 저장시 로그인 정보가 없다면 발생하는 오류입니다.");
-//            model.addAttribute("errorMessage", "로그인을 진행해주세요");
-//            return "member/customer/memberLoginForm"; //로그인 폼 이동
-//        }
 
         try{
             conditionService.saveCondi(reMncsDto,email);
@@ -93,40 +93,10 @@ public class MapController {
         }
 
         System.out.println("완료!");
-
-
-//       return "common/main_content"; // 에러 안남
-        return "reEs/html/ReEs";
-    }
-
-//    // 회원 조건 저장
-//    @PostMapping(value = "/map/save")
-//    public String saveCondition( ReMncsDto reMncsDto,Model model, Principal principal){
-//
-//        System.out.println("********************************");
-//        System.out.println("*********컨트롤러 들어왔습니다.*******");
-//        System.out.println("********************************");
-//
-//        // 로그인한 인증된 사용자에 대한 정보를 구할 수 있다.
-//        String email = principal.getName();
-////        if(email == null){
-////            System.out.println("조건 저장시 로그인 정보가 없다면 발생하는 오류입니다.");
-////            model.addAttribute("errorMessage", "로그인을 진행해주세요");
-////            return "member/customer/memberLoginForm"; //로그인 폼 이동
-////        }
-//
-//        try{
-//            conditionService.saveCondi(reMncsDto,email);
-//        }catch (Exception e){
-//            model.addAttribute("errorMessage", "조건 저장중에 에러가 발생했습니다.");
-//            return "common/main_content"; // 메인페이지로
-//        }
-//
-//        System.out.println("완료!");
-//
+        model.addAttribute("ReMncsDto", reMncsDto);
 //        return "common/main_content"; // 에러 안남
-////        return "reEs/html/ReEs"; // 에러남
-//    }
+        return "reEs/html/ReEs"; // 에러남
+    }
 
 
     // 메인 화면에서 상품이미지를 클릭하면 상품 상세페이지로 이동합니다.
