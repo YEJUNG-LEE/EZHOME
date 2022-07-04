@@ -135,6 +135,7 @@ nav > ul {
     padding: 0;
     display: flex;
     justify-content: flex-end;
+    text-align: center;
 }
 
 .EzHome-ul-right > li {
