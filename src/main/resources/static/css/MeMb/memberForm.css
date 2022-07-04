@@ -1,9 +1,15 @@
         @import url(reset.css);
 
         .fieldError {
-            color: #bd2130;
-            margin-left: 40px;
+            color: #ef4959;
+            margin-left:5px;
         }
+        #fiele{
+            color:#ef4959;
+            font-size:14px;
+            margin-left:32px;
+        }
+
         .content{
             height : 100%;
         }
