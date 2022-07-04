@@ -541,9 +541,10 @@
                 // 지도의 현재 레벨을 얻어옵니다
                 var level = map.getLevel();
                 var polygons = []; // 폴리곤을 저장하고, 이후 삭제하기 위해 사용합니다.
+                var polygonMap = new Map();
                 var customOverlays = []; // <47/영등포구> 처럼 텍스트를 띄우는 부분을 저장하고, 이후 삭제 및 변경하기 위해 사용합니다.
                 var si = 6; // 시군구를 보여주는 레벨의 기준은 level 5입니다.
-                var marker = null; // 부동산 marker를 찍을 수 있는 
+                var markerList = []; // 부동산 marker를 찍을 수 있는 
                 var infowindow = null;
 
 
@@ -617,6 +618,7 @@
                     // 다각형을 생성합니다
                     var polygon = new kakao.maps.Polygon({
                         map: map, // 다각형을 표시할 지도 객체
+                        id:name,
                         path: path,
                         strokeWeight: 2,
                         strokeColor: '#004c80',
@@ -624,7 +626,7 @@
                         fillColor: '#fff',
                         fillOpacity: 0.7
                     })
-
+                    polygonMap.set(polygon, name);
                     polygons.push(polygon);     // 폴리곤을 제거하기 위한 배열
 
                     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다.
@@ -664,10 +666,20 @@
                         } else {
                             // 읍면동을 보고 있을 때 클릭 상황입니다.
                             // 지도 중심을 부드럽게 이동시킵니다
+                            deleteMarker();
                             map.panTo(centroid(points));
-
-                            var address = "서울특별시 구로구 구로동 140-16"
-                            addMarker(address);
+                            var mapMainDtoList = [[${mapMainDtoList}]];
+                            var ListSize = mapMainDtoList.length;
+                            var polygonName = polygonMap.get(polygon);
+                            
+                            alert(polygonName);
+                            for (let i = 0; i < ListSize; i++) {
+                                address = mapMainDtoList[i].roadAddress;
+                                
+                                if(polygonName == address.split(" ")[2]){
+                                    addMarker(address);
+                                }
+                            }
                         }
                     });
 
@@ -713,6 +725,7 @@
                     for (var i = 0; i < customOverlays.length; i++) {
                         customOverlays[i].setMap(null);
                     }
+                    polygonMap = new Map();
                     polygons = [];
                     customOverlays = [];
                 }
@@ -730,23 +743,20 @@
                             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
                             // 결과값으로 받은 위치를 마커로 표시합니다
-                            marker = new kakao.maps.Marker({
+                            var marker = new kakao.maps.Marker({
                                 map: map,
                                 position: coords
                             });
+                            markerList.push(marker);
 
-                            // 인포윈도우로 장소에 대한 설명을 표시합니다
-                            var infowindow = new kakao.maps.InfoWindow({
-                                content: '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'
-                            });
-                            infowindow.open(map, marker);
                         }
                     });
                 }
 
                 function deleteMarker(){
-                    marker.setMap(null);
-                    infowindow
+                    markerList.forEach(mark => {
+                        mark.setMap(null);
+                    });
                 }
             })
         </script>
