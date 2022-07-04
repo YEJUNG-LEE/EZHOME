@@ -3,7 +3,10 @@
 
         /* 로그인 실패 에러메세지 색 */
         .error {
-            color: #bd2130;
+            color: #ef4959;
+            margin-top:3px;
+            font-size:14px;
+            margin-left:5px;
         }
         .content{
             height : 100%;
