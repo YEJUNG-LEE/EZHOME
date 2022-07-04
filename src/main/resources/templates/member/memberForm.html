@@ -34,59 +34,62 @@
     </div>
     <div class="MeMb-div2">
         <div class="MeMb-sing">회원가입</div>
-        <form class="MeMb-sign-form" action="/members/new" role="form" method="post" th:object="${memberFormDto}">
-            <div id="rolerole">
-                <div class="MeMb-memb"  th:each="type : ${role}">
-                    <input class="MeMb-gene" type="radio" th:field="*{role}" th:value="${type.name()}">
-                    <label th:for="${#ids.prev('role')}" th:text="${type.description}"></label>
+        <div class="MeMb-sign-form-all">
+            <form class="MeMb-sign-form" action="/members/new" role="form" method="post" th:object="${memberFormDto}">
+                <div id="rolerole">
+                    <div class="MeMb-memb"  th:each="type : ${role}">
+                        <input class="MeMb-gene" type="radio" th:field="*{role}" th:value="${type.name()}">
+                        <label th:for="${#ids.prev('role')}" th:text="${type.description}"></label>
+                    </div>
+                    <p th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="fieldError">Incorrect data</p>
                 </div>
-                <p th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="fieldError">Incorrect data</p>
-            </div>
-            <div class="MeMb-label">
-                <label th:for="email">이메일</label>
-            </div>
-            <div class="form-group">
-                <input type="text" th:field="*{email}" class="form-control MeMb-email" placeholder="이메일을 입력해 주세요.">
-                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
-            </div>
-            <div class="MeMb-label">
-                <label th:for="password">비밀번호</label>
-            </div>
-            <div class="form-group">
-                <input type="password" id="password_1" th:field="*{membPassword}" class="form-control MeMb-email pw" placeholder="비밀번호를 입력해 주세요.">
-                <p th:if="${#fields.hasErrors('membPassword')}" th:errors="*{membPassword}" class="fieldError">Incorrect data</p>
-            </div>
-            <div class="MeMb-label">
-                <label>비밀번호 확인</label>
-            </div>
-            <div class="form-group">
-                <input type="password" id="password_2" class="form-control MeMb-email pw" placeholder="비밀번호를 입력해 주세요."><br>
-                <span class="fieldError" id="alert-success" style="display: none; color: blue;">비밀번호가 일치합니다.</span>
-                <span class="fieldError" id="alert-danger" style="display:none;">비밀번호가 일치하지 않습니다.</span>
-            </div>
-            <script>
-                $('.pw').focusout(function () {
-                    var pwd1 = $("#password_1").val();
-                    var pwd2 = $("#password_2").val();
+                <div class="MeMb-label">
+                    <label th:for="email">이메일</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{email}" class="form-control MeMb-email" placeholder="이메일을 입력해 주세요.">
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
+                </div>
+                <div class="MeMb-label">
+                    <label th:for="password">비밀번호</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password_1" th:field="*{membPassword}" class="form-control MeMb-email pw" placeholder="비밀번호를 입력해 주세요.">
+                    <p th:if="${#fields.hasErrors('membPassword')}" th:errors="*{membPassword}" class="fieldError">Incorrect data</p>
+                </div>
+                <div class="MeMb-label">
+                    <label>비밀번호 확인</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password_2" class="form-control MeMb-email pw" placeholder="비밀번호를 입력해 주세요."><br>
+                    <span class="fieldError" id="alert-success" style="display: none; color: blue;">비밀번호가 일치합니다.</span>
+                    <span class="fieldError" id="alert-danger" style="display:none;">비밀번호가 일치하지 않습니다.</span>
+                </div>
+                <script>
+                    $('.pw').focusout(function () {
+                        var pwd1 = $("#password_1").val();
+                        var pwd2 = $("#password_2").val();
 
-                    if ( pwd1 != '' && pwd2 == '' ) {
-                        null;
-                    } else if (pwd1 != "" || pwd2 != "") {
-                        if (pwd1 == pwd2) {
-                            $("#alert-success").css('display', 'inline-block');
-                            $("#alert-danger").css('display', 'none');
-                        } else {
-                            $("#alert-success").css('display', 'none');
-                            $("#alert-danger").css('display', 'inline-block');
+                        if ( pwd1 != '' && pwd2 == '' ) {
+                            null;
+                        } else if (pwd1 != "" || pwd2 != "") {
+                            if (pwd1 == pwd2) {
+                                $("#alert-success").css('display', 'inline-block');
+                                $("#alert-danger").css('display', 'none');
+                            } else {
+                                $("#alert-success").css('display', 'none');
+                                $("#alert-danger").css('display', 'inline-block');
+                            }
                         }
                     }
                 });
             </script>
             <div class="MeMb-label">
-                <label th:for="nick">닉네임</label>
+                <label th:for="nick">닉네임 / 상호명</label>
             </div>
             <div class="form-group">
-                <input type="text" th:field="*{membNick}" class="form-control MeMb-email" id="nickname" placeholder="닉네임을 입력해 주세요.">
+                <input type="text" th:field="*{membNick}" class="form-control MeMb-email" id="nickname" placeholder="닉네임/상호명을 입력해 주세요.">
+                <p>일반 회원은 닉네임, 공인중개사는 상호명을 적어주세요.</p>
                 <p th:if="${#fields.hasErrors('membNick')}" th:errors="*{membNick}" class="fieldError">Incorrect data</p>
             </div>
             <div class="MeMb-label">
@@ -110,7 +113,8 @@
                 <input type="hidden" id="sample6_postcode" placeholder="우편번호">
                 <input type="text" class="MeMb-addr" th:field="*{membAddress1}" id="sample6_address" placeholder="주소">
                 <input type="button" class="MeMb-adse" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
-                <input type="text" class="form-control MeMb-number1" th:field="*{membAddress2}" id="sample6_detailAddress" placeholder="상세주소">
+                <input type="text" class="form-control MeMb-number1" th:field="*{membAddress2}" id="sample6_detailAddress" placeholder="상세주소"
+                    value style="width:308px; height:35px; padding-left:5px">
                 <input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
                 <p th:if="${#fields.hasErrors('membAddress1')}" th:errors="*{membAddress1}" class="fieldError">Incorrect data</p>
 
@@ -164,18 +168,20 @@
                         }).open();
                     }
                 </script>
-            </div>
-            <div class="MeMb-label">
-                <label th:for="phone">전화번호</label>
-            </div>
-            <div class="form-group">
-                <input type="text" th:field="*{membPhone}" class="form-control MeMb-email" placeholder="전화번호를 입력해 주세요. ex)010-0000-0000">
-                <p th:if="${#fields.hasErrors('membPhone')}" th:errors="*{membPhone}" class="fieldError">Incorrect data</p>
-            </div>
-            <div style="text-align: center">
-                <input class="MeMb-button" type="submit" value="회원가입">
-            </div>
-        </form>
+                </div>
+                <div class="MeMb-label">
+                    <label th:for="phone">전화번호</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{membPhone}" class="form-control MeMb-email" placeholder="전화번호를 입력해 주세요. ex)010-0000-0000">
+                    <p th:if="${#fields.hasErrors('membPhone')}" th:errors="*{membPhone}" class="fieldError">Incorrect data</p>
+                </div>
+                <div>
+                    <input class="MeMb-button" type="submit" value="회원가입">
+                </div>
+            <div class="MeMb-sign-form-cover"></div>
+            </form>
+        </div>
     </div>
 </div>
 </html>
