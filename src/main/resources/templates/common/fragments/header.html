@@ -49,8 +49,11 @@
                 </li>
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
-                    <a href="/mypage/LREAmain" methods="get">
-                        <i class="fa-solid fa-user"></i><span th:text="${username}">님</span>
+                    <a sec:authorize="hasRole('USER')" href="/USERmain" methods="get">
+                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
+                    </a>
+                    <a sec:authorize="hasRole('LREA')" href="/LREAmain" methods="get">
+                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
                     </a>
                 </li>
 

@@ -197,7 +197,7 @@
 
             /* 내가 올린 매물 목록 영역 css */
             .LRMy-div-sal{width:1024px;
-                        height:264px;
+                        height:280px;
                         overflow:hidden;
                         border:0px solid black;
                         box-sizing:border-box;}
@@ -215,7 +215,7 @@
             .LRMy-li-sal{width:156px;
                         height:224px;
                         float:left;
-                        margin-left:17.6px;
+                        margin-right:14.6px;
                         position:relative;
                         border-radius:6px;
                         border:1px solid #bddbf8;
@@ -242,7 +242,7 @@
                             padding-left:12px;}
 
             .LRMy-sal-con-pdiv{width:120px;
-                            height:20px;
+                            height:40px;
                             margin-top:3px;
                             margin-left:12px;
                             overflow:hidden;

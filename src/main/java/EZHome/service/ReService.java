@@ -277,4 +277,10 @@ public class ReService {
             }
         } // end for다 ~
     }
+
+    @Transactional(readOnly = true)
+    public Page<ReEs> getAdminItemPage(Pageable pageable) {
+        // 상품 검색 조건을 이용하여 페이징 객체를 반환
+        return reEsRepository.getAdminReEsPage(pageable);
+    }
 }

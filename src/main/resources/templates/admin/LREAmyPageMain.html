@@ -26,8 +26,8 @@
                 <div class="LRMy-div-pag">
                     <p class="LRMy-pag-tit">내가 올린 매물 보기</p>
                     <p class="LRMy-pag-tit">내정보</p>
-                    <p class="LRMy-pag-con">회원 정보 수정</p>
-                    <p class="LRMy-pag-con">회원 탈퇴</p>
+                    <p class="LRMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
+                    <p class="LRMy-pag-con"><a th:href="@{/members/delete/ + (${memberFormDto.id}) }">회원 탈퇴</a></p>
                 </div>
             </div>
         </div>
@@ -43,58 +43,61 @@
             <div class="LRMy-div-sal">
                 <div class="LRMy-div-sal-tit">
                     <p class="LRMy-tit-p">내가 올린 매물 목록</p>
-                    <p class="LRMy-out">더보기></p>
                 </div>
-                <ul class="LRMy-ul-sal">
-                    <li class="LRMy-li-sal">
-                        <div class="LRMy-sal-img"></div>
-                        <div class="LRMy-sal-heart"></div>
-                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
-                        <div class="LRMy-sal-con-pdiv">
-                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
-                        </div>
-                    </li>
-                    <li class="LRMy-li-sal">
-                        <div class="LRMy-sal-img"></div>
-                        <div class="LRMy-sal-heart"></div>
-                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
-                        <div class="LRMy-sal-con-pdiv">
-                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
-                        </div>
-                    </li>
-                    <li class="LRMy-li-sal">
-                        <div class="LRMy-sal-img"></div>
-                        <div class="LRMy-sal-heart"></div>
-                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
-                        <div class="LRMy-sal-con-pdiv">
-                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
-                        </div>
-                    </li>
-                    <li class="LRMy-li-sal">
-                        <div class="LRMy-sal-img"></div>
-                        <div class="LRMy-sal-heart"></div>
-                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
-                        <div class="LRMy-sal-con-pdiv">
-                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
-                        </div>
-                    </li>
-                    <li class="LRMy-li-sal">
-                        <div class="LRMy-sal-img"></div>
-                        <div class="LRMy-sal-heart"></div>
-                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
-                        <div class="LRMy-sal-con-pdiv">
-                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
-                        </div>
-                    </li>
-                    <li class="LRMy-li-sal">
-                        <div class="LRMy-sal-img"></div>
-                        <div class="LRMy-sal-heart"></div>
-                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
-                        <div class="LRMy-sal-con-pdiv">
-                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
-                        </div>
-                    </li>
-                </ul>
+                <table>
+                    <tr class="LRMy-ul-sal">
+                        <td class="LRMy-li-sal">
+                            <div class="LRMy-sal-img"></div>
+                            <p class="LRMy-sal-tit-p">매물 제목</p>
+                            <div class="LRMy-sal-con-pdiv">
+                                <p class="LRMy-sal-con-p">지역</p>
+                                <p class="LRMy-sal-con-p">평수</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div th:with="start=${(reEs.id/maxPage)*maxPage + 1}, end=(${(reEs.totalPages == 0) ? 1 : (start + (maxPage - 1) < reEs.totalPages ? start + (maxPage - 1) : reEs.totalPages)})" >
+                    <ul class="pagination justify-content-center">
+
+                        <li class="page-item" th:classappend="${reEs.first}?'disabled'">
+                            <a th:onclick="'javascript:page(' + ${reEs.id - 1} + ')'" aria-label='Previous' class="page-link">
+                                <span aria-hidden='true'>Previous</span>
+                            </a>
+                        </li>
+
+                        <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${reEs.id eq page-1}?'active':''">
+                            <a th:onclick="'javascript:page(' + ${page - 1} + ')'" th:inline="text" class="page-link">[[${page}]]</a>
+                        </li>
+
+                        <li class="page-item" th:classappend="${reEs.last}?'disabled'">
+                            <a th:onclick="'javascript:page(' + ${reEs.id + 1} + ')'" aria-label='Next' class="page-link">
+                                <span aria-hidden='true'>Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <th:block layout:fragment="script">
+                        <script th:inline="javascript">
+                            $(document).ready(function(){
+                                $("#searchBtn").on("click",function(e) {
+                                    e.preventDefault();
+                                    page(0);
+                                });
+                            });
+
+                            function page(page){
+                                var searchDateType = $("#searchDateType").val();
+                                var searchSellStatus = $("#searchSellStatus").val();
+                                var searchBy = $("#searchBy").val();
+                                var searchQuery = $("#searchQuery").val();
+
+                                location.href="/admin/items/" + page + "?searchDateType=" + searchDateType
+                                + "&searchSellStatus=" + searchSellStatus
+                                + "&searchBy=" + searchBy
+                                + "&searchQuery=" + searchQuery;
+                            }
+                        </script>
+                    </th:block>
+                </div>
             </div>
         </div>
     </div>
