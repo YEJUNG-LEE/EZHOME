@@ -40,6 +40,19 @@
                 console.log(tagName + " : " + values);
             })
 
+
+            var errorMessage = [[${errorMessage}]];
+            if(errorMessage != null){
+                alert(errorMessage);
+            };
+
+<!--            Callerror();-->
+<!--            -->
+<!--            function Callerror(){-->
+<!--            -->
+<!--            }-->
+
+
         });
     </script>
 </head>
@@ -217,7 +230,7 @@
                 <!--  ======================================================================================================  -->
                 <!--  ================================================= 조건 필터 ============================================  -->
                 <div class="ReCS">
-                    <form method="post" action="/reEs/save" th:object="${ReMncsDto}" enctype="application/x-www-form-urlencoded" >
+                    <form method="post" th:action="@{/map}" th:object="${ReMncsDto}" enctype="application/x-www-form-urlencoded" >
                         <div class="ReCs-subject">
                             <div class="ReCs-select">
                                 <div class="ReCs-sl-div ReCs-normal">
@@ -442,7 +455,11 @@
                             </div>
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
-                            <div class="ReCs-MB">저장</div>
+                            <div class="ReCs-MB">저장
+<!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
+                                    <button type="submit" class="btn">저장</button>
+<!--                                </div>-->
+                            </div>
                             <div class="ReCs-MB">불러오기</div>
                             <div class="ReCs-MB">초기화</div>
                             <div class="ReCs-MB ReCs-submit">적용</div>

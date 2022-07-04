@@ -129,6 +129,12 @@ public class ReService {
 //    }
 
     public ReFormDto getItemUpdate(Long id){
+
+
+
+        // 3. dto를 저장시킬 리스트 컬렉션 생성 ( dto -> Jpa 연동)
+        List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
+
         List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
 
         for (ReImg reImg: itemImgList) {
@@ -148,6 +154,7 @@ public class ReService {
             System.out.println("============================================");
 
             // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
+            reImgDtoList.add(reImgDto);
             reOriNmList.add(reImgDto.getReOriNm());
         }
 
@@ -170,6 +177,7 @@ public class ReService {
         System.out.println(reFormDto.toString());
         // html이랑 연결도 해보고
 
+        reFormDto.setReImgDtoList(reImgDtoList);
         reFormDto.setReOriNmList(reOriNmList);
         System.out.println("이미지 리턴");
         return reFormDto;
