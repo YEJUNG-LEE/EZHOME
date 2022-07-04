@@ -485,8 +485,7 @@
                             <div class="ReLi_content" th:each="item : ${mapMainDtoList}">
                                 <div class="ReLi_img">
                                     <div class="ReLi_ranking">Top 1</div>
-                                    <img th:src="${item.reImgUrl}">
-                                    [[${mapMainDtoList}]]
+                                    <img th:src="${item.reImgUrl}" style="width: 242px; height: 181.5px;">
                                 </div>
                                 <div class="ReLi_text">
                                     <div class="ReLi_accuracy">일치율 100%</div>
@@ -494,19 +493,19 @@
                                         <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
                                     <div class="ReLi_cost">
-                                        2000/50/10
+                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]
                                         <!-- 보증금 / 월세/ 관리비-->
                                     </div>
                                     <div class="ReLi_extent">
-                                        5층 · 16평
+                                        [[${item.reFlr}]]층 · [[${item.reExtent}]]평
                                         <!-- 층수 / 평수-->
                                     </div>
                                     <div class="ReLi_address">
-                                        [[${roadAddress}]]
-                                        <!-- 시도 / 군구 / 동-->
+                                        [[${item.roadAddress}]]
+                                        <!-- 도로명주소-->
                                     </div>
                                     <div class="ReLi_agent">
-                                        <div class="ReLi_agent_img"></div>
+<!--                                        <div class="ReLi_agent_img"></div>-->
                                         <div class="ReLi_agent_div">
                                             <div class="ReLi_agent_company" th:text="${item.lreaNick}"></div>
                                             <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
