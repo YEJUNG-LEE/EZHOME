@@ -1,0 +1,1030 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+/* 헤더 영역 높이 90px */
+.header {
+    width: 100%;
+    height: 90px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* content-section 1280px */
+.content-section{
+    width: 1280px;
+    height: 100% ;
+    margin: 0 auto;
+    background: #fff;
+
+}
+/* 가로 : 100% , 높이 : 100%  */
+.ReEs-div-detail-Wrap{
+    width: 100% ;
+    height: 100% ;
+}
+/* detail-header 컨텐츠 제목 부분 */
+.detail-header{
+    width: 100% ;
+    height: 100% ;
+    padding: 40px 0px 40px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 일치율 box */
+.EzHo-Div10 {
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #4876ef;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    font-weight: 800;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+/* 일치율 출력 부분 , 스타일*/
+.EzHo-Div10 > span{
+    font-size: 16px ;
+}
+/* 일치율 box ,hover  */
+section .EzHo-Div10:hover {
+    border: 1px solid #fec72f;
+    background-color: #fec72f;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+/* 삭제하기 버튼 */
+.Detail-singo {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #f52222;
+    background-color: #FFFFFF;
+    color: #f52222;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    float: right;
+}
+
+section .ReEs-div-detail-PicWrap {
+    width: 1280px;
+    height: 460px;
+}
+
+/* 이미지 가로 전체 영역 */
+.swiper {
+    width: 1280px;
+    height: 460px;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    width: 52px;
+    height: 66px;
+    color: #fff ;
+    background-color: rgb(34 34 34 / 0.18);
+}
+
+/* 오른쪽 버튼 위치조정 */
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+    right: 0px;
+}
+/* 왼쪽 버튼 위치조정 */
+.swiper-button-prev, .swiper-rtl .swiper-button-next{
+    left: 1px;
+}
+
+/* 페이징 버튼 */
+.swiper-pagination-bullet{
+    width: 16px;
+    height: 16px;
+
+}
+.swiper-pagination-bullet-active{
+    width: 16px;
+    height: 16px;
+    background-color: #fec72f;
+}
+
+/*이미지 내부 외각선 */
+section .ReEs-div-detail-Pic .image {
+    width: 420px;
+    height: 460px;
+    border-radius: 2px;
+    /*background: #387ccf;*/
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+/* 공통 이미지들 margin-right: 10px; 간격 */
+.swiper-slide ReEs-div-detail-Pic swiper-slide-active{
+    margin-right: 10px;
+}
+.swiper-slide ReEs-div-detail-Pic swiper-slide-next{
+    margin-right: 10px;
+}
+.swiper-slide ReEs-div-detail-Pic{
+    margin-right: 10px;
+}
+.swiper-slide ReEs-div-detail-Pic{
+    margin-right: 10px;
+}
+.swiper-slide ReEs-div-detail-Pic swiper-slide-next{
+    margin-right: 10px;
+}
+/* end 이미지들 margin-right: 10px; 간격 */
+
+/* 이미지 사이즈 */
+section .ReEs-div-detail-Pic .image img {
+    /*이미지*/
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /*이미지 정확한 사이즈 */
+    border-radius: 8px;
+    border: 1px solid #fff;
+}
+
+/* 매물정보 네비 탭 */
+/* .ReEs-detail-navdiv */
+.ReEs-detail-navdiv {
+    width: 100%;
+    height: 74px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+/* .ReEs-detail-nav */
+.ReEs-detail-nav {
+    width: 100%;
+    height: 100%;
+    background: #f2f2f2;
+    position: absolute;
+}
+
+/* 내부 탭 */
+.main-menu {
+    background: #4876ef;
+    width: 1280px;
+    display: flex;
+}
+
+/* 탭 리스트 ul */
+.main-menu > ul {
+    width: 1280px;
+    height: 74px ;
+    display: flex;
+    ustify-content: center;
+    flex-direction: row;
+}
+
+/* 탭 리스트 ul li */
+.main-menu > ul > li {
+    margin-right: 6px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: inline;
+    width: 200px;
+    height: 74px;
+    padding-right: 10px;
+}
+
+.ReEs-detail-nav ul li a {
+    color: #000;
+}
+
+.main-menu ul li {
+
+}
+
+div.main-menu ul li a {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+}
+
+
+
+.menu-fixed {
+    position: fixed;
+    top: 0px;
+    left: auto;
+}
+
+#section1,
+#section2,
+#section3,
+#section4,
+#section5,
+#section6,
+#section7 {
+    box-sizing: border-box;
+}
+
+
+
+/*end 네비게이션바 css*/
+/*콘텐츠 영역 css*/
+.ReEs-div-Content01 {
+    border: 1px solid red;
+}
+
+.ReEs-h2-detail {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.ReEs-div-content02 {
+    border: 1px solid blue;
+    margin-left: 50px;
+}
+
+.ReEs-div-content03 {
+    border: 1px solid purple;
+    margin-left: 50px;
+}
+
+.ReEs-div-content04 {
+    border: 1px solid green;
+    margin-left: 50px;
+}
+
+.ReEs-div-content05 {
+    border: 1px solid pink;
+    margin-left: 50px;
+}
+
+.ReEs-div-content06 {
+    border: 1px solid yellow;
+    margin-left: 50px;
+}
+
+.ReEs-div-content07 {
+    border: 1px solid rgb(149, 32, 218);
+    margin-left: 50px;
+}
+
+.ReEs-div-content08 {
+    border: 1px solid red;
+    margin-left: 50px;
+}
+
+.ReEs-div-content09 {
+    border: 1px solid brown;
+    margin-left: 50px;
+}
+
+.ReEs-div-content10 {
+    border: 1px solid black;
+    margin-left: 50px;
+}
+
+.ReEs-div-content11 {
+    border: 1px solid black;
+    margin-left: 50px;
+}
+
+.ReEs-tb-th {
+    height: 74px;
+    width: 159px;
+    padding: 20px 0 0 20px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    vertical-align: top;
+    text-align: left;
+    padding-top: 29px;
+    border: 1px solid #ccc;
+}
+
+.ReEs-tb-td {
+    width: 481px;
+    height: 74px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/*end 콘텐츠 영역 css*/
+/*맞춤정보*/
+
+.EzHo-Div01-on {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 50px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #6c93f7;
+    background-color: #FFFFFF;
+    color: #387ccf;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+}
+
+.match-icon i {
+    width: 60px;
+    height: 60px;
+    background: #c8d1d6;
+}
+
+.ReEs-p-detail {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.ReEs-p-detail02 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ReEs-near-Info {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.ReEs-mapH-detail {
+    width: 780px;
+    height: 440px;
+    border: 1px solid black;
+}
+
+.ReEs-graph-01 {
+    margin-top: 30px;
+    width: 440px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+/*추천매물*/
+.container02 {
+    margin-top: 30px;
+}
+
+.ReEs-info-TEXT {
+    margin-top: 150px;
+}
+
+.Re-recommand {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+/* end 부동산 매물 detail css*/
+
+#modal,
+#modal02 {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    left: 0px;
+    z-index: 999;
+}
+
+.modal_header {
+    width: 780px;
+    height: 100px;
+    border: 0px;
+    box-sizing: border-box;
+}
+
+.modal_header_txt {
+    width: 600px;
+    float: left;
+}
+
+.modal_header_txt h2 {
+    margin-left: 340px;
+}
+
+.modal_header_btn {
+    width: 176px;
+    float: left;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+#modal .modal_close_btn,
+#modal02 .modal_close_btn {
+    display: inline-block;
+    width: 20px;
+    margin-left: calc(100% - 50px - 10px);
+    height: auto;
+    position: relative;
+    border: 0px;
+    margin-top: -50px;
+    outline: 0px;
+    background: #fff;
+}
+
+
+
+#modal .modal_content,
+#modal02 .modal_content {
+    width: 789px;
+    height: 700px;
+    margin: auto;
+    padding: 20px 10px;
+    background: #fff;
+    border: 2px solid #666;
+
+}
+
+#modal .modal_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal_content .modal_close_btn img {
+    position: absolute;
+    right: 0;
+    width: 15px;
+    height: auto;
+}
+
+.modal_content02 {
+    width: 300px;
+    height: 400px;
+    padding: 24px;
+    margin-left: 20px;
+    float: left;
+
+}
+
+.modal_content03 {
+    width: 340px;
+    height: 500px;
+    padding: 24px;
+    float: left;
+    margin-left: 15px;
+}
+
+.modal_content02_info {
+    border: 1px solid black;
+    width: 300px;
+    height: 150px;
+}
+
+.modal_content02_phone {
+    margin-top: 25px;
+    border: 1px solid;
+
+}
+
+.modal_content02_agree {
+    border: 1px solid black;
+    margin-top: 25px;
+    width: 300px;
+    height: 200px;
+}
+
+.modal_content03 {
+    padding: 24px;
+    border: 1px solid black purple;
+
+}
+
+.modal_content03_favnum {
+
+    width: 340px;
+    height: 22px;
+    margin-bottom: 35px;
+    border: 1px solid black;
+}
+
+.modal_content03_dateTovisit {
+    border: 1px solid black;
+    width: 300px;
+    margin-bottom: 35px;
+}
+
+.calendar {
+    border: 1px solid black;
+    margin-bottom: 35px;
+}
+
+.modal-month,
+.modal-week,
+.modal-day,
+.modal-time {
+    width: 300px;
+}
+
+.modal_radio_anotherInFo {
+    border: 1px solid black;
+    margin-bottom: 35px;
+}
+
+.summaryInfo {
+    border: 1px solid black;
+    width: 340px;
+
+}
+
+.matchInfo,
+.priceInfo,
+.addressInfo,
+.conditionInfo {
+    width: 165px;
+    height: 54px;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+
+#modal_open_btn02 {
+    border: 1px solid black;
+    width: 789px;
+
+
+}
+
+#modal_open_btn03 {
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-top: 35px;
+}
+
+.Modal-GoTo-book {
+    border: 1px solid blue;
+    margin-left: 240px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    border: 1px solid #2659db;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    font-weight: 800;
+    width: 300px;
+    height: 35px;
+}
+
+.Modal-GoTo-book:hover {
+    border: 1px solid #d4a931;
+    background-color: #FEC72F;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+.GoTo-main {
+    border: 1px solid blue;
+    margin-left: 85px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    border: 1px solid #2659db;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    font-weight: 800;
+    width: 300px;
+    height: 35px;
+}
+
+.GoTo-main:hover {
+    border: 1px solid #d4a931;
+    background-color: #FEC72F;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+.GoTo-mypg {
+    border: 1px solid blue;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    border: 1px solid #2659db;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    font-weight: 800;
+    width: 300px;
+    height: 35px;
+}
+
+.GoTo-mypg:hover {
+    border: 1px solid #d4a931;
+    background-color: #FEC72F;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+#modal_2page {
+    display: none;
+}
+
+/**/
+#modal_content_p2 {
+    display: none;
+}
+
+.ReEs_recheck {
+    border: 1px solid black;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+}
+
+/* end Modal_reservation.css */
+
+/*broker Info css*/
+.ReEs-broker-wrap {
+    border: 1px solid black;
+    width: 328px;
+    float: right;
+    position: sticky;
+    top: 100px;
+    right: 30px;
+    margin-top: 40px;
+    margin-right: 50px;
+
+}
+
+.broker01 {
+    background-color: #4876ef;
+    color: white;
+    font-weight: bold;
+    padding-top: 5px;
+    width: 329px;
+}
+
+.broker02 {
+    padding-top: 7px;
+    background-color: #f8f8f8;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 327px;
+}
+
+.broker01,
+.broker02 {
+
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.detail-price {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-price02 {
+    margin-left: 10px;
+    margin-top: 7px;
+    width: 40px;
+    border: 2px solid #2659db;
+    color: #4876ef;
+    border-radius: 3px;
+
+    font-size: 17px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.detail-price03 {
+    margin-left: 15px;
+    font-size: 33px;
+    color: #444;
+}
+
+.detail-sigudong {
+
+    margin: -13px 0 24px 30px;
+    font-size: 15px;
+}
+
+.ReEs-bropker-td {
+    width: 328px;
+    border-top: 1px solid #bddbf8;
+    border-bottom: 1px solid #bddbf8;
+    text-align: center;
+    padding: 13px;
+}
+
+.broker03 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 25px 20px 0 25px;
+}
+
+.broker03 {
+    display: flex;
+    flex-direction: row;
+}
+
+.ReEs-Person-name {
+    margin-top: 30px;
+}
+
+.ReEs-bk-detail {
+    display: block;
+    flex-direction: column;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.broker04 {
+
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.broker04-ul {
+    margin-top: 5px;
+
+}
+
+.broker04 .broker04-li {
+    list-style: none;
+    font-size: 12px;
+
+}
+
+.broker04 .ReEs-home-name {
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.broker04 .ReEs-description {
+    font-size: 13px;
+}
+
+.broker-table {
+    border: 1px solid #f7f7f7;
+    width: 300px;
+    text-align: center;
+    margin-left: 13px;
+    margin-bottom: 25px;
+    background: #f8f8f8;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 8px;
+
+}
+
+.GoTo-book,
+.GoTo-msg {
+    width: 300px;
+    border: 1px solid black;
+    height: 41px;
+
+}
+
+.GoTo-book {
+    margin-left: 15px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    border: 1px solid #2659db;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    font-weight: 800;
+}
+
+.GoTo-msg {
+    margin-left: 15px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    border: 1px solid #2659db;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    font-weight: 800;
+}
+
+.GoTo-book:hover {
+    border: 1px solid #d4a931;
+    background-color: #FEC72F;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+.GoTo-msg:hover {
+    border: 1px solid #d4a931;
+    background-color: #FEC72F;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+/*end broker Info css*/
+
+/* main-section02 */
+/* 추천 광고 배너 */
+.main-section02{
+    width: 1280px;
+    height: 500px;
+    margin: 120px auto 0;
+    /* border: 1px solid #000; */
+}
+
+.section02-title {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.section02-title > h3 {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 36px;
+    letter-spacing: 2px;
+}
+.section02-title > h3 > a > span {
+    font-weight: 300;
+}
+
+/* 조건 정보 영역 */
+.section02-info {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* .section02-info a{
+    color:#4876ef;
+} */
+
+/* 조건 정보 box */
+.section02-info-box{
+    padding: 8px 12px;
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    font-size: 16px;
+    color: #e7e7e7;
+    user-select: none;
+    margin-right: 10px;
+}
+
+/* 더알아보기 */
+.section02-info-more{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #e7e7e7;
+    cursor: pointer;
+}
+/* 더알아보기 hover */
+.section02-info-more > a:hover{
+    color: #fec72f;
+}
+
+/* 광고 배너 영역 */
+.section02-banner-ul {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.section02-banner-ul > li {
+    width: 280px;
+    height: 360px;
+}
+.section02-banner-ul > li > a {
+    display: block;
+}
+
+.section02-banner-hiden{
+    padding-top: 186px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section02-banner-hiden > div{
+    position: absolute;
+    inset: 0px;
+}
+
+.section02-banner-div{
+    flex: 0 0 auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: rgb(250, 250, 250);
+    background-size: 60px 60px;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-text {
+    margin-top: 20px;
+}
+
+.banner-text-p{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 4px;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    line-height: 19px;
+}
+/* 거래유형 , 가격  */
+.banner-text > h1 {
+    margin-top: 10px;
+    margin-bottom: 12px;
+    color: rgb(34, 34, 34);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 29px;
+    text-align: left;
+}
+
+/* 매물 정보 */
+.banner-text-p2{
+    color: rgb(34, 34, 34);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    font-weight: 100;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+}
+
+.banner-hover{
+    display: block;
+}
+
+/* 광고 배너 사진만 hover  */
+.banner-hover:hover .cover{
+    background-color: rgba(72, 119, 239, 0.3) ;
+}
+.banner-hover-bg{
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 200ms ease-in-out 0s;
+    position: absolute;
+    inset: 0px;
+    z-index: 1;
+}

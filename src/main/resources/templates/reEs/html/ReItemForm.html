@@ -1,245 +1,51 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <link type="text/css" th:href="@{/css/reEs/ReItemForm.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/reEs/ReItemForm.js}" defer></script>
 </head>
-<th:block layout:fragment="css">
-    <style>
-        header{
-            height:90px;
-            border: 1px solid black;
-            }
-
-        .ReEs-insert-wrap{
-            border: 1px solid black;
-            width: 1280px;
-            height: 1700px;
-            margin: auto;
-            background-color: #f8f8f8;
-        }
-        .ReEs-insert-header{
-            width: 1100px;
-            padding-top: 35px;
-            box-sizing: border-box;
-            height:130px;
-            border: 0px solid red;
-            margin: auto;
-        }
-        .ReEs-insert-SetRoom{
-            width: 1000px;
-            padding-top: 25px;
-            box-sizing: border-box;
-            height:90px;
-            border: 0px solid blue;
-            margin: auto;
-
-
-        }
-
-        .ReEs-insert-h2{
-            padding-top: 35px;
-            box-sizing: border-box;
-            font-size: 24px;
-            border: 1px solid black;
-            margin: auto;
-            padding: 20px 0 20px 0;
-        }
-        .ReEs-insert-box{
-            width: 220px;
-            height: 50px;
-            font-size: 20px;
-            padding-top: 5px;
-            text-align: center;
-            display: inline-block;
-            margin-right: 25px;
-            border: 1px solid black;
-            box-sizing: border-box;
-            margin-top: 20px;
-            border-radius: 3px;
-
-        }
-
-        .ReES-insert-form{
-            border: 1px solid black;
-            width: 1000px;
-            height: 1380px;
-            margin: auto;
-            box-sizing: border-box;
-            margin-top: 30px;
-            background-color: #FFFFFF;
-            padding: 15px;
-
-        }
-        .ReEs-insert-table{
-            margin-top: 20px;
-            width: 970px;
-            margin: auto;
-        }
-        .ReEs-insert-tr{
-            box-sizing: border-box;
-            border: 1px solid black;
-            width: auto;
-        }
-        .ReEs-insert-th{
-            height:20px;
-                width: 50px;
-                padding: 20px 0 0 20px;
-                font-weight: 700;
-                font-size: 14px;
-                color: #333;
-                line-height: 20px;
-                vertical-align: top;
-                text-align: left;
-                padding-top: 29px;
-                border: 1px solid black;
-        }
-        .ReEs-insert-td{
-            width:481px;
-                height:74px;
-                text-align: left;
-                border: 1px solid black;
-        }
-         .ReCs-button{
-            box-sizing:border-box;
-            margin-top:8px;
-            margin-right:5px;
-            width:110px;
-            height:35px;
-            border-radius:45px;
-            border:1px solid #b8b7bb;
-            background-color:#b8b7bb;
-            display:inline-block;
-            font-size:12px;
-            padding-top:7px;
-            letter-spacing:2px;
-            font-weight:600;
-            color:#858484;
-            text-align:center;
-        }
-        .ReCs-button:hover{
-            cursor:pointer;
-        }
-
-        .ReEs-insert-div{
-            float:left
-        }
-        .ReEs-insert-td03{
-            width:481px;
-                height:74px;
-                text-align: left;
-
-        }
-        .ReEs-insert-input, .ReEs-insert-select, .ReEs-insert-inputlg{
-            width:100px;
-                height: 44px;
-                padding: 0 14px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                border-radius: 3px;
-                margin-left: 20px;
-        }
-        .ReEs-insert-select{
-            width:130px;
-        }
-        .ReEs-insert-inputlg{
-            width: 160px;
-            margin-left: 10px;
-        }
-        .ReEs-insert-inputsm{
-            width: 30px;
-            height: 44px;
-                padding: 0 14px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                border-radius: 3px;
-                margin-left: 5px;
-        }
-        .ReEs-insert-detailAddress{
-            padding:15px;float: left; width:400px;height:250px;  margin-right: 15px;
-        }
-        .ReEs-insert-map{
-            padding:10px; float: left; width:300px;height:200px; border:1px solid black; margin-top: 15px; border-radius: 3px;
-        }
-        .ReEs-insert-li{
-            list-style: none; font-size:12px
-        }
-        .ReEs-insert-btnsm{
-            width: 73px;
-            height: 44px;
-                padding: 0 14px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                border-radius: 3px;
-                vertical-align: middle;
-                display: inline-flex;
-                padding-top: 10px;
-        }
-        .ReEs-insert-nowfloor , .ReEs-insert-totalfloor{
-            padding:10px 0 6px 0;
-        }
-        p{margin:0 0 0 20px;
-
-        }
-
-    </style>
-    <script type="text/javascript" th:src="@{/js/common/jquery-3.6.0.min.js}"></script>
-    <script>
-        $(document).ready(function(){
-
-            console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
-
-            $('.ReCs-button').click(function(){
-                var tagId = $(this).attr("id");
-                console.log(tagId);
-                var values = $('input[name=' + tagId + ']').attr('value');
-                if(values == 'false'){
-                    $(this).css({'background-color':'#0081cc', 'color':'white'});
-                    $('input[name=' + tagId + ']').attr('value', 'true');
-                }else{
-                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
-                    $('input[name=' + tagId + ']').attr('value', 'false');
-                }
-                values = $('input[name=' + tagId + ']').attr('value');
-                console.log(values);
-            });
-        });
-    </script>
-</th:block>
-<!--<div layout:fragment="content">-->
-<header></header>
+<div layout:fragment="content" class="content">
+<div class="header"></div>
 <div class="ReEs-insert-wrap">
     <div class="ReEs-insert-header">
         <h2 class="ReEs-insert-h2">방 등록하기</h2>
     </div>
-    <div class="ReEs-insert-SetRoom">
-        <div class="ReEs-insert-box ReEs-room01">1단계</div>
-        <div  class="ReEs-insert-box ReEs-room02">2단계</div>
-        <div  class="ReEs-insert-box ReEs-room03">3단계</div>
-        <div class="ReEs-insert-box ReEs-room04" >4단계</div>
-    </div>
+<!--    <div class="ReEs-insert-SetRoom">-->
+<!--        <div class="ReEs-insert-box ReEs-room01">1단계</div>-->
+<!--        <div  class="ReEs-insert-box ReEs-room02">2단계</div>-->
+<!--        <div  class="ReEs-insert-box ReEs-room03">3단계</div>-->
+<!--        <div class="ReEs-insert-box ReEs-room04" >4단계</div>-->
+<!--    </div>-->
     <form class="ReES-insert-form" method="post" role="form"  th:object="${reFormDto}" enctype="multipart/form-data">
-        <h3>방정보</h3>
-
         <input type="hidden" th:field="*{id}">
+<!--        <h3>방정보</h3>-->
+
+<!--        <input type="hidden" th:field="*{id}">-->
 
         <table class="ReEs-insert-table">
 
             <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">부동산정보</th>
+                <th class="ReEs-insert-th">게시자 정보</th>
                 <td class="ReEs-insert-td">
-                    <input class="ReEs-insert-input" type="text" th:field="*{lreaNick}" placeholder="부동산 이름">
-                    <input class="ReEs-insert-input" type="text" th:field="*{lreaName}" placeholder="공인중개사 이름">
+                    <div  class="ReEs-insert-div">
+                    <input class="ReEs-insert-input ReEs-insert-name" type="text" th:field="*{lreaNick}" placeholder="사무실명을 입력해주세요. ex)이지홈부동산">
+                    <input class="ReEs-insert-input ReEs-insert-name" type="text" th:field="*{lreaName}" placeholder="공인중개사님의 이름을 입력해주세요. ex)이지홈">
+                    </div>
                 </td>
+
             </tr>
 
             <tr class="ReEs-insert-tr">
                 <th class="ReEs-insert-th">매물번호</th>
                 <td class="ReEs-insert-td">
+                    <div  class="ReEs-insert-div">
                     <input class="ReEs-insert-input" type="number" th:field="*{reNum}" placeholder="매물번호">
                     <p th:if="${#fields.hasErrors('reNum')}" th:errors="*{reNum}" class="fieldError">Incorrect data</p>
+                    </div>
                 </td>
 
             </tr>
@@ -249,19 +55,19 @@
                     <!--빌라/주택일 때 -> 원룸, 투룸,쓰리룸-->
                     <div  class="ReEs-insert-div">
                         <select class="ReEs-insert-select" id ="room01" th:field="*{rehouseType}">
-                            <option value="oneRoom">원룸</option>
-                            <option value="twoRoom">투룸</option>
-                            <option value="threeRoom">오피스텔</option>
-                            <option value="apartment">아파트</option>
-                            <option value="opice">상가/사무실</option>
+                            <option value="원룸">원룸</option>
+                            <option value="투룸">투룸</option>
+                            <option value="오피스텔">오피스텔</option>
+                            <option value="아파트">아파트</option>
+                            <option value="상가/사무실">상가/사무실</option>
                         </select>
                         <p th:if="${#fields.hasErrors('rehouseType')}" th:errors="*{rehouseType}" class="fieldError">Incorrect data</p>
                     </div>
                     <div  class="ReEs-insert-div">
                         <select class="ReEs-insert-select" id ="room03" th:field="*{retrType}">
-                            <option value="Jeonse">전세</option>
-                            <option value="monthly_Rent">월세</option>
-                            <option value="buying">매매</option>
+                            <option value="전세">전세</option>
+                            <option value="월세">월세</option>
+                            <option value="매매">매매</option>
                         </select>
 
                         <p th:if="${#fields.hasErrors('retrType')}" th:errors="*{retrType}" class="fieldError">Incorrect data</p>
@@ -289,14 +95,13 @@
                         <p  th:if="${#fields.hasErrors('reJeonse')}" th:errors="*{reJeonse}" class="fieldError">Incorrect data</p>
                     </div>
                     <div class="ReEs-insert-div">
-                        <input class="ReEs-insert-input" type="number" th:field="*{reAdmn_fee}" placeholder="관리비">
+                        <input class="ReEs-insert-input" type="number" th:field="*{reAdmn_fee}" placeholder="관리비/15를 입력 시, 15만원">
                         <p  th:if="${#fields.hasErrors('reAdmn_fee')}" th:errors="*{reAdmn_fee}" class="fieldError">Incorrect data</p>
                     </div>
                     <div class="ReEs-insert-div">
                         <input class="ReEs-insert-input" type="number" th:field="*{reDeposit}" placeholder="보증금">
                         <p th:if="${#fields.hasErrors('reDeposit')}" th:errors="*{reDeposit}" class="fieldError">Incorrect data</p>
                     </div>
-
                 </td>
 
             </tr>
@@ -304,51 +109,102 @@
                 <th class="ReEs-insert-th">소재지</th>
                 <td class="ReEs-insert-td">
                     <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="*{reSido}">
-                            <option value="-">시/도</option>
-                            <option value="sodo01">경기도</option>
-                            <option value="sodo02">서울특별시</option>
-                        </select>
-                        <p th:if="${#fields.hasErrors('reSido')}" th:errors="*{reSido}" class="fieldError">Incorrect data</p>
-                    </div>
-
-                    <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="*{reGungu}">
-                            <option value="-">시/군/구</option>
-                            <option value="gungu01">금천구</option>
-                            <option value="gungu02">소사구</option>
-                            <option value="gungu03">송파구</option>
-                        </select>
-                        <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>
-                    </div>
-
-                    <div class="ReEs-insert-div">
-                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="*{reDong}">
-                            <option value="-">읍/면/동</option>
-                            <option value="dong01">가산동</option>
-                            <option value="dong02">합정동</option>
-                        </select>
-                        <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>
-                    </div>
-                </td>
-            </tr>
-            <tr class="ReEs-insert-tr">
-                <th class="ReEs-insert-th">상세주소</th>
-                <td class="ReEs-insert-td">
-                    <div class="ReEs-insert-detailAddress">
-                        <input class="ReEs-insert-inputlg" type="text" th:field="*{reDtl_Adr}" placeholder="동, 호수를 입력해주세요">
-                        <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>
-                        <ul class="ReEs-insert-ul" style="margin-left: -40px;">
-                            <li class="ReEs-insert-li">1.상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
-                            <li class="ReEs-insert-li">2.상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
+                        <p>시/도 입력 칸을 누르면 주소찾기가 가능합니다.</p>
+                        <div class="ReEs-insert-div2">
+                            <input type="text" id="reSido" th:field="*{reSido}" value="" placeholder="시/도" onclick="findAddr()">
+                            <input type="text" id="reGungu" th:field="*{reGungu}" value="" placeholder="군/구">
+                            <input type="text" id="reDong" th:field="*{reDong}" value="" placeholder="동">
+                            <input type="text" id="reDtl_Adr" placeholder="상세주소를 입력해주세요." value="" th:field="*{reDtl_Adr}">
+                        </div>
+                        <ul class="ReEs-insert-ul">
+                            <li class="ReEs-insert-li">1.&nbsp;상세주소는 검증시 사용되며 고객에게는 노출되지 않습니다.</li>
+                            <li class="ReEs-insert-li">2.&nbsp;상세주소가 정확하지 않으면 등기부등본 조회시 등록이 취소됩니다.</li>
                             <li class="ReEs-insert-li">* 동/호 정보는 수정이 불가능합니다. 등기부에 나와있는 동/호수를 정확히 입력해주세요</li>
                             <li class="ReEs-insert-li">* 상세주소부분에 등기부등본 상의 부동산 소재지번 내용을 입력하시면 빠르고 정확한 매물 등록이 가능합니다.</li>
                         </ul>
+                        <div class="ReEs-insert-map" id = "map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+                        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=41ec70f03f68b4fdbd6ba07942477fec&libraries=services"></script>
+                        <script>
+                                function findAddr(){
+                                new daum.Postcode({
+                                    oncomplete: function(data) {
+
+                                        console.log(data);
+
+                                        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                                        // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+
+                                        var sido = data.sido;   // 시, 도 변수
+                                        var sigungu = data.sigungu; // 도로명 주소 변수
+                                        var bname = data.bname; // 동 주소 변수
+                                        // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                            document.getElementById('reSido').value = sido; //시, 도
+
+                                            document.getElementById("reGungu").value = sigungu; // 군, 구
+
+                                            document.getElementById("reDong").value = bname; // 동 이름
+
+                                    }
+                                }).open();
+                            }
+                        </script>
+                        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                        </script>
+                        <!--                        <select class="ReEs-insert-select" id ="ReES-insert-sido" th:field="*{reSido}">-->
+                        <!--                            <option value="-">시/도</option>-->
+                        <!--                            <option value="서울특별시">서울특별시</option>-->
+                        <!--                            <option value="부산광역시">부산광역시</option>-->
+                        <!--                            <option value="대구광역시">대구광역시</option>-->
+                        <!--                            <option value="인천광역시">인천광역시</option>-->
+                        <!--                            <option value="광주광역시">광주광역시</option>-->
+                        <!--                            <option value="대전광역시">대전광역시</option>-->
+                        <!--                            <option value="울산광역시">울산광역시</option>-->
+                        <!--                            <option value="세종특별자치시">세종특별자치시</option>-->
+                        <!--                            <option value="경기도">경기도</option>-->
+                        <!--                            <option value="강원도">강원도</option>-->
+                        <!--                            <option value="충청북도">충청북도</option>-->
+                        <!--                            <option value="충청남도">충청남도</option>-->
+                        <!--                            <option value="전라북도">전라북도</option>-->
+                        <!--                            <option value="전라남도">전라남도</option>-->
+                        <!--                            <option value="경상북도">경상북도</option>-->
+                        <!--                            <option value="경상남도">경상남도</option>-->
+                        <!--                            <option value="제주특별자치도">제주특별자치도</option>-->
+                        <!--                        </select>-->
+                        <!--                        <p th:if="${#fields.hasErrors('reSido')}" th:errors="*{reSido}" class="fieldError">Incorrect data</p>-->
+                        <!--                    </div>-->
+
+                        <!--                    <div class="ReEs-insert-div">-->
+                        <!--                        <select class="ReEs-insert-select" id ="ReES-insert-gungu" th:field="*{reGungu}">-->
+                        <!--                            <option value="-">시/군/구</option>-->
+                        <!--                            <option value="gungu01">금천구</option>-->
+                        <!--                            <option value="gungu02">금천구</option>-->
+                        <!--                            <option value="gungu03">금천구</option>-->
+                        <!--                        </select>-->
+                        <!--                        <p th:if="${#fields.hasErrors('reGungu')}" th:errors="*{reGungu}" class="fieldError">Incorrect data</p>-->
+                        <!--                    </div>-->
+
+                        <!--                    <div class="ReEs-insert-div">-->
+                        <!--                        <select class="ReEs-insert-select" id ="ReES-insert-dong" th:field="*{reDong}">-->
+                        <!--                            <option value="-">읍/면/동</option>-->
+                        <!--                            <option value="dong01">가산동</option>-->
+                        <!--                            <option value="dong02">가산동</option>-->
+                        <!--                        </select>-->
+                        <!--                        <p th:if="${#fields.hasErrors('reDong')}" th:errors="*{reDong}" class="fieldError">Incorrect data</p>-->
                     </div>
-                    <div class="ReEs-insert-map">등록하실 매물의 위치를 지도로 표시합니다</div>
                 </td>
             </tr>
+<!--            <tr class="ReEs-insert-tr">-->
+<!--                <th class="ReEs-insert-th">상세주소</th>-->
+<!--                <td class="ReEs-insert-td">-->
+<!--                    <div class="ReEs-insert-detailAddress">-->
+<!--&lt;!&ndash;                        <input class="ReEs-insert-inputlg" type="text" th:field="*{reDtl_Adr}" placeholder="동, 호수를 입력해주세요">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:if="${#fields.hasErrors('reDtl_Adr')}" th:errors="*{reDtl_Adr}" class="fieldError">Incorrect data</p>&ndash;&gt;-->
+<!--                       -->
+<!--                    </div>-->
 
+<!--                </td>-->
+<!--            </tr>-->
             <tr class="ReEs-insert-tr">
                 <th class="ReEs-insert-th">방정보</th>
                 <td class="ReEs-insert-td"><!--타임리프로 if 조건문 달기 -->
@@ -376,21 +232,24 @@
                             <p th:if="${#fields.hasErrors('reFlr')}" th:errors="*{reFlr}" class="fieldError">Incorrect data</p>
                         </div>
                         <div class="ReEs-insert-div">
-                            <input class="ReEs-insert-input" type="number" th:field="*{reTotalFlr}" placeholder="전체층수">
+                            <input class="ReEs-insert-input" type="number" th:field="*{reTotalFlr}" placeholder="전체 층수">
                             <p th:if="${#fields.hasErrors('reTotalFlr')}" th:errors="*{reTotalFlr}" class="fieldError">Incorrect data</p>
                         </div>
-                        <select class="ReEs-insert-select" th:field="*{reFlrType}">
-                            <option value="-">기타 층수</option>
-                            <option value="flr01">선택안함</option>
-                            <option value="flr02">복층</option>
-                            <option value="flr03">반지하</option>
-                            <option value="flr04">옥탑방</option>
-                        </select>
+                        <div>
+                            <div class="ReEs-insert-ex"></div>
+                            <select class="ReEs-insert-select" th:field="*{reFlrType}">
+                                <option value="-">기타 층수</option>
+                                <option value="flr01">선택안함</option>
+                                <option value="flr02">복층</option>
+                                <option value="flr03">반지하</option>
+                                <option value="flr04">옥탑방</option>
+                            </select>
+                        </div>
                         <p th:if="${#fields.hasErrors('reFlrType')}" th:errors="*{reFlrType}" class="fieldError">Incorrect data</p>
-<!--                        <input th:checked="*{reSecndFlr eq '02'}" type='radio' value="02" name='fruits'/>복층-->
-<!--                        <input th:checked="*{reSecndFlr eq '03'}" type='radio' value="03" name='fruits'/>옥탑방-->
-<!--                        <input th:checked="*{reSecndFlr eq '04'}" type='radio' value="04" name='fruits'/>반지하-->
-<!--                        <input th:checked="*{reSecndFlr eq '01'}" type='radio' value="01" name='fruits'/>선택안함-->
+                        <!--                        <input th:checked="*{reSecndFlr}" autocomplete="off" name="fruits" type='radio'/>복층-->
+                        <!--                        <input th:checked="*{reTopFlr}" autocomplete="off" name="fruits" type='radio'/>옥탑방-->
+                        <!--                        <input th:checked="*{reUndrflr}" autocomplete="off" name="fruits" type='radio'/>반지하-->
+                        <!--                        <input name='fruits' type='radio'/>선택안함-->
                     </div>
                 </td>
             </tr>
@@ -496,32 +355,32 @@
             </tr>
 
             <tr class="ReEs-insert-tr">
-                <!-- for insert -->
-                <div th:if="${#lists.isEmpty(reFormDto.reImgDtoList)}">
-                    <div class="form-group" th:each="num: ${#numbers.sequence(1,5)}">
-                        <div class="custom-file img-div">
-                            <input type="file" class="custom-file-input" name="itemImgFile">
-                            <label class="custom-file-label" th:text="상품이미지 + ${num}"></label>
+                <th class="ReEs-insert-th">매물 사진</th>
+                <td class="ReEs-insert-td">
+                    <div th:if="${#lists.isEmpty(reFormDto.reImgDtoList)}">
+                        <div class="form-group" th:each="num: ${#numbers.sequence(1,5)}">
+                            <div class="custom-file img-div">
+                                <input type="file" class="custom-file-input" name="itemImgFile">
+                                <label class="custom-file-label" th:text="상품이미지 + ${num}"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </td>
+
             </tr>
-<!--            <tr class="ReEs-insert-tr">-->
-<!--                &lt;!&ndash; for update &ndash;&gt;-->
-<!--                <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
-<!--                    <div class="form-group" th:each="reImgDto, status: ${reFormDto.reImgDtoList}">-->
-<!--                        <div class="custom-file img-div">-->
-<!--                            <input type="file" class="custom-file-input" name="itemImgFile">-->
-<!--                            &lt;!&ndash; unique item id &ndash;&gt;-->
-<!--                            <input type="hidden" th:filed="${reImgDto.id}">-->
-<!--                            <label class="custom-file-label" th:text="${not #strings.isEmpty(reImgDto.oriImgName)} ? ${reImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </tr>-->
-
-
-
+            <!--                <tr class="ReEs-insert-tr">-->
+            <!--                    &lt;!&ndash; for update &ndash;&gt;-->
+            <!--                    <div th:if = "${not #lists.isEmpty(reFormDto.reImgDtoList)}">-->
+            <!--                        <div class="form-group" th:each="reImgDto, status: ${reFormDto.itemImgDtoList}">-->
+            <!--                            <div class="custom-file img-div">-->
+            <!--                                <input type="file" class="custom-file-input" name="itemImgFile">-->
+            <!--                                &lt;!&ndash; unique item id &ndash;&gt;-->
+            <!--                                <input type="hidden" name="itemImgIds" th:value="${itemImgDto.id}">-->
+            <!--                                <label class="custom-file-label" th:text="${not #strings.isEmpty(itemImgDto.oriImgName)} ? ${itemImgDto.oriImgName} : '상품이미지' + ${status.index+1}"></label>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </tr>-->
         </table>
         <div style="margin:auto; width:150px; ">
             <div th:if="${#strings.isEmpty(reFormDto.id)}"  style="float:left;">
@@ -534,8 +393,5 @@
         </div>
     </form>
 </div>
-
-
-
-<!--</div>-->
+</div>
 </html>
