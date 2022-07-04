@@ -66,6 +66,8 @@ public class MapFilter {
     private boolean park ;// 공원
     private boolean hodi ; // 주택지구
 
+    private boolean boulevard ; //대도로변
+
 
     @OneToOne
     @JoinColumn(name = "member_id")
@@ -119,6 +121,7 @@ public class MapFilter {
         this.subway = subway  ; // 역세권
         this.park = park  ; // 공원
         this.hodi = hodi  ; // 주택지구
+        this.boulevard = boulevard; // 도로변
     }
 
 

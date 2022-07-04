@@ -536,7 +536,7 @@
 <!--            <div th:if="${#strings.isEmpty(reFormDto.id)}"  style="float:left;">-->
 <!--                <button th:formaction="@{/admin/item/new}" type="submit" class="btn">저장</button>-->
 <!--            </div>-->
-            <div th:unless="${#strings.isEmpty(reFormDto.id)}" style="float:left;">
+            <div th:unless="${#strings.isEmpty(ReMncsDto.id)}" style="float:left;">
                 <button th:formaction="@{'/admin/item/update/' + *{id} }" type="submit" class="btn btn-primary">수정</button>
             </div>
         </div>

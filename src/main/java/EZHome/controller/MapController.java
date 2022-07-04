@@ -95,7 +95,7 @@ public class MapController {
         System.out.println("완료!");
         model.addAttribute("ReMncsDto", reMncsDto);
 //        return "common/main_content"; // 에러 안남
-        return "reEs/html/ReEs"; // 에러남
+        return "reEs/html/ReEs";
     }
 
 
@@ -106,6 +106,57 @@ public class MapController {
         Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
         model.addAttribute("member", member);
-        return "reEs/html/InfoDetail";
+        return "reEs/html/ReEsUpdate";
     }
+
+
+
+
+
+    // 회원의 지도 조건 정보를 조회하는 메소드를 호출하는 controller
+    @GetMapping(value = "/map/save/{member_id}")
+    public String getTo(@PathVariable("member_id") Long  id,
+                        Model model){
+        try {
+            ReMncsDto reMncsDto = conditionService.getMapCondi(id);
+            System.out.println("************여기는 조건 조회 controller*******");
+            System.out.println("reMncsDto: " +reMncsDto.toString() );
+            model.addAttribute("reMncsDto", reMncsDto);
+        }catch (Exception e){
+            model.addAttribute("errorMessage", "존재하지 않는 회원입니다.");
+//            return "member/memberLoginForm" ; // 로그인으로 이동
+            return "reEs/html/ReEsUpdate"; // 업데이트 페이지로 이동
+        }
+
+        return "reEs/html/ReEsUpdate"; // 업데이트 페이지로 이동
+    }
+
+
+
+    // 저장된 회원의 조건을 수정하고 저장하는 메소드를 호출하는 controller
+    @PostMapping(value = "/map/save/{member_id}")
+    public String savedCondi(ReMncsDto reMncsDto, Model model,
+                             @PathVariable("member_id") Long member_id, Principal principal ){
+
+        // 로그인한 인증된 사용자에 대한 정보를 구할 수 있다.
+        String email = principal.getName();
+
+        try {
+            conditionService.updateFilter(reMncsDto, member_id, email);
+            System.out.println("db에 변경 조건이 저장 되었습니다. 얏호 집에 가세요");
+        }catch (Exception e){
+            System.out.println("==========================================================");
+            System.out.println(" 조건 updateFilter 서비스로 들어가던 try catch에 걸렸습니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage", "조건 업데이트 등록 중에 오류가 발생했습니다.");
+            e.printStackTrace();
+            return "/map/save/" + member_id ;
+        }
+        return "reEs/html/ReEs"; //어디로 가야되지 ? 조건이있는 곳으로 가자 일단.
+
+    }
+
+
+
+
 }
