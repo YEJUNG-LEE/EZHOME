@@ -21,19 +21,16 @@
 
 
     <link th:href="@{/css/reEs/ReDetail_Style2.css}" rel="stylesheet">
-<!--    <link th:href="@{/css/reEs/Side_broker_Info.css}" rel="stylesheet">-->
+    <link th:href="@{/css/reEs/ReEs_CS.css}" rel="stylesheet">
 <!--    <link th:href="@{/css/reEs/Modal_reservation.css}" rel="stylesheet">-->
 <!--    <link th:href="@{/css/reEs/ReEs_reco.css}" rel="stylesheet">-->
 
-
+    <script type="text/javascript" th:src="@{/js/reEs/ReItemForm.js}" defer></script>
     <script th:src="@{http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
     <link th:src="@{https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css}">
     <script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
-    <style>
 
-
-    </style>
 
     <script>
         $(document).ready(function () {
@@ -48,7 +45,45 @@
                 }
             });
 
+
+            console.log(typeof($('input[value="true"]')));
+            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
+
+            $('.ReCs-button').click(function(){
+                var tagId = $(this).attr("id");
+                console.log(tagId);
+                var values = $('input[name=' + tagId + ']').attr('value');
+                if(values == 'false'){
+                    $(this).css({'background-color':'#0081cc', 'color':'white'});
+                    $('input[name=' + tagId + ']').attr('value', 'true');
+                }else{
+                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
+                    $('input[name=' + tagId + ']').attr('value', 'false');
+                }
+                values = $('input[name=' + tagId + ']').attr('value');
+                console.log(values);
+            });
+             $('.ReCs-buttons').click(function(){
+                var tagId = $(this).attr("id");
+                var tagName = $(this).parent().attr("id");
+                console.log(tagId);
+                $('input[name=' + tagName + ']').attr('value', tagId);
+                $(this).css({'background-color':'#0081cc', 'color':'white'});
+                $(this).siblings().css({'background-color':'#b8b7bb', 'color':'#858484'});
+                values = $('input[name=' + tagName + ']').attr('value');
+                console.log(tagName + " : " + values);
+            })
+
+
+
+
+
+
         });
+
+
+
+
     </script>
 </head>
 
@@ -396,22 +431,103 @@
                     </div>
                     <!--// ReEs-div-content02 -->
                     <h2 class="ReEs-h2-detail" id="section2">맞춤정보</h2>
-                    <!-- ReEs-div-content03 맞춤정보 조건-->
                     <div class="ReEs-div-content03">
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
+                        <!-- ReEs-div-content03 맞춤정보 조건-->
+                        <div class="ReCs-button" id="reNew">신축
+                            <input type="hidden" th:field="${DtlItem.reNew}" name="reNew" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reFull">풀옵션
+                            <input type="hidden" th:field="${DtlItem.reFull}" name="reFull" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reDebt">대출없음
+                            <input type="hidden" th:field="${DtlItem.reDebt}" name="reDebt" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reElvtr">엘리베이터
+                            <input type="hidden" th:field="${DtlItem.reElvtr}" name="reElvtr" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="rePet">반려동물
+                            <input type="hidden" th:field="${DtlItem.rePet}" name="rePet" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reScrty">보안기능
+                            <input type="hidden" th:field="${DtlItem.reScrty}" name="reScrty" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reParking">주차장
+                            <input type="hidden" th:field="${DtlItem.reParking}" name="reParking" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reSouth">남향
+                            <input type="hidden" th:field="${DtlItem.reSouth}" name="reSouth" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reBug">벌레퇴치업체
+                            <input type="hidden" th:field="${DtlItem.reBug}" name="reBug" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reWoman">여성전용
+                            <input type="hidden" th:field="${DtlItem.reWoman}" name="reWoman" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reForest">숲View
+                            <input type="hidden" th:field="${DtlItem.reForest}" name="reForest" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reRiver">리버View
+                            <input type="hidden" th:field="${DtlItem.reRiver}" name="reRiver" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reOcean">오션View
+                            <input type="hidden" th:field="${DtlItem.reOcean}" name="reOcean" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reCity">시티View
+                            <input type="hidden" th:field="${DtlItem.reCity}" name="reCity" value="false"/>
+                        </div>
                     </div>
                     <!--// ReEs-div-content03 맞춤정보 조건-->
                     <h2 class="ReEs-h2-detail">카테고리조건</h2>
                     <!-- ReEs-div-content04 카테고리 조건-->
                     <div class="ReEs-div-content04">
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                        <div class="ReCs-button" id="rePublic">공공기관
+                            <input type="hidden" th:field="${DtlItem.rePublic}" name="rePublic" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reMedic">의료시설
+                            <input type="hidden" th:field="${DtlItem.reMedic}" name="reMedic" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reCnvn">편의시설
+                            <input type="hidden" th:field="${DtlItem.reCnvn}" name="reCnvn" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reSchol">학교주변
+                            <input type="hidden" th:field="${DtlItem.reSchol}" name="reSchol" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reTeen">10대거주
+                            <input type="hidden" th:field="${DtlItem.reTeen}" name="reTeen" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reTwen">20대거주
+                            <input type="hidden" th:field="${DtlItem.reTwen}" name="reTwen" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reThirty">30대거주
+                            <input type="hidden" th:field="${DtlItem.reThirty}" name="reThirty" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reFourty">40대거주
+                            <input type="hidden" th:field="${DtlItem.reFourty}" name="reFourty" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reFifty">50대거주
+                            <input type="hidden" th:field="${DtlItem.reFifty}" name="reFifty" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reSixty">60대이상
+                            <input type="hidden" th:field="${DtlItem.reSixty}" name="reSixty" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reMainroad">대로변
+                            <input type="hidden" th:field="${DtlItem.reMainroad}" name="reMainroad" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reRocket">로켓배송
+                            <input type="hidden" th:field="${DtlItem.reRocket}" name="reRocket" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reFlat">경사완만
+                            <input type="hidden" th:field="${DtlItem.reFlat}" name="reFlat" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reSubway">역세권
+                            <input type="hidden" th:field="${DtlItem.reSubway}" name="reSubway" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="rePark">공원
+                            <input type="hidden" th:field="${DtlItem.rePark}" name="rePark" value="false"/>
+                        </div>
+                        <div class="ReCs-button" id="reRsdnt_Area">주택지구
+                            <input type="hidden" th:field="${DtlItem.reRsdnt_Area}" name="reRsdnt_Area" value="false"/>
+                        </div>
                     </div>
                     <!--// ReEs-div-content04 카테고리 조건-->
                     <h2 class="ReEs-h2-detail">매물관련정보</h2>

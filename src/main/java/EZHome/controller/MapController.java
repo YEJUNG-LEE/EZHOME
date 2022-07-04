@@ -13,8 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -46,7 +45,8 @@ public class MapController {
 //        return "reEs/html/ReEs";
 //    }
 
-    @GetMapping(value="/map")
+//    @GetMapping(value="/map")
+    @RequestMapping(value = "/map", method = {RequestMethod.POST, RequestMethod.GET})
     public String main(Model model){
         try{
             List<MapMainDto> mapMainDtoList = reService.getItemAll(); //id로 기존에 상품 정보를 formdto에 담기
@@ -65,14 +65,14 @@ public class MapController {
         return "reEs/html/ReEs";
     }
 
-
     // 메인 화면에서 상품이미지를 클릭하면 상품 상세페이지로 이동합니다.
     @GetMapping(value="/map/{id}")
     public String gotoDtl(@PathVariable("id") Long DtlId, Model model ){
-        ReFormDto reFormDto = reService.getItemDtl(DtlId);
+        ReFormDto reFormDto = reService.getItemUpdate(DtlId);
         Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
         model.addAttribute("member", member);
         return "reEs/html/InfoDetail";
     }
+
 }
