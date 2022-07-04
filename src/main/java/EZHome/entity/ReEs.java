@@ -30,6 +30,7 @@ public class ReEs extends BaseEntity {
     private String retrType ; // 매매 유형
 
     @Column(nullable = false, length = 300)
+
     private String roadAddress; // 시도
 
     @Column(nullable = false, length = 300)
@@ -46,7 +47,8 @@ public class ReEs extends BaseEntity {
     @Column(nullable = false, length = 300)
     private String reFlrType ; // 층수별 유형 (복층, 옥탑방, 반지하)
 
-//    private Integer reSecndFlr ; //  복층
+
+//    private boolean reSecndFlr ; //  복층
 //    private boolean reTopFlr ; // 옥탑방
 //    private boolean reUndrflr ; // 반지하
 
@@ -90,6 +92,7 @@ public class ReEs extends BaseEntity {
 
 
         this.roadAddress = reFormDto.getRoadAddress(); //시도
+
         this.reDtl_Adr = reFormDto.getReDtl_Adr(); //상세주소
 
         this.reRoomcnt = reFormDto.getReRoomcnt(); // 방개수
@@ -98,10 +101,10 @@ public class ReEs extends BaseEntity {
 
         this.reFlr = reFormDto.getReFlr(); // 층수
         this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
-        this.reFlrType = reFormDto.getReFlrType();
+        this.reFlrType = reFormDto.getReFlrType(); //기타 층수
 
         // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
-//        this.reSecndFlr = reFormDto.getReSecndFlr(); // 복층
+//        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
 //        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
 //        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
 
