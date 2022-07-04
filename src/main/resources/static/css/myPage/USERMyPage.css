@@ -1,0 +1,406 @@
+@import url(/css/common/reset.css);
+                         /* common 에 reset.css 임포트*/
+
+            header{width:100%;
+                 height:90px;
+                 background-color:#6c93f7;}
+
+             .MyPa-div-all{width:1280px;
+                         height:1000px;
+                         border:0px solid black;
+                         margin:auto;
+                         box-sizing:border-box;}
+
+             .MyPa-div-con-all{width:1204px;
+                             margin:auto;
+                             border:0px solid rgb(48, 67, 240);
+                             box-sizing:border-box;}
+
+             /* 왼쪽 사이드바 영역 css */
+             .MyPa-div-all-pro{width:144px;
+                             height:800px;
+                             margin-top:30px;
+                             border:0px solid black;
+                             float:left;
+                             box-sizing:border-box;}
+
+             /* 왼쪽 사이드바 프로필 사진 영역 css */
+             .MyPa-div-pro{width:144px;
+                         height:215px;
+                         border-radius:6px;
+                         border:1px solid #94BBCC;
+                         box-sizing:border-box;}
+
+             .MyPa-div-pro01{width:144px;
+                             height:124px;
+                             border:0px solid black;}
+
+             .MyPa-div-pro-pic{width:62px;
+                             height:62px;
+                             border-radius:6px;
+                             border:1px solid #94BBCC;
+                             box-sizing:border-box;
+                             margin-left:41px;
+                             margin-top:40px;
+                             background-image:url(/images/pro.jpg);
+                             background-size:cover;}
+
+             .MyPa-pro-nam{font-size:15px;
+                         font-weight:600;
+                         margin-top:4px;
+                         color:#3A6BA5;
+                         text-align:center;}
+
+             .MyPa-pro-rat{font-size:13px;
+                         text-align:center;
+                         color:#858484;}
+
+
+             .MyPa-div-pro02{width:142px;
+                             height:49px;
+                             border-bottom-left-radius:5px;
+                             border-bottom-right-radius:5px;
+                             background-color:#4876ef;}
+
+             /* 왼쪽 사이드바 메뉴 영역 css */
+             .MyPa-div-all-pag{width:144px;
+                             height:800px;
+                             border:0px solid black;
+                             box-sizing:border-box;}
+
+             .MyPa-div-pag{width:144px;
+                         height:510px;
+                         border:0px solid black;
+                         box-sizing:border-box;
+                         margin-top:16px;
+                         padding-top:10px;
+                         border-radius:6px;
+                         background-color:#4876ef;}
+
+             .MyPa-pag-tit{font-size:14px;
+                         font-weight:600;
+                         color:#FFFFFF;
+                         margin-top:20px;
+                         margin-left:10px;}
+
+             .MyPa-pag-con{font-size:12px;
+                         color:#FFFFFF;
+                         margin-left:17px;
+                         margin-top:10px;}
+
+             /* 오른쪽 콘텐츠 영역 css */
+             .MyPa-div-con{width:1024px;
+                         height:800px;
+                         border:0px solid black;
+                         margin-left:34px;
+                         float:left;
+                         box-sizing:border-box;}
+
+             .MyPa-div-tit{width:1024px;
+                         border:0px solid black;
+                         box-sizing:border-box;}
+
+             .MyPa-tit-font{font-size:30px;
+                 font-weight:bold;
+                 margin-left:20px;
+                 margin-top:50px;
+                 padding-bottom:20px;}
+
+             /* 내정보 text 영역 css */
+             .MyPa-div-con-inf{width:1024px;
+                             height:158px;
+                             border:0px solid black;}
+
+             .MyPa-div-inf-top{width:1024px;
+                             height:78px;
+                             border:0px solid black;
+                             border-top-right-radius:6px;
+                             border-top-left-radius:6px;
+                             box-sizing:border-box;
+                             background-color:#4876ef;}
+
+             .MyPa-inf-tit{font-size:20px;
+                         font-weight:700;
+                         padding-top:25px;
+                         color:#FFFFFF;
+                         margin-left:20px;}
+
+             .MyPa-div-inf-bot{width:1024px;
+                             height:80px;
+                             border:0px solid black;
+                             box-sizing:border-box;}
+
+            .ReSi-ul-inf{width:1024px;
+                        height:80px;
+                        list-style:none;
+                        float:left;}
+
+            .ReSi-li-inf{width:170.6px;
+                        height:80px;
+                        float:left;
+                        border-top:none;
+                        border:1px solid #94BBCC;
+                        border-left:none;
+                        box-sizing:border-box;}
+
+            .ReSi-inf-con1{font-size:14px;
+                        font-weight:700;
+                        padding-top:20px;
+                        margin-left:20px;}
+
+            .ReSi-inf-con2{font-size:24px;
+                        font-weight:700;
+                        margin-left:24px;
+                        color:#3A6BA5;}
+
+            .ReSi-ul-inf>li:first-child{border-left:1px solid #94BBCC;
+                                        border-bottom-left-radius:6px;}
+            .ReSi-ul-inf>li:last-child{border-bottom-right-radius:6px;}
+
+            /* 내 맞춤 조건 영역 css */
+            .ReSi-div-cat-mes{width:1024px;
+                            height:368px;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-div-cat{width:1024px;
+                        height:362px;
+                        float:left;
+                        border:0px solid black;
+                        box-sizing:border-box;}
+
+            .ReSi-div-cat-tit{width:1022px;
+                        height:40px;
+                        border:0px solid black;
+                        box-sizing:border-box;}
+
+            .ReSi-tit-p{font-size:18px;
+                        font-weight:700;
+                        float:left;
+                        margin-left:5px;
+                        padding-top:9px;}
+
+            .ReSi-out{font-size:12px;
+                    font-weight:900;
+                    color:#FEC72F;
+                    float:right;
+                    margin-right:10px;
+                    padding-top:17px;}
+
+            .ReSi-div-cat-con{width:1024px;
+                            height:107px;
+                            overflow:hidden;
+                            border:1px solid #94BBCC;
+                            box-sizing:border-box;}
+
+            .ReCs-button{
+                        box-sizing:border-box;
+                        margin-top:8px;
+                        margin-right:5px;
+                        width:110px;
+                        height:35px;
+                        border-radius:45px;
+                        border:1px solid #b8b7bb;
+                        background-color:#b8b7bb;
+                        display:inline-block;
+                        font-size:12px;
+                        padding-top:7px;
+                        letter-spacing:2px;
+                        font-weight:600;
+                        color:#858484;
+                        text-align:center;
+                    }
+                    .ReCs-button:hover{
+                        cursor:pointer;
+                    }
+
+            /* 내가 찜한 매물 목록 영역 css */
+            .ReSi-div-sal{width:1024px;
+                        height:264px;
+                        margin-top:70px;
+                        overflow:hidden;
+                        border:0px solid black;
+                        box-sizing:border-box;}
+
+            .ReSi-div-sal-tit{width:1024px;
+                            height:40px;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-ul-sal{width:1024px;
+                        height:224px;
+                        float:left;
+                        list-style:none;}
+
+            .ReSi-li-sal{width:156px;
+                        height:224px;
+                        float:left;
+                        margin-left:17.6px;
+                        position:relative;
+                        border-radius:6px;
+                        border:1px solid #bddbf8;
+                        box-sizing:border-box;}
+
+            .ReSi-ul-sal>li:first-child{margin-left:0;}
+
+            .ReSi-sal-tit-p{font-size:13px;
+                            font-weight:800;
+                            color:#3A6BA5;
+                            padding-top:4px;
+                            padding-left:8px;}
+
+            .ReSi-sal-con-pdiv{width:130px;
+                            height:33px;
+                            margin-top:3px;
+                            margin-left:12px;
+                            overflow:hidden;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-sal-con-p{font-size:12px;
+                            color:#858484;
+                            word-break:break-all;}
+
+            /* 팔로잉 공인중개사 영역 css*/
+            .ReSi-div-fol{width:1024px;
+                        height:196px;
+                        margin-top:64px;
+                        overflow:hidden;
+                        border:0px solid black;
+                        box-sizing:border-box;}
+
+            .ReSi-div-fol-tit{width:1024px;
+                            height:40px;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-ul-fol{width:1024px;
+                        float:left;
+                        list-style:none;}
+
+            .ReSi-li-fol{width:512px;
+                        height:156px;
+                        float:left;
+                        border:1px solid #bddbf8;
+                        box-sizing:border-box;}
+
+            .ReSi-ul-fol>li:first-child{border-right:none;}
+            .ReSi-ul-fol>li:last-child{border-left:none;}
+
+            .ReSi-fol-con-all{width:350px;
+                            height:156px;
+                            float:left;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-fol-star{width:350px;
+                        height:40px;
+                        border:0px solid black;
+                        box-sizing:border-box;}
+
+            .ReSi-fol-star-img{width:120px;
+                            height:30px;
+                            float:right;
+                            margin-right:5px;
+                            margin-top:3px;
+                            background-image:url(/images/star.jpg);
+                            background-size:cover;}
+
+            .ReSi-fol-con{width:350px;
+                        height:70px;
+                        border:0px solid black;}
+
+            .ReSi-fol-con-pro{width:60px;
+                            height:60px;
+                            border-radius:6px;
+                            margin-top:5px;
+                            margin-left:20px;
+                            float:left;
+                            border:1px solid #94BBCC;
+                            background-image:url(/images/pro.jpg);
+                            background-size:cover;}
+
+            .ReSi-fol-con-tit{width:230px;
+                            height:70px;
+                            float:left;
+                            margin-left:10px;
+                            border:0px solid black;}
+
+            .ReSi-fol-con-tit-p{font-size:12px;
+                            font-weight:900;
+                            padding-top:8px;
+                            color:#3A6BA5;}
+
+            .ReSi-fol-con-text{width:230px;
+                            height:32px;
+                            overflow:hidden;
+                            margin-top:3px;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-fol-con-p{font-size:12px;
+                            color:#858484;}
+
+            .ReSi-fol-but{width:70px;
+                            height:25px;
+                            margin-top:3px;
+                            margin-left:16px;
+                            border-radius:6px;
+                            text-align:center;
+                            background-color:#4876ef;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-fol-but-p{font-size:12px;
+                            padding-top:4px;
+                            color:#FFFFFF;}
+            /* 최근 본 매물 영역 css */
+            .ReSi-div-rec{width:1024px;
+                        height:264px;
+                        overflow:hidden;
+                        border:0px solid black;
+                        box-sizing:border-box;}
+
+            .ReSi-div-rec-tit{width:1024px;
+                            height:40px;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-ul-rec{width:1024px;
+                        height:224px;
+                        float:left;
+                        list-style:none;}
+
+            .ReSi-li-rec{width:156px;
+                        height:224px;
+                        float:left;
+                        position:relative;
+                        margin-left:17.6px;
+                        border-radius:6px;
+                        border:1px solid #bddbf8;
+                        box-sizing:border-box;}
+
+            .ReSi-ul-rec>li:first-child{margin-left:0;}
+
+            .ReSi-rec-tit-p{font-size:13px;
+                            font-weight:800;
+                            color:#3A6BA5;
+                            padding-top:4px;
+                            padding-left:8px;}
+
+            .ReSi-rec-con-pdiv{width:130px;
+                            height:33px;
+                            margin-top:3px;
+                            margin-left:12px;
+                            overflow:hidden;
+                            border:0px solid black;
+                            box-sizing:border-box;}
+
+            .ReSi-rec-con-p{font-size:12px;
+                            color:#858484;
+                            word-break:break-all;}
+
+            footer{width:100%;
+                height:340px;
+                background-color:#3B3C48;
+                box-sizing:border-box;}
