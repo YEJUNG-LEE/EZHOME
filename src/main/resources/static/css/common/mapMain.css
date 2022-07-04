@@ -37,7 +37,6 @@ body{
     font-size: 14px; 
     font-family: Arial,'NanumBarunGothic'; 
     color: #000;
-    text-align: center;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     margin: 0;
@@ -66,8 +65,7 @@ header {
     transition: .3s ease-in-out;
 }
 header:after{content: ""; display: block; clear: both;}
-
-.header-nav{
+nav{
     width: 1280px;
     height: 100%;
     margin: 0 auto;
@@ -355,6 +353,11 @@ nav > ul {
     background: #4876EF;
 }
 
+/* content */
+.content{
+    width: 100%;
+    min-height: 100%;
+}
 
 /* 메인 컨테이너 */
 main {
@@ -720,7 +723,7 @@ main {
 /* 지역매물 info */
 .main-section03{
     width: 1280px;
-    margin: 30px auto 300px;
+    margin: 30px auto 110px;
 }
 
 .section03-contents{

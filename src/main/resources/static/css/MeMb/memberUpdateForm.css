@@ -1,0 +1,212 @@
+                         @import url(/css/common/reset.css);
+                         /* common 에 reset.css 임포트*/
+
+                         header{width:100%;
+                             height:90px;
+                             background-color:#6c93f7;}
+
+                         .MyPa-div-all{width:1280px;
+                                     height:1000px;
+                                     border:0px solid black;
+                                     margin:auto;
+                                     box-sizing:border-box;}
+
+                         .MyPa-div-con-all{width:1204px;
+                                         margin:auto;
+                                         border:0px solid rgb(48, 67, 240);
+                                         box-sizing:border-box;}
+
+                         /* 왼쪽 사이드바 영역 css */
+                         .MyPa-div-all-pro{width:144px;
+                                         height:800px;
+                                         margin-top:30px;
+                                         border:0px solid black;
+                                         float:left;
+                                         box-sizing:border-box;}
+
+                         /* 왼쪽 사이드바 프로필 사진 영역 css */
+                         .MyPa-div-pro{width:144px;
+                                     height:215px;
+                                     border-radius:6px;
+                                     border:1px solid #94BBCC;
+                                     box-sizing:border-box;}
+
+                         .MyPa-div-pro01{width:144px;
+                                         height:124px;
+                                         border:0px solid black;}
+
+                         .MyPa-div-pro-pic{width:62px;
+                                         height:62px;
+                                         border-radius:6px;
+                                         border:1px solid #94BBCC;
+                                         box-sizing:border-box;
+                                         margin-left:41px;
+                                         margin-top:40px;
+                                         background-image:url(/images/pro.jpg);
+                                         background-size:cover;}
+
+                         .MyPa-pro-nam{font-size:15px;
+                                     font-weight:600;
+                                     margin-top:4px;
+                                     color:#3A6BA5;
+                                     text-align:center;}
+
+                         .MyPa-pro-rat{font-size:13px;
+                                     text-align:center;
+                                     color:#858484;}
+
+
+                         .MyPa-div-pro02{width:142px;
+                                         height:49px;
+                                         border-bottom-left-radius:5px;
+                                         border-bottom-right-radius:5px;
+                                         background-color:#4876ef;}
+
+                         /* 왼쪽 사이드바 메뉴 영역 css */
+                         .MyPa-div-all-pag{width:144px;
+                                         height:800px;
+                                         border:0px solid black;
+                                         box-sizing:border-box;}
+
+                         .MyPa-div-pag{width:144px;
+                                     height:510px;
+                                     border:0px solid black;
+                                     box-sizing:border-box;
+                                     margin-top:16px;
+                                     padding-top:10px;
+                                     border-radius:6px;
+                                     background-color:#4876ef;}
+
+                         .MyPa-pag-tit{font-size:14px;
+                                     font-weight:600;
+                                     color:#FFFFFF;
+                                     margin-top:20px;
+                                     margin-left:10px;}
+
+                         .MyPa-pag-con{font-size:12px;
+                                     color:#FFFFFF;
+                                     margin-left:17px;
+                                     margin-top:10px;}
+
+                         /* 오른쪽 콘텐츠 영역 css */
+                         .MyPa-div-con{width:1024px;
+                                     height:800px;
+                                     border:0px solid black;
+                                     margin-left:34px;
+                                     float:left;
+                                     box-sizing:border-box;}
+
+                         .MyPa-div-tit{width:1024px;
+                                     border:0px solid black;
+                                     box-sizing:border-box;}
+
+                         .MyPa-tit-font{font-size:30px;
+                             font-weight:bold;
+                             margin-left:20px;
+                             margin-top:50px;
+                             padding-bottom:20px;}
+
+                         /* 내정보 text 영역 css */
+                         .MyPa-div-con-inf{width:1024px;
+                                         height:158px;
+                                         border:0px solid black;}
+
+                         .MyPa-div-inf-top{width:1024px;
+                                         height:78px;
+                                         border:0px solid black;
+                                         border-top-right-radius:6px;
+                                         border-top-left-radius:6px;
+                                         box-sizing:border-box;
+                                         background-color:#4876ef;}
+
+                         .MyPa-inf-tit{font-size:20px;
+                                     font-weight:700;
+                                     padding-top:25px;
+                                     color:#FFFFFF;
+                                     margin-left:20px;}
+
+                         .MyPa-div-inf-bot{width:1024px;
+                                         height:80px;
+                                         border:0px solid black;
+                                         box-sizing:border-box;}
+
+                         /* table, th, td, tr, tbody {border: 1px solid black;} */
+
+                         table {
+                             width: 1024px; height: 600px;
+                             margin-top: 25px;
+                             border-collapse: collapse;
+                         }
+
+                         th{
+                             background-color:#eaf7f7;
+                             border-bottom: 1px solid black;
+                         }
+
+                         td{
+                             width: 100%; height: 50px;
+                             padding: 5px;
+                         }
+
+                         .add{
+                             height: 90px;
+                         }
+
+                         input{width: 200px; height: 20px;}
+                         .aa {width: auto; height: auto;}
+
+                         .withdraw{
+                             width: 100%; height: 70px;
+                             margin-top: 5px;
+                             text-align: right;
+                             border-top: 1px solid black;
+                         }
+
+                         .withdraw button {
+                             width: 80px; height: 30px;
+                         }
+
+                         .correction{
+                             width: 100%; height: 70px;
+                             margin-top: 15px;
+                             text-align: center;
+                         }
+
+                         .correction button {
+                             width: 200px; height: 30px;
+                             background-color: #4876ef;
+                             color: white;
+                             font-weight: bolder;
+                         }
+
+                         .correction button:hover{
+                             background-color: #FEC72F;
+                             color: black;
+                             font-weight: bolder;
+                         }
+
+                         footer{width:100%;
+                             height:340px;
+                             background-color:#3B3C48;
+                             box-sizing:border-box;}
+
+                          /* 주소 api */
+                         .MyPg_addr{
+                                 width: 320px; height: 35px;
+                                 margin-top: 5px;
+                                 margin-left: 39px;
+                                 font-size: 17px;
+                                 float: left;
+                         }
+                         .MyPg_adse{
+                             font-size: 16px;
+                             width: 90px;  height: 39px;
+                             margin-top: 5px;
+                             margin-left: 10px;
+                         }
+                         .MyPg_input{
+                             width: 420px; height: 35px;
+                             margin-top: 10px;
+                             margin-left: 39px;
+                             font-size: 17px;
+                         }

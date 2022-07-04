@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <!-- 헤더, header -->
+    <header>
+        <!-- nav -->
+        <nav>
+            <!-- 로고 -->
+            <h1  class="logo">
+                <a href="/">
+                    <img id="logo" src="img/logo01.png" alt="logo">
+                </a>
+            </h1>
+            <!-- EzHome-ul-left -->
+            <ul class="EzHome-ul-left">
+                <li sec:authorize="isAnonymous()">
+                    <a href="/map">부동산</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/map">부동산</a>
+                </li>
+                <li>
+                    <a href="/admin/item/new">커뮤니티</a>
+                </li>
+                <li>
+                    <a href="/admin/item/new">고객센터</a>
+                </li>
+            </ul>
+            <!--// EzHome-ul-left -->
+            <!-- EzHome-ul-right -->
+            <ul class="EzHome-ul-right">
+                <!-- 회원(공인중개사) 광고(매물)등록 -->
+                <li sec:authorize="!isAuthenticated()" class="advert_insert">
+                    <a href="#">광고문의</a>
+                </li>
+                <li sec:authorize="hasRole('LREA')" class="advert_insert">
+                    <a href="/admin/item/new">매물등록</a>
+                </li>
+                <!-- 로그인 -->
+                <li sec:authorize="isAnonymous()"  class="main_login">
+                    <a class="main_login_log" href="/members/login">로그인</a>
+                </li>
+                <!-- 유저 이름 -->
+                <li class="member_user" sec:authorize="isAuthenticated()">
+                    <a href="/members/update" methods="post">
+                        <i class="fa-solid fa-user"></i><span th:text="${session.username}">님</span>
+                    </a>
+                </li>
+
+                <li sec:authorize="isAnonymous()">
+                    <a href="/members/new" class="header-signup">회원가입</a>
+                </li>
+                <li class="header-signup" sec:authorize="isAuthenticated()">
+                    <a href="/members/logout">
+                        로그아웃
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+            <!--// EzHome-ul-right -->
+        </nav>
+        <!--// nav -->
+    </header>
+    <!--// 헤더, header -->
+</div>
+
+</body>
+</html>

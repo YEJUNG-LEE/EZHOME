@@ -11,7 +11,9 @@ $(document).ready(function(){
             $(this).addClass('ReEs-NaviOn');
         }
 
-        if(!($(Navi_Slider).css("display") == "none")){
+        // 네비게이션 슬라이더가 보여지고 있을때
+        if($(Navi_Slider).css("display") == "block"){
+            // 기존에 선택했던것을 다시 선택했을 경우
             if(Navi_Slider == ("." + $(this).attr("class").split(" ")[0] + "-select")){
                 $(Navi_Slider).slideToggle("slow");
             }else{

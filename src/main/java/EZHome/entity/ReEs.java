@@ -13,8 +13,6 @@ import java.util.List;
 @Getter @Setter @ToString
 public class ReEs extends BaseEntity {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="reid")
@@ -24,8 +22,7 @@ public class ReEs extends BaseEntity {
     private Integer reNum;  // 매물 번호
 
     @Column(nullable = true, length = 300)
-    private String reNm; // 매물이름 ex) 신사역 도보 10분 이내, 투룸
-
+    private String reNm;
     @Column(nullable = false, length = 300)
     private String rehouseType ; // 매물 유형
 
@@ -33,7 +30,7 @@ public class ReEs extends BaseEntity {
     private String retrType ; // 매매 유형
 
     @Column(nullable = false, length = 300)
-    private String reSido; // 시도
+    private String reSido;  //시/도
 
     @Column(nullable = false, length = 300)
     private String reGungu; // 군구
@@ -47,7 +44,7 @@ public class ReEs extends BaseEntity {
     @Column(nullable = false)
     private Integer reFlr ; // 층수
 
-    /* 전체층수부터 평수는 빠른 구현을 위해 'null 값 허용' 으로 설정하겠습니다.*/
+
 
     @Column(nullable = false)
     private Integer reTotalFlr ; // 전체 층수
@@ -113,9 +110,9 @@ public class ReEs extends BaseEntity {
         this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
 
         // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
-        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
-        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
-        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
+//        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
+//        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
+//        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
 
     }
 //

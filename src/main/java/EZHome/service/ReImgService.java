@@ -10,6 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import org.thymeleaf.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -40,4 +43,14 @@ public class ReImgService {
         reEsImgRepository.save(reImg);
     }
 
+    public List<ReImg> getAll(Long reId) {
+        List<ReImg> reImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(reId);
+        return reImgList;
+    }
+
+    public void deleteItemImg(ReImg reImg) {
+        System.out.println("delete실행 되나??");
+        reEsImgRepository.delete(reImg);
+        System.out.println("delete실행 되었다!");
+    }
 }
