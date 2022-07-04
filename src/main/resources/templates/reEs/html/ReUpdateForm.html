@@ -392,10 +392,10 @@
                             <div class="ReEs-insert-ex"></div>
                             <select class="ReEs-insert-select" th:field="*{reFlrType}">
                                 <option value="-">기타 층수</option>
-                                <option value="flr01">선택안함</option>
-                                <option value="flr02">복층</option>
-                                <option value="flr03">반지하</option>
-                                <option value="flr04">옥탑방</option>
+                                <option value="선택안함">선택안함</option>
+                                <option value="복층">복층</option>
+                                <option value="반지하">반지하</option>
+                                <option value="옥탑방">옥탑방</option>
                             </select>
                         </div>
                         <p th:if="${#fields.hasErrors('reFlrType')}" th:errors="*{reFlrType}" class="fieldError">Incorrect data</p>
