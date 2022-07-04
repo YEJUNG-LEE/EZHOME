@@ -4,8 +4,11 @@
             color: #bd2130;
             margin-left: 40px;
         }
-        .section{
-            height: 950px;
+        .content{
+            height : 100%;
+        }
+        section{
+            min-height: 100%;
             background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(/img/main_img.jpg);
             background-size: cover;
         }
