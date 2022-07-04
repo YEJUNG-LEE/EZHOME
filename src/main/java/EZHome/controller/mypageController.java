@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
@@ -27,13 +28,23 @@ public class mypageController {
     private final MemberService memberService ;
     private final ReService reService ;
 
-    @GetMapping(value = "/main")
-    public String mypageMain(Model model, Principal principal){
+    @GetMapping(value = "/USERmain")
+    public String USERmypageMain(Model model, Principal principal){
         String email = principal.getName();
         MemberFormDto memberFormDto = memberService.getName(email);
 
         model.addAttribute("memberFormDto", memberFormDto);
 
-        return "admin/myPageMain" ;
+        return "admin/USERmyPageMain" ;
+    }
+
+    @GetMapping(value = "/LREAmain")
+    public String LREAmypageMain(Model model, Principal principal){
+        String email = principal.getName();
+        MemberFormDto memberFormDto = memberService.getName(email);
+
+        model.addAttribute("memberFormDto", memberFormDto);
+
+        return "admin/LREAmyPageMain" ;
     }
 }
