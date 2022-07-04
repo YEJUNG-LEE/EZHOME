@@ -21,19 +21,16 @@
 
 
     <link th:href="@{/css/reEs/ReDetail_Style2.css}" rel="stylesheet">
-<!--    <link th:href="@{/css/reEs/Side_broker_Info.css}" rel="stylesheet">-->
-<!--    <link th:href="@{/css/reEs/Modal_reservation.css}" rel="stylesheet">-->
-<!--    <link th:href="@{/css/reEs/ReEs_reco.css}" rel="stylesheet">-->
+    <link th:href="@{/css/reEs/ReEs_CS.css}" rel="stylesheet">
+    <!--    <link th:href="@{/css/reEs/Modal_reservation.css}" rel="stylesheet">-->
+    <!--    <link th:href="@{/css/reEs/ReEs_reco.css}" rel="stylesheet">-->
 
-
+    <script type="text/javascript" th:src="@{/js/reEs/ReItemForm.js}" defer></script>
     <script th:src="@{http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
     <link th:src="@{https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css}">
     <script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
-    <style>
 
-
-    </style>
 
     <script>
         $(document).ready(function () {
@@ -48,7 +45,45 @@
                 }
             });
 
+
+            console.log(typeof($('input[value="true"]')));
+            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
+
+            $('.ReCs-button').click(function(){
+                var tagId = $(this).attr("id");
+                console.log(tagId);
+                var values = $('input[name=' + tagId + ']').attr('value');
+                if(values == 'false'){
+                    $(this).css({'background-color':'#0081cc', 'color':'white'});
+                    $('input[name=' + tagId + ']').attr('value', 'true');
+                }else{
+                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
+                    $('input[name=' + tagId + ']').attr('value', 'false');
+                }
+                values = $('input[name=' + tagId + ']').attr('value');
+                console.log(values);
+            });
+             $('.ReCs-buttons').click(function(){
+                var tagId = $(this).attr("id");
+                var tagName = $(this).parent().attr("id");
+                console.log(tagId);
+                $('input[name=' + tagName + ']').attr('value', tagId);
+                $(this).css({'background-color':'#0081cc', 'color':'white'});
+                $(this).siblings().css({'background-color':'#b8b7bb', 'color':'#858484'});
+                values = $('input[name=' + tagName + ']').attr('value');
+                console.log(tagName + " : " + values);
+            })
+
+
+
+
+
+
         });
+
+
+
+
     </script>
 </head>
 
@@ -251,7 +286,7 @@
         <!-- modal02 -->
         <!--end 모달창-->
 
-<!--        여기서 부터 시작 , 본문         -->
+        <!--        여기서 부터 시작 , 본문         -->
         <!-- ReEs-div-detail-Wrap -->
         <!-- 가로 : 1280px , 높이 : 100%  -->
         <div class="ReEs-div-detail-Wrap">
@@ -278,271 +313,352 @@
             </div>
             <!--end 부동산이미지-->
 
-                <!--부동산세부네비-->
-                <div class="ReEs-detail-navdiv">
-                    <nav class="ReEs-detail-nav">
-                        <div class="main-menu">
-                            <ul>
-                                <li><a href="#section1">기본정보</a></li>
-                                <li><a href="#section2">주변정보</a></li>
-                                <li><a href="#section3">상세정보</a></li>
-                                <li><a href="#section4">위치/주변시설</a></li>
-                                <li><a href="#section5">지역평균비교</a></li>
-                                <li><a href="#section6">추천매물</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <!--end 부동산세부네비-->
-
-                <!--broker info-->
-                <div class="ReEs-broker-wrap">
-                    <div class="broker01">중개</div>
-                    <div class="broker02">매물번호 <span>[[${DtlItem.reNum}]]</span></div>
-                    <div class="detail-price">
-                        <div class="detail-price02">[[${DtlItem.retrType}]]</div>
-                        <div class="detail-price03">[[${DtlItem.reMon_price}]]</div>
+            <!--부동산세부네비-->
+            <div class="ReEs-detail-navdiv">
+                <nav class="ReEs-detail-nav">
+                    <div class="main-menu">
+                        <ul>
+                            <li><a href="#section1">기본정보</a></li>
+                            <li><a href="#section2">주변정보</a></li>
+                            <li><a href="#section3">상세정보</a></li>
+                            <li><a href="#section4">위치/주변시설</a></li>
+                            <li><a href="#section5">지역평균비교</a></li>
+                            <li><a href="#section6">추천매물</a></li>
+                        </ul>
                     </div>
-                    <div class="detail-sigudong">[[${DtlItem.roadAddress}]]</div>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td class="ReEs-bropker-td">
+                </nav>
+            </div>
+            <!--end 부동산세부네비-->
+
+            <!--broker info-->
+            <div class="ReEs-broker-wrap">
+                <div class="broker01">중개</div>
+                <div class="broker02">매물번호 <span>[[${DtlItem.reNum}]]</span></div>
+                <div class="detail-price">
+                    <div class="detail-price02">[[${DtlItem.retrType}]]</div>
+                    <div class="detail-price03">[[${DtlItem.reMon_price}]]</div>
+                </div>
+                <div class="detail-sigudong">[[${DtlItem.roadAddress}]]</div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="ReEs-bropker-td">
                                         <span class="btn-flat">
                                             <span>
                                                 <i class="fa-solid fa-heart fa-sm"></i>
                                             </span>
                                             <span class="inText">찜</span>
                                         </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="broker03">
+                    <img src="images/ReEs01.jpg" alt="">
+                    <div class="broker03-name">
+
+                        <p class="ReEs-bk-detail">[[${member.membNick}]]공인중개사사무소</p>
+                    </div>
+                </div>
+                <div class="broker04">
+                    <ul class="broker04-ul">
+                        <li class="broker04-li">대표 [[${member.MembName}]] | 대표번호 [[${member.membPhone}]]</li>
+                        <li class="broker04-li">부동산주소 [[${member.membAddress1}]] [[${member.membAddress2}]]</li>
+                    </ul>
+                </div>
+                <table class="broker-table">
+                    <thead>
+                    <tr>
+                        <th class="broker-th">거래완료</th>
+                        <th class="broker-th">등록매물</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="broker-td">659건</td>
+                        <td class="broker-td">12건</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button class="GoTo-book" id="modal_open_btn">상담예약</button>
+                <!--            <button class="GoTo-msg">채팅문의</button>-->
+            </div>
+            <!--end broker info-->
+
+            <!--부동산 콘텐츠-->
+            <div class="ReEs-div-Content01">
+                <div id="section1"></div>
+                <h2 class="ReEs-h2-detail">가격정보</h2>
+                <!-- ReEs-div-content02 -->
+                <div class="ReEs-div-content02">
+                    <table class="ReEs-table-detail">
+                        <tr>
+                            <th class="ReEs-tb-th">전, 월세</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize" th:text="${DtlItem.retrType}"></p>
                             </td>
                         </tr>
-                        </tbody>
-                    </table>
-                    <div class="broker03">
-                        <img src="images/ReEs01.jpg" alt="">
-                        <div class="broker03-name">
 
-                            <p class="ReEs-bk-detail">[[${member.membNick}]]공인중개사사무소</p>
-                        </div>
-                    </div>
-                    <div class="broker04">
-                        <ul class="broker04-ul">
-                            <li class="broker04-li">대표 [[${member.MembName}]] | 대표번호 [[${member.membPhone}]]</li>
-                            <li class="broker04-li">부동산주소 [[${member.membAddress1}]] [[${member.membAddress2}]]</li>
-                        </ul>
-                    </div>
-                    <table class="broker-table">
-                        <thead>
                         <tr>
-                            <th class="broker-th">거래완료</th>
-                            <th class="broker-th">등록매물</th>
+                            <th class="ReEs-tb-th">보증금</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize" th:text="${DtlItem.reDeposit}"></p>
+                            </td>
                         </tr>
-                        </thead>
-                        <tbody>
+
                         <tr>
-                            <td class="broker-td">659건</td>
-                            <td class="broker-td">12건</td>
+                            <th class="ReEs-tb-th">전·월세 가격</th>
+                            <td class="ReEs-tb-td">
+                                <!--월세면 보증금에 값 넣기-->
+                                <p class="textsize" th:text="${DtlItem.reTrade}"></p>
+                            </td>
                         </tr>
-                        </tbody>
+
+                        <tr>
+                            <th class="ReEs-tb-th">관리비 </th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">매월[[${DtlItem.reAdmn_fee}]] 만원</p>
+                                <p class="textsize">청소비,승강기 유지비 기타</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">주차</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">가능(무료)</p>
+                            </td>
+                        </tr>
                     </table>
-                    <button class="GoTo-book" id="modal_open_btn">상담예약</button>
-                    <!--            <button class="GoTo-msg">채팅문의</button>-->
                 </div>
-                <!--end broker info-->
-
-                <!--부동산 콘텐츠-->
-                <div class="ReEs-div-Content01">
-                    <div id="section1"></div>
-                    <h2 class="ReEs-h2-detail">가격정보</h2>
-                    <!-- ReEs-div-content02 -->
-                    <div class="ReEs-div-content02">
-                        <table class="ReEs-table-detail">
-                            <tr>
-                                <th class="ReEs-tb-th">전, 월세</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize" th:text="${DtlItem.retrType}"></p>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th class="ReEs-tb-th">보증금</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize" th:text="${DtlItem.reDeposit}"></p>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th class="ReEs-tb-th">전·월세 가격</th>
-                                <td class="ReEs-tb-td">
-                                    <!--월세면 보증금에 값 넣기-->
-                                    <p class="textsize" th:text="${DtlItem.reTrade}"></p>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th class="ReEs-tb-th">관리비 </th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">매월[[${DtlItem.reAdmn_fee}]] 만원</p>
-                                    <p class="textsize">청소비,승강기 유지비 기타</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">주차</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">가능(무료)</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!--// ReEs-div-content02 -->
-                    <h2 class="ReEs-h2-detail" id="section2">맞춤정보</h2>
+                <!--// ReEs-div-content02 -->
+                <h2 class="ReEs-h2-detail" id="section2">맞춤정보</h2>
+                <div class="ReEs-div-content03">
                     <!-- ReEs-div-content03 맞춤정보 조건-->
-                    <div class="ReEs-div-content03">
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
-                        <div class="EzHo-Div01-on">조건1</div>
+                    <div class="ReCs-button" id="reNew">신축
+                        <input type="hidden" th:field="${DtlItem.reNew}" name="reNew" value="false"/>
                     </div>
-                    <!--// ReEs-div-content03 맞춤정보 조건-->
-                    <h2 class="ReEs-h2-detail">카테고리조건</h2>
-                    <!-- ReEs-div-content04 카테고리 조건-->
-                    <div class="ReEs-div-content04">
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <div class="ReCs-button" id="reFull">풀옵션
+                        <input type="hidden" th:field="${DtlItem.reFull}" name="reFull" value="false"/>
                     </div>
-                    <!--// ReEs-div-content04 카테고리 조건-->
-                    <h2 class="ReEs-h2-detail">매물관련정보</h2>
-                    <!--            <p class="ReEs-p-detail">이 매물의 주변 리뷰를 확인해봐요 !</p>-->
-                    <!--            <div class="ReEs-div-content05" id="section3">-->
-                    <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
-                    <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
-                    <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
-                    <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
-                    <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
-                    <!--            </div>-->
-                    <!--            <p class="ReEs-p-detail">이미지 클릭시 주변 리뷰 페이지로 넘어갑니다</p>&lt;!&ndash;삭제 예정&ndash;&gt;-->
-                    <h2 class="ReEs-h2-detail">중개보수</h2>
-                    <!-- ReEs-div-content06 -->
-                    <div class="ReEs-div-content06">
-                        <table class="ReEs-table-detail">
-                            <tr>
-                                <th class="ReEs-tb-th">중개보수</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">[[${DtlItem.reDeposit * 0.1}]]원</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">상한요율</th>
-                                <!--what is 상한 요율-->
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">0.4%</p>
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="ReCs-button" id="reDebt">대출없음
+                        <input type="hidden" th:field="${DtlItem.reDebt}" name="reDebt" value="false"/>
                     </div>
-                    <!--// ReEs-div-content06 -->
-                    <h2 class="ReEs-h2-detail">상세정보</h2>
-                    <!-- ReEs-div-content07 -->
-                    <div class="ReEs-div-content07" id="section4">
-                        <table class="ReEs-table-detail">
-                            <tr>
-                                <th class="ReEs-tb-th">도로명주소</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">[[${DtlItem.roadAddress}]]</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">건물이름??</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">[[${DtlItem.reDtl_Adr}]]</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">방종류</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize" th:text="${DtlItem.rehouseType}"></p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">해당층 · 건물층</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">[[${DtlItem.reFlr}]]층 · [[${DtlItem.reTotalFlr}]]층</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">전용계약면적</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">[[${DtlItem.reExtent}]]㎡</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">방 개수 · 욕실 수</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">[[${DtlItem.reRoomcnt}]]개 · [[${DtlItem.reBathcnt}]]개</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">방향</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize" th:text="${DtlItem.reSouth}"></p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">난방종류</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">개별난방</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">빌트인</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">빌트인 주방</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">해당 면적 세대수</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">30세대</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ReEs-tb-th">총 세대 수</th>
-                                <td class="ReEs-tb-td">
-                                    <p class="textsize">50세대</p>
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="ReCs-button" id="reElvtr">엘리베이터
+                        <input type="hidden" th:field="${DtlItem.reElvtr}" name="reElvtr" value="false"/>
                     </div>
-                    <!--// ReEs-div-content07 -->
-                    <!-- <h2 class="ReEs-h2-detail">옵션</h2>
-                    <div class="ReEs-div-content08">
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <div class="ReCs-button" id="rePet">반려동물
+                        <input type="hidden" th:field="${DtlItem.rePet}" name="rePet" value="false"/>
                     </div>
-                    <h2 class="ReEs-h2-detail">보안/안전시설</h2>
-                    <div class="ReEs-div-content09">
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
-                        <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <div class="ReCs-button" id="reScrty">보안기능
+                        <input type="hidden" th:field="${DtlItem.reScrty}" name="reScrty" value="false"/>
                     </div>
-                    <h2 class="ReEs-h2-detail">위치 및 주변 시설</h2>
-                    <div class="ReEs-div-content10" id="section5">
-                        <p class="ReEs-p-detail02">서울시 은평구 역촌동 36-17 리젠트 1동</p>
-                        <p class="ReEs-p-detail02">도로명으로 변경 기능 넣어주세요</p>&lt;!&ndash;삭제예정&ndash;&gt;
-                        <div class="ReEs-mapH-detail">지도가 들어갈 자리입니다</div>
+                    <div class="ReCs-button" id="reParking">주차장
+                        <input type="hidden" th:field="${DtlItem.reParking}" name="reParking" value="false"/>
                     </div>
-                    <h2 class="ReEs-h2-detail">지역 평균 거래와 비교하기</h2>
-                    <div class="ReEs-div-content11" id="section6">
-                        <div class="ReEs-graph-01">지역평균 거래 금액과 현재 매물 가격 그래프로 비교합니다</div>
-                    </div> -->
+                    <div class="ReCs-button" id="reSouth">남향
+                        <input type="hidden" th:field="${DtlItem.reSouth}" name="reSouth" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reBug">벌레퇴치업체
+                        <input type="hidden" th:field="${DtlItem.reBug}" name="reBug" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reWoman">여성전용
+                        <input type="hidden" th:field="${DtlItem.reWoman}" name="reWoman" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reForest">숲View
+                        <input type="hidden" th:field="${DtlItem.reForest}" name="reForest" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reRiver">리버View
+                        <input type="hidden" th:field="${DtlItem.reRiver}" name="reRiver" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reOcean">오션View
+                        <input type="hidden" th:field="${DtlItem.reOcean}" name="reOcean" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reCity">시티View
+                        <input type="hidden" th:field="${DtlItem.reCity}" name="reCity" value="false"/>
+                    </div>
                 </div>
-                <!--end부동산 콘텐츠-->
+                <!--// ReEs-div-content03 맞춤정보 조건-->
+                <h2 class="ReEs-h2-detail">카테고리조건</h2>
+                <!-- ReEs-div-content04 카테고리 조건-->
+                <div class="ReEs-div-content04">
+                    <div class="ReCs-button" id="rePublic">공공기관
+                        <input type="hidden" th:field="${DtlItem.rePublic}" name="rePublic" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reMedic">의료시설
+                        <input type="hidden" th:field="${DtlItem.reMedic}" name="reMedic" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reCnvn">편의시설
+                        <input type="hidden" th:field="${DtlItem.reCnvn}" name="reCnvn" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reSchol">학교주변
+                        <input type="hidden" th:field="${DtlItem.reSchol}" name="reSchol" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reTeen">10대거주
+                        <input type="hidden" th:field="${DtlItem.reTeen}" name="reTeen" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reTwen">20대거주
+                        <input type="hidden" th:field="${DtlItem.reTwen}" name="reTwen" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reThirty">30대거주
+                        <input type="hidden" th:field="${DtlItem.reThirty}" name="reThirty" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reFourty">40대거주
+                        <input type="hidden" th:field="${DtlItem.reFourty}" name="reFourty" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reFifty">50대거주
+                        <input type="hidden" th:field="${DtlItem.reFifty}" name="reFifty" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reSixty">60대이상
+                        <input type="hidden" th:field="${DtlItem.reSixty}" name="reSixty" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reMainroad">대로변
+                        <input type="hidden" th:field="${DtlItem.reMainroad}" name="reMainroad" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reRocket">로켓배송
+                        <input type="hidden" th:field="${DtlItem.reRocket}" name="reRocket" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reFlat">경사완만
+                        <input type="hidden" th:field="${DtlItem.reFlat}" name="reFlat" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reSubway">역세권
+                        <input type="hidden" th:field="${DtlItem.reSubway}" name="reSubway" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="rePark">공원
+                        <input type="hidden" th:field="${DtlItem.rePark}" name="rePark" value="false"/>
+                    </div>
+                    <div class="ReCs-button" id="reRsdnt_Area">주택지구
+                        <input type="hidden" th:field="${DtlItem.reRsdnt_Area}" name="reRsdnt_Area" value="false"/>
+                    </div>
+                </div>
+                <!--// ReEs-div-content04 카테고리 조건-->
+                <h2 class="ReEs-h2-detail">매물관련정보</h2>
+                <!--            <p class="ReEs-p-detail">이 매물의 주변 리뷰를 확인해봐요 !</p>-->
+                <!--            <div class="ReEs-div-content05" id="section3">-->
+                <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
+                <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
+                <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
+                <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
+                <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
+                <!--            </div>-->
+                <!--            <p class="ReEs-p-detail">이미지 클릭시 주변 리뷰 페이지로 넘어갑니다</p>&lt;!&ndash;삭제 예정&ndash;&gt;-->
+                <h2 class="ReEs-h2-detail">중개보수</h2>
+                <!-- ReEs-div-content06 -->
+                <div class="ReEs-div-content06">
+                    <table class="ReEs-table-detail">
+                        <tr>
+                            <th class="ReEs-tb-th">중개보수</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">[[${DtlItem.reDeposit * 0.1}]]원</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">상한요율</th>
+                            <!--what is 상한 요율-->
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">0.4%</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--// ReEs-div-content06 -->
+                <h2 class="ReEs-h2-detail">상세정보</h2>
+                <!-- ReEs-div-content07 -->
+                <div class="ReEs-div-content07" id="section4">
+                    <table class="ReEs-table-detail">
+                        <tr>
+                            <th class="ReEs-tb-th">도로명주소</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">[[${DtlItem.roadAddress}]]</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">건물이름??</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">[[${DtlItem.reDtl_Adr}]]</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">방종류</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize" th:text="${DtlItem.rehouseType}"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">해당층 · 건물층</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">[[${DtlItem.reFlr}]]층 · [[${DtlItem.reTotalFlr}]]층</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">전용계약면적</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">[[${DtlItem.reExtent}]]㎡</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">방 개수 · 욕실 수</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">[[${DtlItem.reRoomcnt}]]개 · [[${DtlItem.reBathcnt}]]개</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">방향</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize" th:text="${DtlItem.reSouth}"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">난방종류</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">개별난방</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">빌트인</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">빌트인 주방</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">해당 면적 세대수</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">30세대</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="ReEs-tb-th">총 세대 수</th>
+                            <td class="ReEs-tb-td">
+                                <p class="textsize">50세대</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--// ReEs-div-content07 -->
+                <!-- <h2 class="ReEs-h2-detail">옵션</h2>
+                <div class="ReEs-div-content08">
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                </div>
+                <h2 class="ReEs-h2-detail">보안/안전시설</h2>
+                <div class="ReEs-div-content09">
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                    <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
+                </div>
+                <h2 class="ReEs-h2-detail">위치 및 주변 시설</h2>
+                <div class="ReEs-div-content10" id="section5">
+                    <p class="ReEs-p-detail02">서울시 은평구 역촌동 36-17 리젠트 1동</p>
+                    <p class="ReEs-p-detail02">도로명으로 변경 기능 넣어주세요</p>&lt;!&ndash;삭제예정&ndash;&gt;
+                    <div class="ReEs-mapH-detail">지도가 들어갈 자리입니다</div>
+                </div>
+                <h2 class="ReEs-h2-detail">지역 평균 거래와 비교하기</h2>
+                <div class="ReEs-div-content11" id="section6">
+                    <div class="ReEs-graph-01">지역평균 거래 금액과 현재 매물 가격 그래프로 비교합니다</div>
+                </div> -->
+            </div>
+            <!--end부동산 콘텐츠-->
 
 
 
@@ -694,4 +810,3 @@
 </body>
 
 </html>
-

@@ -1,17 +1,21 @@
 package EZHome.entity;
 
 import EZHome.dto.ReMncsDto;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="MapFilter")
+@Getter @Setter @ToString
 public class MapFilter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="MapF_id")
-    private String id;
+    private Long id;
 
     // 회원 기본 조건
     private String houseType ; // 매물 유형
