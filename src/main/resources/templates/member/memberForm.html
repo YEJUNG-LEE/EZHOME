@@ -42,7 +42,7 @@
                             <input class="MeMb-gene" type="radio" th:field="*{role}" th:value="${type.name()}">
                             <label th:for="${#ids.prev('role')}" th:text="${type.description}"></label>
                         </div>
-                        <p th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="fieldError">Incorrect data</p>
+                        <p th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="fieldError" id="fiele">Incorrect data</p>
                     </div>
                     <div class="MeMb-label">
                         <label th:for="email">이메일</label>
@@ -82,8 +82,7 @@
                                     $("#alert-danger").css('display', 'inline-block');
                                 }
                             }
-                        }
-                    });
+                        });
                 </script>
                 <div class="MeMb-label">
                     <label th:for="nick">닉네임 / 상호명</label>
