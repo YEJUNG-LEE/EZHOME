@@ -11,11 +11,11 @@
     <!-- 헤더, header -->
     <header>
         <!-- nav -->
-        <nav>
+        <nav class="header-nav">
             <!-- 로고 -->
             <h1  class="logo">
                 <a href="/">
-                    <img id="logo" src="img/logo01.png" alt="logo">
+                    <img id="logo" src="/img/logo01.png" alt="logo">
                 </a>
             </h1>
             <!-- EzHome-ul-left -->
@@ -24,7 +24,7 @@
                     <a href="/map">부동산</a>
                 </li>
                 <li sec:authorize="isAuthenticated()">
-                    <a href="/map">부동산</a>
+                    <a href="/user/map">부동산</a>
                 </li>
                 <li>
                     <a href="/admin/item/new">커뮤니티</a>
@@ -41,7 +41,7 @@
                     <a href="#">광고문의</a>
                 </li>
                 <li sec:authorize="hasRole('LREA')" class="advert_insert">
-                    <a href="/admin/item/new">매물등록</a>
+                    <a href="#">광고문의</a>
                 </li>
                 <!-- 로그인 -->
                 <li sec:authorize="isAnonymous()"  class="main_login">
@@ -50,7 +50,7 @@
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
                     <a href="/members/update" methods="post">
-                        <i class="fa-solid fa-user"></i><span th:text="${session.username}">님</span>
+                        <i class="fa-solid fa-user"></i><span th:text="${username}">님</span>
                     </a>
                 </li>
 
