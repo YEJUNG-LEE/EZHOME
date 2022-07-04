@@ -47,13 +47,9 @@ public class ReFormDto {
     private Integer reJeonse ; // 전세
 
     @NotBlank(message="'시도' 작성은 필수 입력입니다.")
-    private String reSido; // 시도
+    private String roadAddress; // 시도
 
-    @NotBlank(message="'군구' 작성은 필수 입력입니다.")
-    private String reGungu; // 군구
 
-    @NotBlank(message="'동' 작성은 필수 입력입니다.")
-    private String reDong; // 동
 
     @NotBlank(message="'상세주소' 작성은 필수 입력입니다.")
     private String reDtl_Adr ; // 상세주소
