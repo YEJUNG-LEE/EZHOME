@@ -23,9 +23,8 @@ public class MapMainDto {
     private Integer reExtent ; // 평수
 
 
-    private String reSido; // 시도
-    private String reGungu; // 군구
-    private String reDong; // 동
+    private String roadAddress; // 도로명주소
+
     private String reDtl_Adr ; // 상세주소
 
     private String lreaName;    // 공인중개사 이름
@@ -44,7 +43,7 @@ public class MapMainDto {
 
     @QueryProjection
     public MapMainDto(Long id, String retrType, Integer reDeposit, Integer reMon_price, Integer reAdmn_fee, Integer reFlr , Integer reExtent,
-                         String reSido,String reGungu, String reDong, String reDtl_Adr,  String reImgUrl ){
+                         String roadAddress, String reDtl_Adr,  String reImgUrl ){
         this.id = id;
         this.retrType = retrType;
         this.reDeposit = reDeposit;
@@ -52,9 +51,7 @@ public class MapMainDto {
         this.reAdmn_fee = reAdmn_fee;
         this.reFlr = reFlr;
         this.reExtent = reExtent;
-        this.reSido = reSido;
-        this.reGungu = reGungu;
-        this.reDong = reDong;
+        this.roadAddress = roadAddress;
         this.reDtl_Adr = reDtl_Adr;
 //        this.Memb_nick = Memb_nick;
 //        this.Memb_name = Memb_name;

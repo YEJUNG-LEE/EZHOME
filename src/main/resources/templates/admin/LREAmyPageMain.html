@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<link type="text/css" th:href="@{/css/myPage/LREAMyPage.css}" rel="stylesheet">
+
+<th:block layout:fragment="css"></th:block>
+
+
+<body layout:fragment="content">
+<header></header>
+<div class="LRMy-div-all">
+    <div class="LRMy-div-con-all">
+        <div class="LRMy-div-all-pro">
+            <div class="LRMy-div-pro">
+                <div class="LRMy-div-pro01">
+                    <div class="LRMy-div-pro-pic"></div>
+                    <p class="LRMy-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
+                    <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                    <p class="LRMy-pro-rat" th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
+                    <p class="LRMy-pro-rat" th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
+                </div>
+                <div class="LRMy-div-pro02"></div>
+            </div>
+            <div class="LRMy-div-all-pag">
+                <div class="LRMy-div-pag">
+                    <p class="LRMy-pag-tit">내가 올린 매물 보기</p>
+                    <p class="LRMy-pag-tit">내정보</p>
+                    <p class="LRMy-pag-con">회원 정보 수정</p>
+                    <p class="LRMy-pag-con">회원 탈퇴</p>
+                </div>
+            </div>
+        </div>
+        <div class="LRMy-div-con">
+            <div class="LRMy-div-tit">
+                <h1 class="LRMy-tit-font">마이페이지</h1>
+            </div>
+            <div class="LRMy-div-con-inf">
+                <div class="LRMy-div-inf-top">
+                    <p class="LRMy-inf-tit">내정보</p>
+                </div>
+            </div>
+            <div class="LRMy-div-sal">
+                <div class="LRMy-div-sal-tit">
+                    <p class="LRMy-tit-p">내가 올린 매물 목록</p>
+                    <p class="LRMy-out">더보기></p>
+                </div>
+                <ul class="LRMy-ul-sal">
+                    <li class="LRMy-li-sal">
+                        <div class="LRMy-sal-img"></div>
+                        <div class="LRMy-sal-heart"></div>
+                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
+                        <div class="LRMy-sal-con-pdiv">
+                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
+                        </div>
+                    </li>
+                    <li class="LRMy-li-sal">
+                        <div class="LRMy-sal-img"></div>
+                        <div class="LRMy-sal-heart"></div>
+                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
+                        <div class="LRMy-sal-con-pdiv">
+                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
+                        </div>
+                    </li>
+                    <li class="LRMy-li-sal">
+                        <div class="LRMy-sal-img"></div>
+                        <div class="LRMy-sal-heart"></div>
+                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
+                        <div class="LRMy-sal-con-pdiv">
+                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
+                        </div>
+                    </li>
+                    <li class="LRMy-li-sal">
+                        <div class="LRMy-sal-img"></div>
+                        <div class="LRMy-sal-heart"></div>
+                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
+                        <div class="LRMy-sal-con-pdiv">
+                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
+                        </div>
+                    </li>
+                    <li class="LRMy-li-sal">
+                        <div class="LRMy-sal-img"></div>
+                        <div class="LRMy-sal-heart"></div>
+                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
+                        <div class="LRMy-sal-con-pdiv">
+                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
+                        </div>
+                    </li>
+                    <li class="LRMy-li-sal">
+                        <div class="LRMy-sal-img"></div>
+                        <div class="LRMy-sal-heart"></div>
+                        <p class="LRMy-sal-tit-p">예약문의 : 00명</p>
+                        <div class="LRMy-sal-con-pdiv">
+                            <p class="LRMy-sal-con-p">매물 관심 수 : 00명</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+
+</body>
+</html>

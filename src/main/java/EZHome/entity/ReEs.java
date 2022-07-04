@@ -30,13 +30,13 @@ public class ReEs extends BaseEntity {
     private String retrType ; // 매매 유형
 
     @Column(nullable = false, length = 300)
-    private String reSido; // 시도
+    private String roadAddress;  // 도로명 주소
 
-    @Column(nullable = false, length = 300)
-    private String reGungu; // 군구
-
-    @Column(nullable = false, length = 300)
-    private String reDong; // 동
+//    @Column(nullable = false, length = 300)
+//    private String reGungu; // 군구
+//
+//    @Column(nullable = false, length = 300)
+//    private String reDong; // 동
 
     @Column(nullable = false, length = 300)
     private String reDtl_Adr ; // 상세주소
@@ -50,9 +50,9 @@ public class ReEs extends BaseEntity {
     private Integer reTotalFlr ; // 전체 층수
 
     @Column(nullable = false, length = 300)
-    private String reFlrType ; // 매물 유형
+    private String reFlrType ; // 매매 유형
 
-//    private Integer reSecndFlr ; //  복층
+//    private boolean reSecndFlr ; //  복층
 //    private boolean reTopFlr ; // 옥탑방
 //    private boolean reUndrflr ; // 반지하
 
@@ -95,9 +95,9 @@ public class ReEs extends BaseEntity {
         this.reJeonse = reFormDto.getReJeonse(); //전세
 
 
-        this.reSido = reFormDto.getReSido(); //시도
-        this.reGungu = reFormDto.getReGungu(); // 군구
-        this.reDong = reFormDto.getReDong(); // 동
+        this.roadAddress = reFormDto.getRoadAddress(); // 도로명 주소
+//        this.reGungu = reFormDto.getReGungu(); // 군구
+//        this.reDong = reFormDto.getReDong(); // 동
         this.reDtl_Adr = reFormDto.getReDtl_Adr(); //상세주소
 
         this.reRoomcnt = reFormDto.getReRoomcnt(); // 방개수
@@ -106,10 +106,10 @@ public class ReEs extends BaseEntity {
 
         this.reFlr = reFormDto.getReFlr(); // 층수
         this.reTotalFlr = reFormDto.getReTotalFlr(); // 전체층수
-        this.reFlrType = reFormDto.getReFlrType();
+        this.reFlrType = reFormDto.getReFlrType(); //기타 층수
 
         // boolean 타입은 get메소드가 아닌. is메소드로 불러오기가능
-//        this.reSecndFlr = reFormDto.getReSecndFlr(); // 복층
+//        this.reSecndFlr = reFormDto.isReSecndFlr(); // 복층
 //        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
 //        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
 
