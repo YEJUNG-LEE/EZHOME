@@ -124,13 +124,13 @@ public class ReEsController {
             System.out.println("==========================================================");
             model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
             e.printStackTrace();
-            return "reEs/html/ReItemForm" ;
+            return "reEs/html/ReEs" ;
         }
 
 
         System.out.println("완료!");
 
-        return "reEs/html/ReEs"; // 디테일 페이지로
+        return "common/main"; // 메인 페이지로
 
     }
 
