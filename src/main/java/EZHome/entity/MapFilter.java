@@ -57,7 +57,7 @@ public class MapFilter {
     private boolean teen ; // 10대 거주
     private boolean twen ; // 20대 거주
     private boolean thirty ; // 30대 거주
-    private boolean fourth ; // 40대 거주
+    private boolean fourty ; // 40대 거주
     private boolean fifty ; // 50대 거주
     private boolean sixty ; // 60대 거주
     private boolean rocket ; // 로켓배송
@@ -65,6 +65,8 @@ public class MapFilter {
     private boolean subway ; // 역세권
     private boolean park ;// 공원
     private boolean hodi ; // 주택지구
+
+    private boolean boulevard ; //대도로변
 
 
     @OneToOne
@@ -111,7 +113,7 @@ public class MapFilter {
         this.teen = teen ; // 10대 거주
         this.twen = twen ; // 20대 거주
         this.thirty = thirty ; // 30대 거주
-        this.fourth = fourth   ; // 40대 거주
+        this.fourty = fourty   ; // 40대 거주
         this.fifty = fifty ; // 50대 거주
         this.sixty = sixty ; // 60대 거주
         this.rocket = rocket ; // 로켓배송
@@ -119,6 +121,7 @@ public class MapFilter {
         this.subway = subway  ; // 역세권
         this.park = park  ; // 공원
         this.hodi = hodi  ; // 주택지구
+        this.boulevard = boulevard; // 도로변
     }
 
 
