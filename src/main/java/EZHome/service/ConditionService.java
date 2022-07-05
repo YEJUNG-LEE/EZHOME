@@ -133,7 +133,7 @@ public class ConditionService {
 
 
     public List<MapMainDto> compare(ReMncsDto reMncsDto, List<MapMainDto> mapMainDtoList) {
-        if(reMncsDto == null){
+        if(reMncsDto.getId() == null){
             return mapMainDtoList;
         }
         System.out.println("compare에 들어갔습니다.");
@@ -152,7 +152,7 @@ public class ConditionService {
                 match = reCacs.compare(reMncsDto, match);
                 int select = match.get("select");
                 int correct = match.get("correct");
-                int percent = Math.round(correct/select)*100;
+                int percent = (int)Math.round(100.0*correct/select);
                 mapMainDto.setSelect(select);
                 mapMainDto.setCorrect(correct);
                 mapMainDto.setPercent(percent);
@@ -164,13 +164,15 @@ public class ConditionService {
         }
         int index = 0;
         for (MapMainDto mapMainDto: result) {
-            rank.put(index, mapMainDto.getCorrect());
+            rank.put(index, mapMainDto.getPercent());
             index += 1;
         }
-        List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(rank.entrySet());
-        entryList.sort(Map.Entry.comparingByValue());
-        for(Map.Entry<Integer, Integer> entry: entryList){
-            rankList.add(result.get(entry.getKey()));
+        List<Integer> keySet = new ArrayList<>(rank.keySet());
+        keySet.sort(((o1, o2) -> keySet.get(o2) - keySet.get(o1)));
+        System.out.println("====내림차순 정렬===");
+        for(int key : keySet){
+            System.out.println("Key:" + key + ", value : " + rank.get(key));
+            rankList.add(result.get(key));
         }
         return rankList;
     }

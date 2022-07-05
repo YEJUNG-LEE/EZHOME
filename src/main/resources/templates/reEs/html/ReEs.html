@@ -489,7 +489,7 @@
                                     <img th:src="${item.reImgUrl}" style="width: 242px; height: 181.5px;">
                                 </div>
                                 <div class="ReLi_text">
-                                    <div class="ReLi_accuracy">일치율 100%</div>
+                                    <div th:if="${item.percent != null}" class="ReLi_accuracy">일치율 [[${item.percent}]]%</div>
                                     <div class="ReLi_TrType">
                                         <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
