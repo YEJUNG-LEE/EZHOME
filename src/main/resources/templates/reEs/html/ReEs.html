@@ -428,7 +428,7 @@
                                         <input type="hidden" name="thirty" value="false" th:field="*{thirty}"/>
                                     </div>
                                     <div class="ReCs-button" id="fourty">40대거주
-                                        <input type="hidden" name="fourty" value="false" th:field="*{fourth}"/>
+                                        <input type="hidden" name="fourty" value="false" th:field="*{fourty}"/>
                                     </div>
                                     <div class="ReCs-button" id="fifty">50대이상
                                         <input type="hidden" name="fifty" value="false" th:field="*{fifty}"/>
@@ -485,7 +485,7 @@
                             <div class="ReLi_content" th:each="item : ${mapMainDtoList}">
                                 <div class="ReLi_img">
                                     <div class="ReLi_ranking">Top 1</div>
-                                    <img th:src="${item.reImgUrl}">
+                                    <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
                                 </div>
                                 <div class="ReLi_text">
                                     <div class="ReLi_accuracy">일치율 100%</div>
@@ -493,15 +493,15 @@
                                         <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
                                     <div class="ReLi_cost">
-                                        [[${reDeposit}]]/ [[${reMon_price}]]/ [[${reAdmn_fee}]]
+                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]
                                         <!-- 보증금 / 월세/ 관리비-->
                                     </div>
                                     <div class="ReLi_extent">
-                                        [[${reFlr}]]/ · [[${reExtent}]]/
+                                        [[${item.reFlr}]]/ · [[${item.reExtent}]]
                                         <!-- 층수 / 평수-->
                                     </div>
                                     <div class="ReLi_address">
-                                        [[${roadAddress}]]
+                                        [[${item.roadAddress}]]
                                         <!-- 시도 / 군구 / 동-->
                                     </div>
                                     <div class="ReLi_agent">
@@ -749,6 +749,7 @@
                 }
             })
         </script>
+    </div>
     </div>
 </body>
 
