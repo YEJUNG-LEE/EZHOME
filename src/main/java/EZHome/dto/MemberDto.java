@@ -10,5 +10,4 @@ public class MemberDto {
     private Long id ;
     private String Memb_name;
     private String Memb_nick;
-
 }

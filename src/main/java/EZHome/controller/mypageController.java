@@ -1,21 +1,17 @@
 package EZHome.controller;
 
 import EZHome.constant.Role;
-import EZHome.dto.MapMainDto;
-import EZHome.dto.MemberFormDto;
-import EZHome.dto.ReFormDto;
 import EZHome.service.MemberService;
 import EZHome.service.ReService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
-import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/mypage")
@@ -28,23 +24,4 @@ public class mypageController {
     private final MemberService memberService ;
     private final ReService reService ;
 
-    @GetMapping(value = "/USERmain")
-    public String USERmypageMain(Model model, Principal principal){
-        String email = principal.getName();
-        MemberFormDto memberFormDto = memberService.getName(email);
-
-        model.addAttribute("memberFormDto", memberFormDto);
-
-        return "admin/USERmyPageMain" ;
-    }
-
-    @GetMapping(value = "/LREAmain")
-    public String LREAmypageMain(Model model, Principal principal){
-        String email = principal.getName();
-        MemberFormDto memberFormDto = memberService.getName(email);
-
-        model.addAttribute("memberFormDto", memberFormDto);
-
-        return "admin/LREAmyPageMain" ;
-    }
 }
