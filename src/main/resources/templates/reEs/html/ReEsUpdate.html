@@ -230,7 +230,7 @@
                 <!--  ======================================================================================================  -->
                 <!--  ================================================= 조건 필터 ============================================  -->
                 <div class="ReCS">
-                    <form method="post" th:action="@{/map/save}" th:object="${ReMncsDto}" enctype="application/x-www-form-urlencoded" >
+                    <form method="post" th:action="@{'/map/save'}" th:object="${reMncsDto}" enctype="application/x-www-form-urlencoded" >
                         <div class="ReCs-subject">
                             <div class="ReCs-select">
                                 <div class="ReCs-sl-div ReCs-normal">
@@ -456,9 +456,10 @@
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
                             <div class="ReCs-MB">저장
-<!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
-                                    <button type="submit" class="btn">저장</button>
+<!--                                <div> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
+                                    <button  type="submit" class="btn">저장</button>
 <!--                                </div>-->
+
                             </div>
                             <div class="ReCs-MB">불러오기</div>
                             <div class="ReCs-MB">초기화</div>
@@ -466,6 +467,7 @@
                         </div>
                         <div class="ReCs-leftButton">
                             필터 숨기기
+                        </div>
                         </div>
                     </form>
                 </div>
@@ -485,7 +487,7 @@
                             <div class="ReLi_content" th:each="item : ${mapMainDtoList}">
                                 <div class="ReLi_img">
                                     <div class="ReLi_ranking">Top 1</div>
-                                    <img th:src="${item.reImgUrl}">
+                                    <img th:src="${item.reImgUrl}" style="width: 242px; height: 181.5px;">
                                 </div>
                                 <div class="ReLi_text">
                                     <div class="ReLi_accuracy">일치율 100%</div>
@@ -493,19 +495,19 @@
                                         <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
                                     <div class="ReLi_cost">
-                                        [[${reDeposit}]]/ [[${reMon_price}]]/ [[${reAdmn_fee}]]
+                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]
                                         <!-- 보증금 / 월세/ 관리비-->
                                     </div>
                                     <div class="ReLi_extent">
-                                        [[${reFlr}]]/ · [[${reExtent}]]/
+                                        [[${item.reFlr}]]층 · [[${item.reExtent}]]평
                                         <!-- 층수 / 평수-->
                                     </div>
                                     <div class="ReLi_address">
-                                        [[${roadAddress}]]
-                                        <!-- 시도 / 군구 / 동-->
+                                        [[${item.roadAddress}]]
+                                        <!-- 도로명주소-->
                                     </div>
                                     <div class="ReLi_agent">
-                                        <div class="ReLi_agent_img"></div>
+<!--                                        <div class="ReLi_agent_img"></div>-->
                                         <div class="ReLi_agent_div">
                                             <div class="ReLi_agent_company" th:text="${item.lreaNick}"></div>
                                             <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
@@ -542,7 +544,7 @@
                 var polygons = []; // 폴리곤을 저장하고, 이후 삭제하기 위해 사용합니다.
                 var customOverlays = []; // <47/영등포구> 처럼 텍스트를 띄우는 부분을 저장하고, 이후 삭제 및 변경하기 위해 사용합니다.
                 var si = 6; // 시군구를 보여주는 레벨의 기준은 level 5입니다.
-                var marker = null; // 부동산 marker를 찍을 수 있는
+                var marker = null; // 부동산 marker를 찍을 수 있는 
                 var infowindow = null;
 
 
@@ -723,7 +725,7 @@
                     // 주소로 좌표를 검색합니다
                     geocoder.addressSearch(address, function (result, status) {
 
-                        // 정상적으로 검색이 완료됐으면
+                        // 정상적으로 검색이 완료됐으면 
                         if (status === kakao.maps.services.Status.OK) {
 
                             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -749,6 +751,7 @@
                 }
             })
         </script>
+    </div>
     </div>
 </body>
 

@@ -291,3 +291,15 @@ var cs_deposit_setRightValue = () => {
 cs_deposit_inputLeft.addEventListener("input", cs_deposit_setLeftValue);
 cs_deposit_inputRight.addEventListener("input", cs_deposit_setRightValue);
 
+$(document).ready(function(){
+    cs_floor_setLeftValue();
+    cs_floor_setRightValue();
+    cs_extent_setLeftValue();
+    cs_extent_setRightValue();
+    cs_month_setLeftValue();
+    cs_month_setRightValue();
+    cs_manage_setLeftValue();
+    cs_manage_setRightValue();
+    cs_deposit_setLeftValue();
+    cs_deposit_setRightValue();
+})
