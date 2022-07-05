@@ -20,11 +20,13 @@
             </h1>
             <!-- EzHome-ul-left -->
             <ul class="EzHome-ul-left">
+                <!-- 비회원 -->
                 <li sec:authorize="isAnonymous()">
                     <a href="/map">부동산</a>
                 </li>
+                <!-- 로그인된거 -->
                 <li sec:authorize="isAuthenticated()">
-                    <a href="/user/map">부동산</a>
+                    <a href="/map">부동산</a>
                 </li>
                 <li>
                     <a href="/admin/item/new">커뮤니티</a>
