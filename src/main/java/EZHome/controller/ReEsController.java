@@ -1,8 +1,12 @@
 package EZHome.controller;
 
 import EZHome.dto.ReFormDto;
+import EZHome.entity.ReEs;
 import EZHome.service.ReService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +21,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -141,7 +146,16 @@ public class ReEsController {
 //        return "reEs/html/ReItemForm" ;
 //    }
 
+    public String ReManage(@PathVariable("page")Optional<Integer> page,
+                           Model model) {
 
+        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
 
+        Page<ReEs> reEs = reService.getAdminItemPage(pageable);
 
+        model.addAttribute("reEs", reEs);
+        model.addAttribute("maxPage", 5);
+
+        return "admin/LREAmyPageMain";
+    }
 }
