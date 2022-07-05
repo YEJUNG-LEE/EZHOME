@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<link type="text/css" th:href="@{/css/myPage/USERMyPage.css}" rel="stylesheet">
+
+<th:block layout:fragment="css"></th:block>
+
+<body>
+<header></header>
+<div class="USMy-div-all">
+    <div class="USMy-div-con-all">
+        <div class="USMy-div-all-pro">
+            <div class="USMy-div-pro">
+                <div class="USMy-div-pro01">
+                    <div class="USMy-div-pro-pic"></div>
+                    <p class="LRMy-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
+                    <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                    <p class="LRMy-pro-rat" th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
+                    <p class="LRMy-pro-rat" th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
+                </div>
+                <div class="USMy-div-pro02"></div>
+            </div>
+            <div class="USMy-div-all-pag">
+                <div class="USMy-div-pag">
+                    <p class="USMy-pag-tit">관심중개사 보기</p>
+                    <p class="USMy-pag-tit">최근 본 매물</p>
+                    <p class="USMy-pag-tit">내정보</p>
+                    <p class="USMy-pag-con">나의 맞춤 조건</p>
+                    <p class="USMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
+                    <p class="USMy-pag-con"><a th:href="@{/members/delete/(${memberFormDto.id}) }">회원 탈퇴</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="USMy-div-con">
+            <div class="USMy-div-tit">
+                <h1 class="USMy-tit-font">마이페이지</h1>
+            </div>
+            <div class="USMy-div-con-inf">
+                <div class="USMy-div-inf-top">
+                    <p class="USMy-inf-tit">내정보</p>
+                </div>
+            </div>
+            <div class="USMy-div-cat-mes">
+                <div class="USMy-div-cat">
+                    <div class="USMy-div-cat-tit">
+                        <p class="USMy-tit-p">내 맞춤 조건</p>
+                        <p class="USMy-out">더보기></p>
+                    </div>
+                    <div class="USMy-div-cat-con"></div>
+                </div>
+            </div>
+            <div class="USMy-div-rec">
+                <div class="USMy-div-rec-tit">
+                    <p class="USMy-tit-p">최근 본 매물 목록</p>
+                    <p class="USMy-out">더보기></p>
+                </div>
+                <ul class="USMy-ul-rec">
+                    <li class="USMy-li-rec">
+                        <div class="USMy-rec-img"></div>
+                        <div class="USMy-rec-heart"></div>
+                        <p class="USMy-rec-tit-p">매물제목</p>
+                        <div class="USMy-rec-con-pdiv">
+                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="USMy-li-rec">
+                        <div class="USMy-rec-img"></div>
+                        <div class="USMy-rec-heart"></div>
+                        <p class="USMy-rec-tit-p">매물제목</p>
+                        <div class="USMy-rec-con-pdiv">
+                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="USMy-li-rec">
+                        <div class="USMy-rec-img"></div>
+                        <div class="USMy-rec-heart"></div>
+                        <p class="USMy-rec-tit-p">매물제목</p>
+                        <div class="USMy-rec-con-pdiv">
+                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="USMy-li-rec">
+                        <div class="USMy-rec-img"></div>
+                        <div class="USMy-rec-heart"></div>
+                        <p class="USMy-rec-tit-p">매물제목</p>
+                        <div class="USMy-rec-con-pdiv">
+                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="USMy-li-rec">
+                        <div class="USMy-rec-img"></div>
+                        <div class="USMy-rec-heart"></div>
+                        <p class="USMy-rec-tit-p">매물제목</p>
+                        <div class="USMy-rec-con-pdiv">
+                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="USMy-li-rec">
+                        <div class="USMy-rec-img"></div>
+                        <div class="USMy-rec-heart"></div>
+                        <p class="USMy-rec-tit-p">매물제목</p>
+                        <div class="USMy-rec-con-pdiv">
+                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<footer></footer>
+
+</body>
+</html>
