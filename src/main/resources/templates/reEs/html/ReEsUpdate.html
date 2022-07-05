@@ -230,7 +230,7 @@
                 <!--  ======================================================================================================  -->
                 <!--  ================================================= 조건 필터 ============================================  -->
                 <div class="ReCS">
-                    <form method="post" th:action="@{'/map/save/' + *{id} }" th:object="${reMncsDto}" enctype="application/x-www-form-urlencoded" >
+                    <form method="post" th:action="@{'/map/save'}" th:object="${reMncsDto}" enctype="application/x-www-form-urlencoded" >
                         <div class="ReCs-subject">
                             <div class="ReCs-select">
                                 <div class="ReCs-sl-div ReCs-normal">
@@ -455,9 +455,9 @@
                             </div>
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
-                            <div class="ReCs-MB">수정
+                            <div class="ReCs-MB">저장
 <!--                                <div> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
-                                    <button  type="submit" class="btn">수정</button>
+                                    <button  type="submit" class="btn">저장</button>
 <!--                                </div>-->
 
                             </div>

@@ -55,7 +55,7 @@ public class ReMncsDto { // 기본 Dto
     private boolean teen ; // 10대 거주
     private boolean twen ; // 20대 거주
     private boolean thirty ; // 30대 거주
-    private boolean fourth ; // 40대 거주
+    private boolean fourty ; // 40대 거주
     private boolean fifty ; // 50대 거주
     private boolean sixty ; // 60대 거주
     private boolean rocket ; // 로켓배송
@@ -103,7 +103,7 @@ public class ReMncsDto { // 기본 Dto
         reMncsDto.setTeen(mapFilter.isTeen());
         reMncsDto.setTwen(mapFilter.isTwen());
         reMncsDto.setThirty(mapFilter.isThirty());
-        reMncsDto.setFourth(mapFilter.isFourth());
+        reMncsDto.setFourty(mapFilter.isFourty());
         reMncsDto.setFifty(mapFilter.isFifty());
         reMncsDto.setSixty(mapFilter.isSixty());
         reMncsDto.setBoulevard(mapFilter.isBoulevard());

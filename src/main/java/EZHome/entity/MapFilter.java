@@ -57,7 +57,7 @@ public class MapFilter {
     private boolean teen ; // 10대 거주
     private boolean twen ; // 20대 거주
     private boolean thirty ; // 30대 거주
-    private boolean fourth ; // 40대 거주
+    private boolean fourty ; // 40대 거주
     private boolean fifty ; // 50대 거주
     private boolean sixty ; // 60대 거주
     private boolean rocket ; // 로켓배송
@@ -113,7 +113,7 @@ public class MapFilter {
         this.teen = teen ; // 10대 거주
         this.twen = twen ; // 20대 거주
         this.thirty = thirty ; // 30대 거주
-        this.fourth = fourth   ; // 40대 거주
+        this.fourty = fourty   ; // 40대 거주
         this.fifty = fifty ; // 50대 거주
         this.sixty = sixty ; // 60대 거주
         this.rocket = rocket ; // 로켓배송

@@ -39,18 +39,16 @@
                 values = $('input[name=' + tagName + ']').attr('value');
                 console.log(tagName + " : " + values);
             })
+            var trTypeValue = $('input[name=trType]').attr('value');
+            $('#'+ trTypeValue).css({'background-color':'#0081cc', 'color':'white'});
 
+            var houseTypeValue = $('input[name=houseType]').attr('value');
+            $('#'+ houseTypeValue).css({'background-color':'#0081cc', 'color':'white'});
 
             var errorMessage = [[${errorMessage}]];
             if(errorMessage != null){
                 alert(errorMessage);
             };
-
-<!--            Callerror();-->
-<!--            -->
-<!--            function Callerror(){-->
-<!--            -->
-<!--            }-->
 
 
         });
@@ -428,7 +426,7 @@
                                         <input type="hidden" name="thirty" value="false" th:field="*{thirty}"/>
                                     </div>
                                     <div class="ReCs-button" id="fourty">40대거주
-                                        <input type="hidden" name="fourty" value="false" th:field="*{fourth}"/>
+                                        <input type="hidden" name="fourty" value="false" th:field="*{fourty}"/>
                                     </div>
                                     <div class="ReCs-button" id="fifty">50대이상
                                         <input type="hidden" name="fifty" value="false" th:field="*{fifty}"/>
@@ -456,9 +454,9 @@
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
                             <div class="ReCs-MB">저장
-<!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
+                                <!--ReMncsDto의 id가 담을 곳이 있다면 -->
                                     <button type="submit" class="btn">저장</button>
-<!--                                </div>-->
+
                             </div>
                             <div class="ReCs-MB">불러오기</div>
                             <div class="ReCs-MB">초기화</div>

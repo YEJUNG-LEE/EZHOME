@@ -109,7 +109,7 @@ public class ReEsController {
             for(ObjectError e : list) {
                 System.out.println(e.getDefaultMessage());
             }
-            return "/admin/item/update/" + reId ;  // ReItemForm 으로 이동
+            return "redirect:/admin/item/update/" + reId ;  // ReItemForm 으로 이동
         }
 
         if(reFormDto.getId() == null){
@@ -117,7 +117,7 @@ public class ReEsController {
             System.out.println("2번 아이디가 비어져있을때의 오류입니다.");
             System.out.println("==========================================================");
             model.addAttribute("errorMessage","아이디는 필수 입력값입니다.");
-            return "/admin/item/update/" + reId ;
+            return "redirect:/admin/item/update/" + reId ;
         }
         String email = principal.getName();
         try {
@@ -128,7 +128,7 @@ public class ReEsController {
             System.out.println("==========================================================");
             model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
             e.printStackTrace();
-            return "/admin/item/update/" + reId ;
+            return "redirect:/admin/item/update/" + reId ;
         }
         return "redirect:/";
 //        return "reEs/html/ReUpdateForm" ;
