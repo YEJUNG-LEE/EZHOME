@@ -12,17 +12,17 @@ $(document).ready(function () {
             });
 
             console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
+            $('input[value="true"]').parent().css({'background-color':'#52b0fb', 'color':'white'});
 
             $('.ReCs-button').click(function(){
                 var tagId = $(this).attr("id");
                 console.log(tagId);
                 var values = $('input[name=' + tagId + ']').attr('value');
                 if(values == 'false'){
-                    $(this).css({'background-color':'#0081cc', 'color':'white'});
+                    $(this).css({'background-color':'#52b0fb', 'color':'white'});
                     $('input[name=' + tagId + ']').attr('value', 'true');
                 }else{
-                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
+                    $(this).css({'background-color':'#FFFFFF', 'color':'#d1d1d1'});
                     $('input[name=' + tagId + ']').attr('value', 'false');
                 }
                 values = $('input[name=' + tagId + ']').attr('value');

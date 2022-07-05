@@ -24,7 +24,6 @@ public class ServiceController {
 
     @GetMapping(value = "/service3")
     public String services_oto(Model model){
-
         return "services/SeCe-oto";
     }
 }
