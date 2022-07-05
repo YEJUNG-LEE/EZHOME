@@ -1,6 +1,7 @@
 package EZHome.entity;
 
 import EZHome.dto.ReFormDto;
+import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -66,13 +67,10 @@ public class ReEs extends BaseEntity {
     private Integer reAdmn_fee ; // 관리비
 
     @Column(nullable = false)
-    private Integer reDeposit; // 보증금
+    private Integer reDeposit; // 보증금, 전세가
 
     @Column(nullable = false)
     private Integer reTrade ; // 매매가
-
-    @Column(nullable = false)
-    private Integer reJeonse ; // 전세가
 
     //회원(일)이 여러개(다)의 매물을 올릴 수 있음으로 '일대다'로 설정했습니다.
     @ManyToOne
@@ -88,7 +86,6 @@ public class ReEs extends BaseEntity {
         this.reAdmn_fee = reFormDto.getReAdmn_fee(); // 관리비
         this.reDeposit = reFormDto.getReDeposit(); // 보증금
         this.reTrade = reFormDto.getReTrade(); // 매매가
-        this.reJeonse = reFormDto.getReJeonse(); //전세
 
 
         this.roadAddress = reFormDto.getRoadAddress(); //시도
@@ -108,6 +105,27 @@ public class ReEs extends BaseEntity {
 //        this.reTopFlr = reFormDto.isReTopFlr(); // 옥탑방
 //        this.reUndrflr = reFormDto.isReUndrflr();// 반지하
 
+    }
+
+    public boolean compare(ReMncsDto reMncsDto) {
+        String secndFlr = null;
+        String underFlr = null;
+        String loofFlr = null;
+        if(reMncsDto.isSecondFloor()){secndFlr = "복층";}
+        if(reMncsDto.isHalfUnder()){underFlr = "반지하";}
+        if(reMncsDto.isLoofTop()){loofFlr = "옥탑방";}
+        if(!this.rehouseType.equals(reMncsDto.getHouseType())){return false;}
+        if(!this.retrType.equals(reMncsDto.getTrType())){return false;}
+        if(!(this.reFlr <= reMncsDto.getMinFloor() && this.reFlr >= reMncsDto.getMaxFloor())){return false;}
+        if(!(this.reFlrType.equals(secndFlr) || this.reFlrType.equals(underFlr) || this.reFlrType.equals(loofFlr))){return false;}
+        if(!(this.reExtent <= reMncsDto.getMinEx() && this.reExtent >= reMncsDto.getMaxEx())){return false;}
+        if(!(this.reMon_price <= reMncsDto.getMinMon() && this.reMon_price >= reMncsDto.getMaxMon())){return false;}
+        if(!(this.reDeposit <= reMncsDto.getMinDep() && this.reDeposit >= reMncsDto.getMaxDep())){return false;}
+
+//        if(!(this.reTrade <= reMncsDto.getMinMon() && this.reTrade >= reMncsDto.getMax())){return false;}
+
+//        if(!this.roadAddress.equals(reMncsDto.getHouseType())){return false;}
+        return true;
     }
 //
 //    public static ReEs createWho(Member member){
