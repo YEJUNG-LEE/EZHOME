@@ -116,4 +116,5 @@
     position: relative;
     background-color: rgb(251,251, 251);
     white-space: pre-wrap;
+    text-align:left;
 }
