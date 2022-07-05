@@ -1,19 +1,16 @@
 package EZHome.service;
 
-import EZHome.dto.MapMainDto;
 import EZHome.dto.ReMncsDto;
-import EZHome.entity.*;
-import EZHome.repository.*;
+import EZHome.entity.MapFilter;
+import EZHome.entity.Member;
+import EZHome.repository.ConditionRepository;
+import EZHome.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Service
 @Transactional
@@ -22,9 +19,6 @@ public class ConditionService {
 
     private final ConditionRepository conditionRepository;
     private final MemberRepository memberRepository;
-    private final ReEsRepository reEsRepository;
-    private final ReCucsRepository reCucsRepository;
-    private final ReCacsRepository reCacsRepository;
 
 
 
@@ -135,21 +129,4 @@ public class ConditionService {
     }
 
 
-    public List<MapMainDto> compare(ReMncsDto reMncsDto, List<MapMainDto> mapMainDtoList) {
-        List<MapMainDto> result = new ArrayList<MapMainDto>();
-        Map<String, Integer> match = new HashMap<String, Integer>();
-        for (MapMainDto mapMainDto : mapMainDtoList) {
-            ReEs reEs = reEsRepository.findById(mapMainDto.getId()).orElseThrow(EntityNotFoundException::new);
-            boolean flag = reEs.compare(reMncsDto);
-            if(flag){
-                ReCucs reCucs = reCucsRepository.findByReEs_Id(mapMainDto.getId());
-                ReCacs reCacs = reCacsRepository.findByReEs_Id(mapMainDto.getId());
-                match = reCucs.compare(reMncsDto, match);
-                match = reCacs.compare(reMncsDto, match);
-            }
-        }
-
-
-        return mapMainDtoList;
-    }
 }
