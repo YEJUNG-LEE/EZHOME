@@ -214,10 +214,10 @@ section .ReEs-div-detail-Pic .image img {
     width: 1280px;
     display: flex;
     border: 1px solid #fff;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color:#52b0fb;
     /* 그라데이션 빼도 됩니당. */
-    background-image: linear-gradient(134deg, rgb(19, 183, 207) -5%, rgb(54, 91, 180) 56%, rgb(54, 91, 180) 56%);
+    background-image: linear-gradient(353deg, rgb(171, 231, 249) -8%, #52b0fb 5%, rgb(171, 231, 249) 300%);
     opacity: 1;
 }
 
@@ -313,8 +313,10 @@ section .ReEs-div-detail-Pic .image img {
     height: 100%;
     padding: 20px 0px 2px;
     text-align: left;
-    font-size: 40px;
+    font-size: 28px;
+    font-weight:600;
     margin: 90px 0px 14px;
+    padding-left: 20px;
 }
 
 /* 가격 정보 */
@@ -330,13 +332,13 @@ section .ReEs-div-detail-Pic .image img {
 /* 공통th */
 /* .ReEs-tb-th */
 .ReEs-tb-th {
-    width: 300px;
+    width: 211px;
     height: 70px;
-    font-size: 16px;
-    color: #333;
+    color: #383838;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+    padding-left: 50px;
 }
 
 /* 공통 td */
@@ -345,41 +347,37 @@ section .ReEs-div-detail-Pic .image img {
     width: 500px;
     height: 70px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
-    letter-spacing: 2px;
 }
 
 /* 첫번째 th , 구분선 */
 /* .ReEs-tb-th-1st */
 .ReEs-tb-th-1st{
-    border-top: 1px solid #dfdfdf;
-    width: 300px;
-    height: 70px;
-    font-size: 16px;
-    color: #333;
+    border-top: 1px solid #d1d1d1;
+    color: #383838;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-top: 10px;
+    padding-left: 50px;
 }
 /* 첫번째 td , 구분선 */
 /* .ReEs-tb-td-1st */
 .ReEs-tb-td-1st{
-    border-top: 1px solid #dfdfdf;
+    border-top: 1px solid #d1d1d1;
     width: 500px;
     height: 70px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
-    letter-spacing: 2px;
     padding-top: 10px;
 }
 
 /* p 태그 라인하이트 역활 */
 /* .textsize */
 .textsize{
-    margin-bottom: 4px ;
+    margin-top: 4px ;
 }
 
 /* 방문 예약 */
@@ -395,7 +393,7 @@ section .ReEs-div-detail-Pic .image img {
     background: #fff;
     box-shadow: rgb(0 0 0 / 10%) 0px 10px 20px;
     border: 1px solid #dfdfdf;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 /* 맞춤 정보 컨텐츠영역 시작 */
@@ -405,16 +403,18 @@ section .ReEs-div-detail-Pic .image img {
     height: 100%;
     padding: 20px 0px 2px;
     text-align: left;
-    font-size: 40px;
+    font-size: 28px;
+    font-weight:600;
     margin: 40px 0px 14px;
+    padding-left:20px;
 }
 
 /* 맞춤 정보*/
 .ReEs-div-content03 {
-    width: 812px;
+    width: 736px;
     height: 184px;
-    padding: 14px 0px 0px;
-    border-top: 1px solid #dfdfdf;
+    padding: 14px 0px 0px 30px;
+    border-top: 1px solid #d1d1d1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -437,7 +437,7 @@ section .ReEs-div-detail-Pic .image img {
     display: inline-block;
     font-size: 12px;
     padding: 12px 0px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: 600;
     color: #d1d1d1;
     text-align: center;
@@ -467,18 +467,19 @@ section .ReEs-div-detail-Pic .image img {
 .ReEs-h2-Kate{
     width: 100%;
     height: 100%;
-    padding: 20px 0px 2px;
+    padding: 20px 0px 2px 20px;
     text-align: left;
-    font-size: 40px;
+    font-size: 28px;
+    font-weight:600;
     margin: 40px 0px 14px;
 }
 
 /* 카테고리 영역 */
 .ReEs-div-content04 {
-    width: 812px;
+    width: 736px;
     height: 236px;
-    padding: 14px 0px 0px;
-    border-top: 1px solid #dfdfdf;
+    padding: 14px 0px 0px 30px;
+    border-top: 1px solid #d1d1d1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -490,16 +491,17 @@ section .ReEs-div-detail-Pic .image img {
 .ReEs-h2-bosu{
     width: 100%;
     height: 100%;
-    padding: 20px 0px 2px;
+    padding: 20px 0px 2px 20px;
     text-align: left;
-    font-size: 40px;
+    font-size: 28px;
+    font-weight:600;
     margin: 40px 0px 14px;
 }
 .ReEs-div-content06 {
-    width: 812px;
+    width: 772px;
     height: 140px;
     padding: 14px 0px 0px;
-    border-top: 1px solid #dfdfdf;
+    border-top: 1px solid #d1d1d1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -510,16 +512,17 @@ section .ReEs-div-detail-Pic .image img {
 .ReEs-h2-detail{
     width: 100%;
     height: 100%;
-    padding: 20px 0px 2px;
+    padding: 20px 0px 2px 20px;
     text-align: left;
-    font-size: 40px;
+    font-size: 28px;
+    font-weight:600;
     margin: 40px 0px 14px;
 }
 
 .ReEs-div-content07 {
-    width: 812px;
+    width: 782px;
     height: 100%;
-    border-top: 1px solid #dfdfdf;
+    border-top: 1px solid #d1d1d1;
 }
 
 .ReEs-div-content08 {
@@ -1096,7 +1099,8 @@ section .ReEs-div-detail-Pic .image img {
     font-size: 16px;
     color: #e7e7e7;
     user-select: none;
-    margin-right: 10px;
+    margin-right: 12px;
+    border-radius:5px;
 }
 
 /* 더알아보기 */
