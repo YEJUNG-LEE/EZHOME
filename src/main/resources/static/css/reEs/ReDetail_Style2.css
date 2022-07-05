@@ -67,13 +67,13 @@ body {
 
 /* 일치율 box */
 .EzHo-Div10 {
-    width: 140px;
-    height: 50px;
+    width: 105px;
+    height: 41px;
     border-radius: 10px;
-    border: 1px solid #4876ef;
-    background-color: #4876ef;
-    color: #f7f7f7;
-    font-weight: 800;
+    border: 1px solid #52b0fb;
+    background-color: #52b0fb;
+    color: #FFFFFF;
+    font-weight: 600;
     text-align: center;
     display: flex;
     align-items: center;
@@ -84,16 +84,13 @@ body {
     font-size: 16px ;
 }
 /* 일치율 box ,hover  */
-.EzHo-Div10:hover {
-    border: 1px solid #fec72f;
-    background-color: #fec72f;
-    color: #FFFFFF;
-}
+
 
 /* 삭제하기 버튼 */
 .Detail-singo {
-    width: 100px;
-    height: 50px;
+    width: 75px;
+    height: 36px;
+    padding-top:1px;
     border-radius: 10px;
     border: 1px solid #f52222;
     background-color: #FFFFFF;
@@ -884,27 +881,26 @@ section .ReEs-div-detail-Pic .image img {
 
 
 .broker01 {
-    background-color: #4876ef;
+    background-color: #52b0fb;
     color: white;
-    font-weight: bold;
-    padding-top: 5px;
-    width: 329px;
-}
-
-.broker02 {
-    padding-top: 7px;
-    background-color: #f8f8f8;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    font-weight: 400;
+    padding-top: 10px;
     width: 327px;
 }
 
-.broker01,
 .broker02 {
+    padding-top: 10px;
+    color: #3c3c3c;
+    width: 327px;
+}
 
-    height: 30px;
+.broker01, .broker02 {
+    height: 28px;
     text-align: center;
     font-size: 15px;
+    margin-left: 16px;
+    border-radius: 5px;
+    margin-top: 2px;
 }
 
 .detail-price {
@@ -914,18 +910,16 @@ section .ReEs-div-detail-Pic .image img {
 }
 
 .detail-price02 {
-    margin-left: 10px;
-    margin-top: 7px;
+    margin-left: 113px;
     width: 40px;
-    border: 2px solid #2659db;
-    color: #4876ef;
+    border: 2px solid #FEC72F;
+    color: #52b0fb;
     border-radius: 3px;
-
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 600;
     height: 30px;
-    line-height: 30px;
-    text-align: center;
+    line-height: 31px;
+    padding-left: 1px;
 }
 
 .detail-price03 {
@@ -935,15 +929,13 @@ section .ReEs-div-detail-Pic .image img {
 }
 
 .detail-sigudong {
-
-    margin: -13px 0 24px 30px;
+    margin: 0px 0 24px 0px;
     font-size: 15px;
 }
 
 .ReEs-bropker-td {
     width: 328px;
-    border-top: 1px solid #bddbf8;
-    border-bottom: 1px solid #bddbf8;
+    border-top: 1px solid #d1d1d1;
     text-align: center;
     padding: 13px;
 }
@@ -967,8 +959,10 @@ section .ReEs-div-detail-Pic .image img {
 .ReEs-bk-detail {
     display: block;
     flex-direction: column;
-    margin-top: 3px;
-    font-size: 13px;
+    margin-top: 20px;
+    margin-left: 112px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .broker04 {
@@ -1003,7 +997,7 @@ section .ReEs-div-detail-Pic .image img {
     border: 1px solid #f7f7f7;
     width: 300px;
     text-align: center;
-    margin-left: 13px;
+    margin-left: 40px;
     margin-bottom: 25px;
     background: #f8f8f8;
     font-size: 12px;
@@ -1203,6 +1197,10 @@ section .ReEs-div-detail-Pic .image img {
     overflow: hidden;
 }
 
+th.broker-th {
+    text-align: center;
+}
+
 .banner-hover{
     display: block;
 }
@@ -1211,6 +1209,7 @@ section .ReEs-div-detail-Pic .image img {
 .banner-hover:hover .cover{
     background-color: rgba(72, 119, 239, 0.3) ;
 }
+
 .banner-hover-bg{
     background-color: rgba(0, 0, 0, 0.2);
     transition: background-color 200ms ease-in-out 0s;
