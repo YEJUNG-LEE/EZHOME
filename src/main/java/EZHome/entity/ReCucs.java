@@ -1,10 +1,13 @@
  package EZHome.entity;
 
+import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashMap;
+import java.util.Map;
 
  @Entity
 @Table(name="ReCucs") // 커스텀 매물
@@ -36,4 +39,40 @@ public class ReCucs extends BaseEntity{
     @OneToOne()
     @JoinColumn(name = "reid", unique = true)
      private ReEs reEs;
-}
+
+     public Map<String, Integer> compare(ReMncsDto reMncsDto, Map<String, Integer> match) {
+         int select = 0;    // 몇 개를 선택했는지 확인하는 변수
+         int correct = 0;   // 몇 개가 맞는지 확인하는 변수
+         if(reMncsDto.isNewhouse()){select += 1; if(this.isReNew()){correct += 1;}}
+         if(reMncsDto.isFull()){select += 1; if(this.isReFull()){correct += 1;}}
+         if(reMncsDto.isDebt()){select += 1; if(this.isReDebt()){correct += 1;}}
+         if(reMncsDto.isElevator()){select += 1; if(this.isReElvtr()){correct += 1;}}
+         if(reMncsDto.isPet()){select += 1; if(this.isRePet()){correct += 1;}}
+         if(reMncsDto.isSecurity()){select += 1; if(this.isReScrty()){correct += 1;}}
+         if(reMncsDto.isParking()){select += 1; if(this.isReParking()){correct += 1;}}
+         if(reMncsDto.isSouth()){select += 1; if(this.isReSouth()){correct += 1;}}
+         if(reMncsDto.isBug()){select += 1; if(this.isReBug()){correct += 1;}}
+         if(reMncsDto.isWoman()){select += 1; if(this.isReWoman()){correct += 1;}}
+         if(reMncsDto.isForest()){select += 1; if(this.isReForest()){correct += 1;}}
+         if(reMncsDto.isRiver()){select += 1; if(this.isReRiver()){correct += 1;}}
+         if(reMncsDto.isOcean()){select += 1; if(this.isReOcean()){correct += 1;}}
+         if(reMncsDto.isCity()){select += 1; if(this.isReCity()){correct += 1;}}
+
+
+         if(match.containsKey("select")){
+             int oldSelect = match.get("select");
+             match.put("select", oldSelect + select);
+         }else{
+             match.put("select", select);
+         }
+         if(match.containsKey("select")){
+             int oldCorrect = match.get("correct");
+             match.put("correct", oldCorrect + correct);
+         }else{
+            match.put("correct", correct);
+         }
+
+
+         return match;
+     }
+ }
