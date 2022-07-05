@@ -40,7 +40,7 @@
             <ul class="EzHome-ul-right">
                 <!-- 회원(공인중개사) 광고(매물)등록 -->
                 <li sec:authorize="!isAuthenticated()" class="advert_insert">
-                    <a href="#">광고문의</a>
+                    <a href="/common/advertise.html">광고문의</a>
                 </li>
                 <li sec:authorize="hasRole('LREA')" class="advert_insert">
                     <a href="#">광고문의</a>
