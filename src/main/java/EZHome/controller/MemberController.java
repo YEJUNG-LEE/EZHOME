@@ -97,7 +97,6 @@ public class MemberController {
 
     @PostMapping(value = "/update/{id}")
     public String updateMember(@Valid MemberFormDto memberFormDto, @PathVariable("id") Long id, Model model){
-//        System.out.println("들어가나요..?");
         try{
             MemberFormDto newMemberFormDto = memberService.updateMember(id, memberFormDto) ;
             model.addAttribute("memberFormDto", memberFormDto);

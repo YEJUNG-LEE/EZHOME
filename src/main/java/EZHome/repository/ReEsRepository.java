@@ -8,7 +8,7 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import java.util.List;
 
 public interface ReEsRepository extends JpaRepository<ReEs, Long>,
-        QuerydslPredicateExecutor<ReEs>, ReEsRepositoryCustom {
+        QuerydslPredicateExecutor<ReEs>, ReEsRepositoryCustom, ReRepositoryCustom {
 
     List<ReEs>findByReNum(Integer reNum);
 
