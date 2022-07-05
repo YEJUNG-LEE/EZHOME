@@ -24,6 +24,7 @@ public class MapFilter {
     private Integer maxFloor ; // 최대 층수
     private boolean halfUnder ; // 반지하
     private boolean loofTop ; // 옥탑방
+    private boolean secondFloor; // 복층
     private Integer minEx ;// 최소 평수
     private Integer maxEx ; // 최대 평수
     private Integer minMon; // 최소월세
