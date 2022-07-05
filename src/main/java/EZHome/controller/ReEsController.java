@@ -80,7 +80,7 @@ public class ReEsController {
 
         System.out.println("완료!");
 
-        return "common/main"; // 메인 페이지로
+        return "redirect:/"; // 메인 페이지로
 
     }
 
@@ -146,16 +146,16 @@ public class ReEsController {
 //        return "reEs/html/ReItemForm" ;
 //    }
 
-    public String ReManage(@PathVariable("page")Optional<Integer> page,
-                           Model model) {
-
-        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
-
-        Page<ReEs> reEs = reService.getAdminItemPage(pageable);
-
-        model.addAttribute("reEs", reEs);
-        model.addAttribute("maxPage", 5);
-
-        return "admin/LREAmyPageMain";
-    }
+//    public String ReManage(@PathVariable("page")Optional<Integer> page,
+//                           Model model) {
+//
+//        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
+//
+//        Page<ReEs> reEs = reService.getAdminItemPage(pageable);
+//
+//        model.addAttribute("reEs", reEs);
+//        model.addAttribute("maxPage", 5);
+//
+//        return "admin/LREAmyPageMain";
+//    }
 }
