@@ -7,15 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EZHome</title>
-    <link rel="stylesheet" th:href="@{css/service/SeCe-freq.css}" type = "text/css">
+    <link rel="stylesheet" th:href="@{/css/service/SeCe-freq.css}" type = "text/css">
     <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
 
     <!--제이쿼리 파트-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type = "text/javascript">
-        $("document").ready(function(){
-            $(".SeCe-que-tit").click(function(){
-                $(".SeCe-que-con").slideToggle("slow");
+         $("document").ready(function(){
+            $("#title01").click(function(){
+                $("#content01").slideToggle("slow");
+            });
+
+             $("#title02").click(function(){
+                $("#content02").slideToggle("slow");
+            });
+
+             $("#title03").click(function(){
+                $("#content03").slideToggle("slow");
             });
         });
     </script>
@@ -32,15 +40,14 @@
             </h1>
                 <ul class = "SeCe-main-ban">
                     <li>
-                        <a href = "/service">자주묻는 질문</a>
+                        <a th:href = "@{/service/freq}">자주묻는 질문</a>
                     </li>
                     <li>
-                        <a href = "/service2">1:1 문의</a>
+                        <a th:href = "@{/service/oto}">1:1 문의</a>
                     </li>
                     <li>
-                        <a href = "/service3">공지사항</a>
+                        <a th:href = "@{/service/not}">공지사항</a>
                     </li>
-                </ul>
                 </ul>
             </div>
         </header>

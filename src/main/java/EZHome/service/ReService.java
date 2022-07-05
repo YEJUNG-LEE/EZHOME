@@ -1,9 +1,6 @@
 package EZHome.service;
 
-import EZHome.dto.MapMainDto;
-import EZHome.dto.MapSearchDto;
-import EZHome.dto.ReFormDto;
-import EZHome.dto.ReImgDto;
+import EZHome.dto.*;
 import EZHome.entity.*;
 import EZHome.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -278,9 +275,7 @@ public class ReService {
         } // end for다 ~
     }
 
-    @Transactional(readOnly = true)
-    public Page<ReEs> getAdminItemPage(Pageable pageable) {
-        // 상품 검색 조건을 이용하여 페이징 객체를 반환
-        return reEsRepository.getAdminReEsPage(pageable);
-    }
+
+
+
 }
