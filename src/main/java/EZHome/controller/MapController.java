@@ -57,16 +57,15 @@ public class MapController {
     public String main(Model model, Principal principal){
         try{
             List<MapMainDto> mapMainDtoList = reService.getItemAll(); //id로 기존에 상품 정보를 formdto에 담기
-            ReMncsDto reMncsDto = null;
+
             if(principal == null){
                 model.addAttribute("ReMncsDto", new ReMncsDto());
             }else{
                 String email = principal.getName();
                 Member member = memberRepository.findByEmail(email);
-                reMncsDto = conditionService.getMapCondi(member);
+                ReMncsDto reMncsDto = conditionService.getMapCondi(member);
                 model.addAttribute("ReMncsDto", reMncsDto); // 회원의 조건 정보를 담고 있음
             }
-//            mapMainDtoList = conditionService.compare(reMncsDto, mapMainDtoList);
             for (MapMainDto mapMainDto: mapMainDtoList) {
                 System.out.println("reFormDto : " + mapMainDto.toString());
                 System.out.println("lreaName : " + mapMainDto.getLreaName());

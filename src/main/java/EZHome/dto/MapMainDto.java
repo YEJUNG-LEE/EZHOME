@@ -33,9 +33,6 @@ public class MapMainDto {
 
     private String reImgUrl ;// 이미지 url
 
-    private Integer select ; // 몇 개를 선택했는지
-    private Integer correct ; // 몇 개가 맞았는지
-
     private static ModelMapper modelMapper = new ModelMapper();
 
     public static MapMainDto of(ReEs reEs) {
