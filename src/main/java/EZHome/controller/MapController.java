@@ -52,6 +52,7 @@ public class MapController {
 //        return "reEs/html/ReEs";
 //    }
 
+
 //   @RequestMapping(value = "/map", method = {RequestMethod.GET, RequestMethod.POST})
     @RequestMapping(value = "/map")
     public String main(Model model){
@@ -98,7 +99,6 @@ public class MapController {
         return "reEs/html/ReEs"; // 에러남
     }
 
-
     // 메인 화면에서 상품이미지를 클릭하면 상품 상세페이지로 이동합니다.
     @GetMapping(value="/map/{id}")
     public String gotoDtl(@PathVariable("id") Long DtlId, Model model ){
@@ -108,4 +108,5 @@ public class MapController {
         model.addAttribute("member", member);
         return "reEs/html/InfoDetail";
     }
+
 }

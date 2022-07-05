@@ -12,17 +12,17 @@ import java.util.HashMap;
 @Controller
 @RequiredArgsConstructor
 public class ServiceController {
-    @GetMapping(value = "/service")
+    @GetMapping(value = "/service/freq")
     public String services_freq(Model model){
         return "services/SeCe-freq";
     }
 
-    @GetMapping(value = "/service2")
+    @GetMapping(value = "/service/not")
     public String services_not(Model model){
         return "services/SeCe-not";
     }
 
-    @GetMapping(value = "/service3")
+    @GetMapping(value = "/service/oto")
     public String services_oto(Model model){
         return "services/SeCe-oto";
     }
