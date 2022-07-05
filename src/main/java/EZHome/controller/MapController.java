@@ -115,7 +115,7 @@ public class MapController {
         Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
         model.addAttribute("member", member);
-        return "reEs/html/ReEsUpdate";
+        return "reEs/html/InfoDetail";
     }
 
 
