@@ -122,5 +122,10 @@ public class MemberController {
 
         return "redirect:/";
     }
+
+    @GetMapping(value = "/gogeag")
+    public String gogeag(){
+        return "services/SeCe-freq" ;
+    }
 }
 

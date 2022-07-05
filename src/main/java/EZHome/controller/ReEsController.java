@@ -146,8 +146,10 @@ public class ReEsController {
 //        return "reEs/html/ReItemForm" ;
 //    }
 
-//    public String ReManage(@PathVariable("page")Optional<Integer> page,
-//                           Model model) {
+//    @GetMapping(value = {"/admin/items", "/admin/items/{page}"})
+//    public String ReManage(Model model) {
+//
+//        Integer page = Integer.parseInt(request.getParameter("page"));
 //
 //        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
 //
@@ -155,6 +157,13 @@ public class ReEsController {
 //
 //        model.addAttribute("reEs", reEs);
 //        model.addAttribute("maxPage", 5);
+//
+//        return "admin/LREAmyPageMain";
+//    }
+
+//    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page){
+//        Page<ReEs> paging = this.reService.getList(page);
+//        model.addAttribute("paging", paging);
 //
 //        return "admin/LREAmyPageMain";
 //    }
