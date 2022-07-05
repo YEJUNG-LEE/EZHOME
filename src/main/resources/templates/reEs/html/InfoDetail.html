@@ -10,32 +10,32 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" th:href="@{https://unpkg.com/swiper/swiper-bundle.min.css}" />
 
-    <!--fontwesome CDN Link-->
+    <!-- fontwesome CDN Link -->
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css}"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--css-->
+    <!-- css  -->
+    <!-- ReDetail_Style2.css , CSS 합본 -->
+    <link th:href="@{/css/reEs/ReDetail_Style2.css}" rel="stylesheet">
+
+    <!-- 혹시 몰라서 주석처리 안지웠음. -->
     <!--    <link rel="stylesheet" href="style.css">-->
     <!--    <link rel="stylesheet" href="Side_broker_Info.css">-->
     <!--    <link rel="stylesheet" href="Modal_reservation.css">-->
 
-
-    <link th:href="@{/css/reEs/ReDetail_Style2.css}" rel="stylesheet">
-    <link th:href="@{/css/reEs/ReEs_CS.css}" rel="stylesheet">
+    <!--<link th:href="@{/css/reEs/ReEs_CS.css}" rel="stylesheet">-->
     <!--    <link th:href="@{/css/reEs/Modal_reservation.css}" rel="stylesheet">-->
     <!--    <link th:href="@{/css/reEs/ReEs_reco.css}" rel="stylesheet">-->
 
     <script type="text/javascript" th:src="@{/js/reEs/ReItemForm.js}" defer></script>
     <script th:src="@{http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js}"></script>
-    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>-->
     <link th:src="@{https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css}">
     <script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
 
-
-    <script>
+<!--    <script>
         $(document).ready(function () {
             var menu_offset = $('.main-menu').offset();  //offset() : 반환하는 객체는 left와 top 속성제공
-
 
             $(window).scroll(function () {
                 if ($(window).scrollTop() > menu_offset.top) {
@@ -44,7 +44,6 @@
                     $('.main-menu').removeClass('menu-fixed');
                 }
             });
-
 
             console.log(typeof($('input[value="true"]')));
             $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
@@ -73,18 +72,9 @@
                 values = $('input[name=' + tagName + ']').attr('value');
                 console.log(tagName + " : " + values);
             })
-
-
-
-
-
-
         });
+    </script>-->
 
-
-
-
-    </script>
 </head>
 
 <body>
@@ -323,7 +313,7 @@
                             <li><a href="#section3">상세정보</a></li>
                             <li><a href="#section4">위치/주변시설</a></li>
                             <li><a href="#section5">지역평균비교</a></li>
-                            <li><a href="#section6">추천매물</a></li>
+                            <li class="nav-li-last"><a href="#section6">추천매물</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -343,12 +333,12 @@
                     <tbody>
                     <tr>
                         <td class="ReEs-bropker-td">
-                                        <span class="btn-flat">
-                                            <span>
-                                                <i class="fa-solid fa-heart fa-sm"></i>
-                                            </span>
-                                            <span class="inText">찜</span>
-                                        </span>
+                        <span class="btn-flat">
+                            <span>
+                                <i class="fa-solid fa-heart fa-sm"></i>
+                            </span>
+                            <span class="inText">찜</span>
+                        </span>
                         </td>
                     </tr>
                     </tbody>
@@ -388,13 +378,13 @@
             <!--부동산 콘텐츠-->
             <div class="ReEs-div-Content01">
                 <div id="section1"></div>
-                <h2 class="ReEs-h2-detail">가격정보</h2>
+                <h2 class="ReEs-h2-price">가격정보</h2>
                 <!-- ReEs-div-content02 -->
                 <div class="ReEs-div-content02">
                     <table class="ReEs-table-detail">
                         <tr>
-                            <th class="ReEs-tb-th">전, 월세</th>
-                            <td class="ReEs-tb-td">
+                            <th class="ReEs-tb-th-1st">전, 월세</th>
+                            <td class="ReEs-tb-td-1st">
                                 <p class="textsize" th:text="${DtlItem.retrType}"></p>
                             </td>
                         </tr>
@@ -417,8 +407,8 @@
                         <tr>
                             <th class="ReEs-tb-th">관리비 </th>
                             <td class="ReEs-tb-td">
-                                <p class="textsize">매월[[${DtlItem.reAdmn_fee}]] 만원</p>
-                                <p class="textsize">청소비,승강기 유지비 기타</p>
+                                <p class="textsize">매월&nbsp;[[${DtlItem.reAdmn_fee}]] 만원</p>
+                                <p class="textsize">청소비,&nbsp;승강기 유지비 기타</p>
                             </td>
                         </tr>
                         <tr>
@@ -430,7 +420,7 @@
                     </table>
                 </div>
                 <!--// ReEs-div-content02 -->
-                <h2 class="ReEs-h2-detail" id="section2">맞춤정보</h2>
+                <h2 class="ReEs-h2-niz" id="section2">맞춤정보</h2>
                 <div class="ReEs-div-content03">
                     <!-- ReEs-div-content03 맞춤정보 조건-->
                     <div class="ReCs-button" id="reNew">신축
@@ -477,7 +467,9 @@
                     </div>
                 </div>
                 <!--// ReEs-div-content03 맞춤정보 조건-->
-                <h2 class="ReEs-h2-detail">카테고리조건</h2>
+
+                <!-- ReEs-h2-detail 카테고리조건 제목 -->
+                <h2 class="ReEs-h2-Kate">카테고리조건</h2>
                 <!-- ReEs-div-content04 카테고리 조건-->
                 <div class="ReEs-div-content04">
                     <div class="ReCs-button" id="rePublic">공공기관
@@ -530,7 +522,9 @@
                     </div>
                 </div>
                 <!--// ReEs-div-content04 카테고리 조건-->
-                <h2 class="ReEs-h2-detail">매물관련정보</h2>
+
+                <!-- 매물관련 정보 뺸거 같아서 일딴 주석처리합니다. dahani -->
+                <!--<h2 class="ReEs-h2-iteminfo">매물관련정보</h2>-->
                 <!--            <p class="ReEs-p-detail">이 매물의 주변 리뷰를 확인해봐요 !</p>-->
                 <!--            <div class="ReEs-div-content05" id="section3">-->
                 <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
@@ -540,7 +534,8 @@
                 <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
                 <!--            </div>-->
                 <!--            <p class="ReEs-p-detail">이미지 클릭시 주변 리뷰 페이지로 넘어갑니다</p>&lt;!&ndash;삭제 예정&ndash;&gt;-->
-                <h2 class="ReEs-h2-detail">중개보수</h2>
+
+                <h2 class="ReEs-h2-bosu">중개보수</h2>
                 <!-- ReEs-div-content06 -->
                 <div class="ReEs-div-content06">
                     <table class="ReEs-table-detail">

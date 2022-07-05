@@ -25,7 +25,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'NanumBarunGothic', sans-serif;
 }
 /* 헤더 영역 높이 90px */
@@ -58,10 +57,12 @@ body {
 .detail-header{
     width: 100% ;
     height: 100% ;
-    padding: 40px 0px 40px 0px;
+    padding: 80px 0px 30px 0px;
+    margin: 20px 0px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
 
 /* 일치율 box */
@@ -69,7 +70,7 @@ body {
     width: 140px;
     height: 50px;
     border-radius: 10px;
-    background-color: #4876ef;
+    border: 1px solid #4876ef;
     background-color: #4876ef;
     color: #f7f7f7;
     font-weight: 800;
@@ -83,11 +84,10 @@ body {
     font-size: 16px ;
 }
 /* 일치율 box ,hover  */
-section .EzHo-Div10:hover {
+.EzHo-Div10:hover {
     border: 1px solid #fec72f;
     background-color: #fec72f;
     color: #FFFFFF;
-    font-weight: 800;
 }
 
 /* 삭제하기 버튼 */
@@ -112,7 +112,7 @@ section .ReEs-div-detail-PicWrap {
 /* 이미지 가로 전체 영역 */
 .swiper {
     width: 1280px;
-    height: 460px;
+    height: 560px;
 }
 
 .swiper-button-next, .swiper-button-prev{
@@ -131,6 +131,12 @@ section .ReEs-div-detail-PicWrap {
     left: 1px;
 }
 
+/* 페이징 버튼 위치 조정 */
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+}
 /* 페이징 버튼 */
 .swiper-pagination-bullet{
     width: 16px;
@@ -146,7 +152,7 @@ section .ReEs-div-detail-PicWrap {
 /*이미지 내부 외각선 */
 section .ReEs-div-detail-Pic .image {
     width: 420px;
-    height: 460px;
+    height: 540px;
     border-radius: 2px;
     /*background: #387ccf;*/
     border: 1px solid #fff;
@@ -182,76 +188,94 @@ section .ReEs-div-detail-Pic .image img {
     border: 1px solid #fff;
 }
 
-/* 매물정보 네비 탭 */
+/* 스크롤 이동 탭 */
+/* 매물정보 네비 탭 가로 100% 높이 74px */
 /* .ReEs-detail-navdiv */
 .ReEs-detail-navdiv {
     width: 100%;
     height: 74px;
     position: relative;
-    margin-top: 50px;
+    margin-top: 90px;
     margin-bottom: 40px;
 }
 
-/* .ReEs-detail-nav */
+/* 매물정보 네비 */
+/* .ReEs-detail-nav 가로,높이 100% */
 .ReEs-detail-nav {
     width: 100%;
     height: 100%;
-    background: #f2f2f2;
     position: absolute;
 }
 
-/* 내부 탭 */
+/* 탭 메뉴 이동바 */
+/* main-menu */
 .main-menu {
-    background: #4876ef;
     width: 1280px;
     display: flex;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    /* 그라데이션 빼도 됩니당. */
+    background-image: linear-gradient(134deg, rgb(19, 183, 207) -5%, rgb(54, 91, 180) 56%, rgb(54, 91, 180) 56%);
+    opacity: 1;
 }
 
-/* 탭 리스트 ul */
-.main-menu > ul {
-    width: 1280px;
-    height: 74px ;
-    display: flex;
-    ustify-content: center;
-    flex-direction: row;
-}
-
-/* 탭 리스트 ul li */
-.main-menu > ul > li {
-    margin-right: 6px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: inline;
-    width: 200px;
-    height: 74px;
-    padding-right: 10px;
-}
-
-.ReEs-detail-nav ul li a {
-    color: #000;
-}
-
-.main-menu ul li {
-
-}
-
-div.main-menu ul li a {
-    color: whitesmoke;
-    font-weight: bold;
-    font-size: 20px;
-    text-decoration-line: none;
-}
-
-
-
+/* 탭 스크롤 하면 픽스드 효과 */
 .menu-fixed {
     position: fixed;
     top: 0px;
     left: auto;
+    opacity: 1;
+    z-index: 9999;
+    transition: .5s ease-in-out;
 }
 
+/* 탭 리스트 ul */
+.main-menu > ul {
+    width: 100%;
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 탭 리스트 ul li */
+.main-menu > ul > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 74px;
+    border-right: 1px solid #fff;
+}
+
+/* 추천 매물 탭 , 라스트 보더 none*/
+.nav-li-last{
+    border-right: none;
+}
+
+/* 탭 a태그 li > a 영역*/
+/* .main-menu ul li a */
+.main-menu ul li a {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration-line: none;
+    display: flex;
+    letter-spacing: 3px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* 탭 호버 , 배경색 바뀜 */
+.main-menu ul li a:hover{
+    background: #294dab ;
+    transition: .4s ease-in-out;
+}
+
+
+
+/* 탭별 공통 box-sizing: border-box; */
 #section1,
 #section2,
 #section3,
@@ -262,47 +286,233 @@ div.main-menu ul li a {
     box-sizing: border-box;
 }
 
-
+/* 기본 정보 01 위치 이동 id */
+#section1{
+    width: 100%;
+    height: 50px;
+}
 
 /*end 네비게이션바 css*/
 /*콘텐츠 영역 css*/
 .ReEs-div-Content01 {
-    border: 1px solid red;
+    width: 100%;
+    height: 100%;
 }
 
-.ReEs-h2-detail {
-    margin-top: 50px;
-    margin-left: 50px;
+/* 가격 정보 */
+/* 가격 정보 문구  h2 */
+.ReEs-h2-price {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0px 2px;
+    text-align: left;
+    font-size: 40px;
+    margin: 90px 0px 14px;
 }
 
+/* 가격 정보 */
 .ReEs-div-content02 {
-    border: 1px solid blue;
-    margin-left: 50px;
+
 }
 
+/**/
+.ReEs-table-detail{
+
+}
+
+/* 공통th */
+/* .ReEs-tb-th */
+.ReEs-tb-th {
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* 공통 td */
+/* .ReEs-tb-td */
+.ReEs-tb-td {
+    width: 500px;
+    height: 70px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* 첫번째 th , 구분선 */
+/* .ReEs-tb-th-1st */
+.ReEs-tb-th-1st{
+    border-top: 1px solid #dfdfdf;
+    width: 300px;
+    height: 70px;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+}
+/* 첫번째 td , 구분선 */
+/* .ReEs-tb-td-1st */
+.ReEs-tb-td-1st{
+    border-top: 1px solid #dfdfdf;
+    width: 500px;
+    height: 70px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    padding-top: 10px;
+}
+
+/* p 태그 라인하이트 역활 */
+/* .textsize */
+.textsize{
+    margin-bottom: 4px ;
+}
+
+/* 방문 예약 */
+/* position: sticky; */
+.ReEs-broker-wrap {
+    float: right;
+    position: sticky;
+    top: 202px;
+    margin-top: 200px;
+    width: 360px;
+    padding: 32px;
+    margin-bottom: 24px;
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 10%) 0px 10px 20px;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+}
+
+/* 맞춤 정보 컨텐츠영역 시작 */
+/* 맞춤 정보 문구 */
+.ReEs-h2-niz{
+    width: 100%;
+    height: 100%;
+    padding: 20px 0px 2px;
+    text-align: left;
+    font-size: 40px;
+    margin: 40px 0px 14px;
+}
+
+/* 맞춤 정보*/
 .ReEs-div-content03 {
-    border: 1px solid purple;
-    margin-left: 50px;
+    width: 812px;
+    height: 184px;
+    padding: 14px 0px 0px;
+    border-top: 1px solid #dfdfdf;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
+/* ReEs_CS.css 부분 가져옴 */
+/* ReCs-button 클래스 */
+/* 공통 맞춤정보, 카테고리조건  */
+/* .ReCs-button */
+/* 위치, 디스플레이 플렉스 */
+.ReCs-button{
+    box-sizing: border-box;
+    margin-right: 25px;
+    width: 112px;
+    height: 40px;
+    border-radius: 45px;
+    border: 1px solid #d1d1d1;
+    background-color: #FFFFFF;
+    display: inline-block;
+    font-size: 12px;
+    padding: 12px 0px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #d1d1d1;
+    text-align: center;
+}
+
+/* .ReCs-button 원본, 분리한거, 백업용 */
+/*.ReCs-button{
+   box-sizing:border-box;
+   margin-top:13px;
+   margin-right:25px;
+   width:120px;
+   height:35px;
+   border-radius:45px;
+   border:1px solid #b8b7bb;
+   background-color:#b8b7bb;
+   display:inline-block;
+   font-size:14px;
+   padding-top:5px;
+   letter-spacing:2px;
+   font-weight:600;
+   color:#858484;
+   text-align:center;
+}*/
+
+/* 카테고리 조건 */
+/* 카테고리 제목문구 */
+.ReEs-h2-Kate{
+    width: 100%;
+    height: 100%;
+    padding: 20px 0px 2px;
+    text-align: left;
+    font-size: 40px;
+    margin: 40px 0px 14px;
+}
+
+/* 카테고리 영역 */
 .ReEs-div-content04 {
-    border: 1px solid green;
-    margin-left: 50px;
+    width: 812px;
+    height: 236px;
+    padding: 14px 0px 0px;
+    border-top: 1px solid #dfdfdf;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.ReEs-div-content05 {
-    border: 1px solid pink;
-    margin-left: 50px;
+/* 매물관련정보 */
+/* 매물관련정보 h2 제목문구 */
+.ReEs-h2-bosu{
+    width: 100%;
+    height: 100%;
+    padding: 20px 0px 2px;
+    text-align: left;
+    font-size: 40px;
+    margin: 40px 0px 14px;
 }
-
 .ReEs-div-content06 {
-    border: 1px solid yellow;
-    margin-left: 50px;
+    width: 812px;
+    height: 140px;
+    padding: 14px 0px 0px;
+    border-top: 1px solid #dfdfdf;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* 상세 정보 */
+.ReEs-h2-detail{
+    width: 100%;
+    height: 100%;
+    padding: 20px 0px 2px;
+    text-align: left;
+    font-size: 40px;
+    margin: 40px 0px 14px;
 }
 
 .ReEs-div-content07 {
-    border: 1px solid rgb(149, 32, 218);
-    margin-left: 50px;
+    width: 812px;
+    height: 100%;
+    border-top: 1px solid #dfdfdf;
 }
 
 .ReEs-div-content08 {
@@ -323,27 +533,6 @@ div.main-menu ul li a {
 .ReEs-div-content11 {
     border: 1px solid black;
     margin-left: 50px;
-}
-
-.ReEs-tb-th {
-    height: 74px;
-    width: 159px;
-    padding: 20px 0 0 20px;
-    font-weight: 700;
-    font-size: 14px;
-    color: #333;
-    line-height: 20px;
-    vertical-align: top;
-    text-align: left;
-    padding-top: 29px;
-    border: 1px solid #ccc;
-}
-
-.ReEs-tb-td {
-    width: 481px;
-    height: 74px;
-    text-align: center;
-    border: 1px solid #ccc;
 }
 
 /*end 콘텐츠 영역 css*/
@@ -682,17 +871,7 @@ div.main-menu ul li a {
 /* end Modal_reservation.css */
 
 /*broker Info css*/
-.ReEs-broker-wrap {
-    border: 1px solid black;
-    width: 328px;
-    float: right;
-    position: sticky;
-    top: 100px;
-    right: 30px;
-    margin-top: 40px;
-    margin-right: 50px;
 
-}
 
 .broker01 {
     background-color: #4876ef;
@@ -871,7 +1050,7 @@ div.main-menu ul li a {
 .main-section02{
     width: 1280px;
     height: 500px;
-    margin: 120px auto 0;
+    margin: 80px auto 140px;
     /* border: 1px solid #000; */
 }
 
