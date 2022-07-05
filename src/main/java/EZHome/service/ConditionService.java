@@ -10,10 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -136,8 +133,15 @@ public class ConditionService {
 
 
     public List<MapMainDto> compare(ReMncsDto reMncsDto, List<MapMainDto> mapMainDtoList) {
-        List<MapMainDto> result = new ArrayList<MapMainDto>();
-        Map<String, Integer> match = new HashMap<String, Integer>();
+        if(reMncsDto == null){
+            return mapMainDtoList;
+        }
+        System.out.println("compare에 들어갔습니다.");
+        List<MapMainDto> result = new ArrayList<MapMainDto>();  // 회원 조건에 맞는 매물만 담겨질 List
+        List<MapMainDto> rankList = new ArrayList<MapMainDto>();    // result에 순위를 매겨서 반환할 List(최종)
+        Map<String, Integer> match = new HashMap<String, Integer>();  // 선택한 조건의 갯수(select)와 맞는 부분(correct)을 반환할 Map
+        Map<Integer, Integer> rank = new HashMap<Integer, Integer>();   // rank의 index를 담을 Map
+
         for (MapMainDto mapMainDto : mapMainDtoList) {
             ReEs reEs = reEsRepository.findById(mapMainDto.getId()).orElseThrow(EntityNotFoundException::new);
             boolean flag = reEs.compare(reMncsDto);
@@ -146,10 +150,28 @@ public class ConditionService {
                 ReCacs reCacs = reCacsRepository.findByReEs_Id(mapMainDto.getId());
                 match = reCucs.compare(reMncsDto, match);
                 match = reCacs.compare(reMncsDto, match);
+                int select = match.get("select");
+                int correct = match.get("correct");
+                int percent = Math.round(correct/select)*100;
+                mapMainDto.setSelect(select);
+                mapMainDto.setCorrect(correct);
+                mapMainDto.setPercent(percent);
+                System.out.println("선택한 부분 : " + (match.get("select")));
+                System.out.println(reEs.getId() + "의 맞는 부분 : " + match.get("correct"));
+                System.out.println(reEs.getId() + "의 퍼센트 : " + percent);
+                result.add(mapMainDto);
             }
         }
-
-
-        return mapMainDtoList;
+        int index = 0;
+        for (MapMainDto mapMainDto: result) {
+            rank.put(index, mapMainDto.getCorrect());
+            index += 1;
+        }
+        List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(rank.entrySet());
+        entryList.sort(Map.Entry.comparingByValue());
+        for(Map.Entry<Integer, Integer> entry: entryList){
+            rankList.add(result.get(entry.getKey()));
+        }
+        return rankList;
     }
 }

@@ -59,19 +59,9 @@ public class ReCucs extends BaseEntity{
          if(reMncsDto.isCity()){select += 1; if(this.isReCity()){correct += 1;}}
 
 
-         if(match.containsKey("select")){
-             int oldSelect = match.get("select");
-             match.put("select", oldSelect + select);
-         }else{
-             match.put("select", select);
-         }
-         if(match.containsKey("select")){
-             int oldCorrect = match.get("correct");
-             match.put("correct", oldCorrect + correct);
-         }else{
-            match.put("correct", correct);
-         }
 
+         match.put("select", select);
+         match.put("correct", correct);
 
          return match;
      }
