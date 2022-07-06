@@ -62,7 +62,7 @@ public class ServiceController {
             e.printStackTrace();
             return "redirect:/";
         }
-        return "services/SeCe-oto";
+        return "redirect:/";
     }
 
 }
