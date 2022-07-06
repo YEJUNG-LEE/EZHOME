@@ -58,20 +58,30 @@ $(document).ready(function(){
         $('.ReCs-collection').css('display', 'block');
     });
 
-    // 리스트 버튼 슬라이드입니다.
-    $('.ReEs-rightButton').click(function(){
-        $('.ReEs-leftButton').css('display', 'block')
-        $('.ReCS').css('display', 'none');
-        $('.ReEs-rightButton').css('display', 'none');
-        $('.ReEs_List').animate({width:"toggle"},600);
-        window.setTimeout(function(){$('.ReEs_List-rightButton').css('display', 'block')}, 650);
-    });
-    $('.ReEs_List-rightButton').click(function(){
+    // $('.ReEs-rightButton').click(ListShowOn());
+    // $('.ReEs_List-rightButton').click(ListShowOff());
+});
+// 리스트 버튼 슬라이드입니다.
+function ListShowOn(){
+    if($('.ReEs-rightButton').css("display") == 'none'){
         $('.ReEs-leftButton').css('display', 'block')
         $('.ReCS').css('display', 'none');
         $('.ReEs_List-rightButton').css('display', 'none');
         $('.ReEs_List').animate({width:"toggle"},600);
         window.setTimeout(function(){$('.ReEs-rightButton').css('display', 'block')}, 650);
-    });
-});
+    }else{
+        $('.ReEs-leftButton').css('display', 'block')
+        $('.ReCS').css('display', 'none');
+        $('.ReEs-rightButton').css('display', 'none');
+        $('.ReEs_List').animate({width:"toggle"},600);
+        window.setTimeout(function(){$('.ReEs_List-rightButton').css('display', 'block')}, 650);
+    }
+}
+function ListShowOff(){
+    $('.ReEs-leftButton').css('display', 'block')
+    $('.ReCS').css('display', 'none');
+    $('.ReEs_List-rightButton').css('display', 'none');
+    $('.ReEs_List').animate({width:"toggle"},600);
+    window.setTimeout(function(){$('.ReEs-rightButton').css('display', 'block')}, 650);
+}
 
