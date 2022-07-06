@@ -150,12 +150,23 @@ nav > ul {
     transition: .3s ease-in-out;
 }
 
+.advert_insert{
+    width: 140px;
+    height: 90px;
+    display: block;
+    float: left;
+    list-style: none;
+    line-height: 96px;
+
+    /* 여기에도 트랜지션 */
+    transition: .3s ease-in-out;
+}
+
 .EzHome-ul-left li a, .EzHome-ul-right li a{
     display: inline-block;
     width: 100%;
     height: 100%;
     text-decoration: none;
-    color: #000;
     font-size: 18px;
     letter-spacing: 3px;
     font-weight: 600;
@@ -173,20 +184,39 @@ nav > ul {
     font-size: 16px;
     transition: .2s ease;
 }
-/*.EzHome-ul-right li:nth-child(3){
-    margin-left: 30px;
-}*/
 
-.EzHome-ul-right li:nth-child(1) > a {
+.member_user > a{
     color: #4876ef;
+    width: 100px;
 }
-.EzHome-ul-right li a{
+
+/* 광고문의 색 */
+.advert_insert > .advert_insert_a {
+    color: #fec72f;
+    width: 94px;
+    height: 48px;
+    line-height: 50px;
+    padding: 2px 20px;
+    border: 1px solid #fec72f;
+    border-radius: 6px;
     font-size: 18px;
     font-weight: 600;
+    transition: .2s ease;
 }
-.EzHome-ul-right li:nth-child(1) > a:hover{
+
+/* 비회원 광고문의 색 */
+.adver_insert_nm{
+    color: #4876ef;
+}
+.adver_insert_nm:hover{
     color: #fec72f;
 }
+/* 광고 등록 호버 */
+.advert_insert_a:hover{
+    color: #fff;
+    background-color: #fec72f;
+}
+
 /* 로그인 호버 */
 .main_login_log:hover{
     background: #4876ef;
@@ -200,10 +230,28 @@ nav > ul {
     text-decoration: none;
     color: #4876ef;
 }
+/* 비회원 광고문의 색 */
+.adver_insert_nm{
+    color: #4876ef;
+}
+.adver_insert_nm:hover{
+    color: #fec72f;
+}
+
+/* 광고 등록 호버 */
+.advert_insert_a:hover{
+    color: #fff;
+    background-color: #fec72f;
+}
 
 /* header-signup 회원가입 */
 .header-signup:hover{
     color: #4876ef;
+}
+
+/* 로그아웃 호버*/
+.header-logout > a:hover{
+    color: #fec72f;
 }
 
 /* 챗봇 */
