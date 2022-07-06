@@ -35,6 +35,7 @@ public class MapMainDto {
 
     private Integer select ; // 몇 개를 선택했는지
     private Integer correct ; // 몇 개가 맞았는지
+    private Integer percent ; // 몇 퍼센트 일치인지
 
     private static ModelMapper modelMapper = new ModelMapper();
 

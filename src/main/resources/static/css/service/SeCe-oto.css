@@ -76,11 +76,9 @@
     text-align: center;
     color: #6c6c6c;
 }
-.SeCe-oto-head a{
+.SeCe-oto-head span{
     color: #52b0fb;
     outline: none;
-    text-decoration: none;
-    cursor: pointer;
 }
 .SeCe-oto-ul{
     border-bottom: 1px solid #d1d1d1;
