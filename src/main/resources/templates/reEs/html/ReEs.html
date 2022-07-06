@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{common/layouts/layout2}">
+    layout:decorate="~{common/layouts/layout2}">
 
 
 <head>
@@ -11,10 +11,10 @@
 
 
     <script th:inline="javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
 
-            console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#52b0fb', 'color':'white'});
+            console.log(typeof ($('input[value="true"]')));
+            $('input[value="true"]').parent().css({ 'background-color': '#52b0fb', 'color': 'white' });
             $('.ReCs-button').click(function () {
                 var tagId = $(this).attr("id");
                 console.log(tagId);
@@ -29,24 +29,47 @@
                 values = $('input[name=' + tagId + ']').attr('value');
                 console.log(values);
             });
-            $('.ReCs-buttons').click(function(){
+            $('.ReCs-buttons').click(function () {
                 var tagId = $(this).attr("id");
                 var tagName = $(this).parent().attr("id");
                 console.log(tagId);
                 $('input[name=' + tagName + ']').attr('value', tagId);
-                $(this).css({'background-color':'#52b0fb', 'color':'white'});
-                $(this).siblings().css({'background-color':'#f7f7f7', 'color':'#858484'});
+                $(this).css({ 'background-color': '#52b0fb', 'color': 'white' });
+                $(this).siblings().css({ 'background-color': '#f7f7f7', 'color': '#858484' });
                 values = $('input[name=' + tagName + ']').attr('value');
                 console.log(tagName + " : " + values);
             })
             var trTypeValue = $('input[name=trType]').attr("value");
             var houseTypeValue = $('input[name=houseType]').attr("value");
-            $('#' + trTypeValue).css({'background-color':'#52b0fb', 'color':'white'});
-            $('#' + houseTypeValue).css({'background-color':'#52b0fb', 'color':'white'});
-            
+            $('#' + trTypeValue).css({ 'background-color': '#52b0fb', 'color': 'white' });
+            $('#' + houseTypeValue).css({ 'background-color': '#52b0fb', 'color': 'white' });
+            var trTypeId = $('#trType').attr('value');
+            trTypeFunction(trTypeId);
 
-            var errorMessage = [[${errorMessage}]];
-            if(errorMessage != null){
+            $('.trType').click(function () {
+                var trTypeId = $(this).attr('id');
+                trTypeFunction(trTypeId);
+            });
+
+            function trTypeFunction(trTypeId){
+                if(trTypeId == "월세"){
+                    $('#ReCs-cost-title').text('월세/관리비/보증금');
+                    $('#ReCs-cost').children().css('display', 'none');
+                    $('#매매div').siblings().css('display', 'inline-block');
+                }else if(trTypeId == '전세'){
+                    $('#ReCs-cost-title').text('관리비/보증금');
+                    $('#ReCs-cost').children().css('display', 'none');
+                    $('#관리비div').css('display', 'inline-block');
+                    $('#보증금div').css('display', 'inline-block');
+                }else if(trTypeId == '매매'){
+                    $('#ReCs-cost-title').text('관리비/매매가');
+                    $('#ReCs-cost').children().css('display', 'none');
+                    $('#관리비div').css('display', 'inline-block');
+                    $('#매매div').css('display', 'inline-block');
+                }
+            }
+            var errorMessage = [[${ errorMessage }]];
+            if (errorMessage != null) {
                 alert(errorMessage);
             };
 
@@ -197,7 +220,7 @@
                 </div> -->
 
                 <!-- 카테고리 영역 -->
-            <!-- <div class="ReEs-navi-category-button-select">
+                <!-- <div class="ReEs-navi-category-button-select">
                 <div class="ReEs-category-select-button-div">
                     <div class="ReEs-category-select-button">가나다</div>
                     <div class="ReEs-category-select-button">가나다</div>
@@ -210,264 +233,302 @@
                     <div class="ReEs-category-select-AllOff">전체해제</div>
                 </div>
             </div> -->
-        </div>
-        <div class="ReEs-parent">
-            <div class="ReEs-map" id="map">
-                <div class="ReEs-leftButton">
-                    필터 표시
-                </div>
-                <div class="ReEs-rightButton" onclick="ListShowOn()">
-                    목록 보기
-                </div>
-                <div class="ReEs_List-rightButton"  onclick="ListShowOff()" >목록 숨기기</div>
-                <!--  ======================================================================================================  -->
-                <!--  ======================================================================================================  -->
-                <!--  ================================================= 조건 필터 ============================================  -->
-                <div class="ReCS">
-                    <form method="post" th:action="@{/map/save}" th:object="${ReMncsDto}" enctype="application/x-www-form-urlencoded" >
-                        <div class="ReCs-subject">
-                            <div class="ReCs-select">
-                                <div class="ReCs-sl-div ReCs-normal">
-                                    <i class="fa-solid fa-house"></i><span>기본</span>
-                                </div>
-                                <div class="ReCs-sl-div ReCs-custom">
-                                    <i class="fa-solid fa-crosshairs"></i><span>맞춤/카테고리</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ReCs-div">
-                            <div class="ReCs-title">지역</div>
-                            <div class="ReCs-content">
-                                <div class="ReCs-region" contenteditable="true" placeholder="지역을 입력하세요"></div>
-                            </div>
-                        </div>
-                        <div class="ReCs-div">
-                            <div class="ReCs-title">거래 유형</div>
-                            <div class="ReCs-content" id="trType">
-                                <div class="ReCs-buttons ReCs-Month" id="월세">월세</div>
-                                <div class="ReCs-buttons ReCs-Lease" id="전세">전세</div>
-                                <div class="ReCs-buttons ReCs-Buy" id="매매">매매</div>
-                                <input type="hidden" name="trType" th:field="*{trType}"/>
-                            </div>
-                        </div>
-                        <div class="ReCs-div">
-                            <div class="ReCs-title">방 유형</div>
-                            <div class="ReCs-content" id="houseType">
-                                <div class="ReCs-buttons ReCs-One" id="원룸">원룸</div>
-                                <div class="ReCs-buttons ReCs-TwoOrThree" id="투·쓰리룸">투·쓰리룸</div>
-                                <div class="ReCs-buttons ReCs-Office" id="오피스텔">오피스텔</div>
-                                <div class="ReCs-buttons ReCs-Apart" id="아파트">아파트</div>
-                                <input type="hidden" name="houseType" th:field="*{houseType}"/>
-                            </div>
-                        </div>
-                        <div class="ReCs-div">
-                            <div class="ReCs-title">층수</div>
-                            <div class="ReCs-content">
-                                <div class="ReCs-button ReCs-One" id="loofTop">옥탑방
-                                    <input type="hidden" name="loofTop" value="false" th:field="*{loofTop}"/>
-                                </div>
-                                <div class="ReCs-button ReCs-TwoOrThree" id="halfUnder">반지하
-                                    <input type="hidden" name="halfUnder" value="false" th:field="*{halfUnder}"/>
-                                </div>
-                                <div class="ReCs-button ReCs-secondFloor" id="secondFloor">복층
-                                    <input type="hidden" name="secondFloor" value="false" th:field="*{secondFloor}"/>
-                                </div>
-                                <div class="ReCs-Slider">
-                                    <input type="range" id="cs-floor-input-left" min="1" max="10" value="3" th:field="*{minFloor}"/>
-                                    <input type="range" id="cs-floor-input-right" min="1" max="10" value="7" th:field="*{maxFloor}" />
-
-                                    <div class="cs-floorSlider">
-                                        <div class="track"></div>
-                                        <div class="range"></div>
-                                        <div class="thumb left"></div>
-                                        <div class="thumb right"></div>
+            </div>
+            <div class="ReEs-parent">
+                <div class="ReEs-map" id="map">
+                    <div class="ReEs-leftButton">
+                        필터 표시
+                    </div>
+                    <div class="ReEs-rightButton" onclick="ListShowOn()">
+                        목록 보기
+                    </div>
+                    <div class="ReEs_List-rightButton" onclick="ListShowOff()">목록 숨기기</div>
+                    <!--  ======================================================================================================  -->
+                    <!--  ======================================================================================================  -->
+                    <!--  ================================================= 조건 필터 ============================================  -->
+                    <div class="ReCS">
+                        <form method="post" th:action="@{/map/save}" th:object="${ReMncsDto}"
+                            enctype="application/x-www-form-urlencoded">
+                            <div class="ReCs-subject">
+                                <div class="ReCs-select">
+                                    <div class="ReCs-sl-div ReCs-normal">
+                                        <i class="fa-solid fa-house"></i><span>기본</span>
                                     </div>
-
-                                </div>
-                                <div class="ReCs-txt ReCs-floorSlider-txt"></div>
-                            </div>
-                        </div>
-                        <div class="ReCs-div">
-                            <div class="ReCs-title">평수</div>
-                            <div class="ReCs-content">
-                                <div class="ReCs-Slider">
-                                    <input type="range" id="cs-extent-input-left" min="1" max="40" value="10" th:field="*{minEx}" />
-                                    <input type="range" id="cs-extent-input-right" min="1" max="40" value="30" th:field="*{maxEx}"  />
-
-                                    <div class="cs-extentSlider">
-                                        <div class="track"></div>
-                                        <div class="range"></div>
-                                        <div class="thumb left"></div>
-                                        <div class="thumb right"></div>
-                                    </div>
-                                </div>
-                                <div class="ReCs-txt ReCs-extentSlider-txt">
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="ReCs-div">
-                            <div class="ReCs-title">월세/관리비/보증금</div>
-                            <div class="ReCs-content" id="ReCs-cost">
-                                <div class="ReCs-Slider"><!--월세-->
-                                    <input type="range" id="cs-month-input-left" min="1" max="80" value="30" th:field="*{minMon}"/>
-                                    <input type="range" id="cs-month-input-right" min="1" max="80" value="60" th:field="*{maxMon}"/>
-
-                                    <div class="cs-monthSlider">
-                                        <div class="track"></div>
-                                        <div class="range"></div>
-                                        <div class="thumb left"></div>
-                                        <div class="thumb right"></div>
-                                    </div>
-                                </div>
-                                <div class="ReCs-txt ReCs-monthSlider-txt"></div>
-                                <div class="ReCs-Slider"><!--관리비-->
-                                    <input type="range" id="cs-manage-input-left" min="1" max="40" value="10"  th:field="*{minMan}"/>
-                                    <input type="range" id="cs-manage-input-right" min="1" max="40" value="30" th:field="*{maxMan}" />
-
-                                    <div class="cs-manageSlider">
-                                        <div class="track"></div>
-                                        <div class="range"></div>
-                                        <div class="thumb left"></div>
-                                        <div class="thumb right"></div>
-                                    </div>
-                                </div>
-                                <div class="ReCs-txt ReCs-manageSlider-txt"></div>
-                                <div class="ReCs-Slider"><!--보증금-->
-                                    <input type="range" id="cs-deposit-input-left" min="1" max="3000" value="1000" th:field="*{minDep}" />
-                                    <input type="range" id="cs-deposit-input-right" min="1" max="3000" value="2000"  th:field="*{maxDep}"/>
-
-                                    <div class="cs-depositSlider">
-                                        <div class="track"></div>
-                                        <div class="range"></div>
-                                        <div class="thumb left"></div>
-                                        <div class="thumb right"></div>
-                                    </div>
-                                </div>
-                                <div class="ReCs-txt ReCs-depositSlider-txt"></div>
-                            </div>
-                        </div>
-                        <script th:src="@{/js/reEs/ReCs_Slider.js}"></script>
-
-                        <!--   맞춤/카테고리   -->
-                        <div class="ReCs-collection">
-                            <div class="ReCs-cudiv">
-                                <div class="ReCs-title">맞춤</div>
-                                <div class="ReCs-but-div">
-                                    <div class="ReCs-button" id="newhouse">신축
-                                        <input type="hidden" name="newhouse" value="false" th:field="*{newhouse}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="full">풀옵션
-                                        <input type="hidden" name="full" value="false" th:field="*{full}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="debt">대출없음
-                                        <input type="hidden" name="debt" value="false" th:field="*{debt}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="elevator">엘리베이터
-                                        <input type="hidden" name="elevator" value="false" th:field="*{elevator}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="pet">반려동물
-                                        <input type="hidden" name="pet" value="false" th:field="*{pet}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="security">보안기능
-                                        <input type="hidden" name="security" value="false" th:field="*{security}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="parking">주차장
-                                        <input type="hidden" name="parking" value="false" th:field="*{parking}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="south">남향
-                                        <input type="hidden" name="south" value="false" th:field="*{south}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="bug">벌레퇴치업체
-                                        <input type="hidden" name="bug" value="false" th:field="*{bug}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="woman">여성전용
-                                        <input type="hidden" name="woman" value="false" th:field="*{woman}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="forest">숲View
-                                        <input type="hidden" name="forest" value="false" th:field="*{forest}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="river">리버View
-                                        <input type="hidden" name="river" value="false" th:field="*{river}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="ocean">오션View
-                                        <input type="hidden" name="ocean" value="false" th:field="*{ocean}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="city">시티View
-                                        <input type="hidden" name="city" value="false" th:field="*{city}"/>
+                                    <div class="ReCs-sl-div ReCs-custom">
+                                        <i class="fa-solid fa-crosshairs"></i><span>맞춤/카테고리</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="ReCs-cadiv">
-                                <div class="ReCs-title">카테고리</div>
-                                <div class="ReCs-but-div">
+                            <div class="ReCs-div">
+                                <div class="ReCs-title">지역</div>
+                                <div class="ReCs-content">
+                                    <div class="ReCs-region" contenteditable="true" placeholder="지역을 입력하세요"></div>
+                                </div>
+                            </div>
+                            <div class="ReCs-div">
+                                <div class="ReCs-title">거래 유형</div>
+                                <div class="ReCs-content" id="trTypeDiv">
+                                    <div class="ReCs-buttons ReCs-Month trType" id="월세">월세</div>
+                                    <div class="ReCs-buttons ReCs-Lease trType" id="전세">전세</div>
+                                    <div class="ReCs-buttons ReCs-Buy trType" id="매매">매매</div>
+                                    <input type="hidden" name="trType" th:field="*{trType}" />
+                                </div>
+                            </div>
+                            <div class="ReCs-div">
+                                <div class="ReCs-title">방 유형</div>
+                                <div class="ReCs-content" id="houseTypeDiv">
+                                    <div class="ReCs-buttons ReCs-One" id="원룸">원룸</div>
+                                    <div class="ReCs-buttons ReCs-TwoOrThree" id="투·쓰리룸">투·쓰리룸</div>
+                                    <div class="ReCs-buttons ReCs-Office" id="오피스텔">오피스텔</div>
+                                    <div class="ReCs-buttons ReCs-Apart" id="아파트">아파트</div>
+                                    <input type="hidden" name="houseType" th:field="*{houseType}" />
+                                </div>
+                            </div>
+                            <div class="ReCs-div">
+                                <div class="ReCs-title">층수</div>
+                                <div class="ReCs-content">
+                                    <div class="ReCs-button ReCs-One" id="loofTop">옥탑방
+                                        <input type="hidden" name="loofTop" value="false" th:field="*{loofTop}" />
+                                    </div>
+                                    <div class="ReCs-button ReCs-TwoOrThree" id="halfUnder">반지하
+                                        <input type="hidden" name="halfUnder" value="false" th:field="*{halfUnder}" />
+                                    </div>
+                                    <div class="ReCs-button ReCs-secondFloor" id="secondFloor">복층
+                                        <input type="hidden" name="secondFloor" value="false"
+                                            th:field="*{secondFloor}" />
+                                    </div>
+                                    <div class="ReCs-Slider">
+                                        <input type="range" id="cs-floor-input-left" min="1" max="10" value="3"
+                                            th:field="*{minFloor}" />
+                                        <input type="range" id="cs-floor-input-right" min="1" max="10" value="7"
+                                            th:field="*{maxFloor}" />
 
+                                        <div class="cs-floorSlider">
+                                            <div class="track"></div>
+                                            <div class="range"></div>
+                                            <div class="thumb left"></div>
+                                            <div class="thumb right"></div>
+                                        </div>
 
-                                    <div class="ReCs-button pub" id="pub">공공기관
-                                        <input type="hidden"name="pub" value="false" th:field="*{pub}"/>
                                     </div>
-                                    <div class="ReCs-button medic" id="medic">의료시설
-                                        <input type="hidden"name="medic" value="true" th:field="*{medic}"/>
+                                    <div class="ReCs-txt ReCs-floorSlider-txt"></div>
+                                </div>
+                            </div>
+                            <div class="ReCs-div">
+                                <div class="ReCs-title">평수</div>
+                                <div class="ReCs-content">
+                                    <div class="ReCs-Slider">
+                                        <input type="range" id="cs-extent-input-left" min="1" max="40" value="10"
+                                            th:field="*{minEx}" />
+                                        <input type="range" id="cs-extent-input-right" min="1" max="40" value="30"
+                                            th:field="*{maxEx}" />
+
+                                        <div class="cs-extentSlider">
+                                            <div class="track"></div>
+                                            <div class="range"></div>
+                                            <div class="thumb left"></div>
+                                            <div class="thumb right"></div>
+                                        </div>
                                     </div>
-                                    <div class="ReCs-button conv" id="conv">편의시설
-                                        <input type="hidden"name="conv" value="true" th:field="*{conv}"/>
+                                    <div class="ReCs-txt ReCs-extentSlider-txt">
                                     </div>
-                                    <div class="ReCs-button school" id="school">학교주변
-                                        <input type="hidden"name="school" value="true" th:field="*{school}"/>
+
+                                </div>
+                            </div>
+                            <div class="ReCs-div">
+                                <div class="ReCs-title" id="ReCs-cost-title">월세/관리비/보증금</div>
+                                <div class="ReCs-content" id="ReCs-cost">
+                                    <div id="월세div">
+                                        <div class="ReCs-Slider">
+                                            <!--월세-->
+                                            <input type="range" id="cs-month-input-left" min="1" max="80" value="30"
+                                                th:field="*{minMon}" />
+                                            <input type="range" id="cs-month-input-right" min="1" max="80" value="60"
+                                                th:field="*{maxMon}" />
+
+                                            <div class="cs-monthSlider">
+                                                <div class="track"></div>
+                                                <div class="range"></div>
+                                                <div class="thumb left"></div>
+                                                <div class="thumb right"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ReCs-txt ReCs-monthSlider-txt"></div>
                                     </div>
-                                    <div class="ReCs-button" id="teen">10대거주
-                                        <input type="hidden" name="teen" value="false" th:field="*{teen}"/>
+                                    <div id="관리비div">
+                                        <div class="ReCs-Slider">
+                                            <!--관리비-->
+                                            <input type="range" id="cs-manage-input-left" min="1" max="40" value="10"
+                                                th:field="*{minMan}" />
+                                            <input type="range" id="cs-manage-input-right" min="1" max="40" value="30"
+                                                th:field="*{maxMan}" />
+
+                                            <div class="cs-manageSlider">
+                                                <div class="track"></div>
+                                                <div class="range"></div>
+                                                <div class="thumb left"></div>
+                                                <div class="thumb right"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ReCs-txt ReCs-manageSlider-txt"></div>
                                     </div>
-                                    <div class="ReCs-button" id="twen">20대거주
-                                        <input type="hidden" name="twen" value="false" th:field="*{twen}"/>
+                                    <div id="보증금div">
+                                        <div class="ReCs-Slider">
+                                            <!--보증금-->
+                                            <input type="range" id="cs-deposit-input-left" min="1" max="30000"
+                                                value="1000" th:field="*{minDep}" />
+                                            <input type="range" id="cs-deposit-input-right" min="1" max="30000"
+                                                value="2000" th:field="*{maxDep}" />
+
+                                            <div class="cs-depositSlider">
+                                                <div class="track"></div>
+                                                <div class="range"></div>
+                                                <div class="thumb left"></div>
+                                                <div class="thumb right"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ReCs-txt ReCs-depositSlider-txt"></div>
                                     </div>
-                                    <div class="ReCs-button" id="thirty">30대거주
-                                        <input type="hidden" name="thirty" value="false" th:field="*{thirty}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="fourty">40대거주
-                                        <input type="hidden" name="fourty" value="false" th:field="*{fourty}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="fifty">50대이상
-                                        <input type="hidden" name="fifty" value="false" th:field="*{fifty}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="sixty">60대이상
-                                        <input type="hidden" name="sixty" value="false" th:field="*{sixty}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="rocket">로켓배송
-                                        <input type="hidden" name="rocket" value="false" th:field="*{rocket}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="flat">경사완만
-                                        <input type="hidden" name="flat" value="false" th:field="*{flat}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="subway">역세권
-                                        <input type="hidden" name="subway" value="false" th:field="*{subway}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="park">공원
-                                        <input type="hidden" name="park" value="false" th:field="*{park}"/>
-                                    </div>
-                                    <div class="ReCs-button" id="hodi">주택지구
-                                        <input type="hidden" name="hodi" value="false" th:field="*{hodi}"/>
+                                    <div id="매매div">
+                                        <div class="ReCs-Slider">
+                                            <!--매매가-->
+                                            <input type="range" id="cs-trade-input-left" min="1" max="40000"
+                                                value="30000" th:field="*{minTrd}" />
+                                            <input type="range" id="cs-trade-input-right" min="1" max="40000"
+                                                value="20000" th:field="*{maxTrd}" />
+
+                                            <div class="cs-tradeSlider">
+                                                <div class="track"></div>
+                                                <div class="range"></div>
+                                                <div class="thumb left"></div>
+                                                <div class="thumb right"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ReCs-txt ReCs-tradeSlider-txt"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="ReCs-save ReCs-MB-div">
-                            <button type="submit" class="ReCs-MB">저장</button>
-<!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
-<!--                                </div>-->
-<!--                            <div class="ReCs-MB">불러오기</div>-->
-<!--                            <div class="ReCs-MB">초기화</div>-->
-<!--                            <div class="ReCs-MB ReCs-submit">적용</div>-->
-                        </div>
-                        <div class="ReCs-leftButton">
-                            필터 숨기기
-                        </div>
-                    </form>
-                </div>
+                            <script th:src="@{/js/reEs/ReCs_Slider.js}"></script>
 
-                <!--  ======================================================================================================  -->
-                <!--  ======================================================================================================  -->
-                <!--  ============================================== 매물 리스트 =============================================  -->
+                            <!--   맞춤/카테고리   -->
+                            <div class="ReCs-collection">
+                                <div class="ReCs-cudiv">
+                                    <div class="ReCs-title">맞춤</div>
+                                    <div class="ReCs-but-div">
+                                        <div class="ReCs-button" id="newhouse">신축
+                                            <input type="hidden" name="newhouse" value="false" th:field="*{newhouse}" />
+                                        </div>
+                                        <div class="ReCs-button" id="full">풀옵션
+                                            <input type="hidden" name="full" value="false" th:field="*{full}" />
+                                        </div>
+                                        <div class="ReCs-button" id="debt">대출없음
+                                            <input type="hidden" name="debt" value="false" th:field="*{debt}" />
+                                        </div>
+                                        <div class="ReCs-button" id="elevator">엘리베이터
+                                            <input type="hidden" name="elevator" value="false" th:field="*{elevator}" />
+                                        </div>
+                                        <div class="ReCs-button" id="pet">반려동물
+                                            <input type="hidden" name="pet" value="false" th:field="*{pet}" />
+                                        </div>
+                                        <div class="ReCs-button" id="security">보안기능
+                                            <input type="hidden" name="security" value="false" th:field="*{security}" />
+                                        </div>
+                                        <div class="ReCs-button" id="parking">주차장
+                                            <input type="hidden" name="parking" value="false" th:field="*{parking}" />
+                                        </div>
+                                        <div class="ReCs-button" id="south">남향
+                                            <input type="hidden" name="south" value="false" th:field="*{south}" />
+                                        </div>
+                                        <div class="ReCs-button" id="bug">벌레퇴치업체
+                                            <input type="hidden" name="bug" value="false" th:field="*{bug}" />
+                                        </div>
+                                        <div class="ReCs-button" id="woman">여성전용
+                                            <input type="hidden" name="woman" value="false" th:field="*{woman}" />
+                                        </div>
+                                        <div class="ReCs-button" id="forest">숲View
+                                            <input type="hidden" name="forest" value="false" th:field="*{forest}" />
+                                        </div>
+                                        <div class="ReCs-button" id="river">리버View
+                                            <input type="hidden" name="river" value="false" th:field="*{river}" />
+                                        </div>
+                                        <div class="ReCs-button" id="ocean">오션View
+                                            <input type="hidden" name="ocean" value="false" th:field="*{ocean}" />
+                                        </div>
+                                        <div class="ReCs-button" id="city">시티View
+                                            <input type="hidden" name="city" value="false" th:field="*{city}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ReCs-cadiv">
+                                    <div class="ReCs-title">카테고리</div>
+                                    <div class="ReCs-but-div">
+
+
+                                        <div class="ReCs-button pub" id="pub">공공기관
+                                            <input type="hidden" name="pub" value="false" th:field="*{pub}" />
+                                        </div>
+                                        <div class="ReCs-button medic" id="medic">의료시설
+                                            <input type="hidden" name="medic" value="true" th:field="*{medic}" />
+                                        </div>
+                                        <div class="ReCs-button conv" id="conv">편의시설
+                                            <input type="hidden" name="conv" value="true" th:field="*{conv}" />
+                                        </div>
+                                        <div class="ReCs-button school" id="school">학교주변
+                                            <input type="hidden" name="school" value="true" th:field="*{school}" />
+                                        </div>
+                                        <div class="ReCs-button" id="teen">10대거주
+                                            <input type="hidden" name="teen" value="false" th:field="*{teen}" />
+                                        </div>
+                                        <div class="ReCs-button" id="twen">20대거주
+                                            <input type="hidden" name="twen" value="false" th:field="*{twen}" />
+                                        </div>
+                                        <div class="ReCs-button" id="thirty">30대거주
+                                            <input type="hidden" name="thirty" value="false" th:field="*{thirty}" />
+                                        </div>
+                                        <div class="ReCs-button" id="fourty">40대거주
+                                            <input type="hidden" name="fourty" value="false" th:field="*{fourty}" />
+                                        </div>
+                                        <div class="ReCs-button" id="fifty">50대이상
+                                            <input type="hidden" name="fifty" value="false" th:field="*{fifty}" />
+                                        </div>
+                                        <div class="ReCs-button" id="sixty">60대이상
+                                            <input type="hidden" name="sixty" value="false" th:field="*{sixty}" />
+                                        </div>
+                                        <div class="ReCs-button" id="rocket">로켓배송
+                                            <input type="hidden" name="rocket" value="false" th:field="*{rocket}" />
+                                        </div>
+                                        <div class="ReCs-button" id="flat">경사완만
+                                            <input type="hidden" name="flat" value="false" th:field="*{flat}" />
+                                        </div>
+                                        <div class="ReCs-button" id="subway">역세권
+                                            <input type="hidden" name="subway" value="false" th:field="*{subway}" />
+                                        </div>
+                                        <div class="ReCs-button" id="park">공원
+                                            <input type="hidden" name="park" value="false" th:field="*{park}" />
+                                        </div>
+                                        <div class="ReCs-button" id="hodi">주택지구
+                                            <input type="hidden" name="hodi" value="false" th:field="*{hodi}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ReCs-save ReCs-MB-div">
+                                <button type="submit" class="ReCs-MB">저장</button>
+                                <!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
+                                <!--                                </div>-->
+                                <!--                            <div class="ReCs-MB">불러오기</div>-->
+                                <!--                            <div class="ReCs-MB">초기화</div>-->
+                                <!--                            <div class="ReCs-MB ReCs-submit">적용</div>-->
+                            </div>
+                            <div class="ReCs-leftButton">
+                                필터 숨기기
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--  ======================================================================================================  -->
+                    <!--  ======================================================================================================  -->
+                    <!--  ============================================== 매물 리스트 =============================================  -->
 
                 </script>
                 <div class="ReEs_List">
@@ -530,330 +591,330 @@
                             </th:block>
                         </div>
                         <div class="ReLi_content_div_all_cover"></div>
+
                     </div>
                 </div>
             </div>
-        </div>
-            <script th:inline="javascript" >
-            $(document).ready(function () {
+            <script th:inline="javascript">
+                $(document).ready(function () {
 
-                // =================================================================
-                // ====================지도의 기본 설정 영역입니다.=====================
-                // =================================================================
+                    // =================================================================
+                    // ====================지도의 기본 설정 영역입니다.=====================
+                    // =================================================================
 
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                    mapOption = {
-                        center: new kakao.maps.LatLng(37.5066103, 126.9783882), // 지도의 중심좌표
-                        level: 7 // 지도의 확대 레벨 초기 상태를 7로 잡겠습니다.
-                    };
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                        mapOption = {
+                            center: new kakao.maps.LatLng(37.5066103, 126.9783882), // 지도의 중심좌표
+                            level: 7 // 지도의 확대 레벨 초기 상태를 7로 잡겠습니다.
+                        };
 
-                var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-                // 지도의 현재 레벨을 얻어옵니다
-                var level = map.getLevel();
-                var polygons = []; // 폴리곤을 저장하고, 이후 삭제하기 위해 사용합니다.
-                var polygonMap = new Map();
-                var nameMap = new Map();
-                var customOverlays = []; // <47/영등포구> 처럼 텍스트를 띄우는 부분을 저장하고, 이후 삭제 및 변경하기 위해 사용합니다.
-                var si = 6; // 시군구를 보여주는 레벨의 기준은 level 5입니다.
-                var markerList = []; // 부동산 marker를 찍을 수 있는
-                var mapMainDtoList = [[${mapMainDtoList}]];
-                var ListSize = mapMainDtoList.length;
-                var polygonName = null;
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+                    // 지도의 현재 레벨을 얻어옵니다
+                    var level = map.getLevel();
+                    var polygons = []; // 폴리곤을 저장하고, 이후 삭제하기 위해 사용합니다.
+                    var polygonMap = new Map();
+                    var nameMap = new Map();
+                    var customOverlays = []; // <47/영등포구> 처럼 텍스트를 띄우는 부분을 저장하고, 이후 삭제 및 변경하기 위해 사용합니다.
+                    var si = 6; // 시군구를 보여주는 레벨의 기준은 level 5입니다.
+                    var markerList = []; // 부동산 marker를 찍을 수 있는
+                    var mapMainDtoList = [[${ mapMainDtoList }]];
+                    var ListSize = mapMainDtoList.length;
+                    var polygonName = null;
 
-                // 행정구역 구분(구)
-                deletePolygon(polygons, customOverlays);
-                $.getJSON("json/sig.geojson", function (geojson) {
-                    var data = geojson.features;
-                    var coordinates = []; // 좌표 저장할 배열
-                    var name = '';  //행정 구 이름
-                    $.each(data, function (index, val) {
-                        coordinates = val.geometry.coordinates;
-                        name = val.properties.SIG_KOR_NM;
-                        points = displayArea(coordinates, name);
-                        setCustomOverlay("sig", name, points);
-                    })
-                })
-                // =======================기본 설정 영역 끝============================
-
-
-                // event등록
-                // 1. 확대, 축소에 따른 이벤트 등록(시군구 <-> 읍면동)
-                // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
-                kakao.maps.event.addListener(map, 'zoom_changed', function () {
-                    if (map.getLevel() >= si && level < si) {
-                        // 행정구역 구분(구)
-                        deletePolygon(polygons, customOverlays);
-                        $.getJSON("json/sig.geojson", function (geojson) {
-                            deleteMarker();
-                            var data = geojson.features;
-                            var coordinates = []; // 좌표 저장할 배열
-                            var name = '';  //행정 구 이름
-
-                            $.each(data, function (index, val) {
-                                coordinates = val.geometry.coordinates;
-                                name = val.properties.SIG_KOR_NM;
-                                points = displayArea(coordinates, name);
-                                setCustomOverlay("sig", name, points);
-                                $('.ReLi_content').css('display', 'inline-block');
-                            })
+                    // 행정구역 구분(구)
+                    deletePolygon(polygons, customOverlays);
+                    $.getJSON("json/sig.geojson", function (geojson) {
+                        var data = geojson.features;
+                        var coordinates = []; // 좌표 저장할 배열
+                        var name = '';  //행정 구 이름
+                        $.each(data, function (index, val) {
+                            coordinates = val.geometry.coordinates;
+                            name = val.properties.SIG_KOR_NM;
+                            points = displayArea(coordinates, name);
+                            setCustomOverlay("sig", name, points);
                         })
-                    } else if (map.getLevel() < si && level >= si) {
-                        deletePolygon(polygons, customOverlays);
-                        $.getJSON("json/emd.geojson", function (geojson) {
-                            var data = geojson.features;
-                            var coordinates = []; // 좌표 저장할 배열
-                            var name = '';  //행정 구 이름
+                    })
+                    // =======================기본 설정 영역 끝============================
 
-                            $.each(data, function (index, val) {
-                                coordinates = val.geometry.coordinates;
-                                name = val.properties.EMD_KOR_NM;
-                                points = displayArea(coordinates, name);
-                                setCustomOverlay("emd", name, points);
+
+                    // event등록
+                    // 1. 확대, 축소에 따른 이벤트 등록(시군구 <-> 읍면동)
+                    // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+                    kakao.maps.event.addListener(map, 'zoom_changed', function () {
+                        if (map.getLevel() >= si && level < si) {
+                            // 행정구역 구분(구)
+                            deletePolygon(polygons, customOverlays);
+                            $.getJSON("json/sig.geojson", function (geojson) {
+                                deleteMarker();
+                                var data = geojson.features;
+                                var coordinates = []; // 좌표 저장할 배열
+                                var name = '';  //행정 구 이름
+
+                                $.each(data, function (index, val) {
+                                    coordinates = val.geometry.coordinates;
+                                    name = val.properties.SIG_KOR_NM;
+                                    points = displayArea(coordinates, name);
+                                    setCustomOverlay("sig", name, points);
+                                    $('.ReLi_content').css('display', 'inline-block');
+                                })
                             })
-                        })
-                    }
-                    level = map.getLevel();
-                });
+                        } else if (map.getLevel() < si && level >= si) {
+                            deletePolygon(polygons, customOverlays);
+                            $.getJSON("json/emd.geojson", function (geojson) {
+                                var data = geojson.features;
+                                var coordinates = []; // 좌표 저장할 배열
+                                var name = '';  //행정 구 이름
 
-
-                //  method
-                // 행정구역 폴리곤을 보여주는 method
-                function displayArea(coordinates, name) {
-
-                    var path = [];      // 폴리곤을 그려줄 path
-                    var points = [];    // 중심좌표 구하기위한 지역구 좌표들
-
-                    $.each(coordinates[0], function (index, coordinate) {
-                        var point = new Object();
-                        point.x = coordinate[1];
-                        point.y = coordinate[0];
-                        points.push(point);
-                        path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
-                    })
-
-                    // 다각형을 생성합니다
-                    var polygon = new kakao.maps.Polygon({
-                        map: map, // 다각형을 표시할 지도 객체
-                        id:name,
-                        path: path,
-                        strokeWeight: 2,
-                        strokeColor: '#004c80',
-                        strokeOpacity: 0.8,
-                        fillColor: '#fff',
-                        fillOpacity: 0.7
-                    })
-                    polygonMap.set(polygon, name);
-                    polygons.push(polygon);     // 폴리곤을 제거하기 위한 배열
-                    nameMap.set(name, 0);
-
-                    // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다.
-                    kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
-                        polygon.setOptions({
-                            fillColor: '#09f'
-                        });
+                                $.each(data, function (index, val) {
+                                    coordinates = val.geometry.coordinates;
+                                    name = val.properties.EMD_KOR_NM;
+                                    points = displayArea(coordinates, name);
+                                    setCustomOverlay("emd", name, points);
+                                })
+                            })
+                        }
+                        level = map.getLevel();
                     });
 
-                    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다.
-                    //        kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent){
-                    //            customOverlay.setPosition(mouseEvent.latLng);
-                    //        });
 
-                    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다.
-                    kakao.maps.event.addListener(polygon, 'mouseout', function () {
-                        polygon.setOptions({
-                            fillColor: '#fff'
-                        });
-                    });
+                    //  method
+                    // 행정구역 폴리곤을 보여주는 method
+                    function displayArea(coordinates, name) {
 
-                    // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역을 확대합니다.
-                    kakao.maps.event.addListener(polygon, 'click', function () {
-                        // 읍면동으로 이동
-                        var emd = 5;
-                        // 지금 레벨을 확인합니다.
-                        var nowlevel = map.getLevel();
+                        var path = [];      // 폴리곤을 그려줄 path
+                        var points = [];    // 중심좌표 구하기위한 지역구 좌표들
 
-                        if (nowlevel > emd) {
-                            // 시군구를 보고 있을 때 클릭 상황입니다.
-                            // 지도를 클릭된 폴리곤의 중앙 위치를 기준으로 확대합니다
-                            map.setLevel(emd, {
-                                anchor: centroid(points), animate: {
-                                    duration: 350 // 확대시 애니메이션 시간
-                                }
+                        $.each(coordinates[0], function (index, coordinate) {
+                            var point = new Object();
+                            point.x = coordinate[1];
+                            point.y = coordinate[0];
+                            points.push(point);
+                            path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
+                        })
+
+                        // 다각형을 생성합니다
+                        var polygon = new kakao.maps.Polygon({
+                            map: map, // 다각형을 표시할 지도 객체
+                            id: name,
+                            path: path,
+                            strokeWeight: 2,
+                            strokeColor: '#004c80',
+                            strokeOpacity: 0.8,
+                            fillColor: '#fff',
+                            fillOpacity: 0.7
+                        })
+                        polygonMap.set(polygon, name);
+                        polygons.push(polygon);     // 폴리곤을 제거하기 위한 배열
+                        nameMap.set(name, 0);
+
+                        // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다.
+                        kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
+                            polygon.setOptions({
+                                fillColor: '#09f'
                             });
-                        } else {
-                            // 읍면동을 보고 있을 때 클릭 상황입니다.
-                            // 지도 중심을 부드럽게 이동시킵니다
-                            // map.panTo(centroid(points));
-                            polygonName = polygonMap.get(polygon);
-                            $('.ReLi_content').css('display', 'inline-block');
-                            deleteMarker();
-                            ListShowOn();
-                            // 지역에 맞는 마커와 리스트를 찍는 부분
+                        });
+
+                        // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다.
+                        //        kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent){
+                        //            customOverlay.setPosition(mouseEvent.latLng);
+                        //        });
+
+                        // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다.
+                        kakao.maps.event.addListener(polygon, 'mouseout', function () {
+                            polygon.setOptions({
+                                fillColor: '#fff'
+                            });
+                        });
+
+                        // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역을 확대합니다.
+                        kakao.maps.event.addListener(polygon, 'click', function () {
+                            // 읍면동으로 이동
+                            var emd = 5;
+                            // 지금 레벨을 확인합니다.
+                            var nowlevel = map.getLevel();
+
+                            if (nowlevel > emd) {
+                                // 시군구를 보고 있을 때 클릭 상황입니다.
+                                // 지도를 클릭된 폴리곤의 중앙 위치를 기준으로 확대합니다
+                                map.setLevel(emd, {
+                                    anchor: centroid(points), animate: {
+                                        duration: 350 // 확대시 애니메이션 시간
+                                    }
+                                });
+                            } else {
+                                // 읍면동을 보고 있을 때 클릭 상황입니다.
+                                // 지도 중심을 부드럽게 이동시킵니다
+                                // map.panTo(centroid(points));
+                                polygonName = polygonMap.get(polygon);
+                                $('.ReLi_content').css('display', 'inline-block');
+                                deleteMarker();
+                                ListShowOn();
+                                // 지역에 맞는 마커와 리스트를 찍는 부분
+                                for (let i = 0; i < ListSize; i++) {
+                                    address = mapMainDtoList[i].roadAddress;
+                                    mapMainDto = mapMainDtoList[i];
+                                    if (polygonName == address.split(" ")[2]) {
+                                        addMarker(mapMainDto);
+                                    } else {
+                                        $('#' + mapMainDto.id).css('display', 'none');
+                                    }
+                                }
+                            }
+                        });
+                        return points;
+                    }
+
+                    // method
+                    // 폴리곤의 중심좌표를 알려주는 Method입니다. (centroid 알고리즘)
+                    function centroid(points) {
+                        var i, j, len, p1, p2, f, area, x, y;
+
+                        area = x = y = 0;
+
+                        for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
+                            p1 = points[i];
+                            p2 = points[j];
+
+                            f = p1.y * p2.x - p2.y * p1.x;
+                            x += (p1.x + p2.x) * f;
+                            y += (p1.y + p2.y) * f;
+                            area += f * 3;
+                        }
+
+                        return new kakao.maps.LatLng(x / area, y / area);
+                    }
+
+                    // method
+                    // 폴리곤을 지워주는 method입니다.
+                    function deletePolygon(polygons, customOverlays) {
+                        for (var i = 0; i < polygons.length; i++) {
+                            polygons[i].setMap(null);
+                        }
+                        for (var i = 0; i < customOverlays.length; i++) {
+                            customOverlays[i].setMap(null);
+                        }
+                        polygonMap = new Map();
+                        polygons = [];
+                        customOverlays = [];
+                    }
+
+                    function addMarker(mapMainDto) {
+                        // 주소-좌표 변환 객체를 생성합니다
+                        var geocoder = new kakao.maps.services.Geocoder();
+
+                        // 주소로 좌표를 검색합니다
+                        geocoder.addressSearch(mapMainDto.roadAddress, function (result, status) {
+
+                            // 정상적으로 검색이 완료됐으면
+                            if (status === kakao.maps.services.Status.OK) {
+
+                                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                                // 결과값으로 받은 위치를 마커로 표시합니다
+                                var marker = new kakao.maps.Marker({
+                                    map: map,
+                                    position: coords
+                                });
+                                markerList.push(marker);
+                                var PercentFlag = (mapMainDto.percent != null);
+                                var content = '<div class="ReLi_text">' +
+                                    '<th:block th:if="' + PercentFlag + '">' +
+                                    '<div class="ReLi_accuracy">일치율 ' + mapMainDto.percent + '%</div>' +
+                                    '</th:block>' +
+                                    '<div class="ReLi_TrType">' +
+                                    '</div>' +
+                                    '<div class="ReLi_cost">' +
+                                    mapMainDto.reDeposit + ' / ' + mapMainDto.reMon_price + ' / ' + mapMainDto.reAdmn_fee +
+                                    '</div>' +
+                                    '<div class="ReLi_extent">' +
+                                    mapMainDto.reFlr + '층 / ' + mapMainDto.reExtent + '평' +
+                                    '</div>' +
+                                    '<div class="ReLi_address">' +
+                                    mapMainDto.roadAddress +
+                                    '</div>' +
+                                    '<div class="ReLi_agent">' +
+                                    '<div class="ReLi_agent_img"></div>' +
+                                    '<div class="ReLi_agent_div">' +
+                                    '<div class="ReLi_agent_company">' + mapMainDto.lreaNick + '</div>' +
+                                    '<div class="ReLi_agent_name">' + mapMainDto.lreaNick + '</div>' +
+                                    '</div>' +
+                                    '<div class="ReLi_agent_heart">' +
+                                    '</div>' +
+                                    //   '<div class="ReLi-move-dtl">' +
+                                    //   '<a th:href="'/map/'+${item.id}">자세히보기</a>' +
+                                    //   '</div>' + 
+                                    '</div>';
+
+                                // 마커에 표시할 인포윈도우를 생성합니다 
+                                var infowindow = new kakao.maps.InfoWindow({
+                                    content: content // 인포윈도우에 표시할 내용
+                                });
+
+                                // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                                // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+                                // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                                kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+                            }
+                        });
+                    }
+
+                    function deleteMarker() {
+                        markerList.forEach(mark => {
+                            mark.setMap(null);
+                        });
+                    }
+                    function setCustomOverlay(flag, name, points) {
+                        var reEsNumber = 0;
+                        if (flag == "sig") {
+                            console.log("if 위쪽?")
                             for (let i = 0; i < ListSize; i++) {
                                 address = mapMainDtoList[i].roadAddress;
-                                mapMainDto = mapMainDtoList[i];
-                                if(polygonName == address.split(" ")[2]){
-                                    addMarker(mapMainDto);
-                                }else{
-                                    $('#' + mapMainDto.id).css('display', 'none');
+                                if (name == address.split(" ")[1]) {
+                                    reEsNumber += 1;
+                                }
+                            }
+                        } else {
+                            console.log("if 아래쪽..?")
+                            for (let i = 0; i < ListSize; i++) {
+                                address = mapMainDtoList[i].roadAddress;
+                                if (name == address.split(" ")[2]) {
+                                    reEsNumber += 1;
                                 }
                             }
                         }
-                    });
-                    return points;
-                }
+                        // 커스텀 오버레이를 설정하는 곳
+                        // 47 부분을 어디서 가져올건지 확인하면 됨
+                        var content = '<div class ="customOverlay"><span class="leftNumber">' + reEsNumber + '</span><span class="center">' + name + '</span><span class="right"></span></div>';
+                        // 시, 구를 표시해주는 커스텀 오버레이를 생성합니다.
+                        var customOverlay = new kakao.maps.CustomOverlay({
+                            position: centroid(points),
+                            content: content
+                        });
+                        customOverlays.push(customOverlay)
 
-                // method
-                // 폴리곤의 중심좌표를 알려주는 Method입니다. (centroid 알고리즘)
-                function centroid(points) {
-                    var i, j, len, p1, p2, f, area, x, y;
-
-                    area = x = y = 0;
-
-                    for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
-                        p1 = points[i];
-                        p2 = points[j];
-
-                        f = p1.y * p2.x - p2.y * p1.x;
-                        x += (p1.x + p2.x) * f;
-                        y += (p1.y + p2.y) * f;
-                        area += f * 3;
+                        customOverlay.setMap(map);
                     }
 
-                    return new kakao.maps.LatLng(x / area, y / area);
-                }
-
-                // method
-                // 폴리곤을 지워주는 method입니다.
-                function deletePolygon(polygons, customOverlays) {
-                    for (var i = 0; i < polygons.length; i++) {
-                        polygons[i].setMap(null);
+                    // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+                    function makeOverListener(map, marker, infowindow) {
+                        return function () {
+                            infowindow.open(map, marker);
+                        };
                     }
-                    for (var i = 0; i < customOverlays.length; i++) {
-                        customOverlays[i].setMap(null);
+
+                    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+                    function makeOutListener(infowindow) {
+                        return function () {
+                            infowindow.close();
+                        };
                     }
-                    polygonMap = new Map();
-                    polygons = [];
-                    customOverlays = [];
-                }
 
-                function addMarker(mapMainDto) {
-                    // 주소-좌표 변환 객체를 생성합니다
-                    var geocoder = new kakao.maps.services.Geocoder();
+                    function compareAddress(name) {
 
-                    // 주소로 좌표를 검색합니다
-                    geocoder.addressSearch(mapMainDto.roadAddress, function (result, status) {
-
-                        // 정상적으로 검색이 완료됐으면
-                        if (status === kakao.maps.services.Status.OK) {
-
-                            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-                            // 결과값으로 받은 위치를 마커로 표시합니다
-                            var marker = new kakao.maps.Marker({
-                                map: map,
-                                position: coords
-                            });
-                            markerList.push(marker);
-                            var PercentFlag = (mapMainDto.percent != null);
-                            var content = '<div class="ReLi_text">' +
-                                          '<th:block th:if="' + PercentFlag + '">' +
-                                          '<div class="ReLi_accuracy">일치율 ' + mapMainDto.percent + '%</div>' +
-                                          '</th:block>' +
-                                          '<div class="ReLi_TrType">' + 
-                                          '</div>' +
-                                          '<div class="ReLi_cost">' + 
-                                          mapMainDto.reDeposit + ' / ' + mapMainDto.reMon_price + ' / ' + mapMainDto.reAdmn_fee +
-                                          '</div>' +
-                                          '<div class="ReLi_extent">' +
-                                          mapMainDto.reFlr + '층 / ' + mapMainDto.reExtent + '평' + 
-                                          '</div>' +
-                                          '<div class="ReLi_address">' + 
-                                          mapMainDto.roadAddress + 
-                                          '</div>'+
-                                          '<div class="ReLi_agent">'+
-                                          '<div class="ReLi_agent_img"></div>' +
-                                          '<div class="ReLi_agent_div">' +
-                                          '<div class="ReLi_agent_company">'+ mapMainDto.lreaNick+'</div>' +
-                                          '<div class="ReLi_agent_name">' + mapMainDto.lreaNick + '</div>'+
-                                          '</div>' +
-                                          '<div class="ReLi_agent_heart">' +
-                                          '</div>' +
-                                        //   '<div class="ReLi-move-dtl">' +
-                                        //   '<a th:href="'/map/'+${item.id}">자세히보기</a>' +
-                                        //   '</div>' + 
-                                          '</div>';
-
-                            // 마커에 표시할 인포윈도우를 생성합니다 
-                            var infowindow = new kakao.maps.InfoWindow({
-                                content: content // 인포윈도우에 표시할 내용
-                            });
-
-                            // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-                            // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-                            // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-                            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-                            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-                        }
-                    });
-                }
-
-                function deleteMarker(){
-                    markerList.forEach(mark => {
-                        mark.setMap(null);
-                    });
-                }
-                function setCustomOverlay(flag, name, points){
-                    var reEsNumber = 0;
-                    if(flag == "sig"){
-                        console.log("if 위쪽?")
-                        for (let i = 0; i < ListSize; i++){
-                            address = mapMainDtoList[i].roadAddress;
-                            if(name == address.split(" ")[1]){
-                                reEsNumber += 1;
-                            }
-                        }
-                    }else{
-                        console.log("if 아래쪽..?")
-                        for (let i = 0; i < ListSize; i++){
-                            address = mapMainDtoList[i].roadAddress;
-                            if(name == address.split(" ")[2]){
-                                reEsNumber += 1;
-                            }
-                        }
                     }
-                    // 커스텀 오버레이를 설정하는 곳
-                    // 47 부분을 어디서 가져올건지 확인하면 됨
-                    var content = '<div class ="customOverlay"><span class="leftNumber">' + reEsNumber + '</span><span class="center">' + name + '</span><span class="right"></span></div>';
-                    // 시, 구를 표시해주는 커스텀 오버레이를 생성합니다.
-                    var customOverlay = new kakao.maps.CustomOverlay({
-                        position: centroid(points),
-                        content: content
-                    });
-                    customOverlays.push(customOverlay)
-
-                    customOverlay.setMap(map);
-                }
-
-                // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-                function makeOverListener(map, marker, infowindow) {
-                    return function() {
-                        infowindow.open(map, marker);
-                    };
-                }
-
-                // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-                function makeOutListener(infowindow) {
-                    return function() {
-                        infowindow.close();
-                    };
-                }
-
-                function compareAddress(name){
-
-                }
-            })
-        </script>
+                })
+            </script>
         </div>
     </div>
 </body>
