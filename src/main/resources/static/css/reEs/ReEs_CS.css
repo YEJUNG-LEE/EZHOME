@@ -188,9 +188,6 @@
     font-weight:600;
     border-radius:6px;
 }
-button.btn {
-    border:none;
-}
 
 .ReCs-MB:hover{
     border:1px solid #FEC72F;
