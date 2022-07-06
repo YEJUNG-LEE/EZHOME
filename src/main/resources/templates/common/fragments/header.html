@@ -45,6 +45,9 @@
                 <li sec:authorize="hasRole('LREA')" class="advert_insert">
                     <a href="#">광고문의</a>
                 </li>
+                <li sec:authorize="hasRole('LREA')" class="advert_insert">
+                    <a href="/admin/item/new">매물등록</a>
+                </li>
                 <!-- 로그인 -->
                 <li sec:authorize="isAnonymous()"  class="main_login">
                     <a class="main_login_log" href="/members/login">로그인</a>

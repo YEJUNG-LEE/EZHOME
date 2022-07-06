@@ -444,7 +444,7 @@ main {
     left: 16px;
     top: 22px;
     font-size: 36px;
-    color: #4876ef;
+    color: #52b0fb;
 }
 
 /* 검색입력창 */
@@ -473,9 +473,9 @@ main {
     width: 130px;
     height: 100%;
     display: block;
-    font-size: 22px;
+    font-size: 20px;
     padding-top: 24px;
-    font-weight: 100;
+    font-weight: 600;
     border-left: 2px solid #ededed;
     border-right: 2px solid #ededed;
     box-sizing: border-box;
@@ -523,9 +523,9 @@ main {
     width: 130px;
     height: 100%;
     display: block;
-    font-size: 22px;
+    font-size: 20px;
     padding-top: 24px;
-    font-weight: 100;
+    font-weight: 600;
     border-right: 2px solid #ededed;
     box-sizing: border-box;
 }
@@ -545,13 +545,20 @@ main {
     right: 0px;
     width: 140px;
     height: 80px;
-    border: 1px solid #4876ef;
+    border: 1px solid #52b0fb;
     border-radius: 10px;
-    background: #4876ef;
+    background: #52b0fb;
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     box-sizing: border-box;
     cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.search-btn:hover{
+    background: #4876ef;
+    border: 1px solid #52b0fb;
+    color: #fff;
 }
 
 /* main-section02 */
