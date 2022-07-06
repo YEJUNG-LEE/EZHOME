@@ -549,9 +549,11 @@ main {
     border-radius: 10px;
     background: #52b0fb;
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     box-sizing: border-box;
     cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 .search-btn:hover{
     background: #4876ef;
