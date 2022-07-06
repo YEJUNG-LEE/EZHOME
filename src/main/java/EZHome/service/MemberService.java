@@ -79,4 +79,13 @@ public class MemberService implements UserDetailsService {
     public int Delete(String id){
         return memberMapperInterface.Delete(id);
     }
+
+    // 여기서 부터 내가 함
+    @Transactional(readOnly = true)
+    public MemberFormDto getMemAddress(String membAddress1){
+        Member member = memberRepository.findByMembAddress1(membAddress1);
+        MemberFormDto memberFormDto = MemberFormDto.of(member);
+
+        return memberFormDto;
+    }
 }
