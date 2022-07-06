@@ -86,10 +86,6 @@
                             <input class="ReEs-insert-input" type="number" th:field="*{reAdmn_fee}" placeholder="관리비/15를 입력 시, 15만원">
                             <p  th:if="${#fields.hasErrors('reAdmn_fee')}" th:errors="*{reAdmn_fee}" class="fieldError">Incorrect data</p>
                         </div>
-                        <div class="ReEs-insert-div">
-                            <input class="ReEs-insert-input" type="number" th:field="*{reDeposit}" placeholder="보증금">
-                            <p th:if="${#fields.hasErrors('reDeposit')}" th:errors="*{reDeposit}" class="fieldError">Incorrect data</p>
-                        </div>
                     </td>
 
                 </tr>

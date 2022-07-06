@@ -66,7 +66,7 @@ public class MapController {
                 reMncsDto = conditionService.getMapCondi(member);
                 model.addAttribute("ReMncsDto", reMncsDto); // 회원의 조건 정보를 담고 있음
             }
-//            mapMainDtoList = conditionService.compare(reMncsDto, mapMainDtoList);
+            mapMainDtoList = conditionService.compare(reMncsDto, mapMainDtoList);
             for (MapMainDto mapMainDto: mapMainDtoList) {
                 System.out.println("reFormDto : " + mapMainDto.toString());
                 System.out.println("lreaName : " + mapMainDto.getLreaName());
