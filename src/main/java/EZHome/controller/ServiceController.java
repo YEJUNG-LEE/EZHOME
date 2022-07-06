@@ -35,27 +35,4 @@ public class ServiceController {
         return "services/SeCe-oto";
     }
 
-    private final SeService seService;
-    @PostMapping(value = "/service/oto")
-//    @RequestMapping(value = "/service/oto", method = {RequestMethod.GET, RequestMethod.POST})
-    public String services_oto(@Valid SeFormDto seFormDto, Model model, BindingResult bindingResult,
-                               @RequestParam("serviceImgFile")List<MultipartFile> serviceImgFileList, Principal principal){
-        if(bindingResult.hasErrors()){
-            List<ObjectError> list = bindingResult.getAllErrors();
-            for(ObjectError e : list){
-                System.out.println(e.getDefaultMessage());
-            }
-            return "services/SeCe-oto";
-        }
-        String email = principal.getName();
-
-        try{
-            seService.savedSeCe(seFormDto, serviceImgFileList, email);
-        } catch (Exception e) {
-            model.addAttribute("errorMessage", "문의 둥륵 종 오류가 발생했습니다.");
-            e.printStackTrace();
-            return "services/SeCe-oto";
-        }
-        return "redirect:/";
-    }
 }
