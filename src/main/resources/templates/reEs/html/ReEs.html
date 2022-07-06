@@ -530,14 +530,15 @@
                     <!--  ======================================================================================================  -->
                     <!--  ============================================== 매물 리스트 =============================================  -->
 
-                    </script>
-                    <div class="ReEs_List">
-                        <div class="ReLi_extent_button_div">
-                            <i class="fa-solid fa-rotate"></i>
-                        </div>
-                        <!-- 리스트 -->
-                        <div class="ReLi_content_div">
-                            <th:block th:each="item, index : ${mapMainDtoList}">
+                </script>
+                <div class="ReEs_List">
+                    <div class="ReLi_extent_button_div">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+                    <!-- 리스트 -->
+                    <div class="ReLi_content_div">
+                        <div class="ReLi_content_div_all">
+                            <th:block  th:each="item, index : ${mapMainDtoList}">
                                 <div class="ReLi_content" th:id="${item.id}">
                                     <div class="ReLi_img">
                                         <div class="ReLi_ranking">Top [[${index.index+1}]]</div>
@@ -548,27 +549,38 @@
                                             <div class="ReLi_accuracy">일치율 [[${item.percent}]]%</div>
                                         </th:block>
                                         <div class="ReLi_TrType">
-                                            <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
-                                        </div>
-                                        <div class="ReLi_cost">
-                                            [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]
-                                            <!-- 보증금 / 월세/ 관리비-->
+                                            매물번호 : 48556825
+                                            <!-- <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                         </div>
                                         <div class="ReLi_extent">
-                                            [[${item.reFlr}]]/ · [[${item.reExtent}]]
+                                            층수 : 0층 / 평수 : 00평
+    <!--                                        [[${item.reFlr}]]/ · [[${item.reExtent}]]-->
                                             <!-- 층수 / 평수-->
+                                        </div>
+                                        <div class="ReLi_cost">
+                                            보증금 가격:0000000원
+    <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                            <!-- 보증금 / 월세/ 관리비-->
+                                        </div>
+                                        <div class="ReLi_cost">
+                                            월세 가격:000000원
+    <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                            <!-- 보증금 / 월세/ 관리비-->
+                                        </div>
+                                        <div class="ReLi_cost">
+                                            관리비:0000000원
+    <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                            <!-- 보증금 / 월세/ 관리비-->
                                         </div>
                                         <div class="ReLi_address">
                                             [[${item.roadAddress}]]
                                             <!-- 시도 / 군구 / 동-->
                                         </div>
                                         <div class="ReLi_agent">
-                                            <div class="ReLi_agent_img"></div>
                                             <div class="ReLi_agent_div">
-                                                <div class="ReLi_agent_company" th:text="${item.lreaNick}"></div>
+                                                <div class="ReLi_agent_company" th:text="${item.lreaNick}+공인중개사"></div>
                                                 <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
                                             </div>
-                                            <div class="ReLi_agent_heart"><i class="fa-solid fa-heart"></i></div>
                                         </div>
 
                                         <div class="ReLi-move-dtl">
@@ -578,6 +590,8 @@
                                 </div>
                             </th:block>
                         </div>
+                        <div class="ReLi_content_div_all_cover"></div>
+
                     </div>
                 </div>
             </div>

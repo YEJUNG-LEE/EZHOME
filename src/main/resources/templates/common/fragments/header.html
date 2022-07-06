@@ -40,10 +40,10 @@
             <ul class="EzHome-ul-right">
                 <!-- 회원(공인중개사) 광고(매물)등록 -->
                 <li sec:authorize="!isAuthenticated()" class="advert_insert">
-                    <a href="/common/advertise.html">광고문의</a>
+                    <a class="adver_insert_nm" href="/common/advertise.html">광고문의</a>
                 </li>
                 <li sec:authorize="hasRole('LREA')" class="advert_insert">
-                    <a href="#">광고문의</a>
+                    <a class="advert_insert_a" href="/admin/item/new">매물등록</a>
                 </li>
                 <!-- 로그인 -->
                 <li sec:authorize="isAnonymous()"  class="main_login">
@@ -52,17 +52,17 @@
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
                     <a sec:authorize="hasRole('USER')" href="/USERmain" methods="get">
-                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
+                        <i class="fa-solid fa-user"></i> <span th:text="${username}"></span> 님
                     </a>
-                    <a sec:authorize="hasRole('LREA')" href="/LREAmain" methods="get">
-                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
+                    <a class="member_lrea" sec:authorize="hasRole('LREA')" href="/LREAmain" methods="get">
+                        <i class="fa-solid fa-house-user"></i> <span th:text="${username}"></span> 님
                     </a>
                 </li>
 
-                <li sec:authorize="isAnonymous()">
+                <li class="header-signup" sec:authorize="isAnonymous()">
                     <a href="/members/new" class="header-signup">회원가입</a>
                 </li>
-                <li class="header-signup" sec:authorize="isAuthenticated()">
+                <li class="header-logout" sec:authorize="isAuthenticated()">
                     <a href="/members/logout">
                         로그아웃
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
