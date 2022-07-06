@@ -5,7 +5,7 @@
                 background-color:#6c93f7;}
 
             .USMy-div-all{width:1280px;
-                        height:1778px;
+                        height:1078px;
                         border:0px solid black;
                         margin:auto;
                         box-sizing:border-box;}
@@ -17,7 +17,7 @@
 
             /* 왼쪽 사이드바 영역 css */
             .USMy-div-all-pro{width:144px;
-                            height:1620px;
+                            height:820px;
                             margin-top:30px;
                             border:0px solid black;
                             float:left;
@@ -41,7 +41,7 @@
                             box-sizing:border-box;
                             margin-left:41px;
                             margin-top:40px;
-                            background-image:url(/images/pro.jpg);
+                            /* background-image:url(/images/pro.jpg); */
                             background-size:cover;}
 
             .USMy-pro-nam{font-size:15px;
@@ -63,7 +63,7 @@
 
             /* 왼쪽 사이드바 메뉴 영역 css */
             .USMy-div-all-pag{width:144px;
-                            height:1200px;
+                            height:800px;
                             border:0px solid black;
                             box-sizing:border-box;}
 
@@ -89,7 +89,7 @@
 
             /* 오른쪽 콘텐츠 영역 css */
             .USMy-div-con{width:1024px;
-                        height:1600px;
+                        height:900px;
                         border:0px solid black;
                         margin-left:34px;
                         float:left;
@@ -159,7 +159,6 @@
             /* 내 맞춤 조건 영역 css */
             .USMy-div-cat-mes{width:1024px;
                             height:364px;
-                            margin-top:96px;
                             border:0px solid black;
                             box-sizing:border-box;}
 
@@ -177,8 +176,7 @@
             .USMy-tit-p{font-size:18px;
                         font-weight:700;
                         float:left;
-                        margin-left:5px;
-                        padding-top:9px;}
+                        margin-left:5px;}
 
             .USMy-out{font-size:12px;
                     font-weight:900;
@@ -187,11 +185,95 @@
                     margin-right:10px;
                     padding-top:17px;}
 
-            .USMy-div-cat-con{width:628px;
-                            height:322px;
+            .USMy-div-cat-con{width:900px;
+                            height:750px;
                             overflow:hidden;
                             border:1px solid #94BBCC;
                             box-sizing:border-box;}
+
+            .USMy-h2-niz{
+                padding: 20px 0px 2px;
+                text-align: left;
+                font-size: 28px;
+                font-weight:600;
+                margin: 40px 0px 14px;
+                padding-left:20px;
+            }
+            
+            /* 맞춤 정보*/
+            .USMy-div-content03 {
+                width: 736px;
+                height: 184px;
+                padding: 14px 0px 0px 30px;
+                border-top: 1px solid #d1d1d1;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            
+            /* USMy_CS.css 부분 가져옴 */
+            /* USMy-button 클래스 */
+            /* 공통 맞춤정보, 카테고리조건  */
+            /* .USMy-button */
+            /* 위치, 디스플레이 플렉스 */
+            .USMy-button{
+                box-sizing: border-box;
+                margin-right: 25px;
+                width: 112px;
+                height: 40px;
+                border-radius: 45px;
+                border: 1px solid #d1d1d1;
+                background-color: #FFFFFF;
+                display: inline-block;
+                font-size: 12px;
+                padding: 12px 0px;
+                letter-spacing: 1px;
+                font-weight: 600;
+                color: #d1d1d1;
+                text-align: center;
+            }
+            
+            /* .USMy-button 원본, 분리한거, 백업용 */
+            /*.USMy-button{
+               box-sizing:border-box;
+               margin-top:13px;
+               margin-right:25px;
+               width:120px;
+               height:35px;
+               border-radius:45px;
+               border:1px solid #b8b7bb;
+               background-color:#b8b7bb;
+               display:inline-block;
+               font-size:14px;
+               padding-top:5px;
+               letter-spacing:2px;
+               font-weight:600;
+               color:#858484;
+               text-align:center;
+            }*/
+            
+            /* 카테고리 조건 */
+            /* 카테고리 제목문구 */
+            .USMy-h2-Kate{
+                padding: 20px 0px 2px 20px;
+                text-align: left;
+                font-size: 28px;
+                font-weight:600;
+                margin: 40px 0px 14px;
+            }
+            
+            /* 카테고리 영역 */
+            .USMy-div-content04 {
+                width: 736px;
+                height: 236px;
+                padding: 14px 0px 0px 30px;
+                border-top: 1px solid #d1d1d1;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
 
             /* 알림 메세지 영역 css */
             .USMy-div-mes{width:344px;
@@ -237,7 +319,7 @@
                         margin-left:10px;
                         border-radius:6px;
                         float:left;
-                        background-image:url(/images/pro.jpg);
+                        /* background-image:url(/images/pro.jpg); */
                         background-size:cover;
                         border:1px solid #bddbf8;
                         box-sizing:border-box;}
@@ -310,7 +392,7 @@
                         height:150px;
                         border-top-left-radius:5px;
                         border-top-right-radius:5px;
-                        background-image:url(/images/home.jpg);
+                        /* background-image:url(/images/home.jpg); */
                         background-size:cover;}
 
             .USMy-sal-heart{width:18px;
@@ -380,7 +462,7 @@
                             float:right;
                             margin-right:5px;
                             margin-top:3px;
-                            background-image:url(/images/star.jpg);
+                            /* background-image:url(/images/star.jpg); */
                             background-size:cover;}
 
             .USMy-fol-con{width:350px;
@@ -394,7 +476,7 @@
                             margin-left:20px;
                             float:left;
                             border:1px solid #94BBCC;
-                            background-image:url(/images/pro.jpg);
+                            /* background-image:url(/images/pro.jpg); */
                             background-size:cover;}
 
             .USMy-fol-con-tit{width:230px;
@@ -436,7 +518,7 @@
                         height:156px;
                         margin-left:1px;
                         float:left;
-                        background-image:url(/images/home.jpg);
+                        /* background-image:url(/images/home.jpg); */
                         background-size:cover;}
 
             /* 최근 본 매물 영역 css */
@@ -472,7 +554,7 @@
                         height:150px;
                         border-top-left-radius:5px;
                         border-top-right-radius:5px;
-                        background-image:url(/images/home.jpg);
+                        /* background-image:url(/images/home.jpg); */
                         background-size:cover;}
 
             .USMy-rec-heart{width:18px;

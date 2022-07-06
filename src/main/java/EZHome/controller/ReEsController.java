@@ -1,7 +1,12 @@
 package EZHome.controller;
 
+import EZHome.dto.MapMainDto;
 import EZHome.dto.ReFormDto;
+import EZHome.dto.ReMncsDto;
+import EZHome.entity.Member;
 import EZHome.entity.ReEs;
+import EZHome.repository.MemberRepository;
+import EZHome.service.ConditionService;
 import EZHome.service.ReService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,10 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
@@ -146,25 +148,12 @@ public class ReEsController {
 //        return "reEs/html/ReItemForm" ;
 //    }
 
-//    @GetMapping(value = {"/admin/items", "/admin/items/{page}"})
-//    public String ReManage(Model model) {
-//
-//        Integer page = Integer.parseInt(request.getParameter("page"));
-//
-//        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
-//
-//        Page<ReEs> reEs = reService.getAdminItemPage(pageable);
-//
-//        model.addAttribute("reEs", reEs);
-//        model.addAttribute("maxPage", 5);
-//
-//        return "admin/LREAmyPageMain";
-//    }
+    @GetMapping(value = "")
+    public String myPageList(Model model, Principal principal, @PathVariable("reid") Long reId){
+        ReFormDto reFormDto = reService.getItemUpdate(reId) ;
+        System.out.println("reFormDto : " + reFormDto.toString());
+        model.addAttribute("reFormDto", reFormDto) ;
 
-//    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page){
-//        Page<ReEs> paging = this.reService.getList(page);
-//        model.addAttribute("paging", paging);
-//
-//        return "admin/LREAmyPageMain";
-//    }
+        return null;
+    }
 }
