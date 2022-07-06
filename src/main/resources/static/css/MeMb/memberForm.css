@@ -120,7 +120,7 @@
             height: 420px;
             position: absolute;
             top:0; right:0;
-            -webkit-transition:all. 5s;
+            -webkit-transition:all .5s;
             opacity:1;
             background-color:#FFFFFF;
             border:0px solid black;
