@@ -111,29 +111,70 @@ public class ReEs extends BaseEntity {
         String secndFlr = null;
         String underFlr = null;
         String loofFlr = null;
-        if(reMncsDto.isSecondFloor()){secndFlr = "복층";}
-        if(reMncsDto.isHalfUnder()){underFlr = "반지하";}
-        if(reMncsDto.isLoofTop()){loofFlr = "옥탑방";}
+        int Flr = 0;
+        int maxFloor = 10;
+        int maxExtent = 40;
+        int maxMonth = 80;
+        int maxManage = 40;
+        int maxDeposit = 3000;
+
+
+        if(reMncsDto.isSecondFloor()){secndFlr = "복층"; Flr += 1;}
+        if(reMncsDto.isHalfUnder()){underFlr = "반지하"; Flr += 1;}
+        if(reMncsDto.isLoofTop()){loofFlr = "옥탑방"; Flr += 1;}
         if(!this.rehouseType.equals(reMncsDto.getHouseType())){return false;}
+        System.out.println("houseType 통과!");
         if(!this.retrType.equals(reMncsDto.getTrType())){return false;}
-        if(!(this.reFlr <= reMncsDto.getMinFloor() && this.reFlr >= reMncsDto.getMaxFloor())){return false;}
-        if(!(this.reFlrType.equals(secndFlr) || this.reFlrType.equals(underFlr) || this.reFlrType.equals(loofFlr))){return false;}
-        if(!(this.reExtent <= reMncsDto.getMinEx() && this.reExtent >= reMncsDto.getMaxEx())){return false;}
-        if(!(this.reMon_price <= reMncsDto.getMinMon() && this.reMon_price >= reMncsDto.getMaxMon())){return false;}
-        if(!(this.reDeposit <= reMncsDto.getMinDep() && this.reDeposit >= reMncsDto.getMaxDep())){return false;}
+        System.out.println("trType 통과!");
+        if(this.reFlr < reMncsDto.getMinFloor()){
+            if(reMncsDto.getMaxFloor() < maxFloor && this.reFlr > reMncsDto.getMaxFloor()){
+                return false;
+            }
+        }
+        System.out.println("reFlr 통과!");
+        if(this.reExtent < reMncsDto.getMinEx()){
+            if(reMncsDto.getMaxEx() < maxExtent && this.reExtent > reMncsDto.getMaxEx()){
+                return false;
+            }
+        }
+        if(this.reMon_price < reMncsDto.getMinMon()){
+            if(reMncsDto.getMaxMon() < maxMonth && this.reMon_price > reMncsDto.getMaxMon()){
+                return false;
+            }
+        }
+        if(this.reAdmn_fee < reMncsDto.getMinMan()){
+            if(reMncsDto.getMaxMan() < maxManage && this.reAdmn_fee > reMncsDto.getMaxMan()){
+                return false;
+            }
+        }
+        if(this.reDeposit < reMncsDto.getMinDep()){
+            if(reMncsDto.getMaxDep() < maxDeposit && this.reDeposit > reMncsDto.getMaxDep()){
+                return false;
+            }
+        }
+        if(Flr == 1){
+            if(!(this.reFlrType.equals(secndFlr) || this.reFlrType.equals(underFlr) || this.reFlrType.equals(loofFlr))){
+                return false;
+            }
+        }else if(Flr == 2){
+            if(secndFlr == null){
+                if(this.reFlrType.equals("복층")){
+                    return false;
+                }
+            }else if(underFlr == null){
+                if(this.reFlrType.equals("반지하")){
+                    return false;
+                }
+            }else if(loofFlr == null){
+                if(this.reFlrType.equals("옥탑방")){
+                    return false;
+                }
+            }
+        }
+        // if(!(this.reTrade <= reMncsDto.getMinMon() && this.reTrade >= reMncsDto.getMax())){return false;}
 
-//        if(!(this.reTrade <= reMncsDto.getMinMon() && this.reTrade >= reMncsDto.getMax())){return false;}
-
-//        if(!this.roadAddress.equals(reMncsDto.getHouseType())){return false;}
+        // if(!this.roadAddress.equals(reMncsDto.getHouseType())){return false;}
         return true;
     }
-//
-//    public static ReEs createWho(Member member){
-//        ReEs reEs = new ReEs();
-//        reEs.setMember(member);
-//
-//        return reEs;
-//    }
-
 
 }
