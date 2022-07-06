@@ -133,7 +133,9 @@ public class ConditionService {
 
 
     public List<MapMainDto> compare(ReMncsDto reMncsDto, List<MapMainDto> mapMainDtoList) {
-        if(reMncsDto.getId() == null){
+        if(reMncsDto == null){
+            return mapMainDtoList;
+        }else if(reMncsDto.getId() == null){
             return mapMainDtoList;
         }
         System.out.println("compare에 들어갔습니다.");

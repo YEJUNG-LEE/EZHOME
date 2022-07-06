@@ -485,13 +485,15 @@
                     <!-- 리스트 -->
                     <div class="ReLi_content_div">
                         <th:block>
-                            <div class="ReLi_content" th:each="item : ${mapMainDtoList}">
+                            <div class="ReLi_content" th:each="item, index : ${mapMainDtoList}">
                                 <div class="ReLi_img">
-                                    <div class="ReLi_ranking">Top 1</div>
+                                    <div class="ReLi_ranking">Top [[${index.index+1}]]</div>
                                     <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
                                 </div>
                                 <div class="ReLi_text">
-                                    <div th:if="${item.percent != null}" class="ReLi_accuracy">일치율 [[${item.percent}]]%</div>
+                                    <th:block th:if="${item.percent!=null}">
+                                        <div class="ReLi_accuracy">일치율 [[${item.percent}]]%</div>
+                                    </th:block>
                                     <div class="ReLi_TrType">
                                         <!--                                            <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
                                     </div>
