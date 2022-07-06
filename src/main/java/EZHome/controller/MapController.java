@@ -64,6 +64,7 @@ public class MapController {
                 String email = principal.getName();
                 Member member = memberRepository.findByEmail(email);
                 reMncsDto = conditionService.getMapCondi(member);
+                String address = reMncsDto.getAddress();
                 model.addAttribute("ReMncsDto", reMncsDto); // 회원의 조건 정보를 담고 있음
             }
             mapMainDtoList = conditionService.compare(reMncsDto, mapMainDtoList);

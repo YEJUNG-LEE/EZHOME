@@ -140,19 +140,32 @@ public class ReEs extends BaseEntity {
                 return false;
             }
         }
-        if(this.reMon_price < reMncsDto.getMinMon()){
-            if(reMncsDto.getMaxMon() < maxMonth && this.reMon_price > reMncsDto.getMaxMon()){
-                return false;
+        if(this.reMon_price != null) {
+            if (this.reMon_price < reMncsDto.getMinMon()) {
+                if (reMncsDto.getMaxMon() < maxMonth && this.reMon_price > reMncsDto.getMaxMon()) {
+                    return false;
+                }
             }
         }
-        if(this.reAdmn_fee < reMncsDto.getMinMan()){
-            if(reMncsDto.getMaxMan() < maxManage && this.reAdmn_fee > reMncsDto.getMaxMan()){
-                return false;
+        if(this.reAdmn_fee != null){
+            if(this.reAdmn_fee < reMncsDto.getMinMan()){
+                if(reMncsDto.getMaxMan() < maxManage && this.reAdmn_fee > reMncsDto.getMaxMan()){
+                    return false;
+                }
             }
         }
-        if(this.reDeposit < reMncsDto.getMinDep()){
-            if(reMncsDto.getMaxDep() < maxDeposit && this.reDeposit > reMncsDto.getMaxDep()){
-                return false;
+        if(this.reDeposit != null){
+            if(this.reDeposit < reMncsDto.getMinDep()){
+                if(reMncsDto.getMaxDep() < maxDeposit && this.reDeposit > reMncsDto.getMaxDep()){
+                    return false;
+                }
+            }
+        }
+        if(this.reTrade != null){
+            if(this.reTrade < reMncsDto.getMinTrd()){
+                if(reMncsDto.getMaxTrd() < maxTrade && this.reTrade > reMncsDto.getMaxTrd()){
+                    return false;
+                }
             }
         }
         if(Flr == 1){
