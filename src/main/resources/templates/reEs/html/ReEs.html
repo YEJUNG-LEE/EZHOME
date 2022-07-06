@@ -86,8 +86,6 @@
             <!-- 네비 탭 -->
             <div class="ReEs-navi">
                 <div class="ReEs-navi-normal">
-                    <div class="ReEs-navi-normal-search ReEs-navi-font" contenteditable="true" placeholder="지역을 입력하세요">
-                    </div>
                     <div class="ReEs-navi-normal-TrType ReEs-navi-font">거래유형</div>
                     <div class="ReEs-navi-normal-houseType ReEs-navi-font">방유형</div>
                     <div class="ReEs-navi-normal-floor ReEs-navi-font">층수</div>
@@ -98,110 +96,112 @@
                 </div>
                 <!-- 여기부터는 선택시 나오는 div들 -->
                 <!-- 거래유형 click시 -->
-                <div class="ReEs-navi-normal-TrType-select">
-                    <div class="ReEs-navi-normal-TrType-select-Month ReEs-navi-sl-font">월세</div>
-                    <div class="ReEs-navi-normal-TrType-select-Lease ReEs-navi-sl-font">전세</div>
-                    <div class="ReEs-navi-normal-TrType-select-Buy ReEs-navi-sl-font">매매</div>
-                </div>
-                <!-- 방유형 click시-->
-                <div class="ReEs-navi-normal-houseType-select">
-                    <div class="ReEs-navi-normal-houseType-select-One ReEs-navi-sl-font">원룸</div>
-                    <div class="ReEs-navi-normal-houseType-select-TwoOrThree ReEs-navi-sl-font">투·쓰리룸</div>
-                    <div class="ReEs-navi-normal-houseType-select-Office ReEs-navi-sl-font">오피스텔</div>
-                    <div class="ReEs-navi-normal-houseType-select-apart ReEs-navi-sl-font">아파트</div>
-                </div>
-                <!-- 층수 click시-->
-                <div class="ReEs-navi-normal-floor-select">
-                    <div class="ReEs-navi-normal-floor-select-div1">
-                        <div class="ReEs-navi-normal-floor-select-namediv">층수</div>
-                        <div class="ReEs-navi-normal-floor-select-img"><i class="fa-solid fa-building"></i></div>
-                        <div class="ReEs-navi-normal-floor-select-slider">
-                            <input type="range" id="floor-input-left" min="1" max="10" value="4" />
-                            <input type="range" id="floor-input-right" min="1" max="10" value="8" />
+                <div class="">
+                    <div class="ReEs-navi-normal-TrType-select">
+                        <div class="ReEs-navi-normal-TrType-select-Month ReEs-navi-sl-font">월세</div>
+                        <div class="ReEs-navi-normal-TrType-select-Lease ReEs-navi-sl-font">전세</div>
+                        <div class="ReEs-navi-normal-TrType-select-Buy ReEs-navi-sl-font">매매</div>
+                    </div>
+                    <!-- 방유형 click시-->
+                    <div class="ReEs-navi-normal-houseType-select">
+                        <div class="ReEs-navi-normal-houseType-select-One ReEs-navi-sl-font">원룸</div>
+                        <div class="ReEs-navi-normal-houseType-select-TwoOrThree ReEs-navi-sl-font">투·쓰리룸</div>
+                        <div class="ReEs-navi-normal-houseType-select-Office ReEs-navi-sl-font">오피스텔</div>
+                        <div class="ReEs-navi-normal-houseType-select-apart ReEs-navi-sl-font">아파트</div>
+                    </div>
+                    <!-- 층수 click시-->
+                    <div class="ReEs-navi-normal-floor-select">
+                        <div class="ReEs-navi-normal-floor-select-div1">
+                            <div class="ReEs-navi-normal-floor-select-namediv">층수</div>
+                            <div class="ReEs-navi-normal-floor-select-img"><i class="fa-solid fa-building"></i></div>
+                            <div class="ReEs-navi-normal-floor-select-slider">
+                                <input type="range" id="floor-input-left" min="1" max="10" value="4" />
+                                <input type="range" id="floor-input-right" min="1" max="10" value="8" />
 
-                            <div class="floorSlider">
+                                <div class="floorSlider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
+                            </div>
+                            <div class="ReEs-navi-normal-floor-select-slider-txt"></div>
+                            <script type="text/javascript" th:src="@{/js/reEs/floorSlider.js}"></script>
+                        </div>
+                        <div class="ReEs-navi-normal-floor-select-div2">
+                            <div class="ReEs-navi-floor-halfButton floor-exButton">반지하</div>
+                            <div class="ReEs-navi-floor-looftopButton floor-exButton">옥탑방</div>
+                        </div>
+                    </div>
+                    <!-- 평수 click시-->
+                    <div class="ReEs-navi-normal-extent-select">
+                        <div class="ReEs-navi-normal-extent-select-namediv">
+                            평수
+                        </div>
+                        <div class="ReEs-navi-normal-extent-select-slider">
+                            <input type="range" id="extent-input-left" min="1" max="40" value="10" />
+                            <input type="range" id="extent-input-right" min="1" max="40" value="32" />
+
+                            <div class="extentSlider">
                                 <div class="track"></div>
                                 <div class="range"></div>
                                 <div class="thumb left"></div>
                                 <div class="thumb right"></div>
                             </div>
                         </div>
-                        <div class="ReEs-navi-normal-floor-select-slider-txt"></div>
-                        <script type="text/javascript" th:src="@{/js/reEs/floorSlider.js}"></script>
-                    </div>
-                    <div class="ReEs-navi-normal-floor-select-div2">
-                        <div class="ReEs-navi-floor-halfButton floor-exButton">반지하</div>
-                        <div class="ReEs-navi-floor-looftopButton floor-exButton">옥탑방</div>
-                    </div>
-                </div>
-                <!-- 평수 click시-->
-                <div class="ReEs-navi-normal-extent-select">
-                    <div class="ReEs-navi-normal-extent-select-namediv">
-                        평수
-                    </div>
-                    <div class="ReEs-navi-normal-extent-select-slider">
-                        <input type="range" id="extent-input-left" min="1" max="40" value="10" />
-                        <input type="range" id="extent-input-right" min="1" max="40" value="32" />
-
-                        <div class="extentSlider">
-                            <div class="track"></div>
-                            <div class="range"></div>
-                            <div class="thumb left"></div>
-                            <div class="thumb right"></div>
-                        </div>
-                    </div>
-                    <div class="ReEs-navi-normal-extent-select-slider-txt"></div>
-                    <script type="text/javascript" th:src="@{/js/reEs/extentSlider.js}"></script>
-                </div>
-
-                <!-- 월세/관리비/보증금 click시 -->
-                <div class="ReEs-navi-normal-cost-select">
-                    <div class="ReEs-slider-month">
-                        <div class="ReEs-navi-normal-month-select-namediv">월세</div>
-                        <div class="ReEs-navi-normal-month-select-slider">
-                            <input type="range" id="month-input-left" min="0" max="100" value="30" />
-                            <input type="range" id="month-input-right" min="0" max="100" value="60" />
-                            <div class="monthSlider">
-                                <div class="track"></div>
-                                <div class="range"></div>
-                                <div class="thumb left"></div>
-                                <div class="thumb right"></div>
-                            </div>
-                        </div>
-                        <div class="ReEs-navi-normal-month-select-slider-txt"></div>
+                        <div class="ReEs-navi-normal-extent-select-slider-txt"></div>
+                        <script type="text/javascript" th:src="@{/js/reEs/extentSlider.js}"></script>
                     </div>
 
-                    <div class="ReEs-slider-manage">
-                        <div class="ReEs-navi-normal-manage-select-namediv">관리비</div>
-                        <div class="ReEs-navi-normal-manage-select-slider">
-                            <input type="range" id="manage-input-left" min="0" max="30" value="5" />
-                            <input type="range" id="manage-input-right" min="0" max="30" value="15" />
-                            <div class="manageSlider">
-                                <div class="track"></div>
-                                <div class="range"></div>
-                                <div class="thumb left"></div>
-                                <div class="thumb right"></div>
+                    <!-- 월세/관리비/보증금 click시 -->
+                    <div class="ReEs-navi-normal-cost-select">
+                        <div class="ReEs-slider-month">
+                            <div class="ReEs-navi-normal-month-select-namediv">월세</div>
+                            <div class="ReEs-navi-normal-month-select-slider">
+                                <input type="range" id="month-input-left" min="0" max="100" value="30" />
+                                <input type="range" id="month-input-right" min="0" max="100" value="60" />
+                                <div class="monthSlider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
                             </div>
+                            <div class="ReEs-navi-normal-month-select-slider-txt"></div>
                         </div>
-                        <div class="ReEs-navi-normal-manage-select-slider-txt"></div>
-                    </div>
-                    <div class="depositSlider">
-                        <div class="ReEs-navi-normal-deposit-select-namediv">보증금</div>
-                        <div class="ReEs-navi-normal-deposit-select-slider">
-                            <input type="range" id="deposit-input-left" min="0" max="3000" value="1000" />
-                            <input type="range" id="deposit-input-right" min="0" max="3000" value="2000" />
-                            <div class="depositSlider">
-                                <div class="track"></div>
-                                <div class="range"></div>
-                                <div class="thumb left"></div>
-                                <div class="thumb right"></div>
+
+                        <div class="ReEs-slider-manage">
+                            <div class="ReEs-navi-normal-manage-select-namediv">관리비</div>
+                            <div class="ReEs-navi-normal-manage-select-slider">
+                                <input type="range" id="manage-input-left" min="0" max="30" value="5" />
+                                <input type="range" id="manage-input-right" min="0" max="30" value="15" />
+                                <div class="manageSlider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
                             </div>
+                            <div class="ReEs-navi-normal-manage-select-slider-txt"></div>
                         </div>
-                        <div class="ReEs-navi-normal-deposit-select-slider-txt"></div>
+                        <div class="depositSlider">
+                            <div class="ReEs-navi-normal-deposit-select-namediv">보증금</div>
+                            <div class="ReEs-navi-normal-deposit-select-slider">
+                                <input type="range" id="deposit-input-left" min="0" max="3000" value="1000" />
+                                <input type="range" id="deposit-input-right" min="0" max="3000" value="2000" />
+                                <div class="depositSlider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
+                            </div>
+                            <div class="ReEs-navi-normal-deposit-select-slider-txt"></div>
+                        </div>
+                        <script type="text/javascript" th:src="@{/js/reEs/monthSlider.js}"></script>
+                        <script type="text/javascript" th:src="@{/js/reEs/manageSlider.js}"></script>
+                        <script type="text/javascript" th:src="@{/js/reEs/depositSlider.js}"></script>
                     </div>
-                    <script type="text/javascript" th:src="@{/js/reEs/monthSlider.js}"></script>
-                    <script type="text/javascript" th:src="@{/js/reEs/manageSlider.js}"></script>
-                    <script type="text/javascript" th:src="@{/js/reEs/depositSlider.js}"></script>
                 </div>
                 <!-- 맞춤 선택 영역 -->
                 <!-- <div class="ReEs-navi-custom-button-select">
