@@ -28,7 +28,8 @@
     box-sizing: border-box;
     width: 300px;
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid #d1d1d1;
+    border-radius:5px;
     margin: 20px auto 0;
     font-size: 0;
 }
@@ -37,27 +38,24 @@
     width: 50%;
     height: 38px;
     float: left;
-    padding-top: 8px;
-    padding-left: 18px;
+    padding-top: 11px;
+    padding-left: 20px;
 }
 .ReCs-normal{
-    background-color: #6c93f7;
+    padding-left:42px;
+    background-color:#52b0fb;
+    color:#FFFFFF;
 }
-.ReCs-normal:hover{
-    background-color: #6c93f7;
+.ReCs-custom{
+    border-left:1px solid #d1d1d1;
 }
-.ReCs-custom {
-    background-color: #cfcfcf;
-}
-.ReCs-custom:hover{
-    background-color: #6c93f7;
-}
+
 .ReCs-sl-div i{
     opacity:0.7;
-    font-size:20px;
+    font-size:13px;
 }
 .fa-house{
-    margin-right:30px;
+    margin-right:12px;
 
 }
 .fa-crosshairs{
@@ -71,40 +69,40 @@
     font-weight:600;
 }
 .ReCs-sl-div>i{
-    height:30px;
-    width:30px;
-}
-.ReCs-custom{
-    border-left:1px solid black;
+    height:20px;
+    width:21px;
 }
 .ReCs-title{
-    height:30px;
-    border-bottom:3px solid #8d8d8f;
-    padding-left:20px;
+    padding-left:30px;
     color:#535353;
-    font-size:20px;
+    font-size:17px;
     font-weight:600;
 }
 .ReCs-content{
     padding-bottom:10px;
-    padding-left:50px;
-    height:65px;
+    padding-left:74px;
+    height:70px;
     box-sizing: border-box;
 }
 .ReCs-region{
-    height:45px;
+    height:38px;
     width:350px;
-    margin-top:13px;
+    margin-top:14px;
     border-radius:45px;
-    border:1px solid #b8b7bb;
-    background-color:#6c93f7;
+    border:1px solid #52b0fb;
+    background-color:#52b0fb;
     opacity:1;
     color:white;
-    font-size:16px;
-    padding-top:10px;
-    padding-left:30px;
+    font-size:15px;
+    padding-top:9px;
+    padding-left:20px;
     box-sizing: border-box;
 }
+.ReCs-region:focus{
+    outline:none;
+    border:1px solid #FEC72F;
+}
+
 .ReCs-region:empty::before{
     content:attr(placeholder);
     color:rgb(238, 238, 238);
@@ -113,34 +111,51 @@
 
 .ReCs-button{
     box-sizing:border-box;
-    margin-top:13px;
-    margin-right:25px;
+    margin-top:18px;
+    margin-left:25px;
+    margin-right:0px;
     width:120px;
-    height:35px;
+    height:34px;
     border-radius:45px;
-    border:1px solid #b8b7bb;
-    background-color:#b8b7bb;
+    border:1px solid #d1d1d1;
     display:inline-block;
     font-size:14px;
-    padding-top:5px;
+    padding-top:9px;
     letter-spacing:2px;
     font-weight:600;
     color:#858484;
     text-align:center;
 }
 
+.ReCs-One, .ReCs-TwoOrThree, .ReCs-secondFloor {
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 25px;
+    width: 120px;
+    height: 34px;
+    border-radius: 45px;
+    border: 1px solid #d1d1d1;
+    display: inline-block;
+    font-size: 14px;
+    padding-top: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #858484;
+    text-align: center;
+}
+
 .ReCs-buttons{
     box-sizing:border-box;
-    margin-top:13px;
+    margin-top:23px;
     margin-right:25px;
     width:120px;
     height:35px;
     border-radius:45px;
-    border:1px solid #b8b7bb;
-    background-color:#b8b7bb;
+    border:1px solid #d1d1d1;
     display:inline-block;
     font-size:14px;
-    padding-top:5px;
+    padding-top:9px;
     letter-spacing:2px;
     font-weight:600;
     color:#858484;
@@ -164,21 +179,25 @@
 .ReCs-MB{
     display:inline-block;
     box-sizing:border-box;
-    width:100px;
-    height:45px;
+    width:84px;
+    height:38px;
     text-align:center;
-    padding-top:10px;
-    margin-left:15px;
-    border:1px solid #94BBCC;
-    color : #3A6BA5;
+    padding-top:11px;
+    margin-left:203px;
+    border:1px solid #52b0fb;
+    color : #4189c3;
     font-weight:600;
     border-radius:6px;
 }
+button.btn {
+    border:none;
+}
+
 .ReCs-MB:hover{
-    border:1px solid #d4a931;
+    border:1px solid #FEC72F;
     background-color:#FEC72F;
-    color:#FFFFFF;
-    font-weight:800;
+    color:#000000;
+    font-weight:600;
 }
 .ReCs-leftButton{
     display:none;
@@ -186,9 +205,9 @@
     position: fixed;
     top: 175px;
     left: 1200px;
-    background-color:#ededed;
-    border-color: #4b4b4b;
-    color: #4b4b4b;
+    background-color:#20a7ff;
+    border-color: #0b2d93;
+    color: #FFFFFF;
     border-width: 2px;
     border-style: solid;
     border-radius: 16px;
@@ -202,7 +221,8 @@
     z-index:999;
 }
 .ReCs-leftButton:hover{
-    background-color:#fff86d;
+    background-color:#FEC72F;
+    color:#000;
 }
 
 .ReCs-cudiv{
@@ -287,7 +307,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #becfe4;
+    background-color: #d1d1d1;
 }
 .ReCs-Slider > .cs-floorSlider > .range {
     position: absolute;
@@ -297,7 +317,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #5691da;
+    background-color: #52b0fb;
 }
 .ReCs-Slider> .cs-floorSlider > .thumb {
     position: absolute;
@@ -305,7 +325,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReCs-Slider>.cs-floorSlider >.thumb.left {
@@ -344,17 +364,18 @@
 
 .ReCs-txt{
     box-sizing:border-box;
-    margin-top:13px;
+    margin-top:0px;
     margin-right:15px;
     width:140px;
     height:35px;
     border-radius:15px;
-    border:1px solid #b7b8bb;
-    background-color:#88a7f7;
+    border:1px solid #52b0fb;
+    background-color:#52b0fb;
     display:inline-block;
     font-size:12px;
+    color:#FFFFFF;
     font-weight:600;
-    padding-top:7px;
+    padding-top:11px;
     letter-spacing:0.5px;
     text-align:center;
 }
@@ -378,7 +399,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #becfe4;
+    background-color: #d1d1d1;
 }
 .ReCs-Slider > .cs-extentSlider > .range {
     position: absolute;
@@ -388,7 +409,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #5691da;
+    background-color: #52b0fb;
 }
 .ReCs-Slider> .cs-extentSlider > .thumb {
     position: absolute;
@@ -396,7 +417,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReCs-Slider>.cs-extentSlider >.thumb.left {
@@ -428,7 +449,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #becfe4;
+    background-color: #d1d1d1;
 }
 .ReCs-Slider > .cs-monthSlider > .range {
     position: absolute;
@@ -438,7 +459,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #5691da;
+    background-color: #52b0fb;
 }
 .ReCs-Slider> .cs-monthSlider > .thumb {
     position: absolute;
@@ -446,7 +467,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReCs-Slider>.cs-monthSlider >.thumb.left {
@@ -479,7 +500,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #becfe4;
+    background-color: #d1d1d1;
 }
 .ReCs-Slider > .cs-manageSlider > .range {
     position: absolute;
@@ -489,7 +510,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #5691da;
+    background-color: #52b0fb;
 }
 .ReCs-Slider> .cs-manageSlider > .thumb {
     position: absolute;
@@ -497,7 +518,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReCs-Slider>.cs-manageSlider >.thumb.left {
@@ -528,7 +549,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #becfe4;
+    background-color: #d1d1d1;
 }
 .ReCs-Slider > .cs-depositSlider > .range {
     position: absolute;
@@ -538,7 +559,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #5691da;
+    background-color: #52b0fb;
 }
 .ReCs-Slider> .cs-depositSlider > .thumb {
     position: absolute;
@@ -546,7 +567,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReCs-Slider>.cs-depositSlider >.thumb.left {
