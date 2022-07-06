@@ -1,24 +1,26 @@
 <!--고객센터 완성-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>고객 센터</title>
     <link rel="stylesheet" th:href="@{/css/service/SeCe-not.css}" type = "text/css">
-    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type = "text/javascript">
         $("document").ready(function(){
             $(".SeCe-not-ct").click(function(){
-                $(".SeCe-not-in").slideToggle("slo w");
+                $(".SeCe-not-in").slideToggle("slow");
             });
         });
     </script>
 </head>
 <body>
+<div layout:fragment="content">
     <div class = "head"></div>
     <div class = "SeCe-main-wrap">
         <div class = "SeCe-main-top">
@@ -49,33 +51,66 @@
 
         <div class = "SeCe-not-item">
             <div class = "SeCe-not-ct">
-                <div>커뮤니티 공지사항 변경내용</div>
-                <div>2022-06-08</div>
+                <div>결제 관련 변경내용</div>
+                <div>2022-07-06</div>
             </div>
 
             <div class = "SeCe-not-in">
                 <p>안녕하세요. EZHome입니다.</p>
                 <p>EZHome을 이용해 주시는 회원님들께 진심으로 감사 드립니다.</p>
-                <p>오는 15일부터 커뮤니티 이용 규칙이 변경될 예정입니다.</p>
-                <p>변경 내용은 당일 공개될 예정입니다.</p>
-                <p>EZHome은 앞으로도 좋은 매물 소개와 건강한 커뮤니티 서비스를 제공할 수 있도록 노력하겠습니다.</p>
+                <p>오는 8일부터 결제 대행사와 계약이 만료에 따라 결제시스템이 종료됩니다.</p>
+                <p>결제시스템이 종료되면서 변경될 내용들은 이번주 이내로 공지될 예정입니다.</p>
+                <p>EZHome은 앞으로도 좋은 매물 소개를 제공할 수 있도록 노력하겠습니다.</p>
                 <p>감사합니다.</p>
+                <p>R.I.P Pay</p>
+            </div>
+
+            <div class = "SeCe-not-ct">
+                <div>챗봇 및 1:1채팅 변경내용</div>
+                <div>2022-07-06</div>
+            </div>
+
+            <div class = "SeCe-not-in">
+                <p>안녕하세요. EZHome입니다.</p>
+                <p>EZHome을 이용해 주시는 회원님들께 진심으로 감사 드립니다.</p>
+                <p>오는 8일부터 커뮤니티 이용이 제한됨에 따라 챗봇 및 1:1 채팅도 제한될 예정입니다.</p>
+                <p>챗봇 및 1:1 채팅 이용 제한에 대한 사유는 추후 공개될 예정입니다.</p>
+                <p>EZHome은 앞으로도 좋은 매물 소개를 제공할 수 있도록 노력하겠습니다.</p>
+                <p>감사합니다.</p>
+                <p>R.I.P Chatbot. R.I.P Chatting</p>
+            </div>
+
+            <div class = "SeCe-not-ct">
+                <div>커뮤니티 공지사항 변경내용</div>
+                <div>2022-07-06</div>
+            </div>
+
+            <div class = "SeCe-not-in">
+                <p>안녕하세요. EZHome입니다.</p>
+                <p>EZHome을 이용해 주시는 회원님들께 진심으로 감사 드립니다.</p>
+                <p>오는 8일부터 커뮤니티 이용이 제한될 예정입니다.</p>
+                <p>커뮤니티 이용 제한에 대한 사유는 추후 공개될 예정입니다.</p>
+                <p>EZHome은 앞으로도 좋은 매물 소개를 제공할 수 있도록 노력하겠습니다.</p>
+                <p>감사합니다.</p>
+                <p>R.I.P Community</p>
             </div>
 
             <div class = "SeCe-not-ct">
                 <div>EZ Home 서비스 개시 이벤트!</div>
-                <div>2022-06-08</div>
+                <div>2022-07-06</div>
             </div>
 
             <div class = "SeCe-not-in">
                 <p>안녕하세요. EZHome입니다.</p>
                 <p>EZHome을 이용해 주시는 회원님들께 진심으로 감사 드립니다.</p>
-                <p>오는 15일부터 커뮤니티 이용 규칙이 변경될 예정입니다.</p>
-                <p>변경 내용은 당일 공개될 예정입니다.</p>
-                <p>EZHome은 앞으로도 좋은 매물 소개와 건강한 커뮤니티 서비스를 제공할 수 있도록 노력하겠습니다.</p>
+                <p>오는 8일부터 EZHome 서비스 오픈에 따라 이벤트를 진행하고자 합니다.</p>
+                <p>이벤트에 대한 정확한 정보는 당일 1일 전 공개될 예정입니다.</p>
+                <p>EZHome을 사용해주시는 모든 분들께 감사드립니다. 이벤트와 함께 더 좋은 서비스를 제공 하도록 노력하겠습니다</p>
                 <p>감사합니다.</p>
             </div>
         </div>
     </div>
+    <div class="SeCe-not-fakefoot"></div>
+</div>
 </body>
 </html>

@@ -1,32 +1,36 @@
 package EZHome.entity;
 
+import EZHome.dto.SeCeDto;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
-// 고객센터 1:1문의를 위한 엔터티
 @Entity
-@Table(name = "service")
-@Getter
-@Setter
-@ToString
-public class SeCe {
+@Table(name = "SeCe")
+@Getter @Setter
+public class SeCe extends BaseEntity{
     @Id
-    @Column(name = "service_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "seId")
     private Long id;
 
-    @Column
-    private String type;
+    @Column(nullable = true)
+    private String seType;  // 문의 유형
 
-    private String title;
+    @Column(nullable = true)
+    private String seTitle; // 문의 제목
 
-    private String content;
+    @Column(nullable = true)
+    private String seText;  // 문의 내용
 
     @ManyToOne
-    @JoinColumn(name="email")
+    @JoinColumn(name = "member_id")
     private Member member;
 
+    public void updateInquiry(SeCeDto seCeDto){
+        this.seType = seType;
+        this.seTitle = seTitle;
+        this.seText = seText;
+    }
 }
