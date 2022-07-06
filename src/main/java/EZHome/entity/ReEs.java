@@ -60,17 +60,19 @@ public class ReEs extends BaseEntity {
     @Column(nullable = false)
     private Integer reExtent ; // 평수
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer reMon_price ; // 월세
 
     @Column(nullable = false)
     private Integer reAdmn_fee ; // 관리비
 
-    @Column(nullable = false)
-    private Integer reDeposit; // 보증금, 전세가
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    private Integer reDeposit; // 보증금, 전세
+
+    @Column(nullable = true)
     private Integer reTrade ; // 매매가
+
 
     //회원(일)이 여러개(다)의 매물을 올릴 수 있음으로 '일대다'로 설정했습니다.
     @ManyToOne

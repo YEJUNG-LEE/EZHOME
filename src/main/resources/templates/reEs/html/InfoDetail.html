@@ -27,53 +27,11 @@
     <!--    <link th:href="@{/css/reEs/Modal_reservation.css}" rel="stylesheet">-->
     <!--    <link th:href="@{/css/reEs/ReEs_reco.css}" rel="stylesheet">-->
 
-    <script type="text/javascript" th:src="@{/js/reEs/ReItemForm.js}" defer></script>
+    <script type="text/javascript" th:src="@{/js/reEs/ReDetail.js}" defer></script>
     <script th:src="@{http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js}"></script>
     <!--<script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>-->
     <link th:src="@{https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css}">
     <script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
-
-<!--    <script>
-        $(document).ready(function () {
-            var menu_offset = $('.main-menu').offset();  //offset() : 반환하는 객체는 left와 top 속성제공
-
-            $(window).scroll(function () {
-                if ($(window).scrollTop() > menu_offset.top) {
-                    $('.main-menu').addClass('menu-fixed');
-                } else {
-                    $('.main-menu').removeClass('menu-fixed');
-                }
-            });
-
-            console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
-
-            $('.ReCs-button').click(function(){
-                var tagId = $(this).attr("id");
-                console.log(tagId);
-                var values = $('input[name=' + tagId + ']').attr('value');
-                if(values == 'false'){
-                    $(this).css({'background-color':'#0081cc', 'color':'white'});
-                    $('input[name=' + tagId + ']').attr('value', 'true');
-                }else{
-                    $(this).css({'background-color':'#b8b7bb', 'color':'#858484'});
-                    $('input[name=' + tagId + ']').attr('value', 'false');
-                }
-                values = $('input[name=' + tagId + ']').attr('value');
-                console.log(values);
-            });
-             $('.ReCs-buttons').click(function(){
-                var tagId = $(this).attr("id");
-                var tagName = $(this).parent().attr("id");
-                console.log(tagId);
-                $('input[name=' + tagName + ']').attr('value', tagId);
-                $(this).css({'background-color':'#0081cc', 'color':'white'});
-                $(this).siblings().css({'background-color':'#b8b7bb', 'color':'#858484'});
-                values = $('input[name=' + tagName + ']').attr('value');
-                console.log(tagName + " : " + values);
-            })
-        });
-    </script>-->
 
 </head>
 
@@ -309,10 +267,10 @@
                     <div class="main-menu">
                         <ul>
                             <li><a href="#section1">기본정보</a></li>
-                            <li><a href="#section2">주변정보</a></li>
-                            <li><a href="#section3">상세정보</a></li>
-                            <li><a href="#section4">위치/주변시설</a></li>
-                            <li><a href="#section5">지역평균비교</a></li>
+                            <li><a href="#section2">맞춤정보</a></li>
+                            <li><a href="#section3">카테고리</a></li>
+                            <li><a href="#section4">중개보수</a></li>
+                            <li><a href="#section5">상세정보</a></li>
                             <li class="nav-li-last"><a href="#section6">추천매물</a></li>
                         </ul>
                     </div>
@@ -322,51 +280,39 @@
 
             <!--broker info-->
             <div class="ReEs-broker-wrap">
-                <div class="broker01">매물번호</div>
-                <div class="broker02"><span>[[${DtlItem.reNum}]]</span></div>
-                <div class="detail-price">
-                    <div class="detail-price02">[[${DtlItem.retrType}]]</div>
-                    <div class="detail-price03">[[${DtlItem.reMon_price}]]</div>
-                </div>
-                <div class="detail-sigudong">[[${DtlItem.roadAddress}]]</div>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td class="ReEs-bropker-td">
-                        <span class="btn-flat">
-                            <span>
-                            </span>
-                            <span class="inText"></span>
-                        </span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="broker03">
-                    <div class="broker03-name">
-                        <p class="ReEs-bk-detail">[[${member.membNick}]]공인중개사사무소</p>
+                <div class="broker-sm-wrap">
+                    <img class="sm-logo" src="/img/logo01.png" alt="logo">
+                    <div class="broker01">매물번호
+                        <span>[[${DtlItem.reNum}]]</span>
                     </div>
+                </div>
+
+                <div class="detail-price">
+
+                    <!-- 집 주소 -->
+                    <div class="detail-sigudong">[[${DtlItem.roadAddress}]]</div>
+
+                    <div class="detail-price02">[[${DtlItem.retrType}]]</div>
+                    <div th:if="${DtlItem.retrType.equals('월세')}" class="detail-price03">[[${DtlItem.reMon_price}]]</div>
+                    <div th:if="${DtlItem.retrType.equals('전세')}" class="detail-price03">[[${DtlItem.reDeposit}]]</div>
+                    <div th:if="${DtlItem.retrType.equals('매매')}" class="detail-price03">[[${DtlItem.reTrade}]]</div>
+
+                </div>
+
+                <div class="broker03">
+                    <p class="ReEs-bk-detail">[[${member.membNick}]]&nbsp;공인중개사 사무소</p>
                 </div>
                 <div class="broker04">
                     <ul class="broker04-ul">
-                        <li class="broker04-li">대표 [[${member.MembName}]] | 대표번호 [[${member.membPhone}]]</li>
+                        <li class="broker04-li">대표 [[${member.MembName}]] | 대표번호 <span> [[${member.membPhone}]]</span></li>
                         <li class="broker04-li">부동산주소 [[${member.membAddress1}]] [[${member.membAddress2}]]</li>
                     </ul>
                 </div>
-                <table class="broker-table">
-                    <thead>
-                    <tr>
-                        <th class="broker-th">매물상담은 연락주세요</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="broker-th">매물상담은 연락주세요</div>
                 <!--<button class="GoTo-book" id="modal_open_btn">상담예약</button>-->
-                <!--            <button class="GoTo-msg">채팅문의</button>-->
+                <!--<button class="GoTo-msg">채팅문의</button>-->
             </div>
+
             <!--end broker info-->
 
             <!--부동산 콘텐츠-->
@@ -393,8 +339,9 @@
                         <tr>
                             <th class="ReEs-tb-th">전·월세 가격</th>
                             <td class="ReEs-tb-td">
-                                <!--월세면 보증금에 값 넣기-->
-                                <p class="textsize" th:text="${DtlItem.reTrade}"></p>
+                                <p th:if="${DtlItem.retrType.equals('월세')}" class="textsize">[[${DtlItem.reMon_price}]]</p>
+                                <p th:if="${DtlItem.retrType.equals('전세')}" class="textsize">[[${DtlItem.reDeposit}]]</p>
+                                <p th:if="${DtlItem.retrType.equals('매매')}" class="textsize">[[${DtlItem.reTrade}]]</p>
                             </td>
                         </tr>
 
@@ -413,8 +360,9 @@
                         </tr>
                     </table>
                 </div>
+                <div id="section2"></div>
                 <!--// ReEs-div-content02 -->
-                <h2 class="ReEs-h2-niz" id="section2">맞춤정보</h2>
+                <h2 class="ReEs-h2-niz">맞춤정보</h2>
                 <div class="ReEs-div-content03">
                     <!-- ReEs-div-content03 맞춤정보 조건-->
                     <div class="ReCs-button" id="reNew">신축
@@ -461,7 +409,8 @@
                     </div>
                 </div>
                 <!--// ReEs-div-content03 맞춤정보 조건-->
-
+                <!-- 카테고리조건 이동 -->
+                <div id="section3"></div>
                 <!-- ReEs-h2-detail 카테고리조건 제목 -->
                 <h2 class="ReEs-h2-Kate">카테고리조건</h2>
                 <!-- ReEs-div-content04 카테고리 조건-->
@@ -520,7 +469,7 @@
                 <!-- 매물관련 정보 뺸거 같아서 일딴 주석처리합니다. dahani -->
                 <!--<h2 class="ReEs-h2-iteminfo">매물관련정보</h2>-->
                 <!--            <p class="ReEs-p-detail">이 매물의 주변 리뷰를 확인해봐요 !</p>-->
-                <!--            <div class="ReEs-div-content05" id="section3">-->
+                <!--            <div class="ReEs-div-content05">-->
                 <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
                 <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
                 <!--                <div class="ReEs-near-Info"><a href="">이미지</a></div>-->
@@ -529,6 +478,8 @@
                 <!--            </div>-->
                 <!--            <p class="ReEs-p-detail">이미지 클릭시 주변 리뷰 페이지로 넘어갑니다</p>&lt;!&ndash;삭제 예정&ndash;&gt;-->
 
+                <!-- 중개보수 위치이동 -->
+                <div id="section4"></div>
                 <h2 class="ReEs-h2-bosu">중개보수</h2>
                 <!-- ReEs-div-content06 -->
                 <div class="ReEs-div-content06">
@@ -536,31 +487,38 @@
                         <tr>
                             <th class="ReEs-tb-th">중개보수</th>
                             <td class="ReEs-tb-td">
-                                <p class="textsize">[[${DtlItem.reDeposit * 0.1}]]원</p>
+                                <p th:if="${DtlItem.retrType.equals('월세')}" class="textsize">[[${(DtlItem.reDeposit + DtlItem.reMon_price*100) /1000 * 4}]] 만원</p>
+                                <p th:if="${DtlItem.retrType.equals('전세')}" class="textsize">[[${DtlItem.reDeposit /1000 * 5}]] 만원</p>
+                                <p th:if="${DtlItem.retrType.equals('매매')}" class="textsize">[[${DtlItem.reTrade /1000 * 5}]] 만원</p>
                             </td>
                         </tr>
                         <tr>
                             <th class="ReEs-tb-th">상한요율</th>
                             <!--what is 상한 요율-->
                             <td class="ReEs-tb-td">
-                                <p class="textsize">0.4%</p>
+                                <p th:if="${DtlItem.retrType.equals('월세')}" class="textsize">0.4%</p>
+                                <p th:if="${DtlItem.retrType.equals('전세')}" class="textsize">0.5%</p>
+                                <p th:if="${DtlItem.retrType.equals('매매')}" class="textsize">0.5%</p>
+
                             </td>
                         </tr>
                     </table>
                 </div>
+                <!-- 상세정보 이동 -->
+                <div id="section5"></div>
                 <!--// ReEs-div-content06 -->
                 <h2 class="ReEs-h2-detail">상세정보</h2>
                 <!-- ReEs-div-content07 -->
-                <div class="ReEs-div-content07" id="section4">
+                <div class="ReEs-div-content07">
                     <table class="ReEs-table-detail">
                         <tr>
-                            <th class="ReEs-tb-th">도로명주소</th>
+                            <th class="ReEs-tb-th">지번주소</th>
                             <td class="ReEs-tb-td">
                                 <p class="textsize">[[${DtlItem.roadAddress}]]</p>
                             </td>
                         </tr>
                         <tr>
-                            <th class="ReEs-tb-th">건물이름??</th>
+                            <th class="ReEs-tb-th">상세주소</th>
                             <td class="ReEs-tb-td">
                                 <p class="textsize">[[${DtlItem.reDtl_Adr}]]</p>
                             </td>
@@ -592,7 +550,7 @@
                         <tr>
                             <th class="ReEs-tb-th">방향</th>
                             <td class="ReEs-tb-td">
-                                <p class="textsize" th:text="${DtlItem.reSouth}"></p>
+                                <p th:text="${DtlItem.reSouth.equals(false)} ? '남향아님' : '남향' " class="textsize"></p>
                             </td>
                         </tr>
                         <tr>
@@ -637,109 +595,20 @@
                     <span class="match-icon"><i class="fa-solid fa-snowflake fa-stack fa-2xl"></i></span>
                 </div>
                 <h2 class="ReEs-h2-detail">위치 및 주변 시설</h2>
-                <div class="ReEs-div-content10" id="section5">
+                <div class="ReEs-div-content10">
                     <p class="ReEs-p-detail02">서울시 은평구 역촌동 36-17 리젠트 1동</p>
                     <p class="ReEs-p-detail02">도로명으로 변경 기능 넣어주세요</p>&lt;!&ndash;삭제예정&ndash;&gt;
                     <div class="ReEs-mapH-detail">지도가 들어갈 자리입니다</div>
                 </div>
                 <h2 class="ReEs-h2-detail">지역 평균 거래와 비교하기</h2>
-                <div class="ReEs-div-content11" id="section6">
+                <div class="ReEs-div-content11">
                     <div class="ReEs-graph-01">지역평균 거래 금액과 현재 매물 가격 그래프로 비교합니다</div>
                 </div> -->
             </div>
             <!--end부동산 콘텐츠-->
 
+            <div id="section6"></div>
 
-
-            <!--부동산추천이미지-->
-            <!-- main-section02 -->
-            <section class="main-section02">
-                <div class="section02-title">
-                    <h3><a href="#">서초동 <span>추천매물</span></a></h3>
-                </div>
-                <!-- section02-info -->
-                <div class="section02-info">
-                    <div class="section02-info-box"><a href="#">서초동</a></div>
-                    <div class="section02-info-box"><a href="#">원룸, 투&#183;쓰리룸, 오피스텔</a></div>
-                    <div class="section02-info-box"><a href="#">월세, 전세</a></div>
-                    <div class="section02-info-more"><a href="#">더 많은 방보기 <i
-                            class="fa-solid fa-angle-right"></i></a></div>
-                </div>
-                <!--// section02-info -->
-                <!-- 광고 배너 영역 -->
-                <ul class="section02-banner-ul">
-                    <!-- 배너 01 -->
-                    <li>
-                        <a href="#" class="banner-hover">
-                            <div class="section02-banner-hiden">
-                                <div class="section02-banner-div">
-                                    <img src="img/room_img02.jpg" alt="매물사진1">
-                                    <div class="banner-hover-bg cover"></div>
-                                </div>
-                            </div>
-                            <div class="banner-text">
-                                <p class="banner-text-p">투룸</p>
-                                <h1>전세 3억6000</h1>
-                                <p class="banner-text-p2">4층, 40.15m², 관리비 8만</p>
-                                <p class="banner-text-p2">서초동 가성비 좋은 귀한 전세매물 신축빌라입니다 방3,화2</p>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- 배너 02 -->
-                    <li>
-                        <a href="#" class="banner-hover">
-                            <div class="section02-banner-hiden">
-                                <div class="section02-banner-div">
-                                    <img src="img/room_img03.jpg" alt="매물사진2">
-                                    <div class="banner-hover-bg cover"></div>
-                                </div>
-                            </div>
-                            <div class="banner-text">
-                                <p class="banner-text-p">오피스텔&#183;서초코업레지던스</p>
-                                <h1>월세 95/95</h1>
-                                <p class="banner-text-p2">중층, 24.16m², 관리비 10만</p>
-                                <p class="banner-text-p2">교대역 ,강남역 가성비 좋은 복층 풀옵션</p>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- 배너 03 -->
-                    <li>
-                        <a href="#" class="banner-hover">
-                            <div class="section02-banner-hiden">
-                                <div class="section02-banner-div">
-                                    <img src="img/room_img04.jpg" alt="매물사진3">
-                                    <div class="banner-hover-bg cover"></div>
-                                </div>
-                            </div>
-                            <div class="banner-text">
-                                <p class="banner-text-p">원룸</p>
-                                <h1>전세 1억</h1>
-                                <p class="banner-text-p2">고층, 35.1m², 관리비 10만</p>
-                                <p class="banner-text-p2">뱅뱅사거리 근처 주차되는 원룸 전세</p>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- 배너 04 -->
-                    <li>
-                        <a href="#" class="banner-hover">
-                            <div class="section02-banner-hiden">
-                                <div class="section02-banner-div">
-                                    <img src="img/room_img05.jpg" alt="매물사진4">
-                                    <div class="banner-hover-bg cover"></div>
-                                </div>
-                            </div>
-                            <div class="banner-text">
-                                <p class="banner-text-p">오피스텔</p>
-                                <h1>월세 1000/75</h1>
-                                <p class="banner-text-p2">4층, 17.67m², 관리비 0.6만</p>
-                                <p class="banner-text-p2">최저가월세 전입신고가능 신논현역2분 신축급깨끗</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- 광고 배너 영역 -->
-            </section>
-            <!--// main-section02 -->
 
             <!--  -->
             <script>
@@ -788,10 +657,113 @@
 
    // end Modal 상담예약
 </script>
-            <!-- // -->
-
         </div>
         <!--// ReEs-div-detail-Wrap -->
+
+        <!--부동산추천이미지-->
+        <!-- main-section02 -->
+        <section class="main-section02">
+            <div class="section02-title">
+                <h3><a href="#" th:text="${#strings.listSplit(DtlItem.roadAddress,' ')[1]}"> <span>추천매물</span></a></h3>
+            </div>
+            <!-- section02-info -->
+            <div class="section02-info">
+                <div class="section02-info-box" ><a href="#" th:text="${#strings.listSplit(DtlItem.roadAddress,' ')[2]}"></a></div>
+                <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('원룸')}"><a href="#">[[${DtlItem.rehouseType}]]</a></div>
+                <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('투룸')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
+                <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('오피스텔')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
+                <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('아파트')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
+                <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('상가/사무실')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
+                <div class="section02-info-box" th:if="${DtlItem.retrType.equals('월세')}"><a href="#" >[[${DtlItem.retrType}]]</a></div>
+                <div class="section02-info-box" th:if="${DtlItem.retrType.equals('전세')}"><a href="#" >[[${DtlItem.retrType}]]</a></div>
+                <div class="section02-info-more"><a href="#">더 많은 방보기 <i
+                        class="fa-solid fa-angle-right"></i></a></div>
+            </div>
+            <!--// section02-info -->
+            <!-- 광고 배너 영역 -->
+            <ul class="section02-banner-ul">
+                <!-- 배너 01 -->
+                <li>
+                    <a href="#" class="banner-hover">
+                        <div class="section02-banner-hiden">
+                            <div class="section02-banner-div">
+                                <img src="img/room_img02.jpg" alt="매물사진1">
+                                <div class="banner-hover-bg cover"></div>
+                            </div>
+                        </div>
+                        <div class="banner-text">
+                            <p class="banner-text-p">투룸</p>
+                            <h1>전세 3억6000</h1>
+                            <p class="banner-text-p2">4층, 40.15m², 관리비 8만</p>
+                            <p class="banner-text-p2">서초동 가성비 좋은 귀한 전세매물 신축빌라입니다 방3,화2</p>
+                        </div>
+                    </a>
+                </li>
+                <!-- 배너 02 -->
+                <li>
+                    <a href="#" class="banner-hover">
+                        <div class="section02-banner-hiden">
+                            <div class="section02-banner-div">
+                                <img src="img/room_img03.jpg" alt="매물사진2">
+                                <div class="banner-hover-bg cover"></div>
+                            </div>
+                        </div>
+                        <div class="banner-text">
+                            <p class="banner-text-p">오피스텔&#183;서초코업레지던스</p>
+                            <h1>월세 95/95</h1>
+                            <p class="banner-text-p2">중층, 24.16m², 관리비 10만</p>
+                            <p class="banner-text-p2">교대역 ,강남역 가성비 좋은 복층 풀옵션</p>
+                        </div>
+                    </a>
+                </li>
+                <!-- 배너 03 -->
+                <li>
+                    <a href="#" class="banner-hover">
+                        <div class="section02-banner-hiden">
+                            <div class="section02-banner-div">
+                                <img src="img/room_img04.jpg" alt="매물사진3">
+                                <div class="banner-hover-bg cover"></div>
+                            </div>
+                        </div>
+                        <div class="banner-text">
+                            <p th:if="${DtlItem.rehouseType.equals('원룸')}" class="banner-text-p">원룸</p>
+                            <p th:if="${DtlItem.rehouseType.equals('투룸')}" class="banner-text-p">투룸</p>
+                            <p th:if="${DtlItem.rehouseType.equals('오피스텔')}" class="banner-text-p">오피스텔</p>
+                            <p th:if="${DtlItem.rehouseType.equals('아파트')}" class="banner-text-p">아파트</p>
+                            <p th:if="${DtlItem.rehouseType.equals('상가/사무실')}" class="banner-text-p">상가/사무실</p>
+
+                            <h1>전세 1억</h1>
+                            <p class="banner-text-p2">고층, 35.1m², 관리비 10만</p>
+                            <p class="banner-text-p2">뱅뱅사거리 근처 주차되는 원룸 전세</p>
+                        </div>
+                    </a>
+                </li>
+                <!-- 배너 04 -->
+                <li>
+                    <a href="#" class="banner-hover">
+                        <div class="section02-banner-hiden">
+                            <div class="section02-banner-div">
+                                <img src="img/room_img05.jpg" alt="매물사진4">
+                                <div class="banner-hover-bg cover"></div>
+                            </div>
+                        </div>
+                        <div class="banner-text">
+                            <p th:if="${DtlItem.rehouseType.equals('원룸')}" class="banner-text-p">원룸</p>
+                            <p th:if="${DtlItem.rehouseType.equals('투룸')}" class="banner-text-p">투룸</p>
+                            <p th:if="${DtlItem.rehouseType.equals('오피스텔')}" class="banner-text-p">오피스텔</p>
+                            <p th:if="${DtlItem.rehouseType.equals('아파트')}" class="banner-text-p">아파트</p>
+                            <p th:if="${DtlItem.rehouseType.equals('상가/사무실')}" class="banner-text-p">상가/사무실</p>
+                            <h1>월세 1000/75</h1>
+                            <p class="banner-text-p2">4층, 17.67m², 관리비 0.6만</p>
+                            <p class="banner-text-p2">최저가월세 전입신고가능 신논현역2분 신축급깨끗</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <!-- 광고 배너 영역 -->
+        </section>
+        <!--// main-section02 -->
+
     </section>
     <!--// content-section 컨텐츠섹션 영역 -->
 </div>
