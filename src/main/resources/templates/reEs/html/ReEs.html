@@ -451,7 +451,9 @@
                             </div>
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
-                            <div class="ReCs-MB">저장<button type="submit" class="btn"></button></div>
+                            <div>
+                                <button type="submit" class="btn ReCs-MB">저장</button>
+                            </div>
 <!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
 <!--                                </div>-->
 <!--                            <div class="ReCs-MB">불러오기</div>-->
@@ -510,7 +512,7 @@
                                     </div>
 
                                     <div class="ReLi-move-dtl">
-                                        <a th:href="'/map/'+${item.id}">자세히보기</a>
+                                        <a th:href="'/map/'+${item.id}"></a>
                                     </div>
                                 </div>
                             </div>
