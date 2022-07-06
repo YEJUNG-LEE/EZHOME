@@ -10,7 +10,9 @@
     width:900px;
     height:100%;
     background-color:#f7f7f7;
+    border-left:1px solid #d1d1d1;
     z-index:90;
+    overflow: hidden;
 }
 .ReEs_List-rightButton{
     box-sizing: border-box;
@@ -18,9 +20,9 @@
     display:none;
     top:25px;
     right: 925px;
-    background-color:#ededed;
-    border-color: #4b4b4b;
-    color: #4b4b4b;
+    background-color:#20a7ff;
+    border-color: #0b2d93;
+    color: #FFFFFF;
     border-width: 2px;
     border-style: solid;
     border-radius: 16px;
@@ -34,16 +36,17 @@
     z-index:90;
 }
 .ReEs_List-rightButton:hover{
-    background-color:#fff86d;
+    background-color:#FEC72F;
+    color:#000;
 }
 .ReLi_extent_button_div{
     height:50px;
     box-sizing: border-box;
     text-align:right;
     padding-top:15px;
-    padding-right:15px;
+    padding-right:40px;
     font-size:30px;
-    color:#4876EF;
+    color:#52b0fb;
     
 }
 .ReLi_extent_button_div> .fa-rotate{
@@ -54,48 +57,85 @@
     color:#1a55eb;
 }
 .ReLi_content_div{
-    height:700px;
+    height: 100%;
     box-sizing: border-box;
-    padding:0 25px 25px 25px;
-
+    padding: 0 25px 300px 25px;
+    position:relative;
 }
+.ReLi_content_div_all {
+    width: 100%;
+    height: 114%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.ReLi_content_div_all::-webkit-scrollbar{width:12px;}
+.ReLi_content_div_all::-webkit-scrollbar-thumb{background-color:#52b0fb;
+    border-radius:10px;
+    background-clip:padding-box;
+    border:2px solid transparent;
+    }
+.ReLi_content_div_all::-webkit-scrollbar-track{border-radius:10px;
+    box-shadow:inset 0px 0px 5px white;
+    }
+.ReLi_content_div:hover .ReLi_content_div_all_cover{opacity:0;
+    -webkit-transition:all .5s;
+}
+
+.ReLi_content_div_all_cover {
+    width: 17px;
+    height: 114%;
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    -webkit-transition:all .5s;
+    opacity: 1;
+    background-color: #f7f7f7;
+    border: 0px solid black;
+}
+
 .ReLi_content{
-    width:250px;
-    height:310px;
-    border:1px solid #b8b7bb;
-    margin-top:25px;
-    margin-left:25px;
+    width:262px;
+    height:428px;
+    border:1px solid #d1d1d1;
+    border-radius:5px;
+    margin-top:30px;
+    margin-left:12px;
     box-sizing: border-box;
     display:inline-block;
     position: relative;
 }
 .ReLi_img{
     width:242px;
-    margin:3px auto;
+    margin:10px auto;
     height:160px;
     background:url('../img/home.jpg') no-repeat;
     background-size:cover;
+}
+img{
+border-radius:5px;
 }
 .ReLi_ranking{
     float:right;
     padding-top:5px;
     margin-top:3px;
+    margin-bottom:12px;
     margin-right:5px;
     box-sizing: border-box;
     width:50px;
     height:25px;
     font-size:12px;
-    border:1px solid #6c93f7;
-    background-color:#FFFFFF;
-    color:#387ccf;
+    border:1px solid #ed8e8e;
+    color:#ed8e8e;
     font-weight: 600;
     border-radius:25px;
     text-align:center;
 }
-
 .ReLi_text{
     height:138px;
-    border-top:1px solid #b8b7bb;
+    padding-top:45px;
+    padding-left:17px;
+    padding-right:10px;
+    box-sizing:border-box;
 }
 .ReLi_accuracy{
     float:right;
@@ -111,33 +151,39 @@
     text-align: center;
 }
 .ReLi_TrType{
-    margin-top:5px;
-    font-size:20px;
+    margin-bottom:5px;
+    font-size:18px;
     color:#081638;
     font-weight:600;
     display:inline-block;
 }
 .ReLi_text{
-    padding-top:5px;
+    padding-top:45px;
     padding-left:10px;
     padding-right:10px;
     box-sizing: border-box;
 }
 .ReLi_cost{
     display:inline-block;
-    font-size:16px;
+    font-size:14px;
+    margin-left:4px;
+    margin-bottom:6px;
     font-weight:600;
-    color:#081638;
+    color:#484848;
 }
 .ReLi_extent{
     margin-top:5px;
-    font-size:14px;
-    color:#081638;
+    margin-bottom:9px;
+    font-size:13px;
+    color:#444242;
+    margin-left:5px;
+    font-weight:600;
 }
 .ReLi_address{
     margin-top:5px;
     font-size:14px;
-    color:#081638;
+    font-weight:600;
+    color:#959595;
 }
 .ReLi_agent{
     margin-top:10px;
@@ -151,17 +197,18 @@
     float: left;
 }
 .ReLi_agent_div{
-    float: left;
     margin-top:5px;
-    margin-left:10px;
-    width:120px;
+    margin-right:5px;
+    float:right;
     height:40px;
 }
 .ReLi_agent_company{
     font-size:13px;
+    font-weight:600;
 }
 .ReLi_agent_name{
-    font-size:18px;
+    font-size:15px;
+    float:right;
 }
 .ReLi_agent_heart{
     float:right;
