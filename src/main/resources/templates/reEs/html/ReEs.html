@@ -14,16 +14,16 @@
         $(document).ready(function(){
 
             console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
+            $('input[value="true"]').parent().css({'background-color':'#52b0fb', 'color':'white'});
             $('.ReCs-button').click(function () {
                 var tagId = $(this).attr("id");
                 console.log(tagId);
                 var values = $('input[name=' + tagId + ']').attr('value');
                 if (values == 'false') {
-                    $(this).css({ 'background-color': '#0081cc', 'color': 'white' });
+                    $(this).css({ 'background-color': '#52b0fb', 'color': 'white' });
                     $('input[name=' + tagId + ']').attr('value', 'true');
                 } else {
-                    $(this).css({ 'background-color': '#b8b7bb', 'color': '#858484' });
+                    $(this).css({ 'background-color': '#f7f7f7', 'color': '#858484' });
                     $('input[name=' + tagId + ']').attr('value', 'false');
                 }
                 values = $('input[name=' + tagId + ']').attr('value');
@@ -34,8 +34,8 @@
                 var tagName = $(this).parent().attr("id");
                 console.log(tagId);
                 $('input[name=' + tagName + ']').attr('value', tagId);
-                $(this).css({'background-color':'#0081cc', 'color':'white'});
-                $(this).siblings().css({'background-color':'#b8b7bb', 'color':'#858484'});
+                $(this).css({'background-color':'#52b0fb', 'color':'white'});
+                $(this).siblings().css({'background-color':'#f7f7f7', 'color':'#858484'});
                 values = $('input[name=' + tagName + ']').attr('value');
                 console.log(tagName + " : " + values);
             })
@@ -451,14 +451,12 @@
                             </div>
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
-                            <div class="ReCs-MB">저장
+                            <div class="ReCs-MB">저장<button type="submit" class="btn"></button></div>
 <!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
-                                    <button type="submit" class="btn">저장</button>
 <!--                                </div>-->
-                            </div>
-                            <div class="ReCs-MB">불러오기</div>
-                            <div class="ReCs-MB">초기화</div>
-                            <div class="ReCs-MB ReCs-submit">적용</div>
+<!--                            <div class="ReCs-MB">불러오기</div>-->
+<!--                            <div class="ReCs-MB">초기화</div>-->
+<!--                            <div class="ReCs-MB ReCs-submit">적용</div>-->
                         </div>
                         <div class="ReCs-leftButton">
                             필터 숨기기
@@ -477,8 +475,8 @@
                     </div>
                     <!-- 리스트 -->
                     <div class="ReLi_content_div">
-                        <th:block>
-                            <div class="ReLi_content" th:each="item, index : ${mapMainDtoList}">
+                        <th:block  th:each="item, index : ${mapMainDtoList}">
+                            <div class="ReLi_content" th:id="${item.id}">
                                 <div class="ReLi_img">
                                     <div class="ReLi_ranking">Top [[${index.index+1}]]</div>
                                     <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
@@ -581,6 +579,7 @@
                                 name = val.properties.SIG_KOR_NM;
                                 points = displayArea(coordinates, name);
                                 setCustomOverlay("sig", name, points);
+                                $('.ReLi_content').css('display', 'inline-block');
                             })
                         })
                     } else if (map.getLevel() < si && level >= si) {
@@ -671,13 +670,17 @@
                             // 지도 중심을 부드럽게 이동시킵니다
                             // map.panTo(centroid(points));
                             polygonName = polygonMap.get(polygon);
+                            $('.ReLi_content').css('display', 'inline-block');
                             deleteMarker();
                             ListShowOn();
+                            // 지역에 맞는 마커와 리스트를 찍는 부분
                             for (let i = 0; i < ListSize; i++) {
                                 address = mapMainDtoList[i].roadAddress;
                                 mapMainDto = mapMainDtoList[i];
                                 if(polygonName == address.split(" ")[2]){
                                     addMarker(mapMainDto);
+                                }else{
+                                    $('#' + mapMainDto.id).css('display', 'none');
                                 }
                             }
                         }

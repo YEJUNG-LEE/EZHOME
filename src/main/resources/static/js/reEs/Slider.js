@@ -46,14 +46,14 @@ $(document).ready(function(){
 
     // 조건 기본 - 맞춤 선택상황입니다.
     $('.ReCs-normal').click(function(){
-        $('.ReCs-normal').css('background-color', '#6c93f7')
-        $('.ReCs-custom').css('background-color', '#cfcfcf')
+        $('.ReCs-normal').css({'background-color':'#52b0fb', 'color':'#FFFFFF', 'border-top-left-radius':'5px', 'border-bottom-left-radius':'5px'})
+        $('.ReCs-custom').css({'background-color':'#f7f7f7', 'color':'#000000', 'border-top-right-radius':'5px', 'border-bottom-right-radius':'5px'})
         $('.ReCs-collection').css('display', 'none');
         $('.ReCs-div').css('display','block');
     });
     $('.ReCs-custom').click(function(){
-        $('.ReCs-custom').css('background-color', '#6c93f7')
-        $('.ReCs-normal').css('background-color', '#cfcfcf')
+        $('.ReCs-custom').css({'background-color':'#52b0fb', 'color':'#FFFFFF', 'border-top-right-radius':'5px', 'border-bottom-right-radius':'5px'})
+        $('.ReCs-normal').css({'background-color':'#f7f7f7', 'color':'#000000', 'border-top-left-radius':'5px', 'border-bottom-left-radius':'5px'})
         $('.ReCs-div').css('display','none');
         $('.ReCs-collection').css('display', 'block');
     });
