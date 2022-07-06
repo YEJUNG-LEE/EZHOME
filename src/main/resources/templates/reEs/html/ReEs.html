@@ -671,6 +671,11 @@
                             // 지도 중심을 부드럽게 이동시킵니다
                             // map.panTo(centroid(points));
                             polygonName = polygonMap.get(polygon);
+                            for(let i = 0; i < ListSize; i++){
+                                address = mapMainDtoList[i].roadAddress;
+                                mapMainDto = mapMainDtoList[i];
+                                if(polygonName == address.split){}
+                            }
                             deleteMarker();
                             ListShowOn();
                             for (let i = 0; i < ListSize; i++) {
