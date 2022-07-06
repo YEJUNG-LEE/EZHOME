@@ -34,9 +34,9 @@
     position:absolute;
     top:25px;
     left:25px;
-    background-color:#ededed;
-    border-color: #4b4b4b;
-    color: #4b4b4b;
+    background-color:#20a7ff;
+    border-color: #0b2d93;
+    color: #FFFFFF;
     border-width: 2px;
     border-style: solid;
     border-radius: 16px;
@@ -46,20 +46,21 @@
     font-size: 15px;
     font-weight: 700;
     text-align:center;
-    padding-top:5px;
+    padding-top:6px;
     z-index:999;
 }
 .ReEs-leftButton:hover{
-    background-color:#fff86d;
+    background-color:#FEC72F;
+    color:#000;
 }
 .ReEs-rightButton{
     box-sizing: border-box;
     position:absolute;
     top:25px;
     right:25px;
-    background-color:#ededed;
-    border-color: #4b4b4b;
-    color: #4b4b4b;
+    background-color:#20a7ff;
+    border-color: #0b2d93;
+    color: #FFFFFF;
     border-width: 2px;
     border-style: solid;
     border-radius: 16px;
@@ -69,11 +70,12 @@
     font-size: 15px;
     font-weight: 700;
     text-align:center;
-    padding-top:5px;
+    padding-top:6px;
     z-index:999;
 }
 .ReEs-rightButton:hover{
-    background-color:#fff86d;
+    background-color:#FEC72F;
+    color:#000;
 }
 
 .ReEs-NaviOn{

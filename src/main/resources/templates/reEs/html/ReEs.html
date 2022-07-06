@@ -14,16 +14,16 @@
         $(document).ready(function(){
 
             console.log(typeof($('input[value="true"]')));
-            $('input[value="true"]').parent().css({'background-color':'#0081cc', 'color':'white'});
+            $('input[value="true"]').parent().css({'background-color':'#52b0fb', 'color':'white'});
             $('.ReCs-button').click(function () {
                 var tagId = $(this).attr("id");
                 console.log(tagId);
                 var values = $('input[name=' + tagId + ']').attr('value');
                 if (values == 'false') {
-                    $(this).css({ 'background-color': '#0081cc', 'color': 'white' });
+                    $(this).css({ 'background-color': '#52b0fb', 'color': 'white' });
                     $('input[name=' + tagId + ']').attr('value', 'true');
                 } else {
-                    $(this).css({ 'background-color': '#b8b7bb', 'color': '#858484' });
+                    $(this).css({ 'background-color': '#f7f7f7', 'color': '#858484' });
                     $('input[name=' + tagId + ']').attr('value', 'false');
                 }
                 values = $('input[name=' + tagId + ']').attr('value');
@@ -34,8 +34,8 @@
                 var tagName = $(this).parent().attr("id");
                 console.log(tagId);
                 $('input[name=' + tagName + ']').attr('value', tagId);
-                $(this).css({'background-color':'#0081cc', 'color':'white'});
-                $(this).siblings().css({'background-color':'#b8b7bb', 'color':'#858484'});
+                $(this).css({'background-color':'#52b0fb', 'color':'white'});
+                $(this).siblings().css({'background-color':'#f7f7f7', 'color':'#858484'});
                 values = $('input[name=' + tagName + ']').attr('value');
                 console.log(tagName + " : " + values);
             })
@@ -451,14 +451,12 @@
                             </div>
                         </div>
                         <div class="ReCs-save ReCs-MB-div">
-                            <div class="ReCs-MB">저장
+                            <div class="ReCs-MB">저장<button type="submit" class="btn"></button></div>
 <!--                                <div th:if=${#strings.isEmpty(ReMncsDto.id)}"> &lt;!&ndash;ReMncsDto의 id가 담을 곳이 있다면 &ndash;&gt;-->
-                                    <button type="submit" class="btn">저장</button>
 <!--                                </div>-->
-                            </div>
-                            <div class="ReCs-MB">불러오기</div>
-                            <div class="ReCs-MB">초기화</div>
-                            <div class="ReCs-MB ReCs-submit">적용</div>
+<!--                            <div class="ReCs-MB">불러오기</div>-->
+<!--                            <div class="ReCs-MB">초기화</div>-->
+<!--                            <div class="ReCs-MB ReCs-submit">적용</div>-->
                         </div>
                         <div class="ReCs-leftButton">
                             필터 숨기기
