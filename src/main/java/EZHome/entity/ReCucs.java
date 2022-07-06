@@ -43,7 +43,9 @@ public class ReCucs extends BaseEntity{
      public Map<String, Integer> compare(ReMncsDto reMncsDto, Map<String, Integer> match) {
          int select = 0;    // 몇 개를 선택했는지 확인하는 변수
          int correct = 0;   // 몇 개가 맞는지 확인하는 변수
-         if(reMncsDto.isNewhouse()){select += 1; if(this.isReNew()){correct += 1;}}
+
+         // 회원 기본 조건에 선택되어있으면 select에 1추가, 매물에도 있으면 correct에 1추가
+        if(reMncsDto.isNewhouse()){select += 1; if(this.isReNew()){correct += 1;}}
          if(reMncsDto.isFull()){select += 1; if(this.isReFull()){correct += 1;}}
          if(reMncsDto.isDebt()){select += 1; if(this.isReDebt()){correct += 1;}}
          if(reMncsDto.isElevator()){select += 1; if(this.isReElvtr()){correct += 1;}}
@@ -59,19 +61,9 @@ public class ReCucs extends BaseEntity{
          if(reMncsDto.isCity()){select += 1; if(this.isReCity()){correct += 1;}}
 
 
-         if(match.containsKey("select")){
-             int oldSelect = match.get("select");
-             match.put("select", oldSelect + select);
-         }else{
-             match.put("select", select);
-         }
-         if(match.containsKey("select")){
-             int oldCorrect = match.get("correct");
-             match.put("correct", oldCorrect + correct);
-         }else{
-            match.put("correct", correct);
-         }
 
+         match.put("select", select);
+         match.put("correct", correct);
 
          return match;
      }
