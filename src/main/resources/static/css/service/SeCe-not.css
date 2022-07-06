@@ -97,6 +97,7 @@
 }
 .SeCe-not-ct > div:first-child{
     width: calc(100% - 135px);
+    text-align: left;
 }
 .SeCe-not-ct > div:last-child{
     width: 242px;
@@ -120,6 +121,7 @@
     padding: 30px 40px;
     border-bottom: 1px solid #d1d1d1;
     background-color: rgb(251, 251, 251);
+    text-align: left;
 }
 .SeCe-not-in p{
     color: #4e4e4e;
@@ -127,4 +129,7 @@
     margin: 20px 0px 30px 90px;
     font-weight: 300;
     line-height: 20px;
+}
+.SeCe-not-fakefoot{
+    height:150px;
 }

@@ -1,18 +1,20 @@
 <!--고객센터 완성-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>고객 센터</title>
     <link rel="stylesheet" th:href="@{/css/service/SeCe-oto.css}" type = "text/css">
-    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
-    <form>
+<div layout:fragment="content">>
+    <form method="post" action="/service/oto" role="form" th:object="${SeCeDto}">
         <div class = "head"></div>
         <div class = "SeCe-main-wrap">
             <div class = "SeCe-main-top">
@@ -43,48 +45,48 @@
                 <ul class = "SeCe-oto-ul">
                     <li class = "SeCe-oto-1">
                         <div class = "SeCe-oto-tit1">문의 유형</div>
-                        <select name = "type" class = "SeCe-oto-slt">
+                        <select name = "type" class = "SeCe-oto-slt" th:field="*{seType}">
                             <option value = "-">-- 문의 유형을 선택해주세요.--</option>
                             <option value = "매물관련">매물관련</option>
-                            <option value = "HP오류">HP오류</option>  <!--홈페이지 오류에 대한 문의-->
+                            <option value = "HP오류">홈페이지 오류</option>
                             <option value = "광고 문의">광고 문의</option>
                             <option value = "결제 문의">결제 문의</option>
-                            <option value = "커뮤니티 문의">커뮤니티 문의</option>
                         </select>
                     </li>
 
                     <li class = "SeCe-oto-1">
                         <div class = "SeCe-oto-tit1">제목</div>
-                        <input type = "text" name = "title" class = "SeCe-oto-inp">
+                        <input type = "text" name = "title" class = "SeCe-oto-inp" th:field="*{seTitle}">
                     </li>
 
                     <li class = "SeCe-oto-1">
                         <div class = "SeCe-oto-tit1">문의 내용</div>
-                        <textarea class = "SeCe-oto-ta" name = "content" placeholder="문의 내용을 입력하세요."></textarea>
+                        <textarea class = "SeCe-oto-ta" name = "content" placeholder="문의 내용을 입력하세요." th:field="*{seText}"></textarea>
                     </li>
 
-                    <li class = "SeCe-oto-1">
-                        <div class = "SeCe-oto-tit1 SeCe-oto-tit01">사진</div>
-                        <div class = "SeCe-oto-pica">
-                            <div class ="SeCe-oto-pwrap">
-                                <div class = "SeCe-oto-upl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <g fill="none" fill-rule="evenodd"><g><g><g><path d="M0 0H24V24H0z" transform="translate(-586 -962) translate(545 932) translate(41 30)">
-                                        </path><path stroke="#222" d="M14.691 4.5l1 2H20.5v13h-17v-13h4.809l1-2h5.382z" transform="translate(-586 -962) translate(545 932) translate(41 30)"></path>
-                                        <path fill="#222" d="M12 9c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 1c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" transform="translate(-586 -962) translate(545 932) translate(41 30)">
-                                        </path></g></g></g></g>
-                                    </svg>
-                                    <button style = "display: flex;">사진 첨부</button>
-                                    <button style = "display: none;">사진 첨부</button>
-                                </div>
-                            </div>
+<!--                    <li class = "SeCe-oto-1">-->
+<!--                        <div class = "SeCe-oto-tit1 SeCe-oto-tit01">사진</div>-->
+<!--                        <div class = "SeCe-oto-pica">-->
+<!--                            <div class ="SeCe-oto-pwrap">-->
+<!--                                <div class = "SeCe-oto-upl">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
+<!--                                        <g fill="none" fill-rule="evenodd"><g><g><g><path d="M0 0H24V24H0z" transform="translate(-586 -962) translate(545 932) translate(41 30)">-->
+<!--                                        </path><path stroke="#222" d="M14.691 4.5l1 2H20.5v13h-17v-13h4.809l1-2h5.382z" transform="translate(-586 -962) translate(545 932) translate(41 30)"></path>-->
+<!--                                        <path fill="#222" d="M12 9c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 1c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" transform="translate(-586 -962) translate(545 932) translate(41 30)">-->
+<!--                                        </path></g></g></g></g>-->
+<!--                                    </svg>-->
+<!--                                    <input type="file" name="SeCeImgFile">-->
+<!--                                    <button style = "display: flex;">사진 첨부</button>-->
+<!--                                    <button style = "display: none;">사진 첨부</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class = "SeCe-oto-p">
-                                <p>사진 용량은 사진 한 장당 10MB까지 등록이 가능합니다.</p>
-                                <P>사진은 최대 3장까지 등록이 가능합니다.</P>
-                            </div>
-                        </div>
-                    </li>
+<!--                            <div class = "SeCe-oto-p">-->
+<!--                                <p>사진 용량은 사진 한 장당 10MB까지 등록이 가능합니다.</p>-->
+<!--                                <P>사진은 최대 3장까지 등록이 가능합니다.</P>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
 
                 <div class = "SeCe-oto-foot">
@@ -93,5 +95,6 @@
             </div>
         </div>
     </form>
+</div>
 </body>
 </html>
