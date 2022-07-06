@@ -278,6 +278,18 @@
 /* 조건 슬라이더 시작 */
 /* =================================================================*/
 
+#월세div{
+    display:inline-block;
+}
+#관리비div{
+    display:inline-block;
+}
+#보증금div{
+    display:inline-block;
+}
+#매매div{
+    display:none;
+}
 
 /* 양방향 슬라이더 */
 .ReCs-Slider{
@@ -575,6 +587,50 @@
     transform: translate(15px, -10px);
 }
 
+/* 여기서부터는 매매가 */
+.ReCs-Slider > .cs-tradeSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
 
+.ReCs-Slider > .cs-tradeSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #d1d1d1;
+}
+.ReCs-Slider > .cs-tradeSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #52b0fb;
+}
+.ReCs-Slider> .cs-tradeSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color: #52b0fb;
+    border-radius: 50%;
+}
+.ReCs-Slider>.cs-tradeSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReCs-Slider>.cs-tradeSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
 
 /* 슬라이더 끝 */
