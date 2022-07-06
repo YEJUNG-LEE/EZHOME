@@ -1,18 +1,19 @@
 <!--고객센터 완성-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EZHome</title>
-    <link rel="stylesheet" th:href="@{/css/service/SeCe-freq.css}" type = "text/css">
-    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+    <title>고객 센터</title>
+    <link type="text/css" th:href="@{/css/service/SeCe-freq.css}" rel="stylesheet">
 
     <!--제이쿼리 파트-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type = "text/javascript">
+    <script th:inline="javascript">
          $("document").ready(function(){
             $("#title01").click(function(){
                 $("#content01").slideToggle("slow");
@@ -31,6 +32,7 @@
 
 <!--body 시작-->
 <body>
+<div layout:fragment="content">
     <div class = "head"></div>
     <div class = "SeCe-main-wrap">
         <div class = "SeCe-main-top">
@@ -61,8 +63,8 @@
 
         <ul class = "SeCe-ul">
             <li>
-                <div class = "SeCe-que-tit">EZHome은 어떤 서비스인가요?</div>
-                <div class = "SeCe-que-con">
+                <div class = "SeCe-que-tit" id="title01">EZHome은 어떤 서비스인가요?</div>
+                <div class = "SeCe-que-con" id="content01">
                     EZHome은 간단하고 쉽게 사용할 수 있는 오픈형 부동산 플랫폼입니다.<br>
                     ▶대한민국 모든 방! 다 있다.
                     원룸, 투∙쓰리룸, 오피스텔, 도시형 생활주택은 물론 아파트까지!
@@ -70,8 +72,8 @@
             </li>
 
             <li>
-                <div class = "SeCe-que-tit">회원가입을 하면 어떤 점이 좋나요?</div>
-                <div class = "SeCe-que-con">
+                <div class = "SeCe-que-tit" id="title02">회원가입을 하면 어떤 점이 좋나요?</div>
+                <div class = "SeCe-que-con" id="content02">
                     EZHome에 회원가입 후 로그인을 하시면<br>
                     ▶'관심목록'의 내용을 안전하게 저장!
                     회원님이 저장한 관심목록의 내용이 저장되어 바로바로 찾아 보실 수 있습니다.
@@ -83,8 +85,8 @@
             </li>
 
             <li>
-                <div class = "SeCe-que-tit">EZHome에 등록된 방은 믿을 수 있나요?</div>
-                <div class = "SeCe-que-con">
+                <div class = "SeCe-que-tit" id="title03">EZHome에 등록된 방은 믿을 수 있나요?</div>
+                <div class = "SeCe-que-con" id="content03">
                     EZHome은 사용자 분들에게 믿을 수 있는 정보를 제공하는 것을 최우선으로 합니다.<br>
                     ▶매물의 정확한 위치를 지도 위에 표시하고, 매물 근처의 편의 시설등을 한 눈에 볼 수 있도록 하여 발품을 팔지 않고도 주변 환경까지 확인할 수 있습니다.
                     ▶또한 지속적인 허위매물 관리를 통해 허위정보로 인한 불편함으르 느끼지 않도록 노력하고 있습니다.
@@ -92,5 +94,6 @@
             </li>
         </ul>
     </div>
+</div>
 </body>
 </html>
