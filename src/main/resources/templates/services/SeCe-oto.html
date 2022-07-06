@@ -1,17 +1,19 @@
 <!--고객센터 완성-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>고객 센터</title>
     <link rel="stylesheet" th:href="@{/css/service/SeCe-oto.css}" type = "text/css">
-    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
+<div layout:fragment="content">>
     <form>
         <div class = "head"></div>
         <div class = "SeCe-main-wrap">
@@ -46,10 +48,9 @@
                         <select name = "type" class = "SeCe-oto-slt">
                             <option value = "-">-- 문의 유형을 선택해주세요.--</option>
                             <option value = "매물관련">매물관련</option>
-                            <option value = "HP오류">HP오류</option>  <!--홈페이지 오류에 대한 문의-->
+                            <option value = "HP오류">홈페이지 오류</option>
                             <option value = "광고 문의">광고 문의</option>
                             <option value = "결제 문의">결제 문의</option>
-                            <option value = "커뮤니티 문의">커뮤니티 문의</option>
                         </select>
                     </li>
 
@@ -93,5 +94,6 @@
             </div>
         </div>
     </form>
+</div>
 </body>
 </html>
