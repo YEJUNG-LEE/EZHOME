@@ -8,6 +8,25 @@
     <link type="text/css" th:href="@{/css/reEs/ReItemForm.css}" rel="stylesheet">
     <script type="text/javascript" th:src="@{/js/reEs/ReItemForm.js}" defer></script>
 </head>
+    
+<script th:inline="javascript">
+
+                       
+
+    // $(document).ready(function(){
+
+    //  var a = $('input[name=reMon_price]').val();
+
+    //    if(a == null){
+    //     alert('월세는 필수 입력입니다');
+    //     }
+
+
+     
+    // });
+
+</script>
+
 <div layout:fragment="content" class="content">
     <div class="header"></div>
     <div class="ReEs-insert-wrap">
@@ -35,8 +54,36 @@
                         <input class="ReEs-insert-input" type="number" th:field="*{reNum}" placeholder="매물번호">
                         <p th:if="${#fields.hasErrors('reNum')}" th:errors="*{reNum}" class="fieldError">Incorrect data</p>
                     </td>
-
                 </tr>
+
+<script>
+function changeSelect(){
+    var SelectId = document.getElementById("room03");
+    var selectedValue = SelectId.options[SelectId.selectedIndex].value;
+
+    alert(selectedValue);
+
+    if(selectedValue=='전세'){
+            $('#reDeposit').show(); //전세 show
+            $('#reMon_price').hide(); //월세 hide
+            $('#reTrade').hide(); //매매 hide
+        }else if(selectedValue=='월세'){
+             $('#reMon_price').show(); //월세 show
+             $('#reTrade').hide(); // 매매 hide 
+             $('#reDeposit').show(); //전세 show 
+        }else{ //매매 
+            $('#reTrade').show(); // 매매 show
+            $('#reDeposit').hide(); //전세 hide 
+            $('#reMon_price').hide(); //월세 hide
+        }
+
+}
+
+    
+
+
+</script>
+
                 <tr class="ReEs-insert-tr">
                     <th class="ReEs-insert-th">매물정보</th>
                     <td class="ReEs-insert-td">
@@ -52,7 +99,7 @@
                             <p th:if="${#fields.hasErrors('rehouseType')}" th:errors="*{rehouseType}" class="fieldError">Incorrect data</p>
                         </div>
                         <div  class="ReEs-insert-div">
-                            <select class="ReEs-insert-select" id ="room03" th:field="*{retrType}">
+                            <select class="ReEs-insert-select" id ="room03" th:field="*{retrType}" onchange="changeSelect()">
                                 <option value="전세">전세</option>
                                 <option value="월세">월세</option>
                                 <option value="매매">매매</option>
@@ -61,33 +108,6 @@
                             <p th:if="${#fields.hasErrors('retrType')}" th:errors="*{retrType}" class="fieldError">Incorrect data</p>
                         </div>
                     </td>
-                    <script>
-
-                       
-
-                        $(document).ready(function(){
-                          $("#room03").click(function(){
-                            var value01 = $('#room03').attr('value');
-                            if(value01=='전세'){
-                                $('#reDeposit').show(); //전세 show
-                                $('#reMon_price').hide(); //월세 hide
-                                $('#reTrade').hide(); //매매 hide
-                            }else if(value01=='월세'){
-                                 $('#reMon_price').show(); //월세 show
-                                 $('#reTrade').hide(); // 매매 hide 
-                                 $('#reDeposit').hide(); //전세 hide 
-                            }else{ //매매 
-                                $('#reTrade').show(); // 매매 show
-                                $('#reDeposit').hide(); //전세 hide 
-                                $('#reMon_price').hide(); //월세 hide
-                            }
-
-
-
-                          });
-                        });
-
-                    </script>
                 </tr>
                 <tr class="ReEs-insert-tr">
                     <th class="ReEs-insert-th">가격 정보</th>
