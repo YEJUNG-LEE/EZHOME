@@ -1,5 +1,6 @@
  package EZHome.entity;
 
+import EZHome.dto.ReFormDto;
 import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
@@ -64,6 +65,34 @@ public class ReCucs extends BaseEntity{
          if(reMncsDto.isCity()){select += 1; if(this.isReCity()){correct += 1;}}
 
 
+
+         match.put("select", select);
+         match.put("correct", correct);
+
+         return match;
+     }
+     public Map<String, Integer> compare(MapFilter mapFilter, Map<String, Integer> match) {
+         int select = 0;    // 몇 개를 선택했는지 확인하는 변수
+         int correct = 0;   // 몇 개가 맞는지 확인하는 변수
+
+         // 회원 기본 조건에 선택되어있으면 select에 1추가, 매물에도 있으면 correct에 1추가
+         if(mapFilter.isNewhouse()){select += 1; if(this.isReNew()){correct += 1;}}
+         if(mapFilter.isFull()){select += 1; if(this.isReFull()){correct += 1;}}
+         if(mapFilter.isDebt()){select += 1; if(this.isReDebt()){correct += 1;}}
+         if(mapFilter.isElevator()){select += 1; if(this.isReElvtr()){correct += 1;}}
+         if(mapFilter.isPet()){select += 1; if(this.isRePet()){correct += 1;}}
+         if(mapFilter.isSecurity()){select += 1; if(this.isReScrty()){correct += 1;}}
+         if(mapFilter.isParking()){select += 1; if(this.isReParking()){correct += 1;}}
+         if(mapFilter.isSouth()){select += 1; if(this.isReSouth()){correct += 1;}}
+         if(mapFilter.isBug()){select += 1; if(this.isReBug()){correct += 1;}}
+         if(mapFilter.isWoman()){select += 1; if(this.isReWoman()){correct += 1;}}
+         if(mapFilter.isForest()){select += 1; if(this.isReForest()){correct += 1;}}
+         if(mapFilter.isRiver()){select += 1; if(this.isReRiver()){correct += 1;}}
+         if(mapFilter.isOcean()){select += 1; if(this.isReOcean()){correct += 1;}}
+         if(mapFilter.isCity()){select += 1; if(this.isReCity()){correct += 1;}}
+
+         System.out.println("recucs.select : " + select);
+         System.out.println("recucs.correct : " + correct);
 
          match.put("select", select);
          match.put("correct", correct);
