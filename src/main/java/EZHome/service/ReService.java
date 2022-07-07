@@ -5,6 +5,7 @@ import EZHome.entity.*;
 import EZHome.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -275,7 +276,15 @@ public class ReService {
         } // end for다 ~
     }
 
+//    @Transactional(readOnly = true)
+//    public Page<ReEs> getAdminItemPage(Pageable pageable) {
+//        // 상품 검색 조건을 이용하여 페이징 객체를 반환
+//        return reEsRepository.getAdminReEsPage(pageable);
+//    }
 
-
-
+//    public Page<ReEs> getList(int page){
+//        Pageable pageable = PageRequest.of(page, 10);
+//
+//        return this.reEsRepository.findAll(pageable);
+//    }
 }

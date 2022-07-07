@@ -1,11 +1,18 @@
             *{margin:0; padding:0;}
+            a:visited, a:link, a:hover, a:active{
+                text-decoration: none;
+                color:#878787;
+            }
+            a:hover{
+                color:#52b0fb;
+            }
 
             header{width:100%;
                 height:90px;
                 background-color:#6c93f7;}
 
             .USMy-div-all{width:1280px;
-                        height:1778px;
+                        height:1078px;
                         border:0px solid black;
                         margin:auto;
                         box-sizing:border-box;}
@@ -17,7 +24,7 @@
 
             /* 왼쪽 사이드바 영역 css */
             .USMy-div-all-pro{width:144px;
-                            height:1620px;
+                            height:820px;
                             margin-top:30px;
                             border:0px solid black;
                             float:left;
@@ -27,7 +34,7 @@
             .USMy-div-pro{width:144px;
                         height:215px;
                         border-radius:6px;
-                        border:1px solid #94BBCC;
+                        border:1px solid #52b0fb;
                         box-sizing:border-box;}
 
             .USMy-div-pro01{width:144px;
@@ -37,11 +44,11 @@
             .USMy-div-pro-pic{width:62px;
                             height:62px;
                             border-radius:6px;
-                            border:1px solid #94BBCC;
+                            border:1px solid #52b0fb;
                             box-sizing:border-box;
                             margin-left:41px;
                             margin-top:40px;
-                            background-image:url(/images/pro.jpg);
+                            /* background-image:url(/images/pro.jpg); */
                             background-size:cover;}
 
             .USMy-pro-nam{font-size:15px;
@@ -59,37 +66,40 @@
                             height:49px;
                             border-bottom-left-radius:5px;
                             border-bottom-right-radius:5px;
-                            background-color:#4876ef;}
+                            background-color:#52b0fb;}
 
             /* 왼쪽 사이드바 메뉴 영역 css */
             .USMy-div-all-pag{width:144px;
-                            height:1200px;
+                            height:800px;
                             border:0px solid black;
                             box-sizing:border-box;}
 
             .USMy-div-pag{width:144px;
-                        height:510px;
-                        border:0px solid black;
+                        height:348px;
+                        border:1px solid #d1d1d1;
                         box-sizing:border-box;
                         margin-top:16px;
                         padding-top:10px;
-                        border-radius:6px;
-                        background-color:#4876ef;}
+                        border-radius:6px;}
 
             .USMy-pag-tit{font-size:14px;
                         font-weight:600;
-                        color:#FFFFFF;
+                        color:#6c6c6c;
                         margin-top:20px;
                         margin-left:10px;}
 
             .USMy-pag-con{font-size:12px;
-                        color:#FFFFFF;
+                        color:#878787;
                         margin-left:17px;
                         margin-top:10px;}
 
+            .USMy-pag-con-cover{
+                color:#d1d1d1;
+            }
+
             /* 오른쪽 콘텐츠 영역 css */
             .USMy-div-con{width:1024px;
-                        height:1600px;
+                        height:900px;
                         border:0px solid black;
                         margin-left:34px;
                         float:left;
@@ -100,23 +110,22 @@
                         box-sizing:border-box;}
 
             .USMy-tit-font{font-size:30px;
-                font-weight:bold;
-                margin-left:20px;
+                font-weight:600;
+                margin-left:15px;
                 margin-top:50px;
-                padding-bottom:20px;}
+                padding-bottom:18px;}
 
             /* 내정보 text 영역 css */    
             .USMy-div-con-inf{width:1024px;
-                            height:158px;
+                            height:115px;
                             border:0px solid black;}
 
             .USMy-div-inf-top{width:1024px;
                             height:78px;
                             border:0px solid black;
-                            border-top-right-radius:6px;
-                            border-top-left-radius:6px;
+                            border-radius:6px;
                             box-sizing:border-box;
-                            background-color:#4876ef;}
+                            background-color:#52b0fb;}
 
             .USMy-inf-tit{font-size:20px;
                         font-weight:700;
@@ -159,7 +168,7 @@
             /* 내 맞춤 조건 영역 css */
             .USMy-div-cat-mes{width:1024px;
                             height:364px;
-                            margin-top:96px;
+                            margin-left:50px;
                             border:0px solid black;
                             box-sizing:border-box;}
 
@@ -174,11 +183,11 @@
                         border:0px solid black;
                         box-sizing:border-box;}
 
-            .USMy-tit-p{font-size:18px;
+            .USMy-tit-p{font-size:24px;
                         font-weight:700;
+                        margin-bottom:30px;
                         float:left;
-                        margin-left:5px;
-                        padding-top:9px;}
+                        margin-left:5px;}
 
             .USMy-out{font-size:12px;
                     font-weight:900;
@@ -187,11 +196,91 @@
                     margin-right:10px;
                     padding-top:17px;}
 
-            .USMy-div-cat-con{width:628px;
-                            height:322px;
+            .USMy-div-cat-con{width:900px;
+                            height:661px;
                             overflow:hidden;
-                            border:1px solid #94BBCC;
+                            border:1px solid #d1d1d1;
+                            border-radius:5px;
                             box-sizing:border-box;}
+
+            .USMy-h2-niz{
+                padding: 20px 0px 2px 20px;
+                text-align: left;
+                font-size: 23px;
+                font-weight:600;
+                margin: 40px 0px 14px;
+            }
+            
+            /* 맞춤 정보*/
+            .USMy-div-content03 {
+                height: 184px;
+                padding: 0px 0px 0px 50px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            
+            /* USMy_CS.css 부분 가져옴 */
+            /* USMy-button 클래스 */
+            /* 공통 맞춤정보, 카테고리조건  */
+            /* .USMy-button */
+            /* 위치, 디스플레이 플렉스 */
+            .USMy-button{
+                box-sizing: border-box;
+                margin-right: 25px;
+                width: 112px;
+                height: 40px;
+                border-radius: 45px;
+                border: 1px solid #d1d1d1;
+                background-color: #FFFFFF;
+                display: inline-block;
+                font-size: 12px;
+                padding: 12px 0px;
+                letter-spacing: 1px;
+                font-weight: 600;
+                color: #d1d1d1;
+                text-align: center;
+            }
+            
+            /* .USMy-button 원본, 분리한거, 백업용 */
+            /*.USMy-button{
+               box-sizing:border-box;
+               margin-top:13px;
+               margin-right:25px;
+               width:120px;
+               height:35px;
+               border-radius:45px;
+               border:1px solid #b8b7bb;
+               background-color:#b8b7bb;
+               display:inline-block;
+               font-size:14px;
+               padding-top:5px;
+               letter-spacing:2px;
+               font-weight:600;
+               color:#858484;
+               text-align:center;
+            }*/
+            
+            /* 카테고리 조건 */
+            /* 카테고리 제목문구 */
+            .USMy-h2-Kate{
+                padding: 20px 0px 2px 20px;
+                text-align: left;
+                font-size: 23px;
+                font-weight:600;
+                margin: 40px 0px 14px;
+            }
+            
+            /* 카테고리 영역 */
+            .USMy-div-content04 {
+                height:184px;
+                padding: 14px 0px 0px 50px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
 
             /* 알림 메세지 영역 css */
             .USMy-div-mes{width:344px;
@@ -237,7 +326,7 @@
                         margin-left:10px;
                         border-radius:6px;
                         float:left;
-                        background-image:url(/images/pro.jpg);
+                        /* background-image:url(/images/pro.jpg); */
                         background-size:cover;
                         border:1px solid #bddbf8;
                         box-sizing:border-box;}
@@ -310,7 +399,7 @@
                         height:150px;
                         border-top-left-radius:5px;
                         border-top-right-radius:5px;
-                        background-image:url(/images/home.jpg);
+                        /* background-image:url(/images/home.jpg); */
                         background-size:cover;}
 
             .USMy-sal-heart{width:18px;
@@ -380,7 +469,7 @@
                             float:right;
                             margin-right:5px;
                             margin-top:3px;
-                            background-image:url(/images/star.jpg);
+                            /* background-image:url(/images/star.jpg); */
                             background-size:cover;}
 
             .USMy-fol-con{width:350px;
@@ -394,7 +483,7 @@
                             margin-left:20px;
                             float:left;
                             border:1px solid #94BBCC;
-                            background-image:url(/images/pro.jpg);
+                            /* background-image:url(/images/pro.jpg); */
                             background-size:cover;}
 
             .USMy-fol-con-tit{width:230px;
@@ -436,7 +525,7 @@
                         height:156px;
                         margin-left:1px;
                         float:left;
-                        background-image:url(/images/home.jpg);
+                        /* background-image:url(/images/home.jpg); */
                         background-size:cover;}
 
             /* 최근 본 매물 영역 css */
@@ -472,7 +561,7 @@
                         height:150px;
                         border-top-left-radius:5px;
                         border-top-right-radius:5px;
-                        background-image:url(/images/home.jpg);
+                        /* background-image:url(/images/home.jpg); */
                         background-size:cover;}
 
             .USMy-rec-heart{width:18px;

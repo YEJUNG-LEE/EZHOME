@@ -49,11 +49,11 @@
                 </li>
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
-                    <a sec:authorize="hasRole('USER')" href="/USERmain" methods="get">
-                        <i class="fa-solid fa-user"></i> <span th:text="${username}"></span> 님
+                    <a sec:authorize="hasRole('USER')" href="/mypage/USERmain" methods="get">
+                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
                     </a>
-                    <a class="member_lrea" sec:authorize="hasRole('LREA')" href="/LREAmain" methods="get">
-                        <i class="fa-solid fa-house-user"></i> <span th:text="${username}"></span> 님
+                    <a sec:authorize="hasRole('LREA')" href="/mypage/LREAmain" methods="get">
+                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
                     </a>
                 </li>
 
