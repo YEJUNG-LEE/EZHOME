@@ -76,13 +76,13 @@
                     <!-- 배너 01 -->
                     <div class="ReLi_content_div">
                         <div class="ReLi_content_div_all">
-                            <th:block th:each="item, index : ${mapMainDtoList}">
+                            <th:block th:each="item, index : ${RecommandList}">
                                 <div class="section02-banner-ul">
                                     <h3><a href="#" th:text="${#strings.listSplit(item.roadAddress,' ')[1]}">
                                             <span>추천매물</span></a></h3>
                                     <div class="ReLi_content" th:id="${item.id}">
                                         <div class="ReLi_img">
-                                            <div class="ReLi_ranking">Top [[${index.index+1}]]</div>
+<!--                                            <div class="ReLi_ranking">Top [[${index.index+1}]]</div>-->
                                             <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
                                         </div>
                                         <div class="ReLi_text">
