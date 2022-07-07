@@ -6,6 +6,6 @@ import org.springframework.data.repository.query.Param;
 
 @Mapper
 public interface MemberMapperInterface {
-    @Delete("delete from member where member_id=#{id}")
+    @Delete(" delete from member where member_id=#{id} ")
     int Delete(@Param("id") final String id);
 }

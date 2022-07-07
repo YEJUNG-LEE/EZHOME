@@ -72,14 +72,48 @@
             if (errorMessage != null) {
                 alert(errorMessage);
             };
+            var reMncsDto = [[${ReMncsDto}]];
+            if(reMncsDto.trType == "월세"){
+                $('.ReEs-navi-normal-TrType-select-Month').css({'background-color':'#52b0fb', 'color':'white'});
+            }else if(reMncsDto.trType == "전세"){
+                $('.ReEs-navi-normal-TrType-select-Lease').css({'background-color':'#52b0fb', 'color':'white'});
+                $('.ReEs-navi-normal-cost').text('관리비 / 보증금')
+                $('.ReEs-slider-month').css('display', 'none');
+                $('.ReEs-navi-normal-cost-select').css('height', '290px');
+            }else if(reMncsDto.trType == "매매"){
+                $('.ReEs-navi-normal-TrType-select-Buy').css({'background-color':'#52b0fb', 'color':'white'});
+                $('.ReEs-navi-normal-cost').text('관리비 / 매매가')
+                $('.ReEs-slider-month').css('display', 'none');
+                $('.ReEs-slider-deposit').css('display', 'none');
+                $('.ReEs-slider-trade').css('display','block');
+                $('.ReEs-navi-normal-cost-select').css('height', '290px');
+            }
+            
+            if(reMncsDto.houseType == "원룸"){
+                $('.ReEs-navi-normal-houseType-select-One').css({'background-color':'#52b0fb', 'color':'white'});
+            }else if(reMncsDto.houseType == "투·쓰리룸"){
+                $('.ReEs-navi-normal-houseType-select-TwoOrThree').css({'background-color':'#52b0fb', 'color':'white'});
+            }else if(reMncsDto.houseType == "오피스텔"){
+                $('.ReEs-navi-normal-houseType-select-Office').css({'background-color':'#52b0fb', 'color':'white'});
+            }else if(reMncsDto.houseType == "아파트"){
+                $('.ReEs-navi-normal-houseType-select-apart').css({'background-color':'#52b0fb', 'color':'white'});
+            }
+
+            if(Boolean(reMncsDto.halfUnder)){
+                $('.ReEs-navi-floor-halfButton').css({'background-color':'#52b0fb', 'color':'white'});
+            }
+            if(Boolean(reMncsDto.loofTop)){
+                $('.ReEs-navi-floor-looftopButton').css({'background-color':'#52b0fb', 'color':'white'});
+            }
+            if(Boolean(reMncsDto.secondFloor)){
+                $('.ReEs-navi-floor-secondFloorButton').css({'background-color':'#52b0fb', 'color':'white'});
+            }
 
         });
     </script>
 </head>
 
 <body class="ReEs-body">
-
-
     <div layout:fragment="content">
         <div class="ReEs-overflow">
             <div class="ReEs-imsiHeader"></div>
@@ -115,8 +149,8 @@
                             <div class="ReEs-navi-normal-floor-select-namediv">층수</div>
                             <div class="ReEs-navi-normal-floor-select-img"><i class="fa-solid fa-building"></i></div>
                             <div class="ReEs-navi-normal-floor-select-slider">
-                                <input type="range" id="floor-input-left" min="1" max="10" value="4" />
-                                <input type="range" id="floor-input-right" min="1" max="10" value="8" />
+                                <input type="range" id="floor-input-left" min="1" max="10" th:value="${ReMncsDto.minFloor}"/>
+                                <input type="range" id="floor-input-right" min="1" max="10" th:value="${ReMncsDto.maxFloor}" />
 
                                 <div class="floorSlider">
                                     <div class="track"></div>
@@ -126,11 +160,11 @@
                                 </div>
                             </div>
                             <div class="ReEs-navi-normal-floor-select-slider-txt"></div>
-                            <script type="text/javascript" th:src="@{/js/reEs/floorSlider.js}"></script>
                         </div>
                         <div class="ReEs-navi-normal-floor-select-div2">
                             <div class="ReEs-navi-floor-halfButton floor-exButton">반지하</div>
                             <div class="ReEs-navi-floor-looftopButton floor-exButton">옥탑방</div>
+                            <div class="ReEs-navi-floor-secondFloorButton floor-exButton">복층</div>
                         </div>
                     </div>
                     <!-- 평수 click시-->
@@ -139,8 +173,8 @@
                             평수
                         </div>
                         <div class="ReEs-navi-normal-extent-select-slider">
-                            <input type="range" id="extent-input-left" min="1" max="40" value="10" />
-                            <input type="range" id="extent-input-right" min="1" max="40" value="32" />
+                            <input type="range" id="extent-input-left" min="1" max="40" th:value="${ReMncsDto.minEx}" />
+                            <input type="range" id="extent-input-right" min="1" max="40" th:value="${ReMncsDto.maxEx}" />
 
                             <div class="extentSlider">
                                 <div class="track"></div>
@@ -150,7 +184,6 @@
                             </div>
                         </div>
                         <div class="ReEs-navi-normal-extent-select-slider-txt"></div>
-                        <script type="text/javascript" th:src="@{/js/reEs/extentSlider.js}"></script>
                     </div>
 
                     <!-- 월세/관리비/보증금 click시 -->
@@ -158,8 +191,8 @@
                         <div class="ReEs-slider-month">
                             <div class="ReEs-navi-normal-month-select-namediv">월세</div>
                             <div class="ReEs-navi-normal-month-select-slider">
-                                <input type="range" id="month-input-left" min="0" max="100" value="30" />
-                                <input type="range" id="month-input-right" min="0" max="100" value="60" />
+                                <input type="range" id="month-input-left" min="0" max="80" th:value="${ReMncsDto.minMon}" />
+                                <input type="range" id="month-input-right" min="0" max="80" th:value="${ReMncsDto.maxMon}" />
                                 <div class="monthSlider">
                                     <div class="track"></div>
                                     <div class="range"></div>
@@ -169,12 +202,11 @@
                             </div>
                             <div class="ReEs-navi-normal-month-select-slider-txt"></div>
                         </div>
-
                         <div class="ReEs-slider-manage">
                             <div class="ReEs-navi-normal-manage-select-namediv">관리비</div>
                             <div class="ReEs-navi-normal-manage-select-slider">
-                                <input type="range" id="manage-input-left" min="0" max="30" value="5" />
-                                <input type="range" id="manage-input-right" min="0" max="30" value="15" />
+                                <input type="range" id="manage-input-left" min="0" max="40" th:value="${ReMncsDto.minMan}" />
+                                <input type="range" id="manage-input-right" min="0" max="40" th:value="${ReMncsDto.maxMan}" />
                                 <div class="manageSlider">
                                     <div class="track"></div>
                                     <div class="range"></div>
@@ -184,11 +216,11 @@
                             </div>
                             <div class="ReEs-navi-normal-manage-select-slider-txt"></div>
                         </div>
-                        <div class="depositSlider">
+                        <div class="ReEs-slider-deposit">
                             <div class="ReEs-navi-normal-deposit-select-namediv">보증금</div>
                             <div class="ReEs-navi-normal-deposit-select-slider">
-                                <input type="range" id="deposit-input-left" min="0" max="3000" value="1000" />
-                                <input type="range" id="deposit-input-right" min="0" max="3000" value="2000" />
+                                <input type="range" id="deposit-input-left" min="0" max="30000" th:value="${ReMncsDto.minDep}" />
+                                <input type="range" id="deposit-input-right" min="0" max="30000" th:value="${ReMncsDto.maxDep}" />
                                 <div class="depositSlider">
                                     <div class="track"></div>
                                     <div class="range"></div>
@@ -198,9 +230,20 @@
                             </div>
                             <div class="ReEs-navi-normal-deposit-select-slider-txt"></div>
                         </div>
-                        <script type="text/javascript" th:src="@{/js/reEs/monthSlider.js}"></script>
-                        <script type="text/javascript" th:src="@{/js/reEs/manageSlider.js}"></script>
-                        <script type="text/javascript" th:src="@{/js/reEs/depositSlider.js}"></script>
+                        <div class="ReEs-slider-trade">
+                            <div class="ReEs-navi-normal-trade-select-namediv">매매가</div>
+                            <div class="ReEs-navi-normal-trade-select-slider">
+                                <input type="range" id="trade-input-left" min="0" max="30000" th:value="${ReMncsDto.minTrd}" />
+                                <input type="range" id="trade-input-right" min="0" max="30000" th:value="${ReMncsDto.maxTrd}" />
+                                <div class="tradeSlider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
+                            </div>
+                            <div class="ReEs-navi-normal-trade-select-slider-txt"></div>
+                        </div>
                     </div>
                 </div>
                 <!-- 맞춤 선택 영역 -->
@@ -247,8 +290,7 @@
                     <!--  ======================================================================================================  -->
                     <!--  ================================================= 조건 필터 ============================================  -->
                     <div class="ReCS">
-                        <form method="post" th:action="@{/map/save}" th:object="${ReMncsDto}"
-                            enctype="application/x-www-form-urlencoded">
+                        <form method="post" th:action="@{/map/save}" th:object="${ReMncsDto}" enctype="application/x-www-form-urlencoded">
                             <div class="ReCs-subject">
                                 <div class="ReCs-select">
                                     <div class="ReCs-sl-div ReCs-normal">
@@ -821,44 +863,50 @@
                                         position: coords
                                     });
                                     markerList.push(marker);
-                                    var PercentFlag = (mapMainDto.percent != null);
-                                    var DepositFlag = (mapMainDto.retrType == '월세' || mapMainDto.retrType == '전세');
-                                    var MonFlag = (mapMainDto.retrType == '월세');
-                                    var TrdFlag = (mapMainDto.retrType == '매매');
+                                    var PercentFlag = Boolean(mapMainDto.percent != null);
+                                    var DepositFlag = Boolean(mapMainDto.retrType == '월세' || mapMainDto.retrType == '전세');
+                                    var MonFlag = Boolean(mapMainDto.retrType == '월세');
+                                    var TrdFlag = Boolean(mapMainDto.retrType == '매매');
                                     
                                     var content = 
-                                    '<div class="ReLi_contents" th:id="${item.id}">' + 
-                                        '<th:block th:if="' + PercentFlag + '">' + 
-                                            '<div class="ReLi_imgs">' +
-                                                '<div class="ReLi_accuracy">일치율 ' + mapMainDto.percent + '%</div>' + 
-                                            '</div>' +
-                                            '<div class="ReLi_ranking">Top ' + mapMainDto.rank + '</div>' +
-                                        '</th:block>' + 
+                                    '<div class="ReLi_contents" th:id="${item.id}">';
+                                        if(PercentFlag){
+                                            content += '<div class="ReLi_imgs">' +
+                                                            '<div class="ReLi_accuracy">일치율 ' + mapMainDto.percent + '%</div>' + 
+                                                        '</div>' +
+                                                        '<div class="ReLi_ranking">Top ' + mapMainDto.rank + '</div>';
+                                        }else{
+                                            content += '<div class="ReLi_imgs">' +
+                                                        '</div>';
+                                        }
+                                        content += 
                                         '<div class="ReLi_texts">' +
                                             '<div class="ReLi_TrTypes">' +
                                                 '매물번호 : ' + mapMainDto.reNum + 
                                             '</div>' +
                                             '<div class="ReLi_extent">' + 
                                                 '층수 : ' + mapMainDto.reFlr + '층 / 평수 : ' + mapMainDto.reExtent + '평' +
-                                            '</div>' + 
-                                            '<th:block th:if="' + DepositFlag + '">' + 
-                                                '<div class="ReLi_cost">' +
-                                                    '보증금 : ' + mapMainDto.reDeposit + '만원' +
-                                                '</div>' + '<br>' +
-                                            '</th:block>' +
-                                            '<th:block th:if="' + MonFlag + '">' + 
-                                                '<div class="ReLi_cost">' + 
-                                                    '월세 : ' + mapMainDto.reMon_price + '만원' +
-                                                '</div>' + '<br>' +
-                                            '</th:block>' + 
+                                            '</div>';
+                                        if(DepositFlag){
+                                            content += '<div class="ReLi_cost">' +
+                                                '보증금 : ' + mapMainDto.reDeposit + '만원' +
+                                            '</div>' + '<br>'
+                                        }
+                                        if(MonFlag){
+                                            content += '<div class="ReLi_cost">' + 
+                                                '월세 : ' + mapMainDto.reMon_price + '만원' +
+                                            '</div>' + '<br>';
+                                        }
+                                        content += 
                                             '<div class="ReLi_cost">' + 
                                                 '관리비 : ' +  mapMainDto.reAdmn_fee + '만원' + 
-                                            '</div>' + '<br>' +
-                                            '<th:block th:if="' + TrdFlag + '>' + 
-                                                '<div class="ReLi_cost">' + 
-                                                    '매매가 : ' + mapMainDto.reTrade + '만원' + 
-                                                '</div>' + 
-                                            '</th:block>' + 
+                                            '</div>' + '<br>';
+                                        if(TrdFlag){
+                                            content += '<div class="ReLi_cost">' + 
+                                                '매매가 : ' + mapMainDto.reTrade + '만원' + 
+                                            '</div>';
+                                        }
+                                        content +=
                                             '<div class="ReLi_addreseies">' + mapMainDto.roadAddress + '</div>' + 
                                             '<div class="ReLi_agent">' + 
                                                 '<div class="ReLi_agent_div">' + 
