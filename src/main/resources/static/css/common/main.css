@@ -645,9 +645,9 @@ main {
     letter-spacing: 1px;
 }
 .search-btn:hover{
-    background: #4876ef;
-    border: 1px solid #52b0fb;
-    color: #fff;
+    background:  #FEC72F;
+    border: 1px solid  #FEC72F;
+    color: #000;
 }
 
 /* main-section02 */
