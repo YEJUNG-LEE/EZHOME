@@ -147,6 +147,7 @@ nav > ul {
     float: left;
     list-style: none;
     line-height: 96px;
+    transition: .3s ease-in-out;
 }
 
 .advert_insert{
@@ -520,7 +521,7 @@ main {
     display: none;
     width: 130px;
     height: 240px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 0 0 10px 10px ;
     transition: .3s ease-in-out;
 }
@@ -538,6 +539,24 @@ main {
     padding: 30px;
     border-top: 1px solid #ededed;;
     box-sizing: border-box;
+    transition: .2s ease-in-out;
+}
+
+#condition01-select > a:hover{
+    width: 100%;
+    height: 80px;
+    background: #50adf7;
+    border-top: 1px solid #50adf7;
+    color: #fff;
+}
+
+.select-last:hover{
+    width: 100%;
+    height: 80px;
+    background: #50adf7;
+    border-top: 1px solid #50adf7;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
 }
 /*// 임시 드롭다운 */
 
@@ -558,6 +577,15 @@ main {
     padding-top: 24px;
     font-weight: 600;
     box-sizing: border-box;
+    transition: .2s ease-in-out;
+}
+
+#condition02-select > a:hover{
+    width: 100%;
+    height: 80px;
+    background: #50adf7;
+    border-top: 1px solid #50adf7;
+    color: #fff;
 }
 
 .fa-angle-down{
@@ -567,6 +595,37 @@ main {
     top: 3px;
     left: 2px;
 }
+
+/* 임시 드롭다운 */
+/* 드롭다운 */
+#condition02-select{
+    position: relative;
+    top : -300%;
+    display: none;
+    width: 130px;
+    height: 240px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 10px 10px ;
+    transition: .3s ease-in-out;
+}
+
+#condition02-select.on{
+    top: 0;
+    display: block;
+}
+#condition02-select > a{
+    display: block;
+    width: 100%;
+    height: 80px;
+    font-size: 22px;
+    font-weight: 100;
+    padding: 20px;
+    border-top: 1px solid #ededed;;
+    box-sizing: border-box;
+    line-height: 1.8;
+}
+
+
 
 /* 검색 버튼 */
 .search-btn{
