@@ -47,13 +47,13 @@
                 </div>
                 <div>
                     <table>
-                        <tr class="LRMy-ul-sal" th:each="item : ${reFormDto}">
-                            <td class="LRMy-li-sal">
-                                <div class="LRMy-sal-img" th:src="${item.reImgUrl}"></div>
-                                <p class="LRMy-sal-tit-p">매물 지역</p>
+                        <tr class="LRMy-ul-sal">
+                            <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}">
+                                <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
+                                <p class="LRMy-sal-tit-p" th:text="${item.reNum}"></p>
                                 <div class="LRMy-sal-con-pdiv">
-                                    <p class="LRMy-sal-con-p" th:value="${item.reExtant}">평수</p>
-                                    <p class="LRMy-sal-con-p" th:value="${item.reExtant}">가격</p>
+                                    <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
+                                    <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
                                 </div>
                             </td>
                         </tr>
