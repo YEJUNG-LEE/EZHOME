@@ -110,7 +110,7 @@ public class MemberController {
         return "redirect:/" ;
     }
 
-    @PostMapping(value = "/delete/{id}")
+    @RequestMapping(value="/delete/{id}")
     public String Delete(@PathVariable("id") String id, HttpServletRequest request){
         int cnt = -999;
         cnt = memberService.Delete(id);
