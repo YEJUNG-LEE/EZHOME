@@ -16,6 +16,7 @@ public class ReMncsDto { // 기본 Dto
 
     private Long id;
     // 회원 기본 조건
+    private String address; // 주소
     private String houseType ; // 매물 유형
     private String trType; // 매매 유형
     private Integer minFloor ; // 최소 층수
