@@ -65,6 +65,25 @@ public class ReEsController {
             return "reEs/html/ReItemForm" ;
         }
 
+        // 월세일때
+        if(reFormDto.getRetrType().equals("월세")){
+            if(reFormDto.getReMon_price() == null || reFormDto.getReAdmn_fee() == null || reFormDto.getReDeposit() == null){
+                model.addAttribute("errorMessage", "가격 정보를 입력해주세요");
+                return "reEs/html/ReItemForm" ;
+            }
+        }else if(reFormDto.getRetrType().equals("전세")){
+            if(reFormDto.getReAdmn_fee() == null || reFormDto.getReDeposit() == null){
+                model.addAttribute("errorMessage", "가격 정보를 입력해주세요");
+                return "reEs/html/ReItemForm";
+            }
+        }else if(reFormDto.getRetrType().equals("매매")){
+            if(reFormDto.getReAdmn_fee() == null || reFormDto.getReTrade() == null){
+                model.addAttribute("errorMessage", "가격 정보를 입력해주세요");
+                return "reEs/html/ReItemForm";
+            }
+        }
+
+
         // principal : (로그인한) 인증된 사용자에 대한 정보를 구할 수 있다.
         String email = principal.getName();
 
@@ -155,5 +174,20 @@ public class ReEsController {
         model.addAttribute("reFormDto", reFormDto) ;
 
         return null;
+    }
+
+    @GetMapping(value = "/reEs/delete/{reid}")
+    public String reEsDelete(@PathVariable("reid") Long reId, Model model, Principal principal){
+        try {
+            reService.deleteItem(reId);
+        }catch(Exception e){
+            System.out.println("==========================================================");
+            System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
+            e.printStackTrace();
+            return "redirect:/admin/item/update/" + reId ;
+        }
+        return "redirect:/";
     }
 }

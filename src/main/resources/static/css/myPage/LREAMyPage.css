@@ -1,11 +1,20 @@
             *{margin:0; padding:0;}
 
-            header{width:100%;
+            a:visited, a:link, a:hover, a:active{
+                text-decoration: none;
+                color:#787878;
+            }
+            a:hover{
+                color:#52b0fb;
+            }
+
+            .header{
+                width:100%;
                 height:90px;
-                background-color:#6c93f7;}
+            }
 
             .LRMy-div-all{width:1280px;
-                        height:650px;
+                        height:1020px;
                         border:0px solid black;
                         margin:auto;
                         box-sizing:border-box;}
@@ -27,7 +36,7 @@
             .LRMy-div-pro{width:144px;
                         height:215px;
                         border-radius:6px;
-                        border:1px solid #94BBCC;
+                        border:1px solid #52b0fb;
                         box-sizing:border-box;}
 
             .LRMy-div-pro01{width:144px;
@@ -37,11 +46,10 @@
             .LRMy-div-pro-pic{width:62px;
                             height:62px;
                             border-radius:6px;
-                            border:1px solid #94BBCC;
+                            border:1px solid #52b0fb;
                             box-sizing:border-box;
                             margin-left:41px;
                             margin-top:40px;
-                            background-image:url(/images/pro.jpg);
                             background-size:cover;}
 
             .LRMy-pro-nam{font-size:15px;
@@ -59,7 +67,7 @@
                             height:49px;
                             border-bottom-left-radius:5px;
                             border-bottom-right-radius:5px;
-                            background-color:#4876ef;}
+                            background-color:#52b0fb;}
 
             /* 왼쪽 사이드바 메뉴 영역 css */
             .LRMy-div-all-pag{width:144px;
@@ -68,24 +76,28 @@
                             box-sizing:border-box;}
 
             .LRMy-div-pag{width:144px;
-                        height:300px;
-                        border:0px solid black;
+                        height:348px;
+                        border:1px solid #d1d1d1;
                         box-sizing:border-box;
                         margin-top:16px;
                         padding-top:10px;
-                        border-radius:6px;
-                        background-color:#4876ef;}
+                        text-align:left;
+                        border-radius:6px;}
 
             .LRMy-pag-tit{font-size:14px;
                         font-weight:600;
-                        color:#FFFFFF;
+                        color:#6c6c6c;
                         margin-top:20px;
                         margin-left:10px;}
 
             .LRMy-pag-con{font-size:12px;
-                        color:#FFFFFF;
+                        color:#787878;
                         margin-left:17px;
                         margin-top:10px;}
+
+            .LRMy-pag-con-cover{
+                        color:d1d1d1;
+            }
 
             /* 오른쪽 콘텐츠 영역 css */
             .LRMy-div-con{width:1024px;
@@ -103,20 +115,21 @@
                 font-weight:bold;
                 margin-left:20px;
                 margin-top:50px;
-                padding-bottom:20px;}
+                padding-bottom:20px;
+                text-align:left;}
 
             /* 내정보 text 영역 css */
             .LRMy-div-con-inf{width:1024px;
-                            height:158px;
-                            border:0px solid black;}
+                            height:115px;
+                            border:0px solid black;
+                            text-align:left;}
 
             .LRMy-div-inf-top{width:1024px;
                             height:78px;
                             border:0px solid black;
-                            border-top-right-radius:6px;
-                            border-top-left-radius:6px;
+                            border-radius:6px;
                             box-sizing:border-box;
-                            background-color:#4876ef;}
+                            background-color:#52b0fb;}
 
             .LRMy-inf-tit{font-size:20px;
                         font-weight:700;
@@ -197,8 +210,9 @@
 
             /* 내가 올린 매물 목록 영역 css */
             .LRMy-div-sal{width:1024px;
-                        height:280px;
+                        height:632px;
                         overflow:hidden;
+                        position: relative;
                         border:0px solid black;
                         box-sizing:border-box;}
 
@@ -207,18 +221,51 @@
                             border:0px solid black;
                             box-sizing:border-box;}
 
+            .LRMy-div-sal-list {
+                width: 1024px;
+                height: 635px;
+                overflow:auto;
+                overflow-x:hidden;
+                border:0px solid black;
+            }
+
+            .LRMy-div-sal-list::-webkit-scrollbar{width:12px;}
+            .LRMy-div-sal-list::-webkit-scrollbar-thumb{background-color:#52b0fb;
+                border-radius:10px;
+                background-clip:padding-box;
+                border:2px solid transparent;
+                }
+            .LRMy-div-sal-list::-webkit-scrollbar-track{border-radius:10px;
+                box-shadow:inset 0px 0px 5px white;
+                }
+            .LRMy-div-sal:hover .fakeScroller-cover{opacity:0;
+                -webkit-transition:all .5s;
+            }
+
+           .fakeScroller-cover{
+                width: 12px;
+                height: 632px;
+                position: absolute;
+                top:0; right:0;
+                -webkit-transition:all .5s;
+                opacity:1;
+                background-color:#FFFFFF;
+                border:0px solid black;
+            }
+
             .LRMy-ul-sal{width:1024px;
                         height:224px;
                         float:left;
                         list-style:none;}
 
             .LRMy-li-sal{width:156px;
-                        height:224px;
+                        height:242px;
                         float:left;
-                        margin-right:14.6px;
+                        margin-left:10px;
+                        margin-top:20px;
                         position:relative;
                         border-radius:6px;
-                        border:1px solid #bddbf8;
+                        border:1px solid #d1d1d1;
                         box-sizing:border-box;}
 
             .LRMy-ul-sal>li:first-child{margin-left:0;}
@@ -229,33 +276,25 @@
                         border-top-right-radius:5px;
                         background-size:cover;}
 
-            .LRMy-sal-heart{width:18px;
-                            height:18px;
-                            position:absolute;
-                            top:4px; right:4px;
-                            background-size:cover;}
 
             .LRMy-sal-tit-p{font-size:13px;
-                            font-weight:800;
+                            font-weight:600;
                             color:#3A6BA5;
-                            padding-top:10px;
-                            padding-left:12px;}
+                            padding-top:10px;}
 
-            .LRMy-sal-con-pdiv{width:120px;
-                            height:40px;
+            .LRMy-sal-con-pdiv{width:138px;
+                            height:56px;
                             margin-top:3px;
-                            margin-left:12px;
+                            margin-left:7px;
+                            float:left;
                             overflow:hidden;
                             border:0px solid black;
                             box-sizing:border-box;}
 
             .LRMy-sal-con-p{font-size:12px;
+                            margin-top:6px;
                             color:#858484;
                             word-break:break-all;}
 
 
 
-            footer{width:100%;
-                height:340px;
-                background-color:#3B3C48;
-                box-sizing:border-box;}

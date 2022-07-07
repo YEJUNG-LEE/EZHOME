@@ -240,8 +240,12 @@
         <div class="ReEs-div-detail-Wrap">
             <!-- detail-header , 상품 제목 시작 -->
             <div class="detail-header">
-                <div class="EzHo-Div10"><span>95% 일치</span></div>
-                <button class="Detail-singo">삭제하기</button>
+                <th:block th:if="${DtlItem.percent != null}">
+                    <div class="EzHo-Div10"><span>[[${DtlItem.percent}]]% 일치</span></div>
+                </th:block>
+                <th:block th:if ="${flag == true}">
+                    <button class="Detail-singo">삭제하기</button>
+                </th:block>
             </div>
             <!--// detail-header 끝 -->
             <!-- 부동산이미지 -->
@@ -617,7 +621,11 @@
             <script>
     //삭제하기
     $(".Detail-singo").click(function () {
-        alert('삭제하시겠습니까?');
+        var result = confirm('삭제하시겠습니까?');
+        if(result){
+            var url = "/reEs/delete/" + [[${DtlItem.id}]];
+            location.href= url;
+        }
         //if문 넣어 삭제하기->db확인
     });
     // detail img_slide
@@ -646,7 +654,6 @@
 
     $("#modal_close_btn").click(function () {
         $("#modal").attr("style", "display:none");
-
     });
 
     $("#modal_close_btn02").click(function () {
@@ -665,8 +672,8 @@
 
         <!--부동산추천이미지-->
         <!-- main-section02 -->
-        <section class="main-section02">
-            <div class="section02-title">
+        <section class="main-section03">
+            <div class="section03-title">
                 <h3><a href="#" th:text="${#strings.listSplit(DtlItem.roadAddress,' ')[1]}"> <span>추천매물</span></a></h3>
             </div>
             <!-- section02-info -->
@@ -684,7 +691,7 @@
             </div>
             <!--// section02-info -->
             <!-- 광고 배너 영역 -->
-            <ul class="section02-banner-ul">
+            <ul class="section02-banner-ul2">
                 <!-- 배너 01 -->
                 <li>
                     <a href="#" class="banner-hover">
