@@ -1,5 +1,6 @@
 package EZHome.service;
 
+import EZHome.dto.MapMainDto;
 import EZHome.dto.MemberFormDto;
 import EZHome.entity.Member;
 import EZHome.mapper.MemberMapperInterface;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @Service
 @Transactional
@@ -67,6 +69,16 @@ public class MemberService implements UserDetailsService {
         return memberFormDto ;
     }
 
+    @Transactional(readOnly = true)
+    public MemberFormDto getAddress(String membAddress1){
+        System.out.println(membAddress1);
+        Member address = memberRepository.findByMembAddress1(membAddress1);
+        System.out.println(address);
+        MemberFormDto memberFormDto = MemberFormDto.of(address);
+
+        return memberFormDto;
+    }
+
     public MemberFormDto updateMember(Long id, MemberFormDto memberFormDto){
         Member member = memberRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
@@ -82,10 +94,12 @@ public class MemberService implements UserDetailsService {
 
     // 여기서 부터 내가 함
     @Transactional(readOnly = true)
-    public MemberFormDto getMemAddress(String membAddress1){
-        Member member = memberRepository.findByMembAddress1(membAddress1);
-        MemberFormDto memberFormDto = MemberFormDto.of(member);
+    public MapMainDto getMemAddress(String membAddress1){
+        Member memberaddress = memberRepository.findByMembAddress1(membAddress1);
+        MapMainDto mapMainDto = MapMainDto.memof(memberaddress);
 
-        return memberFormDto;
+        return mapMainDto;
     }
+
+
 }

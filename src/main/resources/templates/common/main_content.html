@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{common/layouts/layout}">
 <head>
     <meta charset="UTF-8">
@@ -65,103 +66,202 @@
 
                 <!-- main-section02 -->
                 <section class="main-section02">
-                    <div class="section02-title">
-                        <h3><a href="#" th:text="${#strings.listSplit(DtlItem.roadAddress,' ')[1]}"> <span>추천매물</span></a></h3>
-                    </div>
-                    <!-- section02-info -->
-                    <div class="section02-info">
-                        <div class="section02-info-box" ><a href="#" th:text="${#strings.listSplit(DtlItem.roadAddress,' ')[2]}"></a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('원룸')}"><a href="#">[[${DtlItem.rehouseType}]]</a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('투룸')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('오피스텔')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('아파트')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.rehouseType.equals('상가/사무실')}"><a href="#" >[[${DtlItem.rehouseType}]]</a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.retrType.equals('월세')}"><a href="#" >[[${DtlItem.retrType}]]</a></div>
-                        <div class="section02-info-box" th:if="${DtlItem.retrType.equals('전세')}"><a href="#" >[[${DtlItem.retrType}]]</a></div>
-                        <div class="section02-info-more"><a href="#">더 많은 방보기 <i
-                                class="fa-solid fa-angle-right"></i></a></div>
-                    </div>
-                    <!--// section02-info -->
-                    <!-- 광고 배너 영역 -->
-                    <ul class="section02-banner-ul">
-                        <!-- 배너 01 -->
-                        <li>
-                            <a href="#" class="banner-hover">
-                                <div class="section02-banner-hiden">
-                                    <div class="section02-banner-div">
-                                        <img src="img/room_img02.jpg" alt="매물사진1">
-                                        <div class="banner-hover-bg cover"></div>
-                                    </div>
-                                </div>
-                                <div class="banner-text">
-                                    <p class="banner-text-p">투룸</p>
-                                    <h1>전세 3억6000</h1>
-                                    <p class="banner-text-p2">4층, 40.15m², 관리비 8만</p>
-                                    <p class="banner-text-p2">서초동 가성비 좋은 귀한 전세매물 신축빌라입니다 방3,화2</p>
-                                </div>
-                            </a>
-                        </li>
-                        <!-- 배너 02 -->
-                        <li>
-                            <a href="#" class="banner-hover">
-                                <div class="section02-banner-hiden">
-                                    <div class="section02-banner-div">
-                                        <img src="img/room_img03.jpg" alt="매물사진2">
-                                        <div class="banner-hover-bg cover"></div>
-                                    </div>
-                                </div>
-                                <div class="banner-text">
-                                    <p class="banner-text-p">오피스텔&#183;서초코업레지던스</p>
-                                    <h1>월세 95/95</h1>
-                                    <p class="banner-text-p2">중층, 24.16m², 관리비 10만</p>
-                                    <p class="banner-text-p2">교대역 ,강남역 가성비 좋은 복층 풀옵션</p>
-                                </div>
-                            </a>
-                        </li>
-                        <!-- 배너 03 -->
-                        <li>
-                            <a href="#" class="banner-hover">
-                                <div class="section02-banner-hiden">
-                                    <div class="section02-banner-div">
-                                        <img src="img/room_img04.jpg" alt="매물사진3">
-                                        <div class="banner-hover-bg cover"></div>
-                                    </div>
-                                </div>
-                                <div class="banner-text">
-                                    <p th:if="${DtlItem.rehouseType.equals('원룸')}" class="banner-text-p">원룸</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('투룸')}" class="banner-text-p">투룸</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('오피스텔')}" class="banner-text-p">오피스텔</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('아파트')}" class="banner-text-p">아파트</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('상가/사무실')}" class="banner-text-p">상가/사무실</p>
+                    <div class="section02-title" sec:authorize="isAuthenticated()">
+                                                    <!-- 배너 01 -->
+                                                    <div class="ReLi_content_div">
+                                                        <div class="ReLi_content_div_all">
+                                                            <th:block  th:each="item, index : ${mapMainDtoList}">
+                                                                <h3><a href="#" th:text="${#strings.listSplit(item.roadAddress,' ')[1]}"> <span>추천매물</span></a></h3>
+                                                                <ul class="section02-banner-ul">-->
+                                                                <div class="ReLi_content" th:id="${item.id}">
+                                                                    <div class="ReLi_img">
+                                                                        <div class="ReLi_ranking">Top [[${index.index+1}]]</div>
+                                                                        <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
+                                                                    </div>
+                                                                    <div class="ReLi_text">
+                                                                        <div class="ReLi_TrType">
+                                                                            매물번호 : 48556825
+                                                                        </div>
+                                                                        <div class="ReLi_extent">
+                                                                            층수 : [[${item.reFlr}]] 층 / 평수 : [[${item.reExtent}]]평
+                                                                            <!-- 층수 / 평수-->
+                                                                        </div>
+                                                                        <div th:if="${item.retrType.equals('전세')}" class="ReLi_cost">
+                                                                            가격: [[${item.reDeposit}]]민원
+                                                                            <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                                                            <!-- 보증금 / 월세/ 관리비-->
+                                                                        </div>
+                                                                        <div th:if="${item.retrType.equals('월세')}" class="ReLi_cost">
+                                                                            월세 가격: [[${item.reMon_price}]]만원
+                                                                            <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                                                            <!-- 보증금 / 월세/ 관리비-->
+                                                                        </div>
+                                                                        <div th:if="${item.retrType.equals('매매')}" class="ReLi_cost">
+                                                                            월세 가격: [[${item.reTrade}]]만원
+                                                                            <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                                                            <!-- 보증금 / 월세/ 관리비-->
+                                                                        </div>
+                                                                        <div class="ReLi_cost">
+                                                                            관리비: [[${item.reAdmn_fee}]]원
+                                                                            <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                                                            <!-- 보증금 / 월세/ 관리비-->
+                                                                        </div>
+                                                                        <div class="ReLi_address">
+                                                                            [[${item.roadAddress}]]
+                                                                            <!-- 시도 / 군구 / 동-->
+                                                                        </div>
+                                                                        <div class="ReLi_agent">
+                                                                            <div class="ReLi_agent_div">
+                                                                                <div class="ReLi_agent_company" th:text="${item.lreaNick}+공인중개사"></div>
+                                                                                <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
+                                                                            </div>
+                                                                        </div>
 
-                                    <h1>전세 1억</h1>
-                                    <p class="banner-text-p2">고층, 35.1m², 관리비 10만</p>
-                                    <p class="banner-text-p2">뱅뱅사거리 근처 주차되는 원룸 전세</p>
+                                                                        <div class="ReLi-move-dtl">
+                                                                            <a th:href="'/map/'+${item.id}"></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                </ul>
+                                                            </th:block>
+                                                        </div>
+                                                        <div class="ReLi_content_div_all_cover"></div>
+
+                                                    </div>
+                                                </ul>
+                    </div>
+                    <div class="section02-title" sec:authorize="isAnonymous()">
+
+                            <!-- 배너 01 -->
+                            <div class="ReLi_content_div">
+                                <div class="ReLi_content_div_all">
+                                    <th:block  th:each="item, index : ${RecommandList}">
+                                        <h3><a href="#" th:text="${#strings.listSplit(item.roadAddress,' ')[1]}"></a></h3>
+                                        <ul class="section02-banner-ul">
+                                        <div class="ReLi_content" th:id="${item.id}">
+                                            <div class="ReLi_img">
+<!--                                                <div class="ReLi_ranking">Top [[${index.index+1}]]</div>-->
+                                                <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
+                                            </div>
+                                            <div class="ReLi_text">
+
+                                                <div class="ReLi_TrType">
+                                                    매물번호 : 48556825
+                                                </div>
+                                                <div class="ReLi_extent" th:text="${item.reFlr}"></div>
+                                                <div class="ReLi_cost">
+                                                    보증금(전세가): [[${item.reDeposit}]] 만원 <br>
+                                                    월세 : [[${item.reMon_price}] 만원<br>
+                                                    매매 : [[${item.reTrade}]] 만원 <br>
+                                                </div>
+                                                <div class="ReLi_cost">
+                                                    <div class="ReLi_address">
+                                                        [[${item.roadAddress}]]
+                                                    </div>
+                                                </div>
+                                                <div class="ReLi_agent">
+                                                    <div class="ReLi_agent_div">
+                                                        <div class="ReLi_agent_company" th:text="${item.lreaNick}+공인중개사"></div>
+                                                        <div class="ReLi_agent_name" th:text="${item.lreaName}"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="ReLi-move-dtl">
+                                                    <a th:href="'/map/'+${item.id}"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </ul>
+                                    </th:block>
                                 </div>
-                            </a>
-                        </li>
-                        <!-- 배너 04 -->
-                        <li>
-                            <a href="#" class="banner-hover">
-                                <div class="section02-banner-hiden">
-                                    <div class="section02-banner-div">
-                                        <img src="img/room_img05.jpg" alt="매물사진4">
-                                        <div class="banner-hover-bg cover"></div>
-                                    </div>
-                                </div>
-                                <div class="banner-text">
-                                    <p th:if="${DtlItem.rehouseType.equals('원룸')}" class="banner-text-p">원룸</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('투룸')}" class="banner-text-p">투룸</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('오피스텔')}" class="banner-text-p">오피스텔</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('아파트')}" class="banner-text-p">아파트</p>
-                                    <p th:if="${DtlItem.rehouseType.equals('상가/사무실')}" class="banner-text-p">상가/사무실</p>
-                                    <h1>월세 1000/75</h1>
-                                    <p class="banner-text-p2">4층, 17.67m², 관리비 0.6만</p>
-                                    <p class="banner-text-p2">최저가월세 전입신고가능 신논현역2분 신축급깨끗</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                                <div class="ReLi_content_div_all_cover"></div>
+                            </div>
+                    </div>
+
+
+
+
+
+
+<!--                        -->
+<!--                        <div>-->
+<!--                        <li>-->
+<!--                            <a href="#" class="banner-hover">-->
+<!--                                <div class="section02-banner-hiden">-->
+<!--                                    <div class="section02-banner-div">-->
+<!--                                        <img src="img/room_img02.jpg" alt="매물사진1">-->
+<!--                                        <div class="banner-hover-bg cover"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="banner-text">-->
+<!--                                    <p class="banner-text-p">투룸</p>-->
+<!--                                    <h1>전세 3억6000</h1>-->
+<!--                                    <p class="banner-text-p2">4층, 40.15m², 관리비 8만</p>-->
+<!--                                    <p class="banner-text-p2">서초동 가성비 좋은 귀한 전세매물 신축빌라입니다 방3,화2</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; 배너 02 &ndash;&gt;-->
+<!--                        <li>-->
+<!--                            <a href="#" class="banner-hover">-->
+<!--                                <div class="section02-banner-hiden">-->
+<!--                                    <div class="section02-banner-div">-->
+<!--                                        <img src="img/room_img03.jpg" alt="매물사진2">-->
+<!--                                        <div class="banner-hover-bg cover"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="banner-text">-->
+<!--                                    <p class="banner-text-p">오피스텔&#183;서초코업레지던스</p>-->
+<!--                                    <h1>월세 95/95</h1>-->
+<!--                                    <p class="banner-text-p2">중층, 24.16m², 관리비 10만</p>-->
+<!--                                    <p class="banner-text-p2">교대역 ,강남역 가성비 좋은 복층 풀옵션</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        &lt;!&ndash; 배너 03 &ndash;&gt;-->
+<!--                        <li>-->
+<!--                            <a href="#" class="banner-hover">-->
+<!--                                <div class="section02-banner-hiden">-->
+<!--                                    <div class="section02-banner-div">-->
+<!--                                        <img src="img/room_img04.jpg" alt="매물사진3">-->
+<!--                                        <div class="banner-hover-bg cover"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="banner-text">-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('원룸')}" class="banner-text-p">원룸</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('투룸')}" class="banner-text-p">투룸</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('오피스텔')}" class="banner-text-p">오피스텔</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('아파트')}" class="banner-text-p">아파트</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('상가/사무실')}" class="banner-text-p">상가/사무실</p>-->
+
+<!--                                    <h1>전세 1억</h1>-->
+<!--                                    <p class="banner-text-p2">고층, 35.1m², 관리비 10만</p>-->
+<!--                                    <p class="banner-text-p2">뱅뱅사거리 근처 주차되는 원룸 전세</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        &lt;!&ndash; 배너 04 &ndash;&gt;-->
+<!--                        <li>-->
+<!--                            <a href="#" class="banner-hover">-->
+<!--                                <div class="section02-banner-hiden">-->
+<!--                                    <div class="section02-banner-div">-->
+<!--                                        <img src="img/room_img05.jpg" alt="매물사진4">-->
+<!--                                        <div class="banner-hover-bg cover"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="banner-text">-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('원룸')}" class="banner-text-p">원룸</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('투룸')}" class="banner-text-p">투룸</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('오피스텔')}" class="banner-text-p">오피스텔</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('아파트')}" class="banner-text-p">아파트</p>-->
+<!--                                    <p th:if="${DtlItem.rehouseType.equals('상가/사무실')}" class="banner-text-p">상가/사무실</p>-->
+<!--                                    <h1>월세 1000/75</h1>-->
+<!--                                    <p class="banner-text-p2">4층, 17.67m², 관리비 0.6만</p>-->
+<!--                                    <p class="banner-text-p2">최저가월세 전입신고가능 신논현역2분 신축급깨끗</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
                     <!-- 광고 배너 영역 -->
                 </section>
             </main>
