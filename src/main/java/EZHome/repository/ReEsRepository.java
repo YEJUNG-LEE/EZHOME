@@ -13,6 +13,6 @@ public interface ReEsRepository extends JpaRepository<ReEs, Long>,
         QuerydslPredicateExecutor<ReEs>, ReEsRepositoryCustom {
 
     List<ReEs>findByReNum(Integer reNum);
-
+    List<ReEs>findByMember_IdOrderByIdAsc(Long id);
 //    Page<ReEs> findAll(Pageable pageable);
 }
