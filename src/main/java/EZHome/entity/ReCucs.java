@@ -45,7 +45,7 @@ public class ReCucs extends BaseEntity{
          int correct = 0;   // 몇 개가 맞는지 확인하는 변수
 
          // 회원 기본 조건에 선택되어있으면 select에 1추가, 매물에도 있으면 correct에 1추가
-        if(reMncsDto.isNewhouse()){select += 1; if(this.isReNew()){correct += 1;}}
+         if(reMncsDto.isNewhouse()){select += 1; if(this.isReNew()){correct += 1;}}
          if(reMncsDto.isFull()){select += 1; if(this.isReFull()){correct += 1;}}
          if(reMncsDto.isDebt()){select += 1; if(this.isReDebt()){correct += 1;}}
          if(reMncsDto.isElevator()){select += 1; if(this.isReElvtr()){correct += 1;}}

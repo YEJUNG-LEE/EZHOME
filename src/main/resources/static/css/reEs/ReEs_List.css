@@ -104,10 +104,26 @@
     display:inline-block;
     position: relative;
 }
+.ReLi_contents{
+    width:262px;
+    height:250px;
+    border:1px solid #d1d1d1;
+    border-radius:5px;
+    box-sizing: border-box;
+    display:inline-block;
+    position: relative;
+}
 .ReLi_img{
     width:242px;
     margin:10px auto;
     height:160px;
+    background:url('../img/home.jpg') no-repeat;
+    background-size:cover;
+}
+.ReLi_imgs{
+    width:242px;
+    margin:10px auto;
+    height:25px;
     background:url('../img/home.jpg') no-repeat;
     background-size:cover;
 }
@@ -137,8 +153,26 @@ border-radius:5px;
     padding-right:10px;
     box-sizing:border-box;
 }
+.ReLi_texts{
+    padding-left:10px;
+    padding-right:10px;
+    box-sizing:border-box;
+}
 .ReLi_accuracy{
-    float:right;
+    float:left;
+    padding-top:5px;
+    margin-top:3px;
+    box-sizing: border-box;
+    width:90px;
+    height:25px;
+    font-size:12px;
+    background-color: #4876ef;
+    color: #f7f7f7;
+    border-radius:25px;
+    text-align: center;
+}
+.ReLi_accuracies{
+    display:block;
     padding-top:5px;
     margin-top:3px;
     box-sizing: border-box;
@@ -156,6 +190,13 @@ border-radius:5px;
     color:#081638;
     font-weight:600;
     display:inline-block;
+}
+.ReLi_TrTypes{
+    margin-bottom:5px;
+    font-size:18px;
+    color:#081638;
+    font-weight:600;
+    display:block;
 }
 .ReLi_text{
     padding-top:45px;
@@ -181,6 +222,14 @@ border-radius:5px;
 }
 .ReLi_address{
     margin-top:5px;
+    font-size:14px;
+    font-weight:600;
+    color:#959595;
+}
+.ReLi_addreseies{
+    padding-left:14px;
+    margin-top:5px;
+    padding-left:10px;
     font-size:14px;
     font-weight:600;
     color:#959595;

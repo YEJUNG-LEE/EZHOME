@@ -24,6 +24,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Controller
@@ -64,6 +65,7 @@ public class MapController {
                 String email = principal.getName();
                 Member member = memberRepository.findByEmail(email);
                 reMncsDto = conditionService.getMapCondi(member);
+                String address = reMncsDto.getAddress();
                 model.addAttribute("ReMncsDto", reMncsDto); // 회원의 조건 정보를 담고 있음
             }
             mapMainDtoList = conditionService.compare(reMncsDto, mapMainDtoList);
@@ -145,7 +147,7 @@ public class MapController {
 
     // 저장된 회원의 조건을 저장하고 수정하고 저장하는 메소드를 호출하는 controller
     @PostMapping(value = "/map/save")
-    public String savedCondi(ReMncsDto reMncsDto, Model model, Principal principal ){
+    public String savedCondi(ReMncsDto reMncsDto, Model model, Principal principal){
 
         // 로그인한 인증된 사용자에 대한 정보를 구할 수 있다.
         if(principal == null){
@@ -153,7 +155,17 @@ public class MapController {
         }
         String email = principal.getName();
         Member member = memberRepository.findByEmail(email);
-
+//        String pattern = "구$";
+//        String address = reMncsDto.getAddress();
+//        // 구로 끝났을 때만 넘어가도록
+//        if(address != null){
+//            if(!Pattern.matches(pattern, address)){
+//                System.out.println("pattern 안쪽으로 들어왔습니다.");
+//                model.addAttribute("ReMncsDto", reMncsDto);
+//                return "redirect:/map";
+//            }
+//        }
+        
         try {
             conditionService.updateFilter(reMncsDto, member);
             System.out.println("db에 변경 조건이 저장 되었습니다. 얏호 집에 가세요");
