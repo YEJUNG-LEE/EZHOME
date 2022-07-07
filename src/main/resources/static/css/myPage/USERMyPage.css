@@ -1,4 +1,11 @@
             *{margin:0; padding:0;}
+            a:visited, a:link, a:hover, a:active{
+                text-decoration: none;
+                color:#878787;
+            }
+            a:hover{
+                color:#52b0fb;
+            }
 
             header{width:100%;
                 height:90px;
@@ -27,7 +34,7 @@
             .USMy-div-pro{width:144px;
                         height:215px;
                         border-radius:6px;
-                        border:1px solid #94BBCC;
+                        border:1px solid #52b0fb;
                         box-sizing:border-box;}
 
             .USMy-div-pro01{width:144px;
@@ -37,7 +44,7 @@
             .USMy-div-pro-pic{width:62px;
                             height:62px;
                             border-radius:6px;
-                            border:1px solid #94BBCC;
+                            border:1px solid #d1d1d1;
                             box-sizing:border-box;
                             margin-left:41px;
                             margin-top:40px;
@@ -59,7 +66,7 @@
                             height:49px;
                             border-bottom-left-radius:5px;
                             border-bottom-right-radius:5px;
-                            background-color:#4876ef;}
+                            background-color:#52b0fb;}
 
             /* 왼쪽 사이드바 메뉴 영역 css */
             .USMy-div-all-pag{width:144px;
@@ -68,22 +75,21 @@
                             box-sizing:border-box;}
 
             .USMy-div-pag{width:144px;
-                        height:510px;
-                        border:0px solid black;
+                        height:348px;
+                        border:1px solid #d1d1d1;
                         box-sizing:border-box;
                         margin-top:16px;
                         padding-top:10px;
-                        border-radius:6px;
-                        background-color:#4876ef;}
+                        border-radius:6px;}
 
             .USMy-pag-tit{font-size:14px;
                         font-weight:600;
-                        color:#FFFFFF;
+                        color:#6c6c6c;
                         margin-top:20px;
                         margin-left:10px;}
 
             .USMy-pag-con{font-size:12px;
-                        color:#FFFFFF;
+                        color:#878787;
                         margin-left:17px;
                         margin-top:10px;}
 
@@ -100,10 +106,10 @@
                         box-sizing:border-box;}
 
             .USMy-tit-font{font-size:30px;
-                font-weight:bold;
-                margin-left:20px;
+                font-weight:600;
+                margin-left:15px;
                 margin-top:50px;
-                padding-bottom:20px;}
+                padding-bottom:18px;}
 
             /* 내정보 text 영역 css */    
             .USMy-div-con-inf{width:1024px;
@@ -113,10 +119,9 @@
             .USMy-div-inf-top{width:1024px;
                             height:78px;
                             border:0px solid black;
-                            border-top-right-radius:6px;
-                            border-top-left-radius:6px;
+                            border-radius:6px;
                             box-sizing:border-box;
-                            background-color:#4876ef;}
+                            background-color:#52b0fb;}
 
             .USMy-inf-tit{font-size:20px;
                         font-weight:700;
