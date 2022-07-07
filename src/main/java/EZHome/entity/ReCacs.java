@@ -1,5 +1,6 @@
 package EZHome.entity;
 
+import EZHome.dto.ReFormDto;
 import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
@@ -61,6 +62,42 @@ public class ReCacs extends BaseEntity{
         if(reMncsDto.isSubway()){select += 1; if(this.isReSubway()){correct += 1;}}
         if(reMncsDto.isPark()){select += 1; if(this.isRePark()){correct += 1;}}
         if(reMncsDto.isHodi()){select += 1; if(this.isReRsdnt_Area()){correct += 1;}}
+
+        if(match.containsKey("select")){
+            int oldSelect = match.get("select");
+            match.put("select", oldSelect + select);
+        }else{
+            match.put("select", select);
+        }
+        if(match.containsKey("select")){
+            int oldCorrect = match.get("correct");
+            match.put("correct", oldCorrect + correct);
+        }else{
+            match.put("correct", correct);
+        }
+
+        return match;
+    }
+
+    public Map<String, Integer> compareOne(ReFormDto reFormDto, Map<String, Integer> match) {
+        int select = 0;    // 몇 개를 선택했는지 확인하는 변수
+        int correct = 0;   // 몇 개가 맞는지 확인하는 변수
+        if(reFormDto.isRePublic()){select += 1; if(this.isRePublic()){correct += 1;}}
+        if(reFormDto.isReMedic()){select += 1; if(this.isReMedic()){correct += 1;}}
+        if(reFormDto.isReCnvn()){select += 1; if(this.isReCnvn()){correct += 1;}}
+        if(reFormDto.isReSchol()){select += 1; if(this.isReSchol()){correct += 1;}}
+        if(reFormDto.isReTeen()){select += 1; if(this.isReTeen()){correct += 1;}}
+        if(reFormDto.isReTwen()){select += 1; if(this.isReTwen()){correct += 1;}}
+        if(reFormDto.isReThirty()){select += 1; if(this.isReThirty()){correct += 1;}}
+        if(reFormDto.isReFourty()){select += 1; if(this.isReFourty()){correct += 1;}}
+        if(reFormDto.isReFifty()){select += 1; if(this.isReFifty()){correct += 1;}}
+        if(reFormDto.isReSixty()){select += 1; if(this.isReSixty()){correct += 1;}}
+        if(reFormDto.isReMainroad()){select += 1; if(this.isReMainroad()){correct += 1;}}
+        if(reFormDto.isReRocket()){select += 1; if(this.isReRocket()){correct += 1;}}
+        if(reFormDto.isReFlat()){select += 1; if(this.isReFlat()){correct += 1;}}
+        if(reFormDto.isReSubway()){select += 1; if(this.isReSubway()){correct += 1;}}
+        if(reFormDto.isRePark()){select += 1; if(this.isRePark()){correct += 1;}}
+        if(reFormDto.isReRsdnt_Area()){select += 1; if(this.isReRsdnt_Area()){correct += 1;}}
 
         if(match.containsKey("select")){
             int oldSelect = match.get("select");

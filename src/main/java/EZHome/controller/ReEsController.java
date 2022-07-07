@@ -65,6 +65,25 @@ public class ReEsController {
             return "reEs/html/ReItemForm" ;
         }
 
+        // 월세일때
+        if(reFormDto.getRetrType().equals("월세")){
+            if(reFormDto.getReMon_price() == null || reFormDto.getReAdmn_fee() == null || reFormDto.getReDeposit() == null){
+                model.addAttribute("errorMessage", "가격 정보를 입력해주세요");
+                return "reEs/html/ReItemForm" ;
+            }
+        }else if(reFormDto.getRetrType().equals("전세")){
+            if(reFormDto.getReAdmn_fee() == null || reFormDto.getReDeposit() == null){
+                model.addAttribute("errorMessage", "가격 정보를 입력해주세요");
+                return "reEs/html/ReItemForm";
+            }
+        }else if(reFormDto.getRetrType().equals("매매")){
+            if(reFormDto.getReAdmn_fee() == null || reFormDto.getReTrade() == null){
+                model.addAttribute("errorMessage", "가격 정보를 입력해주세요");
+                return "reEs/html/ReItemForm";
+            }
+        }
+
+
         // principal : (로그인한) 인증된 사용자에 대한 정보를 구할 수 있다.
         String email = principal.getName();
 

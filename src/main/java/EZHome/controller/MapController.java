@@ -113,8 +113,15 @@ public class MapController {
 
     // 메인 화면에서 상품이미지를 클릭하면 상품 상세페이지로 이동합니다.
     @GetMapping(value="/map/{id}")
-    public String gotoDtl(@PathVariable("id") Long DtlId, Model model ){
-        ReFormDto reFormDto = reService.getItemUpdate(DtlId);
+    public String gotoDtl(@PathVariable("id") Long DtlId, Model model, Principal principal){
+        ReFormDto reFormDto = null;
+        if(principal == null){
+            reFormDto = reService.getItemUpdate(DtlId);
+        }else{
+            String email = principal.getName();
+            Member member = memberRepository.findByEmail(email);
+            reFormDto = reService.getItemUpdate(DtlId, member);
+        }
         Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
         model.addAttribute("member", member);

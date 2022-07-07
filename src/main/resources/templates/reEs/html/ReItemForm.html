@@ -10,20 +10,10 @@
 </head>
     
 <script th:inline="javascript">
-
-                       
-
-    // $(document).ready(function(){
-
-    //  var a = $('input[name=reMon_price]').val();
-
-    //    if(a == null){
-    //     alert('월세는 필수 입력입니다');
-    //     }
-
-
-     
-    // });
+    var errorMessage = [[${errorMessage}]];
+    $(document).ready(function(){
+        alert(errorMessage);
+    });
 
 </script>
 
@@ -57,30 +47,26 @@
                 </tr>
 
 <script>
-function changeSelect(){
+    function changeSelect(){
     var SelectId = document.getElementById("room03");
     var selectedValue = SelectId.options[SelectId.selectedIndex].value;
 
-    alert(selectedValue);
-
     if(selectedValue=='전세'){
-            $('#reDeposit').show(); //전세 show
-            $('#reMon_price').hide(); //월세 hide
-            $('#reTrade').hide(); //매매 hide
+            $('#reDeposit').css('display', 'block'); //전세 show
+            $('#reMon_price').css('display', 'none'); //월세 hide
+            $('#reTrade').css('display', 'none'); //매매 hide
         }else if(selectedValue=='월세'){
-             $('#reMon_price').show(); //월세 show
-             $('#reTrade').hide(); // 매매 hide 
-             $('#reDeposit').show(); //전세 show 
+            $('#reMon_price').css('display', 'block'); //월세 show
+            $('input[name="reMon_price"]').css('display', 'block');
+             $('#reTrade').css('display', 'none'); // 매매 hide 
+             $('#reDeposit').css('display', 'block'); //전세 show 
         }else{ //매매 
-            $('#reTrade').show(); // 매매 show
-            $('#reDeposit').hide(); //전세 hide 
-            $('#reMon_price').hide(); //월세 hide
+            $('#reTrade').css('display', 'block'); // 매매 show
+            $('input[name="reTrade"]').css('display', 'block');
+            $('#reDeposit').css('display', 'none'); //전세 hide 
+            $('#reMon_price').css('display', 'none'); //월세 hide
         }
-
-}
-
-    
-
+    }   
 
 </script>
 

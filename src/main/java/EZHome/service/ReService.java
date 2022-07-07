@@ -15,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -128,8 +130,6 @@ public class ReService {
 
     public ReFormDto getItemUpdate(Long id){
 
-
-
         // 3. dto를 저장시킬 리스트 컬렉션 생성 ( dto -> Jpa 연동)
         List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
 
@@ -180,6 +180,67 @@ public class ReService {
         System.out.println("이미지 리턴");
         return reFormDto;
     }
+
+    public ReFormDto getItemUpdate(Long id, Member member){
+
+        // 3. dto를 저장시킬 리스트 컬렉션 생성 ( dto -> Jpa 연동)
+        List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
+
+        List<ReImg> itemImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
+
+        for (ReImg reImg: itemImgList) {
+            System.out.println("itemImgList : " + reImg.getId());
+        }
+
+        List<String> reOriNmList = new ArrayList<String>();
+
+//         수정페이지는 기존 등록정보가 화면에 띄어져야 하므로
+//         반복문을 사용하여 entity를 dto로 변경시켜 컬렉션에 답습니다.
+        for(ReImg reImg: itemImgList){
+            // 타입이 다름으로 of()메소드를 이용해 itemImg(entity)-> dto 타입으로 변경
+            System.out.println("============================================");
+            System.out.println("ReImgDto.of 전");
+            ReImgDto reImgDto = ReImgDto.of(reImg);
+            System.out.println("ReImgDto.of 후");
+            System.out.println("============================================");
+
+            // 수정이므로 비어있는 화면이미지 lIST 컬렉션에, 기존에 담겨 있던 등록이미지를 넣어 표현합니다.
+            reImgDtoList.add(reImgDto);
+            reOriNmList.add(reImgDto.getReOriNm());
+        }
+
+        //4. 상품 entity 정보를 구합니다.
+        ReEs reEs = reEsRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        ReCucs recucs = reCucsRepository.findByReEs_Id(id);
+        ReCacs recacs = reCacsRepository.findByReEs_Id(id);
+
+        System.out.println("recucs : " + recucs.toString());
+        System.out.println("recacs : " + recacs.toString());
+
+        //5. of() 메소드를 사용해서 id로 조회한 등록된 item entity 정보들을 dto로 변경 ->
+        // 이유 : 화면에 넣기 위해서
+        ReFormDto reFormDto = ReFormDto.ofReEs(reEs);
+        reFormDto = ReFormDto.ofReCucs(reFormDto, recucs);
+        reFormDto = ReFormDto.ofReCacs(reFormDto, recacs);
+        Map<String, Integer> match = new HashMap<String, Integer>();
+        match = recucs.compareOne(reFormDto, match);
+        match = recacs.compareOne(reFormDto, match);
+        int select = match.get("select");
+        int correct = match.get("correct");
+        int percent = (int)Math.round(100.0*correct/select);
+        reFormDto.setPercent(percent);
+        // reFormDto에 of로 매핑을 시켰으니까, reFromDto의 toString()를 통해서 나오는지 확인해주고
+        System.out.println("여기에는 출력됩니까?");
+        System.out.println(reFormDto.toString());
+        // html이랑 연결도 해보고
+
+        reFormDto.setReImgDtoList(reImgDtoList);
+        reFormDto.setReOriNmList(reOriNmList);
+        System.out.println("이미지 리턴");
+        return reFormDto;
+    }
+
 
     public List<MapMainDto> getItemAll(Member member) {
         List<MapMainDto> mapMainDtoList = new ArrayList<MapMainDto>();

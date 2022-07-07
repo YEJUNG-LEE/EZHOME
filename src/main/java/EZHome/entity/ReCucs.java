@@ -1,5 +1,6 @@
  package EZHome.entity;
 
+import EZHome.dto.ReFormDto;
 import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
@@ -62,6 +63,33 @@ public class ReCucs extends BaseEntity{
          if(reMncsDto.isRiver()){select += 1; if(this.isReRiver()){correct += 1;}}
          if(reMncsDto.isOcean()){select += 1; if(this.isReOcean()){correct += 1;}}
          if(reMncsDto.isCity()){select += 1; if(this.isReCity()){correct += 1;}}
+
+
+
+         match.put("select", select);
+         match.put("correct", correct);
+
+         return match;
+     }
+     public Map<String, Integer> compareOne(ReFormDto reFormDto, Map<String, Integer> match) {
+         int select = 0;    // 몇 개를 선택했는지 확인하는 변수
+         int correct = 0;   // 몇 개가 맞는지 확인하는 변수
+
+         // 회원 기본 조건에 선택되어있으면 select에 1추가, 매물에도 있으면 correct에 1추가
+         if(reFormDto.isReNew()){select += 1; if(this.isReNew()){correct += 1;}}
+         if(reFormDto.isReFull()){select += 1; if(this.isReFull()){correct += 1;}}
+         if(reFormDto.isReDebt()){select += 1; if(this.isReDebt()){correct += 1;}}
+         if(reFormDto.isReElvtr()){select += 1; if(this.isReElvtr()){correct += 1;}}
+         if(reFormDto.isRePet()){select += 1; if(this.isRePet()){correct += 1;}}
+         if(reFormDto.isReScrty()){select += 1; if(this.isReScrty()){correct += 1;}}
+         if(reFormDto.isReParking()){select += 1; if(this.isReParking()){correct += 1;}}
+         if(reFormDto.isReSouth()){select += 1; if(this.isReSouth()){correct += 1;}}
+         if(reFormDto.isReBug()){select += 1; if(this.isReBug()){correct += 1;}}
+         if(reFormDto.isReWoman()){select += 1; if(this.isReWoman()){correct += 1;}}
+         if(reFormDto.isReForest()){select += 1; if(this.isReForest()){correct += 1;}}
+         if(reFormDto.isReRiver()){select += 1; if(this.isReRiver()){correct += 1;}}
+         if(reFormDto.isReOcean()){select += 1; if(this.isReOcean()){correct += 1;}}
+         if(reFormDto.isReCity()){select += 1; if(this.isReCity()){correct += 1;}}
 
 
 
