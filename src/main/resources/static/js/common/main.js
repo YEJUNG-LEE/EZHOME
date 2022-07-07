@@ -41,7 +41,17 @@ var $window = $(window),
     // 검색 조건 탭( 임시 수정해야함 )
     $(".condition01").click(function(){ 
         $("#condition01-select").addClass("on"); 
-    }); 
+    });
+
+    // 검색 조건 탭( 임시 수정해야함 )
+    /*$(".condition02").click(function(){
+        $("#condition02-select").addClass("on");
+    });*/
+
+    $(".condition02").click(function(){
+        $("#condition02-select").slideToggle();
+    })
+
 
     // 챗봇 
     $(".cb-click-img").click(function(){
@@ -50,6 +60,8 @@ var $window = $(window),
     $("#cb-btn-can").click(function(){
         $(".cb-div-wrap").slideToggle();
     })
-    
-    
+
+
+
+
 });
