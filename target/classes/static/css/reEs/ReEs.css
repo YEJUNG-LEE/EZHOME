@@ -219,6 +219,7 @@
 }
 .ReEs-navi-normal-floor-select{
     position:absolute;
+    display:none;
     top:155px;
     left:772px;
     width:285px;
@@ -281,7 +282,6 @@
     font-size:14px;
     font-weight:600;
 }
-
 /* 평수 셀렉트 시작 */
 .ReEs-navi-normal-extent-select{
     position:absolute;
@@ -885,7 +885,7 @@
     font-weight:600;
 }
 
-/* monthSlider관련 css */
+/* depositSlider관련 css */
 .ReEs-slider-deposit{
     width:310px;
     height:140px;
@@ -975,6 +975,110 @@
 }
 
 .ReEs-navi-normal-deposit-select-slider-txt{
+    box-sizing:border-box;
+    text-align:center;
+    margin: 0 auto;
+    padding-top:11px;
+    width:300px;
+    height:40px;
+    border-radius:6px;
+    font-size:14px;
+    border:1px solid  #52b0fb;
+    background-color: #52b0fb;
+    color:#FFFFFF;
+    font-weight:600;
+}
+/* 매매가 관련 */
+.ReEs-slider-trade{
+    display:none;
+    width:310px;
+    height:140px;
+    margin:auto;
+    box-sizing: border-box;
+}
+.ReEs-navi-normal-trade-select-slider{
+    width:300px;
+    height:30px;
+    margin:auto;
+}
+.ReEs-navi-normal-trade-select-namediv{
+    height:40px;
+    padding-top:20px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size:18px;
+    color:#000;
+    font-weight:600;
+}
+.ReEs-navi-normal-trade-select-slider > .tradeSlider {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    margin: 15px 15px;
+}
+
+.ReEs-navi-normal-trade-select-slider > .tradeSlider > .track {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #d1d1d1;
+}
+
+.ReEs-navi-normal-trade-select-slider > .tradeSlider > .range {
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    right: 25%;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: #52b0fb;
+
+}
+.ReEs-navi-normal-trade-select-slider> .tradeSlider > .thumb {
+    position: absolute;
+    top:5px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background-color:  #52b0fb;
+    border-radius: 50%;
+}
+.ReEs-navi-normal-trade-select-slider>.tradeSlider >.thumb.left {
+    left: 25%;
+    transform: translate(-15px, -10px);
+}
+.ReEs-navi-normal-trade-select-slider>.tradeSlider > .thumb.right {
+    right: 25%;
+    transform: translate(15px, -10px);
+}
+
+.ReEs-navi-normal-trade-select-slider>input[type="range"] {
+    position: absolute;
+    pointer-events: none;
+    -webkit-appearance: none;
+    z-index: 2;
+    height: 10px;
+    width: 299px;
+    opacity: 0;
+}
+
+.ReEs-navi-normal-trade-select-slider>input[type="range"]::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    border: 0 none;
+    background-color: red;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.ReEs-navi-normal-trade-select-slider-txt{
     box-sizing:border-box;
     text-align:center;
     margin: 0 auto;
