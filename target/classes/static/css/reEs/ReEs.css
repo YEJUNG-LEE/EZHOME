@@ -690,12 +690,12 @@
 }
 .ReEs-navi-normal-month-select-namediv{
     height:40px;
-    padding-top:9px;
+    padding-top:20px;
     text-align: center;
     box-sizing: border-box;
-    font-size:20px;
-    color:#3B3C48;
-    font-weight:800;
+    font-size:18px;
+    color:#000;
+    font-weight:600;
 }
 .ReEs-navi-normal-month-select-slider > .monthSlider {
     position: relative;
