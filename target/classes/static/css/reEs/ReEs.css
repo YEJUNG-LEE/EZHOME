@@ -110,17 +110,17 @@
 .ReEs-navi{
     width:100%;
     height:66px;
-    background-color:#4876EF;
+    background-color:#52b0fb;
 }
 .ReEs-navi>div{
     box-sizing:border-box;
 }
 .ReEs-navi-normal{
     height:66px;
-    width:100%;
-    float:left;
+    width:1000px;
+    margin-left:460px;
     padding:12px 0;
-    display:flex;
+    float:left;
     justify-content:center;
 }
 .ReEs-navi-font{
@@ -128,15 +128,18 @@
     text-align:center;
     font-size:16px;
     padding-top:7px;
+    color:#FFFFFF;
+    font-weight:600;
 }
 
 /* 지도 네비게이션 기본 영역*/
 .ReEs-navi-normal>div{
     display:inline-block;
-    height:42px;
-    margin-left:30px;
-    background-color:white;
-    border:1px solid black;
+    height:34px;
+    margin-left:43px;
+    background-color:rgb(255 255 255 / 28%);
+    border:1px solid rgb(255 255 255 / 39%);
+    border-radius:25px;
 }
 
 .ReEs-navi-normal-search{
@@ -163,25 +166,22 @@
 }
 .ReEs-navi-sl-font{
     box-sizing:border-box;
-    font-size:16px;
-    text-align:center;
+    font-size:15px;
     background-color:#f8f8f8;
 }
 .ReEs-navi-sl-font:hover{
     box-sizing:border-box;
-    background-color:#4876ef;
-    color:#f7f7f7;
-    font-family:800;
-    font-size:16px;
-    text-align:center;
+    background-color:#52b0fb;
+    color:#FFFFFF;
+    font-family:600;
+    font-size:15px;
 }
 .ReEs-navi-normal-TrType-select{
     position:absolute;
     top:155px;
-    left:463px;
+    left:504px;
     width:125px;
     height:126px;
-    background:white;
     display:none;
     z-index:999;
 }
@@ -189,59 +189,63 @@
     width:125px;
     height:42px;
     text-align:center;
-    padding-top:7px;
+    padding-top:12px;
 }
 .ReEs-navi-normal-TrType-select>div{
-    border:1px solid black;
+    border-bottom: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-radius: 5px;
 }
 
 .ReEs-navi-normal-houseType-select{
     position:absolute;
     top:155px;
-    left:618px;
+    left:674px;
     width:125px;
     height:168px;
-    background:white;
     display:none;
     z-index:999;
 }
 .ReEs-navi-normal-houseType-select>div{
     width:125px;
     height:42px;
-    border:1px solid black;
+    border-bottom: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-radius: 5px;
     text-align:center;
-    padding-top:7px;
+    padding-top:12px;
 }
 .ReEs-navi-normal-floor-select{
     position:absolute;
     top:155px;
-    left:598px;
-    width:300px;
+    left:772px;
+    width:285px;
     height:230px;
-    border:1px solid black;
-    background-color:white;
+    border:1px solid #d1d1d1;
+    background-color:#f8f8f8;
     padding:0;
-    display:none;
+    border-radius:5px;
     z-index:999;
 }
 
 .ReEs-navi-normal-floor-select-div1{
     box-sizing: border-box;
     margin:0;
-    width:199px;
+    width:194px;
     height:208px;
     float:left;
 }
 .ReEs-navi-normal-floor-select-namediv{
     width:197px;
     height:38px;
-    padding-left:20px;
-    padding-top:9px;
+    padding-left:80px;
+    padding-top:24px;
     box-sizing: border-box;
-    font-size:20px;
-    color:#3B3C48;
-    font-weight:800;
-
+    font-size:18px;
+    color:#000;
+    font-weight:600;
 }
 .ReEs-navi-normal-floor-select-img{
     margin:0 auto;
@@ -250,15 +254,16 @@
     text-align:center;
 }
 .ReEs-navi-normal-floor-select-img>i{
-    font-size:100px;
-    color:#3A6BA5;
+    font-size:82px;
+    margin-top:20px;
+    color:#52b0fb;
 }
 
 .ReEs-navi-normal-floor-select-div2{
     box-sizing: border-box;
     margin:0;
     padding:0;
-    width:99px;
+    width:80px;
     height:208px;
     float:left;
 }
@@ -266,36 +271,40 @@
     box-sizing:border-box;
     text-align:center;
     margin-top:20px;
-    padding-top:8px;
+    padding-top:10px;
     width:80px;
-    height:40px;
+    height:37px;
     border-radius:6px;
-    border:1px solid #94BBCC;
-    color:#3A6BA5;
-    font-weight:800;
+    border:1px solid #d1d1d1;
+    color:#000;
+    font-size:14px;
+    font-weight:600;
 }
 
 /* 평수 셀렉트 시작 */
 .ReEs-navi-normal-extent-select{
     position:absolute;
     top:155px;
-    left:753px;
+    left:928px;
     width:300px;
     height:150px;
-    border:1px solid black;
-    background-color:white;
+    border-bottom: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-radius:5px;
+    background-color:#f8f8f8;
     padding:0;
     display:none;
     z-index:999;
 }
 .ReEs-navi-normal-extent-select-namediv{
     height:40px;
-    padding-top:9px;
+    padding-top:20px;
     text-align: center;
     box-sizing: border-box;
-    font-size:20px;
-    color:#3B3C48;
-    font-weight:800;
+    font-size:18px;
+    color:#000;
+    font-weight:600;
 }
 
 
@@ -303,11 +312,14 @@
 .ReEs-navi-normal-cost-select{
     position:absolute;
     top:155px;
-    left:983px;
-    width:325px;
+    left:1133px;
+    width:319px;
     height:420px;
-    border:1px solid black;
-    background-color:white;
+    border-bottom: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background-color: #f8f8f8;
     display:none;
     z-index:999;
 }
@@ -503,7 +515,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #b8dbeb;
+    background-color: #d1d1d1;
 }
 
 .ReEs-navi-normal-floor-select-slider > .floorSlider > .range {
@@ -514,7 +526,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
 }
 .ReEs-navi-normal-floor-select-slider> .floorSlider > .thumb {
     position: absolute;
@@ -522,7 +534,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReEs-navi-normal-floor-select-slider>.floorSlider >.thumb.left {
@@ -561,13 +573,16 @@
 .ReEs-navi-normal-floor-select-slider-txt{
     box-sizing:border-box;
     text-align:center;
-    margin: 0 auto;
+    margin: 7px auto;
     width:80px;
-    height:40px;
+    height:38px;
     border-radius:6px;
-    border:1px solid #94BBCC;
-    color:#3A6BA5;
-    font-weight:800;
+    border:1px solid #52b0fb;
+    background-color: #52b0fb;
+    color:#FFFFFF;
+    font-weight:600;
+    font-size:13px;
+    padding-top:11px;
 }
 
 /* extent slider */
@@ -591,7 +606,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #b8dbeb;
+    background-color: #d1d1d1;
 }
 
 .ReEs-navi-normal-extent-select-slider > .extentSlider > .range {
@@ -602,7 +617,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
 }
 .ReEs-navi-normal-extent-select-slider> .extentSlider > .thumb {
     position: absolute;
@@ -610,7 +625,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReEs-navi-normal-extent-select-slider>.extentSlider >.thumb.left {
@@ -647,38 +662,40 @@
     box-sizing:border-box;
     text-align:center;
     margin: 0 auto;
-    padding-top:7px;
+    padding-top:11px;
     width:100px;
-    height:40px;
-    border-radius:6px;
-    border:1px solid #94BBCC;
-    color:#3A6BA5;
-    font-weight:800;
+    height:38px;
+    border-radius:5px;
+    font-size:13px;
+    border:1px solid #52b0fb;
+    background-color:#52b0fb;
+    color:#FFFFFF;
+    font-weight:600;
 }
 /* */
 /* monthSlider관련 css */
 .ReEs-slider-month{
-    width:325px;
+    width:310px;
     height:140px;
-    border-bottom:1px solid black;
+    margin: auto;
+    border-bottom:1px solid #d1d1d1;
     box-sizing: border-box;
-    padding-left:10px;
-    padding-right:20px;
 }
 
 
 .ReEs-navi-normal-month-select-slider{
     width:300px;
     height:30px;
+    margin:auto;
 }
 .ReEs-navi-normal-month-select-namediv{
     height:40px;
-    padding-top:9px;
+    padding-top:20px;
     text-align: center;
     box-sizing: border-box;
-    font-size:20px;
-    color:#3B3C48;
-    font-weight:800;
+    font-size:18px;
+    color:#000;
+    font-weight:600;
 }
 .ReEs-navi-normal-month-select-slider > .monthSlider {
     position: relative;
@@ -695,7 +712,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #b8dbeb;
+    background-color: #d1d1d1;
 }
 
 .ReEs-navi-normal-month-select-slider > .monthSlider > .range {
@@ -706,7 +723,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
 }
 .ReEs-navi-normal-month-select-slider> .monthSlider > .thumb {
     position: absolute;
@@ -714,7 +731,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReEs-navi-normal-month-select-slider>.monthSlider >.thumb.left {
@@ -751,38 +768,40 @@
     box-sizing:border-box;
     text-align:center;
     margin: 0 auto;
-    padding-top:7px;
+    padding-top:11px;
     width:300px;
     height:40px;
     border-radius:6px;
-    border:1px solid #94BBCC;
-    color:#3A6BA5;
-    font-weight:800;
+    font-size:14px;
+    border:1px solid #52b0fb;
+    background-color:#52b0fb;
+    color:#FFFFFF;
+    font-weight:600;
 }
 
 /* */
 /* manageSlider관련 css */
 .ReEs-slider-manage{
-    width:325px;
+    width:310px;
     height:140px;
-    border-bottom:1px solid black;
+    margin:auto;
+    border-bottom:1px solid #d1d1d1;
     box-sizing: border-box;
-    padding-left:10px;
-    padding-right:20px;
 }
 
 .ReEs-navi-normal-manage-select-slider{
     width:300px;
     height:30px;
+    margin:auto;
 }
 .ReEs-navi-normal-manage-select-namediv{
     height:40px;
-    padding-top:9px;
+    padding-top:20px;
     text-align: center;
     box-sizing: border-box;
-    font-size:20px;
-    color:#3B3C48;
-    font-weight:800;
+    font-size:18px;
+    color:#000;
+    font-weight:600;
 }
 .ReEs-navi-normal-manage-select-slider > .manageSlider {
     position: relative;
@@ -799,7 +818,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #b8dbeb;
+    background-color: #d1d1d1;
 }
 
 .ReEs-navi-normal-manage-select-slider > .manageSlider > .range {
@@ -810,7 +829,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
 }
 .ReEs-navi-normal-manage-select-slider> .manageSlider > .thumb {
     position: absolute;
@@ -818,7 +837,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
     border-radius: 50%;
 }
 .ReEs-navi-normal-manage-select-slider>.manageSlider >.thumb.left {
@@ -855,35 +874,36 @@
     box-sizing:border-box;
     text-align:center;
     margin: 0 auto;
-    padding-top:7px;
+    padding-top:11px;
     width:300px;
     height:40px;
     border-radius:6px;
-    border:1px solid #94BBCC;
-    color:#3A6BA5;
-    font-weight:800;
+    border:1px solid #52b0fb;
+    background-color: #52b0fb;
+    color:#FFFFFF;
+    font-weight:600;
 }
 
 /* monthSlider관련 css */
 .ReEs-slider-deposit{
-    width:325px;
+    width:310px;
     height:140px;
+    margin:auto;
     box-sizing: border-box;
-    padding-left:10px;
-    padding-right:20px;
 }
 .ReEs-navi-normal-deposit-select-slider{
     width:300px;
     height:30px;
+    margin:auto;
 }
 .ReEs-navi-normal-deposit-select-namediv{
     height:40px;
-    padding-top:9px;
+    padding-top:20px;
     text-align: center;
     box-sizing: border-box;
-    font-size:20px;
-    color:#3B3C48;
-    font-weight:800;
+    font-size:18px;
+    color:#000;
+    font-weight:600;
 }
 .ReEs-navi-normal-deposit-select-slider > .depositSlider {
     position: relative;
@@ -900,7 +920,7 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #b8dbeb;
+    background-color: #d1d1d1;
 }
 
 .ReEs-navi-normal-deposit-select-slider > .depositSlider > .range {
@@ -911,7 +931,8 @@
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background-color: #387ccf;
+    background-color: #52b0fb;
+
 }
 .ReEs-navi-normal-deposit-select-slider> .depositSlider > .thumb {
     position: absolute;
@@ -919,7 +940,7 @@
     z-index: 3;
     width: 20px;
     height: 20px;
-    background-color: #387ccf;
+    background-color:  #52b0fb;
     border-radius: 50%;
 }
 .ReEs-navi-normal-deposit-select-slider>.depositSlider >.thumb.left {
@@ -956,13 +977,15 @@
     box-sizing:border-box;
     text-align:center;
     margin: 0 auto;
-    padding-top:7px;
+    padding-top:11px;
     width:300px;
     height:40px;
     border-radius:6px;
-    border:1px solid #94BBCC;
-    color:#3A6BA5;
-    font-weight:800;
+    font-size:14px;
+    border:1px solid  #52b0fb;
+    background-color: #52b0fb;
+    color:#FFFFFF;
+    font-weight:600;
 }
 
 /* 슬라이더 끝 */

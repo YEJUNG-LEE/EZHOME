@@ -33,6 +33,8 @@ public class MapFilter {
     private Integer maxMan ; // 최대 관리비
     private Integer minDep ; // 최소 보증금
     private Integer maxDep ; // 최대 보증금
+    private Integer minTrd ; // 최소 매매가
+    private Integer maxTrd ; // 최대 매매가
 
     // 회원 맞춤 조건
     private boolean newhouse; // 신축

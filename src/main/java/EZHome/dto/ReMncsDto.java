@@ -31,6 +31,8 @@ public class ReMncsDto { // 기본 Dto
     private Integer maxMan ; // 최대 관리비
     private Integer minDep ; // 최소 보증금
     private Integer maxDep ; // 최대 보증금
+    private Integer minTrd ; // 최소 매매가
+    private Integer maxTrd ; // 최대 매매가
 
     // 회원 맞춤 조건
     private boolean newhouse; // 신축
@@ -41,7 +43,7 @@ public class ReMncsDto { // 기본 Dto
     private boolean security ;// 보안기능
     private boolean parking ; // 주차장
     private boolean south ; // 남향
-    private boolean bug ; // 벌레 퇴치 업체 유ㅜ
+    private boolean bug ; // 벌레 퇴치 업체 유무
     private boolean woman ;// 여성전용
     private boolean forest ; // 숲 view
     private boolean river ; // 리버 view
