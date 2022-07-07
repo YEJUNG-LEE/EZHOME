@@ -1166,7 +1166,7 @@ section .ReEs-div-detail-Pic .image img {
 }
 
 /* 광고 배너 영역 */
-.section02-banner-ul {
+.section02-banner-ul2 {
     display: flex;
     flex-wrap: wrap;
     -webkit-box-pack: justify;
@@ -1174,11 +1174,11 @@ section .ReEs-div-detail-Pic .image img {
     margin-top: 30px;
 }
 
-.section02-banner-ul > li {
+.section02-banner-ul2 > li {
     width: 280px;
     height: 360px;
 }
-.section02-banner-ul > li > a {
+.section02-banner-ul2 > li > a {
     display: block;
 }
 
