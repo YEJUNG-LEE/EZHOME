@@ -181,4 +181,32 @@ public class ConditionService {
         }
         return rankList;
     }
+
+    public List<MapMainDto> compare02(Member member, List<MapMainDto> mapMainDtoList) {
+        System.out.println("compare에 들어갔습니다.");
+        // 회원 주소와 매물 주소가 일치한 매물만 담을 List
+        List<MapMainDto> memberReESList = new ArrayList<MapMainDto>();
+
+        int index =0 ;
+        for (MapMainDto mapMainDto : mapMainDtoList) {
+            System.out.println("회원 도로명 주소" + member.getMembAddress1());
+            System.out.println("매물 도로명 주소" + mapMainDto.getRoadAddress());
+           String memberAddress = member.getMembAddress1().split(" ")[1]; // 땡떙구
+            System.out.println("memberAddress : " + memberAddress);
+            String reEsAddress = mapMainDto.getRoadAddress().split(" ")[1]; // 땡떙구
+            System.out.println("reEsAddress : " + reEsAddress);
+
+            if(index <= 3){
+                if(memberAddress.equals(reEsAddress)){
+                    System.out.println("회원주소와 매물 주소 일치");
+                    memberReESList.add(mapMainDto);
+                    index += 1;
+                }
+            }else{
+                break;
+            }
+
+        }
+        return memberReESList;
+    }
 }

@@ -3,6 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <link type="text/css" th:href="@{/css/myPage/LREAMyPage.css}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <th:block layout:fragment="css"></th:block>
 
@@ -44,59 +45,19 @@
                 <div class="LRMy-div-sal-tit">
                     <p class="LRMy-tit-p">내가 올린 매물 목록</p>
                 </div>
-                <table>
-                    <tr class="LRMy-ul-sal">
-                        <td class="LRMy-li-sal">
-                            <div class="LRMy-sal-img"></div>
-                            <p class="LRMy-sal-tit-p">매물 제목</p>
-                            <div class="LRMy-sal-con-pdiv">
-                                <p class="LRMy-sal-con-p">지역</p>
-                                <p class="LRMy-sal-con-p">평수</p>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div th:with="start=${(reEs.id/maxPage)*maxPage + 1}, end=(${(reEs.totalPages == 0) ? 1 : (start + (maxPage - 1) < reEs.totalPages ? start + (maxPage - 1) : reEs.totalPages)})" >
-                    <ul class="pagination justify-content-center">
-
-                        <li class="page-item" th:classappend="${reEs.first}?'disabled'">
-                            <a th:onclick="'javascript:page(' + ${reEs.id - 1} + ')'" aria-label='Previous' class="page-link">
-                                <span aria-hidden='true'>Previous</span>
-                            </a>
-                        </li>
-
-                        <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${reEs.id eq page-1}?'active':''">
-                            <a th:onclick="'javascript:page(' + ${page - 1} + ')'" th:inline="text" class="page-link">[[${page}]]</a>
-                        </li>
-
-                        <li class="page-item" th:classappend="${reEs.last}?'disabled'">
-                            <a th:onclick="'javascript:page(' + ${reEs.id + 1} + ')'" aria-label='Next' class="page-link">
-                                <span aria-hidden='true'>Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <th:block layout:fragment="script">
-                        <script th:inline="javascript">
-                            $(document).ready(function(){
-                                $("#searchBtn").on("click",function(e) {
-                                    e.preventDefault();
-                                    page(0);
-                                });
-                            });
-
-                            function page(page){
-                                var searchDateType = $("#searchDateType").val();
-                                var searchSellStatus = $("#searchSellStatus").val();
-                                var searchBy = $("#searchBy").val();
-                                var searchQuery = $("#searchQuery").val();
-
-                                location.href="/admin/items/" + page + "?searchDateType=" + searchDateType
-                                + "&searchSellStatus=" + searchSellStatus
-                                + "&searchBy=" + searchBy
-                                + "&searchQuery=" + searchQuery;
-                            }
-                        </script>
-                    </th:block>
+                <div>
+                    <table>
+                        <tr class="LRMy-ul-sal" th:each="item : ${reFormDto}">
+                            <td class="LRMy-li-sal">
+                                <div class="LRMy-sal-img" th:src="${item.reImgUrl}"></div>
+                                <p class="LRMy-sal-tit-p">매물 지역</p>
+                                <div class="LRMy-sal-con-pdiv">
+                                    <p class="LRMy-sal-con-p" th:value="${item.reExtant}">평수</p>
+                                    <p class="LRMy-sal-con-p" th:value="${item.reExtant}">가격</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
