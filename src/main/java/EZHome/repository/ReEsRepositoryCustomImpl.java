@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ReEsRepositoryCustomImpl implements ReEsRepositoryCustom{
 
-    private JPAQueryFactory queryFactory;
+//    private JPAQueryFactory queryFactory;
 
 //    public ReEsRepositoryCustomImpl(EntityManager em){
 //        this.queryFactory = new JPAQueryFactory(em);
@@ -83,4 +83,18 @@ public class ReEsRepositoryCustomImpl implements ReEsRepositoryCustom{
 //    }
 //
 
+//        @Override
+//        public Page<ReEs> getAdminReEsPage(Pageable pageable) {
+//            QueryResults<ReEs> results = this.queryFactory
+//                    .selectFrom(QReEs.reEs)
+//                    .orderBy(QReEs.reEs.id.desc())
+//                    .offset(pageable.getOffset())
+//                    .limit(pageable.getPageSize())
+//                    .fetchResults();
+//
+//            List<ReEs> content = results.getResults();
+//            long total = results.getTotal();
+//
+//            return new PageImpl<>(content, pageable, total);
+//        }
 }
