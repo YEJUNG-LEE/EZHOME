@@ -23,7 +23,6 @@ public class MapMainDto {
     private Integer reFlr ; // 층수
     private Integer reExtent ; // 평수
 
-
     private String roadAddress; // 도로명주소
 
     private String reDtl_Adr ; // 상세주소
