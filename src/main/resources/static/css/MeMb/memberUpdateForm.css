@@ -2,6 +2,7 @@
 /* common 에 reset.css 임포트*/
 a:visited, a:link, a:hover, a:active{
  text-decoration: none;
+ color:#787878;
 }
 a:hover{
 color:#52b0fb;
