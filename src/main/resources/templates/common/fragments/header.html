@@ -52,10 +52,10 @@
                 <!-- 유저 이름 -->
                 <li class="member_user" sec:authorize="isAuthenticated()">
                     <a sec:authorize="hasRole('USER')" href="/mypage/USERmain" methods="get">
-                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
+                        <i class="fa-solid fa-user"></i><span th:text="${session.username}"></span>님
                     </a>
                     <a sec:authorize="hasRole('LREA')" href="/mypage/LREAmain" methods="get">
-                        <i class="fa-solid fa-user"></i><span th:text="${username}"></span>님
+                        <i class="fa-solid fa-user"></i><span th:text="${session.username}"></span>님
                     </a>
                 </li>
 
