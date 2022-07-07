@@ -138,6 +138,8 @@ public class ReFormDto {
 
     private String lreaNick;
 
+    private int percent;
+
     //매물에 대한 이미지 정보를 저장하고 있는 List 컬렉션입니다. (최대 10개 이미지)
     private List<ReImgDto> reImgDtoList = new ArrayList<ReImgDto>();
 
