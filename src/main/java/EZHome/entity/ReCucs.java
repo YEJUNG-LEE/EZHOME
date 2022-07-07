@@ -4,6 +4,8 @@ import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashMap;
@@ -38,6 +40,7 @@ public class ReCucs extends BaseEntity{
 
     @OneToOne()
     @JoinColumn(name = "reid", unique = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
      private ReEs reEs;
 
      public Map<String, Integer> compare(ReMncsDto reMncsDto, Map<String, Integer> match) {

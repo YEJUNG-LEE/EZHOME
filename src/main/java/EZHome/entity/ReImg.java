@@ -3,6 +3,8 @@ package EZHome.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -27,6 +29,7 @@ public class ReImg extends BaseEntity{
     // 하나의 매물(1)에 여러개(n)의 이미지를 올릴 수 있음으로 '일대다'로 설정했습니다.
     @ManyToOne
     @JoinColumn(name = "reid")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private ReEs reEs;
 
     //이미지 정보를 업데이트 해주는메소드 입니다.

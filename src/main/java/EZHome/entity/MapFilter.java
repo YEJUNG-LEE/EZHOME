@@ -4,6 +4,8 @@ import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -75,6 +77,7 @@ public class MapFilter {
 
     @OneToOne
     @JoinColumn(name = "member_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Member member;
 
     public void addFilter(ReMncsDto reMncsDto){
