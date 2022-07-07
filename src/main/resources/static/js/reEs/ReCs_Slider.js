@@ -1,18 +1,5 @@
 // 초기화 세팅
-$(document).ready(function(){
-  cs_floor_setLeftValue();
-  cs_floor_setRightValue();
-  cs_extent_setLeftValue();
-  cs_extent_setRightValue();
-  cs_month_setLeftValue();
-  cs_month_setRightValue();
-  cs_manage_setLeftValue();
-  cs_manage_setRightValue();
-  cs_deposit_setLeftValue();
-  cs_deposit_setRightValue();
-  cs_trade_setLeftValue();
-  cs_trade_setRightValue();
-})
+
 
 
 var cs_floor_inputLeft = document.getElementById("cs-floor-input-left");
@@ -264,17 +251,17 @@ var cs_deposit_range = document.querySelector(".cs-depositSlider > .range");
 var cs_deposit_text_div = document.querySelector(".ReCs-depositSlider-txt");
 
 if(cs_deposit_inputRight.value == cs_deposit_inputMax){
-  cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - 최대";
+cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - 최대";
 }else{
-  if(parseInt(cs_deposit_inputRight.value) >= 10000){
-    if(parseFloat(cs_deposit_inputLeft.value) < 10000){
-      cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
-    }else{
-      cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
-    }
+if(parseInt(cs_deposit_inputRight.value) >= 10000){
+  if(parseFloat(cs_deposit_inputLeft.value) < 10000){
+    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
   }else{
-    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+    cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
   }
+}else{
+  cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+}
 }
 
 var cs_deposit_setLeftValue = () => {
@@ -314,14 +301,18 @@ var cs_deposit_setRightValue = () => {
   var percent = ((_this.value - min) / (max - min)) * 100;
   cs_deposit_thumbRight.style.right = 100 - percent + "%";
   cs_deposit_range.style.right = 100 - percent + "%";
-  if(parseInt(cs_deposit_inputRight.value) >= 10000){
-    if(parseFloat(cs_deposit_inputLeft.value) < 10000){
-      cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
-    }else{
-      cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
-    }
+  if(cs_deposit_inputRight.value == cs_deposit_inputMax){
+    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - 최대";
   }else{
-    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+    if(parseInt(cs_deposit_inputRight.value) >= 10000){
+      if(parseFloat(cs_deposit_inputLeft.value) < 10000){
+        cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+      }else{
+        cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+      }
+    }else{
+      cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+    }
   }
 };
 
@@ -411,3 +402,18 @@ var cs_trade_setRightValue = () => {
 cs_trade_inputLeft.addEventListener("input", cs_trade_setLeftValue);
 cs_trade_inputRight.addEventListener("input", cs_trade_setRightValue);
 
+// 초기화 세팅
+$(document).ready(function(){
+  cs_floor_setLeftValue();
+  cs_floor_setRightValue();
+  cs_extent_setLeftValue();
+  cs_extent_setRightValue();
+  cs_month_setLeftValue();
+  cs_month_setRightValue();
+  cs_manage_setLeftValue();
+  cs_manage_setRightValue();
+  cs_deposit_setLeftValue();
+  cs_deposit_setRightValue();
+  cs_trade_setLeftValue();
+  cs_trade_setRightValue();
+})

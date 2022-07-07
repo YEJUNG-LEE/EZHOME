@@ -17,6 +17,7 @@ public class MapFilter {
     @Column(name="MapF_id")
     private Long id;
 
+    private String address; // 주소
     // 회원 기본 조건
     private String houseType ; // 매물 유형
     private String trType; // 매매 유형
