@@ -1,3 +1,20 @@
+// 초기화 세팅
+$(document).ready(function(){
+  cs_floor_setLeftValue();
+  cs_floor_setRightValue();
+  cs_extent_setLeftValue();
+  cs_extent_setRightValue();
+  cs_month_setLeftValue();
+  cs_month_setRightValue();
+  cs_manage_setLeftValue();
+  cs_manage_setRightValue();
+  cs_deposit_setLeftValue();
+  cs_deposit_setRightValue();
+  cs_trade_setLeftValue();
+  cs_trade_setRightValue();
+})
+
+
 var cs_floor_inputLeft = document.getElementById("cs-floor-input-left");
 var cs_floor_inputRight = document.getElementById("cs-floor-input-right");
 var cs_floor_inputMax = cs_floor_inputRight.getAttribute('max');
@@ -249,7 +266,15 @@ var cs_deposit_text_div = document.querySelector(".ReCs-depositSlider-txt");
 if(cs_deposit_inputRight.value == cs_deposit_inputMax){
   cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - 최대";
 }else{
-  cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+  if(parseInt(cs_deposit_inputRight.value) >= 10000){
+    if(parseFloat(cs_deposit_inputLeft.value) < 10000){
+      cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+    }else{
+      cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+    }
+  }else{
+    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+  }
 }
 
 var cs_deposit_setLeftValue = () => {
@@ -266,7 +291,15 @@ var cs_deposit_setLeftValue = () => {
   if(cs_deposit_inputRight.value == cs_deposit_inputMax){
     cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - 최대";
   }else{
-    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+    if(parseInt(cs_deposit_inputRight.value) >= 10000){
+      if(parseFloat(cs_deposit_inputLeft.value) < 10000){
+        cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+      }else{
+        cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+      }
+    }else{
+      cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
+    }
   }
 };
 
@@ -281,8 +314,12 @@ var cs_deposit_setRightValue = () => {
   var percent = ((_this.value - min) / (max - min)) * 100;
   cs_deposit_thumbRight.style.right = 100 - percent + "%";
   cs_deposit_range.style.right = 100 - percent + "%";
-  if(cs_deposit_inputRight.value == cs_deposit_inputMax){
-    cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - 최대";
+  if(parseInt(cs_deposit_inputRight.value) >= 10000){
+    if(parseFloat(cs_deposit_inputLeft.value) < 10000){
+      cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + "만원 - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+    }else{
+      cs_deposit_text_div.innerHTML = parseFloat(cs_deposit_inputLeft.value)/10000 + " - " + parseFloat(cs_deposit_inputRight.value)/10000 + "억원";
+    }
   }else{
     cs_deposit_text_div.innerHTML = cs_deposit_inputLeft.value + " - " + cs_deposit_inputRight.value + "만원";
   }
@@ -291,15 +328,86 @@ var cs_deposit_setRightValue = () => {
 cs_deposit_inputLeft.addEventListener("input", cs_deposit_setLeftValue);
 cs_deposit_inputRight.addEventListener("input", cs_deposit_setRightValue);
 
-$(document).ready(function(){
-    cs_floor_setLeftValue();
-    cs_floor_setRightValue();
-    cs_extent_setLeftValue();
-    cs_extent_setRightValue();
-    cs_month_setLeftValue();
-    cs_month_setRightValue();
-    cs_manage_setLeftValue();
-    cs_manage_setRightValue();
-    cs_deposit_setLeftValue();
-    cs_deposit_setRightValue();
-})
+
+// ===========================================================================================
+// ==================================매매가입니다==============================================
+// ===========================================================================================
+var cs_trade_inputLeft = document.getElementById("cs-trade-input-left");
+var cs_trade_inputRight = document.getElementById("cs-trade-input-right");
+var cs_trade_inputMax = cs_trade_inputRight.getAttribute('max');
+
+
+var cs_trade_thumbLeft = document.querySelector(".cs-tradeSlider > .thumb.left");
+var cs_trade_thumbRight = document.querySelector(".cs-tradeSlider > .thumb.right");
+var cs_trade_range = document.querySelector(".cs-tradeSlider > .range");
+var cs_trade_text_div = document.querySelector(".ReCs-tradeSlider-txt");
+
+if(cs_trade_inputRight.value == cs_trade_inputMax){
+  cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + " - 최대";
+}else{
+  if(parseInt(cs_trade_inputRight.value) >= 10000){
+    if(parseFloat(cs_trade_inputLeft.value) < 10000){
+      cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + "만원 - " + parseFloat(cs_trade_inputRight.value)/10000 + "억원";
+    }else{
+      cs_trade_text_div.innerHTML = parseFloat(cs_trade_inputLeft.value)/10000 + " - " + parseFloat(cs_trade_inputRight.value)/10000 + "억원";
+    }
+  }else{
+    cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + " - " + cs_trade_inputRight.value + "만원";
+  }
+}
+
+var cs_trade_setLeftValue = () => {
+  var _this = cs_trade_inputLeft;
+  var [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+  
+  // 교차되지 않게, 1을 빼준 건 완전히 겹치기보다는 어느 정도 간격을 남겨두기 위해.
+  _this.value = Math.min(parseInt(_this.value), parseInt(cs_trade_inputRight.value) - 1);
+  
+  // input, thumb 같이 움직이도록
+  var percent = ((_this.value - min) / (max - min)) * 100;
+  cs_trade_thumbLeft.style.left = percent + "%";
+  cs_trade_range.style.left = percent + "%";
+  if(cs_trade_inputRight.value == cs_trade_inputMax){
+    cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + " - 최대";
+  }else{
+    if(parseInt(cs_trade_inputRight.value) >= 10000){
+      if(parseFloat(cs_trade_inputLeft.value) < 10000){
+        cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + "만원 - " + parseFloat(cs_trade_inputRight.value)/10000 + "억원";
+      }else{
+        cs_trade_text_div.innerHTML = parseFloat(cs_trade_inputLeft.value)/10000 + " - " + parseFloat(cs_trade_inputRight.value)/10000 + "억원";
+      }
+    }else{
+      cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + " - " + cs_trade_inputRight.value + "만원";
+    }
+  }
+};
+
+var cs_trade_setRightValue = () => {
+  var _this = cs_trade_inputRight;
+  var [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+  
+  // 교차되지 않게, 1을 더해준 건 완전히 겹치기보다는 어느 정도 간격을 남겨두기 위해.
+  _this.value = Math.max(parseInt(_this.value), parseInt(cs_trade_inputLeft.value) + 1);
+  
+  // input, thumb 같이 움직이도록
+  var percent = ((_this.value - min) / (max - min)) * 100;
+  cs_trade_thumbRight.style.right = 100 - percent + "%";
+  cs_trade_range.style.right = 100 - percent + "%";
+  if(cs_trade_inputRight.value == cs_trade_inputMax){
+    cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + " - 최대";
+  }else{
+    if(parseInt(cs_trade_inputRight.value) >= 10000){
+      if(parseFloat(cs_trade_inputLeft.value) < 10000){
+        cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + "만원 - " + parseFloat(cs_trade_inputRight.value)/10000 + "억원";
+      }else{
+        cs_trade_text_div.innerHTML = parseFloat(cs_trade_inputLeft.value)/10000 + " - " + parseFloat(cs_trade_inputRight.value)/10000 + "억원";
+      }
+    }else{
+      cs_trade_text_div.innerHTML = cs_trade_inputLeft.value + " - " + cs_trade_inputRight.value + "만원";
+    }
+  }
+};
+
+cs_trade_inputLeft.addEventListener("input", cs_trade_setLeftValue);
+cs_trade_inputRight.addEventListener("input", cs_trade_setRightValue);
+

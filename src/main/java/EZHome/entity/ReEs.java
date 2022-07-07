@@ -118,7 +118,8 @@ public class ReEs extends BaseEntity {
         int maxExtent = 40;
         int maxMonth = 80;
         int maxManage = 40;
-        int maxDeposit = 3000;
+        int maxDeposit = 30000;
+        int maxTrade = 40000;
 
 
         if(reMncsDto.isSecondFloor()){secndFlr = "복층"; Flr += 1;}
