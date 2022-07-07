@@ -181,6 +181,41 @@ public class ReService {
         return reFormDto;
     }
 
+    public List<MapMainDto> getItemAll(Member member) {
+        List<MapMainDto> mapMainDtoList = new ArrayList<MapMainDto>();
+        // 1. repository를 통해 ReES에 있는 모든 데이터를 객체로 불러온다
+        List<ReEs> reEsList = reEsRepository.findAll();
+        // 2. ReFormDto와 Of를 통해 매핑시킨다.
+        List<ReEs> newReEsList = new ArrayList<ReEs>();
+        for(ReEs reEs: reEsList){
+            if(reEs.getMember().getId().equals(member.getId())){
+                newReEsList.add(reEs);
+            }
+        }
+
+        for (ReEs reEs : newReEsList) {
+            Long id = reEs.getId();
+            String imgUrl = "";
+            List<ReImg> reImgList = reEsImgRepository.findByReEs_IdOrderByIdAsc(id);
+            for (ReImg reImg:reImgList) {
+                System.out.println("서비스 이미지 경로" + reImg.getReImgUrl());
+                if(reImg.getReYN().equals("Y")){
+                    imgUrl = reImg.getReImgUrl();
+                    System.out.println("대표 이미지 경로 : " + reImg.getReImgUrl());
+                }
+            }
+
+            String name = member.getMembName();
+            String nick = member.getMembNick();
+            MapMainDto mapMainDto = MapMainDto.of(reEs);
+            mapMainDto.setLreaName(name);
+            mapMainDto.setLreaNick(nick);
+            mapMainDto.setReImgUrl(imgUrl);
+            mapMainDtoList.add(mapMainDto);
+        }
+
+        return mapMainDtoList;
+    }
 
     public List<MapMainDto> getItemAll() {
         List<MapMainDto> mapMainDtoList = new ArrayList<MapMainDto>();

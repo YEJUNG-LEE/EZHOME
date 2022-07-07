@@ -3,6 +3,8 @@ package EZHome.entity;
 import EZHome.dto.SeCeDto;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -26,6 +28,7 @@ public class SeCe extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "member_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Member member;
 
     public void updateInquiry(SeCeDto seCeDto){
