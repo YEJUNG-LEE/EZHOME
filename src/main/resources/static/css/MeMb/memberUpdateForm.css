@@ -1,5 +1,12 @@
                          @import url(/css/common/reset.css);
                          /* common 에 reset.css 임포트*/
+                         a:visited, a:link, a:hover, a:active{
+                                         text-decoration: none;
+                                         color:#878787;
+                         }
+                         a:hover{
+                             color:#52b0fb;
+                         }
 
                          header{width:100%;
                              height:90px;
@@ -38,11 +45,10 @@
                          .MyPa-div-pro-pic{width:62px;
                                          height:62px;
                                          border-radius:6px;
-                                         border:1px solid #d1d1d1;
+                                         border:1px solid #52b0fb;
                                          box-sizing:border-box;
                                          margin-left:41px;
                                          margin-top:40px;
-                                         background-image:url(/images/pro.jpg);
                                          background-size:cover;}
 
                          .MyPa-pro-nam{font-size:15px;
@@ -87,6 +93,9 @@
                                      color:#878787;
                                      margin-left:17px;
                                      margin-top:10px;}
+
+                         .USMy-pag-con-cover{
+                                         color:#d1d1d1;}
 
                          /* 오른쪽 콘텐츠 영역 css */
                          .MyPa-div-con{width:1024px;

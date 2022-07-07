@@ -12,7 +12,7 @@
         <div class="USMy-div-all-pro">
             <div class="USMy-div-pro">
                 <div class="USMy-div-pro01">
-                    <div class="USMy-div-pro-pic"></div>
+                    <div class="USMy-div-pro-pic" style="background-image:url(/img/login.png);"></div>
                     <p class="USMy-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
                     <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
                     <p class="USMy-pro-rat" th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
@@ -23,15 +23,15 @@
             <div class="USMy-div-all-pag">
                 <div class="USMy-div-pag">
                     <p class="USMy-pag-tit">내정보</p>
-                    <p class="USMy-pag-con">나의 맞춤 조건</p>
+                    <p class="USMy-pag-con"><a href="/mypage/USERmain"> 나의 맞춤 조건</a></p>
                     <p class="USMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
 <!--                    <p class="USMy-pag-con"><a th:method="post" th:href="@{'/members/delete/' + ${memberFormDto.id} }">회원 탈퇴</a></p>-->
                     <p class="USMy-pag-con"><a type="submit" th:href="@{'/members/delete/' + ${memberFormDto.id} }" >회원 탈퇴</a></p>
                     <p class="USMy-pag-tit">매물리스트</p>
-                    <p class="USMy-pag-con">최근 본 매물</p>
-                    <p class="USMy-pag-con">관심중개사 보기</p>
+                    <p class="USMy-pag-con USMy-pag-con-cover">최근 본 매물</p>
+                    <p class="USMy-pag-con USMy-pag-con-cover">관심중개사 보기</p>
                     <p class="USMy-pag-tit">Q&A</p>
-                    <p class="USMy-pag-con">고객센터</p>
+                    <p class="USMy-pag-con"><a href="/service/freq">고객센터</a></p>
                 </div>
             </div>
         </div>

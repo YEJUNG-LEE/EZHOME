@@ -44,7 +44,7 @@
             .USMy-div-pro-pic{width:62px;
                             height:62px;
                             border-radius:6px;
-                            border:1px solid #d1d1d1;
+                            border:1px solid #52b0fb;
                             box-sizing:border-box;
                             margin-left:41px;
                             margin-top:40px;
@@ -93,6 +93,10 @@
                         margin-left:17px;
                         margin-top:10px;}
 
+            .USMy-pag-con-cover{
+                color:#d1d1d1;
+            }
+
             /* 오른쪽 콘텐츠 영역 css */
             .USMy-div-con{width:1024px;
                         height:900px;
@@ -113,7 +117,7 @@
 
             /* 내정보 text 영역 css */    
             .USMy-div-con-inf{width:1024px;
-                            height:158px;
+                            height:115px;
                             border:0px solid black;}
 
             .USMy-div-inf-top{width:1024px;
@@ -164,6 +168,7 @@
             /* 내 맞춤 조건 영역 css */
             .USMy-div-cat-mes{width:1024px;
                             height:364px;
+                            margin-left:50px;
                             border:0px solid black;
                             box-sizing:border-box;}
 
@@ -178,8 +183,9 @@
                         border:0px solid black;
                         box-sizing:border-box;}
 
-            .USMy-tit-p{font-size:18px;
+            .USMy-tit-p{font-size:24px;
                         font-weight:700;
+                        margin-bottom:30px;
                         float:left;
                         margin-left:5px;}
 
@@ -191,26 +197,24 @@
                     padding-top:17px;}
 
             .USMy-div-cat-con{width:900px;
-                            height:750px;
+                            height:661px;
                             overflow:hidden;
-                            border:1px solid #94BBCC;
+                            border:1px solid #d1d1d1;
+                            border-radius:5px;
                             box-sizing:border-box;}
 
             .USMy-h2-niz{
-                padding: 20px 0px 2px;
+                padding: 20px 0px 2px 20px;
                 text-align: left;
-                font-size: 28px;
+                font-size: 23px;
                 font-weight:600;
                 margin: 40px 0px 14px;
-                padding-left:20px;
             }
             
             /* 맞춤 정보*/
             .USMy-div-content03 {
-                width: 736px;
                 height: 184px;
-                padding: 14px 0px 0px 30px;
-                border-top: 1px solid #d1d1d1;
+                padding: 0px 0px 0px 50px;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -263,17 +267,15 @@
             .USMy-h2-Kate{
                 padding: 20px 0px 2px 20px;
                 text-align: left;
-                font-size: 28px;
+                font-size: 23px;
                 font-weight:600;
                 margin: 40px 0px 14px;
             }
             
             /* 카테고리 영역 */
             .USMy-div-content04 {
-                width: 736px;
-                height: 236px;
-                padding: 14px 0px 0px 30px;
-                border-top: 1px solid #d1d1d1;
+                height:184px;
+                padding: 14px 0px 0px 50px;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
