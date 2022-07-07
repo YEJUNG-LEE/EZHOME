@@ -51,26 +51,27 @@
                             <p class="LRMy-inf-tit">내정보</p>
                         </div>
                     </div>
-                    <div class="LRMy-div-sal">
-                        <div class="LRMy-div-sal-tit">
-                            <p class="LRMy-tit-p">내가 올린 매물 목록</p>
-                        </div>
-                        <div>
-                            <table>
-                                <tr class="LRMy-ul-sal">
-                                    <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}">
-                                        <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
-                                        <p class="LRMy-sal-tit-p" th:text="${item.reNum}"></p>
-                                        <div class="LRMy-sal-con-pdiv">
-                                            <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
-                                            <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                    <div class="LRMy-div-sal-tit">
+                        <p class="LRMy-tit-p">내가 올린 매물 목록</p>
                     </div>
+                    <div class="LRMy-div-sal">
+                        <div class="LRMy-div-sal-list">
+                        <table>
+                            <tr class="LRMy-ul-sal">
+                                <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}">
+                                    <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
+                                    <p class="LRMy-sal-tit-p">매물번호 : [[${item.reNum}]]</p>
+                                    <div class="LRMy-sal-con-pdiv">
+                                        <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
+                                        <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="fakeScroller-cover"></div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
