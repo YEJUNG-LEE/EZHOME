@@ -1,74 +1,79 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
 
-<link type="text/css" th:href="@{/css/myPage/LREAMyPage.css}" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원페이지</title>
+    <!-- CSS -->
+    <link type="text/css" th:href="@{/css/myPage/LREAMyPage.css}" rel="stylesheet">
+    <!-- javascript -->
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+</head>
 
-<th:block layout:fragment="css"></th:block>
-
-
-<body layout:fragment="content">
-<header></header>
-<div class="LRMy-div-all">
-    <div class="LRMy-div-con-all">
-        <div class="LRMy-div-all-pro">
-            <div class="LRMy-div-pro">
-                <div class="LRMy-div-pro01">
-                    <div class="LRMy-div-pro-pic"></div>
-                    <p class="LRMy-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
-                    <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
-                    <p class="LRMy-pro-rat" th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
-                    <p class="LRMy-pro-rat" th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
+<dady>
+    <div layout:fragment="content" class="content">
+        <div class="header"></div>
+        <div class="LRMy-div-all">
+            <div class="LRMy-div-con-all">
+                <div class="LRMy-div-all-pro">
+                    <div class="LRMy-div-pro">
+                        <div class="LRMy-div-pro01">
+                            <div class="LRMy-div-pro-pic" style="background-image:url(/img/login.png);"></div>
+                            <p class="LRMy-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
+                            <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                            <p class="LRMy-pro-rat" th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
+                            <p class="LRMy-pro-rat" th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
+                        </div>
+                        <div class="LRMy-div-pro02"></div>
+                    </div>
+                    <div class="LRMy-div-all-pag">
+                        <div class="LRMy-div-pag">
+                            <p class="LRMy-pag-tit">내정보</p>
+                            <p class="LRMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
+                            <p class="LRMy-pag-con"><a th:href="@{/members/delete/ + (${memberFormDto.id}) }">회원 탈퇴</a></p>
+                            <p class="LRMy-pag-tit">매물리스트</p>
+                            <p class="LRMy-pag-con"><a href="/mypage/LREAmain">내가 올린 매물 보기</a></p>
+                            <p class="LRMy-pag-tit">Q&A</p>
+                            <p class="LRMy-pag-con"><a href="/service/freq">고객센터</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="LRMy-div-pro02"></div>
-            </div>
-            <div class="LRMy-div-all-pag">
-                <div class="LRMy-div-pag">
-                    <p class="LRMy-pag-tit">내가 올린 매물 보기</p>
-                    <p class="LRMy-pag-tit">내정보</p>
-                    <p class="LRMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
-                    <p class="LRMy-pag-con"><a th:href="@{/members/delete/{id}(id = ${memberFormDto.id})}">회원 탈퇴</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="LRMy-div-con">
-            <div class="LRMy-div-tit">
-                <h1 class="LRMy-tit-font">마이페이지</h1>
-            </div>
-            <div class="LRMy-div-con-inf">
-                <div class="LRMy-div-inf-top">
-                    <p class="LRMy-inf-tit">내정보</p>
-                </div>
-            </div>
-            <div class="LRMy-div-sal">
-                <div class="LRMy-div-sal-tit">
-                    <p class="LRMy-tit-p">내가 올린 매물 목록</p>
-                </div>
-                <div>
-                    <table>
+                <div class="LRMy-div-con">
+                    <div class="LRMy-div-tit">
+                        <h1 class="LRMy-tit-font">마이페이지</h1>
+                    </div>
+                    <div class="LRMy-div-con-inf">
+                        <div class="LRMy-div-inf-top">
+                            <p class="LRMy-inf-tit">내정보</p>
+                        </div>
+                    </div>
+                    <div class="LRMy-div-sal">
+                        <div class="LRMy-div-sal-tit">
+                            <p class="LRMy-tit-p">내가 올린 매물 목록</p>
+                        </div>
+                        <div>
+                            <table>
+                                <tr class="LRMy-ul-sal">
+                                    <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}">
+                                        <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
+                                        <p class="LRMy-sal-tit-p" th:text="${item.reNum}"></p>
+                                        <div class="LRMy-sal-con-pdiv">
+                                            <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
+                                            <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
 
-                        <tr class="LRMy-ul-sal">
-                            <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}" >
-                                <a th:href = "@{/map/{id}(id = ${item.id})}">
-                                    <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
-                                    <p class="LRMy-sal-tit-p" th:text="${item.reNum}"></p>
-                                    <div class="LRMy-sal-con-pdiv">
-                                        <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
-                                        <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
-                                    </div>
-                                </a>
-                            </td>
-                        </tr>
-
-
-                    </table>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<footer></footer>
-
-</body>
+</dady>
 </html>
