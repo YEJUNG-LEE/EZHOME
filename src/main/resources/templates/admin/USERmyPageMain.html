@@ -36,7 +36,8 @@
                     <p class="USMy-pag-con"><a href="/mypage/USERmain"> 나의 맞춤 조건</a></p>
                     <p class="USMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
 <!--                    <p class="USMy-pag-con"><a th:method="post" th:href="@{'/members/delete/' + ${memberFormDto.id} }">회원 탈퇴</a></p>-->
-                    <p class="USMy-pag-con"><a type="submit" th:href="@{'/members/delete/' + ${memberFormDto.id} }" >회원 탈퇴</a></p>
+                    <p class="LRMy-pag-con"><a th:href="@{/members/delete/{id}(id = ${memberFormDto.id})}">회원 탈퇴</a></p>
+                </div>
                     <p class="USMy-pag-tit">매물리스트</p>
                     <p class="USMy-pag-con USMy-pag-con-cover">최근 본 매물</p>
                     <p class="USMy-pag-con USMy-pag-con-cover">관심중개사 보기</p>
