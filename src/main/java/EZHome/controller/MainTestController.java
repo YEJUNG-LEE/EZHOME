@@ -70,23 +70,24 @@ public class MainTestController {
     }
 
 
-    @GetMapping(value = "/USERmain")
-    public String USERmypageMain(Model model, Principal principal){
-        String email = principal.getName();
-        MemberFormDto memberFormDto = memberService.getName(email);
+//    @GetMapping(value = "/USERmain")
+//    public String USERmypageMain(Model model, Principal principal){
+//        String email = principal.getName();
+//        MemberFormDto memberFormDto = memberService.getName(email);
+//
+//        model.addAttribute("memberFormDto", memberFormDto);
+//
+//        return "admin/USERmyPageMain" ;
+//    }
 
-        model.addAttribute("memberFormDto", memberFormDto);
+//    @GetMapping(value = "/LREAmain")
+//    public String LREAmypageMain(Model model, Principal principal){
+//        String email = principal.getName();
+//        MemberFormDto memberFormDto = memberService.getName(email);
+//
+//        model.addAttribute("memberFormDto", memberFormDto);
+//
+//        return "admin/LREAmyPageMain" ;
+//    }
 
-        return "admin/USERmyPageMain" ;
-    }
-
-    @GetMapping(value = "/LREAmain")
-    public String LREAmypageMain(Model model, Principal principal){
-        String email = principal.getName();
-        MemberFormDto memberFormDto = memberService.getName(email);
-
-        model.addAttribute("memberFormDto", memberFormDto);
-
-        return "admin/LREAmyPageMain" ;
-    }
 }
