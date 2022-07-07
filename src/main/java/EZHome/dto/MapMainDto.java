@@ -18,6 +18,7 @@ public class MapMainDto {
     private Integer reDeposit; // 보증금
     private Integer reMon_price ; // 월세
     private Integer reAdmn_fee ; // 관리비
+    private Integer reTrade; // 매매가
 
     private Integer reFlr ; // 층수
     private Integer reExtent ; // 평수
