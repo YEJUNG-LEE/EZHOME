@@ -137,7 +137,7 @@
                                                 </ul>
                     </div>
                     <div class="section02-title" sec:authorize="isAnonymous()">
-
+                            <th:block th:if="${RecommanList != null}">
                             <!-- 배너 01 -->
                             <div class="ReLi_content_div">
                                 <div class="ReLi_content_div_all">
@@ -181,6 +181,7 @@
                                 </div>
                                 <div class="ReLi_content_div_all_cover"></div>
                             </div>
+                            </th:block>
                     </div>
 
 
