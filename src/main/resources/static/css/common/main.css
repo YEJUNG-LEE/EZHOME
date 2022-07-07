@@ -88,7 +88,7 @@ header.shrink nav ul li{
 
 /* 로고 */
 h1.logo {
-    width: 136px;
+    width: 159px;
     height: 100%;
     margin-left: 4px;
     position: absolute;
@@ -147,6 +147,7 @@ nav > ul {
     float: left;
     list-style: none;
     line-height: 96px;
+    transition: .3s ease-in-out;
 }
 
 .advert_insert{
@@ -207,7 +208,7 @@ nav > ul {
 }
 /* 비회원 광고문의 색 */
 .adver_insert_nm{
-    color: #4876ef;
+    color: #52b0fb;
 }
 .adver_insert_nm:hover{
     color: #fec72f;
@@ -219,9 +220,9 @@ nav > ul {
 }
 /* 로그인 호버 */
 .main_login_log:hover{
-    background: #4876ef;
+    background: #52b0fb;
     color: #fff;
-    border: 1px solid #4876ef;
+    border: 1px solid #52b0fb;
 }
 
 /* 회원가입 */
@@ -238,7 +239,7 @@ nav > ul {
 /* 부동산, 커뮤니티, 고객센터 hover */
 .EzHome-ul-left > li > a:hover{
     text-decoration: none;
-    color: #4876ef;
+    color: #52b0fb;
 }
 
 /* 챗봇 */
@@ -485,9 +486,10 @@ main {
     position: absolute;
     left: 64px;
     top: 12px;
-    width: 300px;
+    width: 355px;
     height: 58px;
     font-size: 22px;
+    background-color:#fff;
     border: 1px solid #fff;
     border-radius: 10px;
     color: #444;
@@ -506,11 +508,9 @@ main {
     width: 130px;
     height: 100%;
     display: block;
-    font-size: 20px;
+    font-size: 19px;
     padding-top: 24px;
     font-weight: 600;
-    border-left: 2px solid #ededed;
-    border-right: 2px solid #ededed;
     box-sizing: border-box;
 }
 
@@ -522,7 +522,7 @@ main {
     display: none;
     width: 130px;
     height: 240px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 0 0 10px 10px ;
     transition: .3s ease-in-out;
 }
@@ -535,11 +535,29 @@ main {
     display: block;
     width: 100%;
     height: 80px;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 100;
     padding: 30px;
     border-top: 1px solid #ededed;;
     box-sizing: border-box;
+    transition: .2s ease-in-out;
+}
+
+#condition01-select > a:hover{
+    width: 100%;
+    height: 80px;
+    background: #50adf7;
+    border-top: 1px solid #50adf7;
+    color: #fff;
+}
+
+.select-last:hover{
+    width: 100%;
+    height: 80px;
+    background: #50adf7;
+    border-top: 1px solid #50adf7;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
 }
 /*// 임시 드롭다운 */
 
@@ -556,11 +574,19 @@ main {
     width: 130px;
     height: 100%;
     display: block;
-    font-size: 20px;
+    font-size: 19px;
     padding-top: 24px;
     font-weight: 600;
-    border-right: 2px solid #ededed;
     box-sizing: border-box;
+    transition: .2s ease-in-out;
+}
+
+#condition02-select > a:hover{
+    width: 100%;
+    height: 80px;
+    background: #50adf7;
+    border-top: 1px solid #50adf7;
+    color: #fff;
 }
 
 .fa-angle-down{
@@ -571,10 +597,43 @@ main {
     left: 2px;
 }
 
+/* 임시 드롭다운 */
+/* 드롭다운 */
+#condition02-select{
+    position: relative;
+    top : -300%;
+    display: none;
+    width: 130px;
+    height: 240px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 10px 10px ;
+    transition: .3s ease-in-out;
+}
+
+#condition02-select.on{
+    top: 0;
+    display: block;
+}
+#condition02-select > a{
+    display: block;
+    width: 100%;
+    height: 80px;
+    font-size: 22px;
+    font-weight: 100;
+    padding: 20px;
+    border-top: 1px solid #ededed;;
+    box-sizing: border-box;
+    line-height: 1.8;
+}
+
+
+
 /* 검색 버튼 */
 .search-btn{
     position: absolute;
     top: 0;
+    padding-top:29px;
+    padding-left: 7px;
     right: 0px;
     width: 140px;
     height: 80px;
@@ -582,16 +641,16 @@ main {
     border-radius: 10px;
     background: #52b0fb;
     color: #fff;
-    font-size: 20px;
+    font-size: 24px;
     box-sizing: border-box;
     cursor: pointer;
     font-weight: 600;
     letter-spacing: 1px;
 }
 .search-btn:hover{
-    background: #4876ef;
-    border: 1px solid #52b0fb;
-    color: #fff;
+    background:  #FEC72F;
+    border: 1px solid  #FEC72F;
+    color: #000;
 }
 
 /* main-section02 */
@@ -625,7 +684,6 @@ main {
     align-items: center;
     margin-top: 20px;
 }
-
 /* .section02-info a{
     color:#4876ef;
 } */

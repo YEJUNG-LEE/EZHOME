@@ -1,5 +1,6 @@
 package EZHome.dto;
 
+import EZHome.entity.Member;
 import EZHome.entity.ReEs;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.Setter;
 import org.modelmapper.ModelMapper;
 
 import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 public class MapMainDto {
@@ -38,10 +41,16 @@ public class MapMainDto {
     private Integer percent ; // 몇 퍼센트 일치인지
     private Integer rank; // 순위가 몇 번인지
 
+    // 회원 주소와 매물 주소가 일치한 매물만 담을 List
+    List<MapMainDto> memberReESList = new ArrayList<MapMainDto>();
+
     private static ModelMapper modelMapper = new ModelMapper();
 
     public static MapMainDto of(ReEs reEs) {
             return modelMapper.map(reEs, MapMainDto.class);
+    }
+    public static MapMainDto memof(Member member) {
+        return modelMapper.map(member, MapMainDto.class);
     }
 
     public MapMainDto(){}

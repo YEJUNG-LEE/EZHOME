@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
 
-<link type="text/css" th:href="@{/css/MeMb/memberUpdateForm.css}" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원수정페이지</title>
+    <!-- CSS -->
+    <link type="text/css" th:href="@{/css/MeMb/memberUpdateForm.css}" rel="stylesheet">
+    <!-- javascript -->
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+</head>
 
 <th:block layout:fragment="css"></th:block>
 
-
-<body layout:fragment="content">
-<header></header>
+<body>
+<div layout:fragment="content" class="content">
+<div class="header" ></div>
 <div class="MyPa-div-all">
     <div class="MyPa-div-con-all">
         <div class="MyPa-div-all-pro">
             <div class="MyPa-div-pro">
                 <div class="MyPa-div-pro01">
-                    <div class="MyPa-div-pro-pic"></div>
+                    <div class="MyPa-div-pro-pic" style="background-image:url(/img/login.png);"></div>
                     <p class="MyPa-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
                     <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
                     <p class="MyPa-pro-rat"  th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
@@ -24,22 +34,24 @@
             </div>
             <div class="MyPa-div-all-pag">
                 <div class="MyPa-div-pag">
-                    <p class="MyPa-pag-tit">알림 및 메세지</p>
-                    <p class="MyPa-pag-con">알림</p>
-                    <p class="MyPa-pag-con">메세지</p>
-                    <p class="MyPa-pag-tit">매물리스트</p>
-                    <p class="MyPa-pag-con">찜 매물 보기</p>
-                    <p class="MyPa-pag-con">관심중개사 보기</p>
-                    <p class="MyPa-pag-con">내가 문의한 매물</p>
-                    <p class="MyPa-pag-con">내가 방문한 매물</p>
-                    <p class="MyPa-pag-con">최근 본 매물</p>
-                    <p class="MyPa-pag-tit">커뮤니티</p>
-                    <p class="MyPa-pag-con">글 쓰기</p>
-                    <p class="MyPa-pag-con">내가 쓴 덧글 보기</p>
                     <p class="MyPa-pag-tit">내정보</p>
-                    <p class="MyPa-pag-con">나의 맞춤 조건</p>
-                    <p class="MyPa-pag-con">회원 정보 수정</p>
-                    <p class="MyPa-pag-con">회원 탈퇴</p>
+                    <p class="MyPa-pag-con"><a href="/mypage/USERmain"> 나의 맞춤 조건</a></p>
+                    <p class="MyPa-pag-con"><a href="/members/update">회원 정보 수정</a></p>
+                    <!--                    <p class="USMy-pag-con"><a th:method="post" th:href="@{'/members/delete/' + ${memberFormDto.id} }">회원 탈퇴</a></p>-->
+                    <p class="MyPa-pag-con"><a type="submit" th:href="@{'/members/delete/' + ${memberFormDto.id} }" >회원 탈퇴</a></p>
+                    <p class="MyPa-pag-tit">매물리스트</p>
+                    <p class="MyPa-pag-con USMy-pag-con-cover">최근 본 매물</p>
+                    <p class="MyPa-pag-con USMy-pag-con-cover">관심중개사 보기</p>
+<!--                    <p class="MyPa-pag-con">내가 문의한 매물</p>-->
+<!--                    <p class="MyPa-pag-con">내가 방문한 매물</p>-->
+<!--                    <p class="MyPa-pag-con">최근 본 매물</p>-->
+                    <p class="MyPa-pag-tit">Q&A</p>
+                    <p class="MyPa-pag-con"><a href="/service/freq">고객센터</a></p>
+<!--                    <p class="MyPa-pag-con">내가 쓴 덧글 보기</p>-->
+<!--                    <p class="MyPa-pag-tit">내정보</p>-->
+<!--                    <p class="MyPa-pag-con">나의 맞춤 조건</p>-->
+<!--                    <p class="MyPa-pag-con">회원 정보 수정</p>-->
+<!--                    <p class="MyPa-pag-con">회원 탈퇴</p>-->
                 </div>
             </div>
             
@@ -189,7 +201,7 @@
         </div>
     </div>
 </div>
-<footer></footer>
+</div>
 
 </body>
 </html>
