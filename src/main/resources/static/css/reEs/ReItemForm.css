@@ -139,7 +139,12 @@ font-weight:600;
 .ReCs-button:hover{
     cursor:pointer;
 }
-
+#reMon_price{
+    display:none;
+}
+#reTrade{
+    display:none;
+}
 /* 소재지 , 도로명주소 입력 칸 */
 .ReEs-insert-div{
     padding: 10px 0px 10px 30px;
