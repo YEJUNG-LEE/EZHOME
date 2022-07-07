@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
 
-<link type="text/css" th:href="@{/css/myPage/USERMyPage.css}" rel="stylesheet">
-<script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
-<th:block layout:fragment="css"></th:block>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원페이지</title>
+    <!-- CSS -->
+    <link type="text/css" th:href="@{/css/myPage/USERMyPage.css}" rel="stylesheet">
+    <!-- javascript -->
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+</head>
+
 <body>
-<header></header>
+<div layout:fragment="content" class="content">
+<div class="header" ></div>
 <div class="USMy-div-all">
     <div class="USMy-div-con-all">
         <div class="USMy-div-all-pro">
@@ -226,7 +236,7 @@
         </div>
     </div>
 </div>
-<footer></footer>
+</div>
 
 </body>
 </html>
