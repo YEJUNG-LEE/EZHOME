@@ -120,11 +120,17 @@ public class ReEs extends BaseEntity {
         int maxManage = 40;
         int maxDeposit = 30000;
         int maxTrade = 40000;
-
-
+        String sig = this.roadAddress.split(" ")[1];
         if(reMncsDto.isSecondFloor()){secndFlr = "복층"; Flr += 1;}
         if(reMncsDto.isHalfUnder()){underFlr = "반지하"; Flr += 1;}
         if(reMncsDto.isLoofTop()){loofFlr = "옥탑방"; Flr += 1;}
+
+        // 지역에 값이 들어갔지만, 매물의 구값과 같지않을때는 False값을 넘깁니다.
+        if(reMncsDto.getAddress() != null){
+            if(!sig.equals(reMncsDto.getAddress())){
+                return false;
+            }
+        }
         if(!this.rehouseType.equals(reMncsDto.getHouseType())){return false;}
         System.out.println("houseType 통과!");
         if(!this.retrType.equals(reMncsDto.getTrType())){return false;}

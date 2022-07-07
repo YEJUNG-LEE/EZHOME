@@ -262,7 +262,8 @@
                             <div class="ReCs-div">
                                 <div class="ReCs-title">지역</div>
                                 <div class="ReCs-content">
-                                    <input type="text" class="ReCs-region" placeholder="지역을 구단위로 입력하세요" th:field="*{address}" />
+                                    <input type="text" class="ReCs-region" placeholder="지역을 구단위로 입력하세요"
+                                        th:field="*{address}" />
                                 </div>
                             </div>
                             <div class="ReCs-div">
@@ -541,37 +542,41 @@
                                 <th:block th:each="item, index : ${mapMainDtoList}">
                                     <div class="ReLi_content" th:id="${item.id}">
                                         <div class="ReLi_img">
-                                            <div class="ReLi_ranking">Top [[${index.index+1}]]</div>
+                                            <th:block th:if="${item.percent!=null}">
+                                                <div class="ReLi_accuracy">일치율 [[${item.percent}]]%</div>
+                                                <div class="ReLi_ranking">Top [[${item.rank}]]</div>
+                                            </th:block>
                                             <img th:src="${item.reImgUrl}" style="width: 242px; height: 160px;">
                                         </div>
                                         <div class="ReLi_text">
-                                            <th:block th:if="${item.percent!=null}">
-                                                <div class="ReLi_accuracy">일치율 [[${item.percent}]]%</div>
-                                            </th:block>
                                             <div class="ReLi_TrType">
-                                                매물번호 : 48556825
-                                                <!-- <a th:href="'/map/'+${ite   m.id}" th:text="${item.reFlr}"></a>-->
+                                                매물번호 : [[${item.reNum}]]
                                             </div>
                                             <div class="ReLi_extent">
-                                                층수 : 0층 / 평수 : 00평
-                                                <!--                                        [[${item.reFlr}]]/ · [[${item.reExtent}]]-->
-                                                <!-- 층수 / 평수-->
+                                                층수 : [[${item.reFlr}]]층 / 평수 : [[${item.reExtent}]]평
                                             </div>
+                                            <th:block th:if="${item.retrType == '월세' or item.retrType=='전세'}">
+                                                <div class="ReLi_cost">
+                                                    보증금 : [[${item.reDeposit}]]만원
+                                                </div>
+                                            </th:block>
+                                            <th:block th:if="${item.retrType == '월세'}">
+                                                <div class="ReLi_cost">
+                                                    월세 : [[${item.reMon_price}]]만원
+                                                </div>
+                                            </th:block>
                                             <div class="ReLi_cost">
-                                                보증금 가격:0000000원
+                                                관리비 : [[${item.reAdmn_fee}]]만원
                                                 <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
                                                 <!-- 보증금 / 월세/ 관리비-->
                                             </div>
-                                            <div class="ReLi_cost">
-                                                월세 가격:000000원
-                                                <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
-                                                <!-- 보증금 / 월세/ 관리비-->
-                                            </div>
-                                            <div class="ReLi_cost">
-                                                관리비:0000000원
-                                                <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
-                                                <!-- 보증금 / 월세/ 관리비-->
-                                            </div>
+                                            <th:block th:if="${item.retrType == '매매'}">
+                                                <div class="ReLi_cost">
+                                                    매매가 : [[${item.reTrade}]]만원
+                                                    <!--                                        [[${item.reDeposit}]] / [[${item.reMon_price}]] / [[${item.reAdmn_fee}]]-->
+                                                    <!-- 보증금 / 월세/ 관리비-->
+                                                </div>
+                                            </th:block>
                                             <div class="ReLi_address">
                                                 [[${item.roadAddress}]]
                                                 <!-- 시도 / 군구 / 동-->
@@ -802,7 +807,6 @@
                         function addMarker(mapMainDto) {
                             // 주소-좌표 변환 객체를 생성합니다
                             var geocoder = new kakao.maps.services.Geocoder();
-
                             // 주소로 좌표를 검색합니다
                             geocoder.addressSearch(mapMainDto.roadAddress, function (result, status) {
 
@@ -818,34 +822,57 @@
                                     });
                                     markerList.push(marker);
                                     var PercentFlag = (mapMainDto.percent != null);
-                                    var content = '<div class="ReLi_text">' +
-                                        '<th:block th:if="' + PercentFlag + '">' +
-                                        '<div class="ReLi_accuracy">일치율 ' + mapMainDto.percent + '%</div>' +
-                                        '</th:block>' +
-                                        '<div class="ReLi_TrType">' +
-                                        '</div>' +
-                                        '<div class="ReLi_cost">' +
-                                        mapMainDto.reDeposit + ' / ' + mapMainDto.reMon_price + ' / ' + mapMainDto.reAdmn_fee +
-                                        '</div>' +
-                                        '<div class="ReLi_extent">' +
-                                        mapMainDto.reFlr + '층 / ' + mapMainDto.reExtent + '평' +
-                                        '</div>' +
-                                        '<div class="ReLi_address">' +
-                                        mapMainDto.roadAddress +
-                                        '</div>' +
-                                        '<div class="ReLi_agent">' +
-                                        '<div class="ReLi_agent_img"></div>' +
-                                        '<div class="ReLi_agent_div">' +
-                                        '<div class="ReLi_agent_company">' + mapMainDto.lreaNick + '</div>' +
-                                        '<div class="ReLi_agent_name">' + mapMainDto.lreaNick + '</div>' +
-                                        '</div>' +
-                                        '<div class="ReLi_agent_heart">' +
-                                        '</div>' +
-                                        //   '<div class="ReLi-move-dtl">' +
-                                        //   '<a th:href="'/map/'+${item.id}">자세히보기</a>' +
-                                        //   '</div>' + 
-                                        '</div>';
-
+                                    var DepositFlag = (mapMainDto.retrType == '월세' || mapMainDto.retrType == '전세');
+                                    var MonFlag = (mapMainDto.retrType == '월세');
+                                    var TrdFlag = (mapMainDto.retrType == '매매');
+                                    
+                                    var content = 
+                                    '<div class="ReLi_contents" th:id="${item.id}">' + 
+                                        '<th:block th:if="' + PercentFlag + '">' + 
+                                            '<div class="ReLi_imgs">' +
+                                                '<div class="ReLi_accuracy">일치율 ' + mapMainDto.percent + '%</div>' + 
+                                            '</div>' +
+                                            '<div class="ReLi_ranking">Top ' + mapMainDto.rank + '</div>' +
+                                        '</th:block>' + 
+                                        '<div class="ReLi_texts">' +
+                                            '<div class="ReLi_TrTypes">' +
+                                                '매물번호 : ' + mapMainDto.reNum + 
+                                            '</div>' +
+                                            '<div class="ReLi_extent">' + 
+                                                '층수 : ' + mapMainDto.reFlr + '층 / 평수 : ' + mapMainDto.reExtent + '평' +
+                                            '</div>' + 
+                                            '<th:block th:if="' + DepositFlag + '">' + 
+                                                '<div class="ReLi_cost">' +
+                                                    '보증금 : ' + mapMainDto.reDeposit + '만원' +
+                                                '</div>' + '<br>' +
+                                            '</th:block>' +
+                                            '<th:block th:if="' + MonFlag + '">' + 
+                                                '<div class="ReLi_cost">' + 
+                                                    '월세 : ' + mapMainDto.reMon_price + '만원' +
+                                                '</div>' + '<br>' +
+                                            '</th:block>' + 
+                                            '<div class="ReLi_cost">' + 
+                                                '관리비 : ' +  mapMainDto.reAdmn_fee + '만원' + 
+                                            '</div>' + '<br>' +
+                                            '<th:block th:if="' + TrdFlag + '>' + 
+                                                '<div class="ReLi_cost">' + 
+                                                    '매매가 : ' + mapMainDto.reTrade + '만원' + 
+                                                '</div>' + 
+                                            '</th:block>' + 
+                                            '<div class="ReLi_addreseies">' + mapMainDto.roadAddress + '</div>' + 
+                                            '<div class="ReLi_agent">' + 
+                                                '<div class="ReLi_agent_div">' + 
+                                                    '<div class="ReLi_agent_company">' +  
+                                                        mapMainDto.lreaNick + '공인중개사' + 
+                                                    '</div>' + 
+                                                    '<div class="ReLi_agent_name">' + 
+                                                        mapMainDto.lreaName + 
+                                                    '</div>' + 
+                                                '</div>' + 
+                                            '</div>' + 
+                                        '</div>' + 
+                                    '</div>';
+                                    
                                     // 마커에 표시할 인포윈도우를 생성합니다 
                                     var infowindow = new kakao.maps.InfoWindow({
                                         content: content // 인포윈도우에 표시할 내용
