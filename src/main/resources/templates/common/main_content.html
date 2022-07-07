@@ -28,32 +28,38 @@
                                         <!-- 돋보기icon -->
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                         <!-- 입력창 -->
-                                        <input class="search" type="text" placeholder=" 지역, 지하철역, 대학 주변검색" >
+                                        <input class="search" type="text" placeholder="지금 부동산에서 바로 내집마련 하기 🏡" disabled >
                                         <!-- 조건01 & 거래유형 -->
-                                        <div class="condition01">
-                                            <a href="#">
-                                                <span>거래 유형
-                                                    <i class="fa-solid fa-angle-down"></i>
-                                                </span>
-                                            </a>
-                                            <!-- 임시 드롭다운 -->
-                                            <div id="condition01-select">
-                                                <a href="#">월세</a>
-                                                <a href="#">전세</a>
-                                                <a href="#">매매</a>
-                                            </div>
+<!--                                        <div class="condition01">-->
+<!--                                            <a href="#">-->
+<!--                                                <span>거래 유형-->
+<!--                                                    <i class="fa-solid fa-angle-down"></i>-->
+<!--                                                </span>-->
+<!--                                            </a>-->
+<!--                                            &lt;!&ndash; 임시 드롭다운 &ndash;&gt;-->
+<!--                                            <div id="condition01-select">-->
+<!--                                                <a href="#">월세</a>-->
+<!--                                                <a href="#">전세</a>-->
+<!--                                                <a class="select-last" href="#">매매</a>-->
+<!--                                            </div>-->
                                             <!--// 임시 드롭다운 -->
-                                        </div>
-                                        <!-- 조건02 & 건물유형 -->
-                                        <div class="condition02">
-                                            <a href="#">
-                                                <span>건물 유형
-                                                    <i class="fa-solid fa-angle-down"></i>
-                                                </span>
-                                            </a>
-                                        </div>
+<!--                                        </div>-->
+<!--                                        &lt;!&ndash; 조건02 & 건물유형 &ndash;&gt;-->
+<!--                                        <div class="condition02">-->
+<!--                                            <a href="#">-->
+<!--                                                <span>건물 유형-->
+<!--                                                    <i class="fa-solid fa-angle-down"></i>-->
+<!--                                                </span>-->
+<!--                                            </a>-->
+<!--                                            <div id="condition02-select">-->
+<!--                                                <a href="#">원룸</a>-->
+<!--                                                <a href="#">투·쓰리룸</a>-->
+<!--                                                <a class="select-last" href="#">오피스텔</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
                                         <!-- 검색 -->
-                                        <input class="search-btn" type="submit" value="검색">
+                                        <a th:href="@{/map}" class="search-btn">GO!</a>
+<!--                                        <input class="search-btn" type="submit" value="검색">-->
                                     </form>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ import java.util.List;
 @Getter @Setter
 public class MapMainDto {
     private Long id; //매물 id
-
+    private Long reNum; // 매물 번호
     private String retrType ; // 매매 유형
 
 
@@ -40,6 +40,7 @@ public class MapMainDto {
     private Integer select ; // 몇 개를 선택했는지
     private Integer correct ; // 몇 개가 맞았는지
     private Integer percent ; // 몇 퍼센트 일치인지
+    private Integer rank; // 순위가 몇 번인지
 
     // 회원 주소와 매물 주소가 일치한 매물만 담을 List
     List<MapMainDto> memberReESList = new ArrayList<MapMainDto>();
