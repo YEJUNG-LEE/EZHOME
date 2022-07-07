@@ -5,6 +5,8 @@ import EZHome.dto.ReMncsDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -77,6 +79,7 @@ public class ReEs extends BaseEntity {
     //회원(일)이 여러개(다)의 매물을 올릴 수 있음으로 '일대다'로 설정했습니다.
     @ManyToOne
     @JoinColumn(name = "member_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Member member;
 
     // 매물에 대한 정보를 업데이트하는 비즈니스 로직을 구현합니다.

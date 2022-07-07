@@ -96,10 +96,10 @@ public class MemberController {
 //    }
 
     @PostMapping(value = "/update/{id}")
-    public String updateMember(@Valid MemberFormDto memberFormDto, @PathVariable("id") Long id, Model model){
+    public String updateMember(MemberFormDto memberFormDto, @PathVariable("id") Long id, Model model){
         try{
             MemberFormDto newMemberFormDto = memberService.updateMember(id, memberFormDto) ;
-            model.addAttribute("memberFormDto", memberFormDto);
+            model.addAttribute("memberFormDto", newMemberFormDto);
             System.out.println("memberFormDto : " + memberFormDto.toString());
         }catch (Exception e){
             model.addAttribute("errorMessage", "회원 수정 중에 오류가 발생하였습니다.");
@@ -114,6 +114,8 @@ public class MemberController {
     public String Delete(@PathVariable("id") String id, HttpServletRequest request){
         int cnt = -999;
         cnt = memberService.Delete(id);
+
+        System.out.println(cnt);
 
         HttpSession session = request.getSession(false);
         if (session != null) {
