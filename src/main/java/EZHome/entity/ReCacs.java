@@ -79,26 +79,28 @@ public class ReCacs extends BaseEntity{
         return match;
     }
 
-    public Map<String, Integer> compareOne(ReFormDto reFormDto, Map<String, Integer> match) {
+    public Map<String, Integer> compare(MapFilter mapFilter, Map<String, Integer> match) {
         int select = 0;    // 몇 개를 선택했는지 확인하는 변수
         int correct = 0;   // 몇 개가 맞는지 확인하는 변수
-        if(reFormDto.isRePublic()){select += 1; if(this.isRePublic()){correct += 1;}}
-        if(reFormDto.isReMedic()){select += 1; if(this.isReMedic()){correct += 1;}}
-        if(reFormDto.isReCnvn()){select += 1; if(this.isReCnvn()){correct += 1;}}
-        if(reFormDto.isReSchol()){select += 1; if(this.isReSchol()){correct += 1;}}
-        if(reFormDto.isReTeen()){select += 1; if(this.isReTeen()){correct += 1;}}
-        if(reFormDto.isReTwen()){select += 1; if(this.isReTwen()){correct += 1;}}
-        if(reFormDto.isReThirty()){select += 1; if(this.isReThirty()){correct += 1;}}
-        if(reFormDto.isReFourty()){select += 1; if(this.isReFourty()){correct += 1;}}
-        if(reFormDto.isReFifty()){select += 1; if(this.isReFifty()){correct += 1;}}
-        if(reFormDto.isReSixty()){select += 1; if(this.isReSixty()){correct += 1;}}
-        if(reFormDto.isReMainroad()){select += 1; if(this.isReMainroad()){correct += 1;}}
-        if(reFormDto.isReRocket()){select += 1; if(this.isReRocket()){correct += 1;}}
-        if(reFormDto.isReFlat()){select += 1; if(this.isReFlat()){correct += 1;}}
-        if(reFormDto.isReSubway()){select += 1; if(this.isReSubway()){correct += 1;}}
-        if(reFormDto.isRePark()){select += 1; if(this.isRePark()){correct += 1;}}
-        if(reFormDto.isReRsdnt_Area()){select += 1; if(this.isReRsdnt_Area()){correct += 1;}}
+        if(mapFilter.isPub()){select += 1; if(this.isRePublic()){correct += 1;}}
+        if(mapFilter.isMedic()){select += 1; if(this.isReMedic()){correct += 1;}}
+        if(mapFilter.isConv()){select += 1; if(this.isReCnvn()){correct += 1;}}
+        if(mapFilter.isSchool()){select += 1; if(this.isReSchol()){correct += 1;}}
+        if(mapFilter.isTeen()){select += 1; if(this.isReTeen()){correct += 1;}}
+        if(mapFilter.isTwen()){select += 1; if(this.isReTwen()){correct += 1;}}
+        if(mapFilter.isThirty()){select += 1; if(this.isReThirty()){correct += 1;}}
+        if(mapFilter.isFourty()){select += 1; if(this.isReFourty()){correct += 1;}}
+        if(mapFilter.isFifty()){select += 1; if(this.isReFifty()){correct += 1;}}
+        if(mapFilter.isSixty()){select += 1; if(this.isReSixty()){correct += 1;}}
+        if(mapFilter.isBoulevard()){select += 1; if(this.isReMainroad()){correct += 1;}}
+        if(mapFilter.isRocket()){select += 1; if(this.isReRocket()){correct += 1;}}
+        if(mapFilter.isFlat()){select += 1; if(this.isReFlat()){correct += 1;}}
+        if(mapFilter.isSubway()){select += 1; if(this.isReSubway()){correct += 1;}}
+        if(mapFilter.isPark()){select += 1; if(this.isRePark()){correct += 1;}}
+        if(mapFilter.isHodi()){select += 1; if(this.isReRsdnt_Area()){correct += 1;}}
 
+        System.out.println("recacs.select : " + select);
+        System.out.println("recacs.correct : " + correct);
         if(match.containsKey("select")){
             int oldSelect = match.get("select");
             match.put("select", oldSelect + select);

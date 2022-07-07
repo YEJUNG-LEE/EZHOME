@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -62,8 +63,7 @@ public class MainTestController {
             }else{
                 model.addAttribute("RecommandList",RecommandList);
                 System.out.println("=================================sssssss");
-                System.out.println("RecommandList.size() : " + RecommandList.get(0).getPercent());
-                System.out.println("RecommandList.size() : " + RecommandList.get(1).getPercent());
+                System.out.println("RecommandList.size() : " + RecommandList.get(0).getId());
                 System.out.println("=================================sssssss");
 
                 return "common/main_content";

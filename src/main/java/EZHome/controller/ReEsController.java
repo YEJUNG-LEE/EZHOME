@@ -175,4 +175,19 @@ public class ReEsController {
 
         return null;
     }
+
+    @GetMapping(value = "/reEs/delete/{reid}")
+    public String reEsDelete(@PathVariable("reid") Long reId, Model model, Principal principal){
+        try {
+            reService.deleteItem(reId);
+        }catch(Exception e){
+            System.out.println("==========================================================");
+            System.out.println("3번 서비스로 들어가던 try catch에 걸렸습니다.");
+            System.out.println("==========================================================");
+            model.addAttribute("errorMessage", "상품 등록중에 오류가 발생했습니다.");
+            e.printStackTrace();
+            return "redirect:/admin/item/update/" + reId ;
+        }
+        return "redirect:/";
+    }
 }

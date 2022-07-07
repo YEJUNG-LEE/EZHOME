@@ -115,16 +115,19 @@ public class MapController {
     @GetMapping(value="/map/{id}")
     public String gotoDtl(@PathVariable("id") Long DtlId, Model model, Principal principal){
         ReFormDto reFormDto = null;
+        boolean flag = false;
         if(principal == null){
             reFormDto = reService.getItemUpdate(DtlId);
         }else{
             String email = principal.getName();
             Member member = memberRepository.findByEmail(email);
             reFormDto = reService.getItemUpdate(DtlId, member);
+            flag = reService.isYours(member, DtlId);
         }
         Member member = reService.getLrea(DtlId);
         model.addAttribute("DtlItem", reFormDto);
         model.addAttribute("member", member);
+        model.addAttribute("flag", flag);
         return "reEs/html/InfoDetail";
     }
 

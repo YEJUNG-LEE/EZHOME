@@ -32,6 +32,8 @@ public class ReService {
     private final ReCacsRepository reCacsRepository;
     private final ReCucsRepository reCucsRepository;
 
+    private final ConditionRepository conditionRepository;
+
     public Long savedReEs(ReFormDto reFormDto, List<MultipartFile> itemImgFileList, String email) throws Exception {
 //        System.out.println("======================================");
 ////        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
@@ -224,10 +226,14 @@ public class ReService {
         reFormDto = ReFormDto.ofReCucs(reFormDto, recucs);
         reFormDto = ReFormDto.ofReCacs(reFormDto, recacs);
         Map<String, Integer> match = new HashMap<String, Integer>();
-        match = recucs.compareOne(reFormDto, match);
-        match = recacs.compareOne(reFormDto, match);
+        MapFilter mapFilter = conditionRepository.findByMember_Id(member.getId());
+        match = recucs.compare(mapFilter, match);
+        match = recacs.compare(mapFilter, match);
+        System.out.println("reFormDto : " + reFormDto);
         int select = match.get("select");
         int correct = match.get("correct");
+        System.out.println("select : " + select);
+        System.out.println("correct : " + correct);
         int percent = (int)Math.round(100.0*correct/select);
         reFormDto.setPercent(percent);
         // reFormDto에 of로 매핑을 시켰으니까, reFromDto의 toString()를 통해서 나오는지 확인해주고
@@ -370,6 +376,22 @@ public class ReService {
                 e.printStackTrace();
             }
         } // end for다 ~
+    }
+
+    public boolean isYours(Member member, Long dtlId) {
+        boolean flag = false;
+        ReEs reEs = reEsRepository.findById(dtlId).orElseThrow(EntityNotFoundException::new);
+        Long memberId = member.getId();
+        Long reMemberId = reEs.getMember().getId();
+        if(memberId.equals(reMemberId)){
+            flag = true;
+        }
+        return flag;
+    }
+
+    public void deleteItem(Long reId) {
+        ReEs reEs = reEsRepository.findById(reId).orElseThrow(EntityNotFoundException::new);
+        reEsRepository.delete(reEs);
     }
 
 //    @Transactional(readOnly = true)
