@@ -67,6 +67,10 @@
     height: 114%;
     overflow: auto;
     overflow-x: hidden;
+    margin-top: -30px;
+    margin-left: -12px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .ReLi_content_div_all::-webkit-scrollbar{width:12px;}
 .ReLi_content_div_all::-webkit-scrollbar-thumb{background-color:#52b0fb;
@@ -94,14 +98,14 @@
 }
 
 .ReLi_content{
-    width:262px;
-    height:428px;
-    border:1px solid #d1d1d1;
-    border-radius:5px;
-    margin-top:30px;
-    margin-left:12px;
+    width: 262px;
+    height: 428px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 12px;
     box-sizing: border-box;
-    display:inline-block;
+    display: block;
     position: relative;
 }
 .ReLi_contents{
@@ -205,7 +209,7 @@ border-radius:5px;
     box-sizing: border-box;
 }
 .ReLi_cost{
-    display:inline-block;
+    display: block;
     font-size:14px;
     margin-left:4px;
     margin-bottom:6px;
