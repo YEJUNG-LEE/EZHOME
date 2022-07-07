@@ -166,15 +166,18 @@ public class ConditionService {
         }
         int index = 0;
         for (MapMainDto mapMainDto: result) {
-            rank.put(index, mapMainDto.getPercent());
+            rank.put(mapMainDto.getPercent(), index);
             index += 1;
         }
         List<Integer> keySet = new ArrayList<>(rank.keySet());
-        keySet.sort(((o1, o2) -> keySet.get(o2) - keySet.get(o1)));
+        keySet.sort(Comparator.reverseOrder());
         System.out.println("====내림차순 정렬===");
+        int ranking = 1;
         for(int key : keySet){
             System.out.println("Key:" + key + ", value : " + rank.get(key));
-            rankList.add(result.get(key));
+            result.get(rank.get(key)).setRank(ranking);
+            rankList.add(result.get(rank.get(key)));
+            ranking += 1;
         }
         return rankList;
     }

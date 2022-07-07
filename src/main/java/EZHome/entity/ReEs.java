@@ -120,11 +120,17 @@ public class ReEs extends BaseEntity {
         int maxManage = 40;
         int maxDeposit = 30000;
         int maxTrade = 40000;
-
-
+        String sig = this.roadAddress.split(" ")[1];
         if(reMncsDto.isSecondFloor()){secndFlr = "복층"; Flr += 1;}
         if(reMncsDto.isHalfUnder()){underFlr = "반지하"; Flr += 1;}
         if(reMncsDto.isLoofTop()){loofFlr = "옥탑방"; Flr += 1;}
+
+        // 지역에 값이 들어갔지만, 매물의 구값과 같지않을때는 False값을 넘깁니다.
+        if(reMncsDto.getAddress() != null){
+            if(!sig.equals(reMncsDto.getAddress())){
+                return false;
+            }
+        }
         if(!this.rehouseType.equals(reMncsDto.getHouseType())){return false;}
         System.out.println("houseType 통과!");
         if(!this.retrType.equals(reMncsDto.getTrType())){return false;}
@@ -140,19 +146,32 @@ public class ReEs extends BaseEntity {
                 return false;
             }
         }
-        if(this.reMon_price < reMncsDto.getMinMon()){
-            if(reMncsDto.getMaxMon() < maxMonth && this.reMon_price > reMncsDto.getMaxMon()){
-                return false;
+        if(this.reMon_price != null) {
+            if (this.reMon_price < reMncsDto.getMinMon()) {
+                if (reMncsDto.getMaxMon() < maxMonth && this.reMon_price > reMncsDto.getMaxMon()) {
+                    return false;
+                }
             }
         }
-        if(this.reAdmn_fee < reMncsDto.getMinMan()){
-            if(reMncsDto.getMaxMan() < maxManage && this.reAdmn_fee > reMncsDto.getMaxMan()){
-                return false;
+        if(this.reAdmn_fee != null){
+            if(this.reAdmn_fee < reMncsDto.getMinMan()){
+                if(reMncsDto.getMaxMan() < maxManage && this.reAdmn_fee > reMncsDto.getMaxMan()){
+                    return false;
+                }
             }
         }
-        if(this.reDeposit < reMncsDto.getMinDep()){
-            if(reMncsDto.getMaxDep() < maxDeposit && this.reDeposit > reMncsDto.getMaxDep()){
-                return false;
+        if(this.reDeposit != null){
+            if(this.reDeposit < reMncsDto.getMinDep()){
+                if(reMncsDto.getMaxDep() < maxDeposit && this.reDeposit > reMncsDto.getMaxDep()){
+                    return false;
+                }
+            }
+        }
+        if(this.reTrade != null){
+            if(this.reTrade < reMncsDto.getMinTrd()){
+                if(reMncsDto.getMaxTrd() < maxTrade && this.reTrade > reMncsDto.getMaxTrd()){
+                    return false;
+                }
             }
         }
         if(Flr == 1){
