@@ -88,7 +88,7 @@ header.shrink nav ul li{
 
 /* 로고 */
 h1.logo {
-    width: 136px;
+    width: 159px;
     height: 100%;
     margin-left: 4px;
     position: absolute;
@@ -207,7 +207,7 @@ nav > ul {
 }
 /* 비회원 광고문의 색 */
 .adver_insert_nm{
-    color: #4876ef;
+    color: #52b0fb;
 }
 .adver_insert_nm:hover{
     color: #fec72f;
@@ -219,9 +219,9 @@ nav > ul {
 }
 /* 로그인 호버 */
 .main_login_log:hover{
-    background: #4876ef;
+    background: #52b0fb;
     color: #fff;
-    border: 1px solid #4876ef;
+    border: 1px solid #52b0fb;
 }
 
 /* 회원가입 */
@@ -238,7 +238,7 @@ nav > ul {
 /* 부동산, 커뮤니티, 고객센터 hover */
 .EzHome-ul-left > li > a:hover{
     text-decoration: none;
-    color: #4876ef;
+    color: #52b0fb;
 }
 
 /* 챗봇 */
@@ -506,11 +506,9 @@ main {
     width: 130px;
     height: 100%;
     display: block;
-    font-size: 20px;
+    font-size: 19px;
     padding-top: 24px;
     font-weight: 600;
-    border-left: 2px solid #ededed;
-    border-right: 2px solid #ededed;
     box-sizing: border-box;
 }
 
@@ -535,7 +533,7 @@ main {
     display: block;
     width: 100%;
     height: 80px;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 100;
     padding: 30px;
     border-top: 1px solid #ededed;;
@@ -556,10 +554,9 @@ main {
     width: 130px;
     height: 100%;
     display: block;
-    font-size: 20px;
+    font-size: 19px;
     padding-top: 24px;
     font-weight: 600;
-    border-right: 2px solid #ededed;
     box-sizing: border-box;
 }
 
@@ -582,7 +579,7 @@ main {
     border-radius: 10px;
     background: #52b0fb;
     color: #fff;
-    font-size: 20px;
+    font-size: 19px;
     box-sizing: border-box;
     cursor: pointer;
     font-weight: 600;
