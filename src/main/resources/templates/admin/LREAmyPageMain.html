@@ -28,7 +28,7 @@
                     <p class="LRMy-pag-tit">내가 올린 매물 보기</p>
                     <p class="LRMy-pag-tit">내정보</p>
                     <p class="LRMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
-                    <p class="LRMy-pag-con"><a th:href="@{/members/delete/ + (${memberFormDto.id}) }">회원 탈퇴</a></p>
+                    <p class="LRMy-pag-con"><a th:href="@{/members/delete/{id}(id = ${memberFormDto.id})}">회원 탈퇴</a></p>
                 </div>
             </div>
         </div>
@@ -47,16 +47,21 @@
                 </div>
                 <div>
                     <table>
+
                         <tr class="LRMy-ul-sal">
-                            <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}">
-                                <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
-                                <p class="LRMy-sal-tit-p" th:text="${item.reNum}"></p>
-                                <div class="LRMy-sal-con-pdiv">
-                                    <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
-                                    <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
-                                </div>
+                            <td class="LRMy-li-sal" th:each="item : ${mapMainDtoList}" >
+                                <a th:href = "@{/map/{id}(id = ${item.id})}">
+                                    <img class="LRMy-sal-img" th:src="${item.reImgUrl}">
+                                    <p class="LRMy-sal-tit-p" th:text="${item.reNum}"></p>
+                                    <div class="LRMy-sal-con-pdiv">
+                                        <p class="LRMy-sal-con-p" th:text="${item.retrType}"></p>
+                                        <p class="LRMy-sal-con-p" th:text="${item.roadAddress}"></p>
+                                    </div>
+                                </a>
                             </td>
                         </tr>
+
+
                     </table>
                 </div>
             </div>
