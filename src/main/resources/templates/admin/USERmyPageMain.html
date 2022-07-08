@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원페이지</title>
+    <!-- CSS -->
+    <link type="text/css" th:href="@{/css/myPage/USERMyPage.css}" rel="stylesheet">
+    <!-- javascript -->
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+</head>
+
+<body>
+<div layout:fragment="content" class="content">
+<div class="header" ></div>
+<div class="USMy-div-all">
+    <div class="USMy-div-con-all">
+        <div class="USMy-div-all-pro">
+            <div class="USMy-div-pro">
+                <div class="USMy-div-pro01">
+                    <div class="USMy-div-pro-pic" style="background-image:url(/img/login.png);"></div>
+                    <p class="USMy-pro-nam" th:text="${memberFormDto.membNick}">사용자닉네임</p>
+                    <input type="hidden" th:field="*{memberFormDto.role}" th:value="${role}" >
+                    <p class="USMy-pro-rat" th:if="${#strings.equals(memberFormDto.role, 'USER')}">개인회원</p>
+                    <p class="USMy-pro-rat" th:unless="${#strings.equals(memberFormDto.role, 'USER')}">공인중개사</p>
+                </div>
+                <div class="USMy-div-pro02"></div>
+            </div>
+            <div class="USMy-div-all-pag">
+                <div class="USMy-div-pag">
+                    <p class="USMy-pag-tit">내정보</p>
+                    <p class="USMy-pag-con"><a href="/mypage/USERmain"> 나의 맞춤 조건</a></p>
+                    <p class="USMy-pag-con"><a href="/members/update">회원 정보 수정</a></p>
+<!--                    <p class="USMy-pag-con"><a th:method="post" th:href="@{'/members/delete/' + ${memberFormDto.id} }">회원 탈퇴</a></p>-->
+                    <p class="LRMy-pag-con"><a th:href="@{/members/delete/{id}(id = ${memberFormDto.id})}">회원 탈퇴</a></p>
+                </div>
+                    <p class="USMy-pag-tit">매물리스트</p>
+                    <p class="USMy-pag-con USMy-pag-con-cover">최근 본 매물</p>
+                    <p class="USMy-pag-con USMy-pag-con-cover">관심중개사 보기</p>
+                    <p class="USMy-pag-tit">Q&A</p>
+                    <p class="USMy-pag-con"><a href="/service/freq">고객센터</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="USMy-div-con">
+            <div class="USMy-div-tit">
+                <h1 class="USMy-tit-font">마이페이지</h1>
+            </div>
+            <div class="USMy-div-con-inf">
+                <div class="USMy-div-inf-top">
+                    <p class="USMy-inf-tit">내정보</p>
+                </div>
+            </div>
+            <div class="USMy-div-cat-mes">
+                <div class="USMy-div-cat">
+                    <div class="USMy-div-cat-tit">
+                        <p class="USMy-tit-p">내 맞춤 조건</p>
+                    </div>
+                    <div class="USMy-div-cat-con" >
+                        <h2 class="USMy-h2-niz">맞춤정보</h2>
+                        <div class="USMy-div-content03">
+                            <!-- USMy-div-content03 맞춤정보 조건-->
+                            <div class="USMy-button" id="reNew">신축
+                                <input type="hidden" th:field="${myCondi.newhouse}"/>
+                            </div>
+                            <div class="USMy-button" id="reFull">풀옵션
+                                <input type="hidden" th:field="${myCondi.full}"/>
+                            </div>
+                            <div class="USMy-button" id="reDebt">대출없음
+                                <input type="hidden" th:field="${myCondi.debt}"/>
+                            </div>
+                            <div class="USMy-button" id="reElvtr">엘리베이터
+                                <input type="hidden" th:field="${myCondi.elevator}"/>
+                            </div>
+                            <div class="USMy-button" id="rePet">반려동물
+                                <input type="hidden" th:field="${myCondi.pet}"/>
+                            </div>
+                            <div class="USMy-button" id="reScrty">보안기능
+                                <input type="hidden" th:field="${myCondi.security}"/>
+                            </div>
+                            <div class="USMy-button" id="reParking">주차장
+                                <input type="hidden" th:field="${myCondi.parking}"/>
+                            </div>
+                            <div class="USMy-button" id="reSouth">남향
+                                <input type="hidden" th:field="${myCondi.south}"/>
+                            </div>
+                            <div class="USMy-button" id="reBug">벌레퇴치업체
+                                <input type="hidden" th:field="${myCondi.bug}"/>
+                            </div>
+                            <div class="USMy-button" id="reWoman">여성전용
+                                <input type="hidden" th:field="${myCondi.woman}"/>
+                            </div>
+                            <div class="USMy-button" id="reForest">숲View
+                                <input type="hidden" th:field="${myCondi.forest}"/>
+                            </div>
+                            <div class="USMy-button" id="reRiver">리버View
+                                <input type="hidden" th:field="${myCondi.river}"/>
+                            </div>
+                            <div class="USMy-button" id="reOcean">오션View
+                                <input type="hidden" th:field="${myCondi.ocean}"/>
+                            </div>
+                            <div class="USMy-button" id="reCity">시티View
+                                <input type="hidden" th:field="${myCondi.city}"/>
+                            </div>
+                        </div>
+                        <!--// USMy-div-content03 맞춤정보 조건-->
+                        <!-- 카테고리조건 이동 -->
+                        <div id="section3"></div>
+                        <!-- USMy-h2-detail 카테고리조건 제목 -->
+                        <h2 class="USMy-h2-Kate">카테고리조건</h2>
+                        <!-- USMy-div-content04 카테고리 조건-->
+                        <div class="USMy-div-content04">
+                            <div class="USMy-button" id="rePublic">공공기관
+                                <input type="hidden" th:field="${myCondi.pub}"/>
+                            </div>
+                            <div class="USMy-button" id="reMedic">의료시설
+                                <input type="hidden" th:field="${myCondi.medic}"/>
+                            </div>
+                            <div class="USMy-button" id="reCnvn">편의시설
+                                <input type="hidden" th:field="${myCondi.conv}"/>
+                            </div>
+                            <div class="USMy-button" id="reSchol">학교주변
+                                <input type="hidden" th:field="${myCondi.school}"/>
+                            </div>
+                            <div class="USMy-button" id="reTeen">10대거주
+                                <input type="hidden" th:field="${myCondi.teen}"/>
+                            </div>
+                            <div class="USMy-button" id="reTwen">20대거주
+                                <input type="hidden" th:field="${myCondi.twen}"/>
+                            </div>
+                            <div class="USMy-button" id="reThirty">30대거주
+                                <input type="hidden" th:field="${myCondi.thirty}"/>
+                            </div>
+                            <div class="USMy-button" id="reFourty">40대거주
+                                <input type="hidden" th:field="${myCondi.fourty}"/>
+                            </div>
+                            <div class="USMy-button" id="reFifty">50대거주
+                                <input type="hidden" th:field="${myCondi.fifty}"/>
+                            </div>
+                            <div class="USMy-button" id="reSixty">60대이상
+                                <input type="hidden" th:field="${myCondi.sixty}"/>
+                            </div>
+                            <div class="USMy-button" id="reMainroad">대로변
+                                <input type="hidden" th:field="${myCondi.boulevard}"/>
+                            </div>
+                            <div class="USMy-button" id="reRocket">로켓배송
+                                <input type="hidden" th:field="${myCondi.rocket}"/>
+                            </div>
+                            <div class="USMy-button" id="reFlat">경사완만
+                                <input type="hidden" th:field="${myCondi.flat}"/>
+                            </div>
+                            <div class="USMy-button" id="reSubway">역세권
+                                <input type="hidden" th:field="${myCondi.subway}"/>
+                            </div>
+                            <div class="USMy-button" id="rePark">공원
+                                <input type="hidden" th:field="${myCondi.park}"/>
+                            </div>
+                            <div class="USMy-button" id="reRsdnt_Area">주택지구
+                                <input type="hidden" th:field="${myCondi.hodi}"/>
+                            </div>
+                        </div>
+                        <!--// USMy-div-content04 카테고리 조건-->
+                        <script th:inline="javascript">
+                            $(document).ready(function(){
+
+                                console.log(typeof($('input[value="true"]')));
+                                $('input[value="true"]').parent().css({'background-color':'#52b0fb', 'color':'white'});
+
+                            });
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
+<!--            <div class="USMy-div-rec">-->
+<!--                <div class="USMy-div-rec-tit">-->
+<!--                    <p class="USMy-tit-p">최근 본 매물 목록</p>-->
+<!--                    <p class="USMy-out">더보기></p>-->
+<!--                </div>-->
+<!--                <ul class="USMy-ul-rec">-->
+<!--                    <li class="USMy-li-rec">-->
+<!--                        <div class="USMy-rec-img"></div>-->
+<!--                        <div class="USMy-rec-heart"></div>-->
+<!--                        <p class="USMy-rec-tit-p">매물제목</p>-->
+<!--                        <div class="USMy-rec-con-pdiv">-->
+<!--                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li class="USMy-li-rec">-->
+<!--                        <div class="USMy-rec-img"></div>-->
+<!--                        <div class="USMy-rec-heart"></div>-->
+<!--                        <p class="USMy-rec-tit-p">매물제목</p>-->
+<!--                        <div class="USMy-rec-con-pdiv">-->
+<!--                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li class="USMy-li-rec">-->
+<!--                        <div class="USMy-rec-img"></div>-->
+<!--                        <div class="USMy-rec-heart"></div>-->
+<!--                        <p class="USMy-rec-tit-p">매물제목</p>-->
+<!--                        <div class="USMy-rec-con-pdiv">-->
+<!--                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li class="USMy-li-rec">-->
+<!--                        <div class="USMy-rec-img"></div>-->
+<!--                        <div class="USMy-rec-heart"></div>-->
+<!--                        <p class="USMy-rec-tit-p">매물제목</p>-->
+<!--                        <div class="USMy-rec-con-pdiv">-->
+<!--                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li class="USMy-li-rec">-->
+<!--                        <div class="USMy-rec-img"></div>-->
+<!--                        <div class="USMy-rec-heart"></div>-->
+<!--                        <p class="USMy-rec-tit-p">매물제목</p>-->
+<!--                        <div class="USMy-rec-con-pdiv">-->
+<!--                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li class="USMy-li-rec">-->
+<!--                        <div class="USMy-rec-img"></div>-->
+<!--                        <div class="USMy-rec-heart"></div>-->
+<!--                        <p class="USMy-rec-tit-p">매물제목</p>-->
+<!--                        <div class="USMy-rec-con-pdiv">-->
+<!--                            <p class="USMy-rec-con-p">매물설명이 들어갑니다. 매물설명을 아주 길게 있을수도 있습니다.</p>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

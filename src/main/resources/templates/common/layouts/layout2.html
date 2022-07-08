@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <!-- main.css -->
+    <link type="text/css" th:href="@{/css/common/mapMain.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/reEs/jquery-3.6.0.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common/main.js}" defer></script>
+    <script src="https://kit.fontawesome.com/d4acf2373f.js" crossorigin="anonymous"></script>
+    <link th:href="@{/css/reEs/ReEs.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs_CS.css}" rel="stylesheet">
+    <link th:href="@{/css/reEs/ReEs_List.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8a64cf23b5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=49225bbd40a329c7dd66bdf487530d46&libraries=services"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/OnOff.js}"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/Slider.js}"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/ReCs_Slider.js}"></script>
+    <script type="text/javascript" th:src="@{/js/reEs/NaviSlider.js}"></script>
+
+    <th:block layout:fragment="script"></th:block>
+    <th:block layout:fragment="css"></th:block>
+</head>
+<body>
+<div th:replace="common/fragments/header2::header"></div>
+
+<div layout:fragment="content" class="content"></div>
+
+</body>
+</html>
