@@ -47,7 +47,44 @@ KOSMO 파이널 프로젝트
             </li>
             </ul>
 </li>
-<li></li>
+<li>
+    <h3>🛠 적용 기술 <h3>
+        <blockquote>
+        <ul>
+        <li>언어/개발 Tool
+            <ul>
+            <li>Java</li>
+            <li>jQuery</li>
+            <li>ThymeLeaf</li>
+            <li>Html</li>
+            <li>css5</li>
+            <li>Oracle sql</li>
+            </ul>
+        </li>
+        <li>개발환경
+            <ul>
+                <li>OS : Windows10</li>
+                <li>DB : Oracle 11g</li>
+                <li>Service : Apach Tomcat9</li>
+                <li>Framework : Spring Framework</li>
+                <li>Security : Spring Security</li>
+                <li>MyBatis</li>
+            </ul>
+        </li>
+        <li>개발 및 형상관리 도구
+            <ul>
+                <li>SQLdeveloper</li>
+                <li>InteliJ</li>
+                <li>vsCode</li>
+                <li>AdobeXD</li>
+                <li>Photoshop</li>
+                <li>Git /Github</li>
+                <li>Google Docs</li>
+            </ul>
+        </li>
+        </ul>
+        </blockquote>
+</li>
 </ul>
 
 핵심 기능 :<br>
