@@ -47,6 +47,7 @@ KOSMO 파이널 프로젝트
             </li>
             </ul>
 </li>
+<hr>
 <li>
     <h3>🛠 적용 기술 </h3>
         <blockquote>
