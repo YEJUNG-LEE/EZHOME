@@ -48,7 +48,7 @@ KOSMO 파이널 프로젝트
             </ul>
 </li>
 <li>
-    <h3>🛠 적용 기술 <h3>
+    <h3>🛠 적용 기술 </h3>
         <blockquote>
         <ul>
         <li>언어/개발 Tool
