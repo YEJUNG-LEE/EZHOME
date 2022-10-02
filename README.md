@@ -3,7 +3,6 @@ KOSMO 파이널 프로젝트(빅데이터&RPA팀 中 1위)
 
 <img src="https://user-images.githubusercontent.com/106857917/193094201-17000132-77f5-4c95-9625-965302799024.jpg" width="700" >
 <hr>
-<br>
 <ul dir="auto">
 <li>
 <h3 dir="auto">프로젝트 개요</h3>
@@ -15,7 +14,9 @@ KOSMO 파이널 프로젝트(빅데이터&RPA팀 中 1위)
             <li> 팀원 : 총 6명 [이예중(팀장), 고종욱, 박소현, 이다한, 최유진, 김수환]</li>
             </ul>
 </li>
+</ul>
 <hr>
+<ul>
 <li>
 <h3>주요 기능</h3>
             <ul>
@@ -50,7 +51,9 @@ KOSMO 파이널 프로젝트(빅데이터&RPA팀 中 1위)
             </li>
             </ul>
 </li>
+</ul>
 <hr>
+<ul>
 <img src="https://user-images.githubusercontent.com/106857917/193444340-93fff8a4-3d35-42da-b594-b7d5164e7d96.png" width="700" >
 <li>
     <h3>🛠 적용 기술 </h3>
